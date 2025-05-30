@@ -23,12 +23,12 @@ class Grafo{
 
         void ImprimeVizinhos(int v);
         
+        int BFS(int v, int w);
+        int Dykstra(int v, int w);
+        int BellmanFord(int v, int w);
+
     private:
         
-        /*  Você deve implementar ListaAdjacencia como um TAD que irá armazenar
-         * os dados do grafo. Lembrando que este TAD deve ser uma lista 
-         * encadeada
-         */
         ListaAdjacencia vertices;
 };
 

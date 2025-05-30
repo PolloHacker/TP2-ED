@@ -53,6 +53,21 @@ void Grafo::ImprimeVizinhos(int from) {
     std::cout << std::endl;
 }
 
+int Grafo::BFS(int v, int w) {
+    // Implementação do algoritmo BFS
+    return 0; // Placeholder
+}
+
+int Grafo::Dykstra(int v, int w) {
+    // Implementação do algoritmo Dijkstra
+    return 0; // Placeholder
+}
+
+int Grafo::BellmanFord(int v, int w) {
+    // Implementação do algoritmo Bellman-Ford
+    return 0; // Placeholder
+}
+
 
 Grafo::~Grafo() {
     this->vertices.~ListaAdjacencia();
