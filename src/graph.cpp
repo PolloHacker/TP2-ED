@@ -55,6 +55,15 @@ void Grafo::ImprimeVizinhos(int from) {
 
 int Grafo::BFS(int v, int w) {
     // Implementação do algoritmo BFS
+    Lista<bool> visitados;
+
+    for (int i = 1; i <= this->vertices.GetVertices(); i++) {
+        Node<bool> node(false);
+        visitados.InsereFim(node);
+    }
+    
+
+
     return 0; // Placeholder
 }
 

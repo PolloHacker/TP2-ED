@@ -106,3 +106,4 @@ Lista<T>::~Lista() {
 
 template class Lista<int>;
 template class Lista<Lista<int>>;
+template class Lista<bool>;
