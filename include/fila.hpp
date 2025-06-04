@@ -10,9 +10,9 @@ class Fila {
         Fila();
         ~Fila();
 
-        void Enfileira(int valor);
-        int Desenfileira();
-        int Frente() const;
+        void Enfileira(T valor);
+        T Desenfileira();
+        T Frente() const;
         bool Vazia() const;
 
     private:

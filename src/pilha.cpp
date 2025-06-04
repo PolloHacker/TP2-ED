@@ -1,15 +1,18 @@
 #include <stdexcept>
 #include "pilha.hpp"
 
-Pilha::Pilha() : _topo(nullptr) {}
+template <typename T>
+Pilha<T>::Pilha() : _topo(nullptr) {}
 
-void Pilha::Empilha(int valor) {
-    Node<int>* novo = new Node<int>(valor);
+template <typename T>
+void Pilha<T>::Empilha(T valor) {
+    Node<T>* novo = new Node<int>(valor);
     novo->SetNext(this->_topo);
     this->_topo = novo;
 }
 
-int Pilha::Desempilha() {
+template <typename T>
+T Pilha<T>::Desempilha() {
     if (Vazia()) {
         throw std::runtime_error("Pilha vazia");
     }
@@ -20,21 +23,23 @@ int Pilha::Desempilha() {
     return valor;
 }
 
-int Pilha::Topo() const {
+template <typename T>
+T Pilha<T>::Topo() const {
     if (Vazia()) {
         throw std::runtime_error("Pilha vazia");
     }
     return this->_topo->GetData();
 }
 
-bool Pilha::Vazia() const {
+template <typename T>
+bool Pilha<T>::Vazia() const {
     return this->_topo == nullptr;
 }
 
-
-Pilha::~Pilha() {
-    while (!Vazia()) {
-        Desempilha();
+template <typename T>
+Pilha<T>::~Pilha() {
+    while (!this->Vazia()) {
+        this->Desempilha();
     }
 }
 

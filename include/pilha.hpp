@@ -4,19 +4,20 @@
 #include "node.hpp"
 #include "lista.hpp"
 
+template <typename T>
 class Pilha {
     public:
         Pilha();
         ~Pilha();
 
-        void Empilha(int valor);
-        int Desempilha();
-        int Topo() const;
+        void Empilha(T valor);
+        T Desempilha();
+        T Topo() const;
         bool Vazia() const;
 
     private:
 
-        Node<int>* _topo;
+        Node<T>* _topo;
 };
 
 #endif

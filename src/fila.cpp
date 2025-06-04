@@ -5,8 +5,8 @@ template <typename T>
 Fila<T>::Fila() : _inicio(nullptr), _fim(nullptr) {}
 
 template <typename T>
-void Fila<T>::Enfileira(int valor) {
-    Node<int>* novo = new Node<int>(valor);
+void Fila<T>::Enfileira(T valor) {
+    Node<T>* novo = new Node<T>(valor);
     if (Vazia()) {
         this->_inicio = novo;
         this->_fim = novo;
@@ -17,12 +17,12 @@ void Fila<T>::Enfileira(int valor) {
 }
 
 template <typename T>
-int Fila<T>::Desenfileira() {
+T Fila<T>::Desenfileira() {
     if (Vazia()) {
         throw std::runtime_error("Fila vazia");
     }
-    Node<int>* temp = this->_inicio;
-    int valor = temp->GetData();
+    Node<T>* temp = this->_inicio;
+    T valor = temp->GetData();
     this->_inicio = this->_inicio->GetNext();
     if (this->_inicio == nullptr) {
         this->_fim = nullptr; // Se a fila ficar vazia, atualiza o fim
@@ -32,7 +32,7 @@ int Fila<T>::Desenfileira() {
 }
 
 template <typename T>
-int Fila<T>::Frente() const {
+T Fila<T>::Frente() const {
     if (this->Vazia()) {
         throw std::runtime_error("Fila vazia");
     }
