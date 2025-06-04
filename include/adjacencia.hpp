@@ -3,6 +3,7 @@
 
 #include "lista.hpp"
 
+template <typename T>
 class ListaAdjacencia {
     public:
         ListaAdjacencia();
@@ -17,7 +18,7 @@ class ListaAdjacencia {
         Lista<int> GetVizinhos(int v);
 
     private:
-        Lista<Lista<int>> _lista;
+        Lista<Lista<T>> _lista;
         int _vertices;
         
 };

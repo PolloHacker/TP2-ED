@@ -5,7 +5,7 @@
 #include "adjacencia.hpp"
 #include "fila.hpp"
 
-
+template <typename T>
 class Grafo{
     public:
         Grafo();
@@ -22,13 +22,13 @@ class Grafo{
 
         void ImprimeVizinhos(int v);
         
-        Lista<int> BFS(int v, int w);
-        int Dykstra(int v, int w);
-        int BellmanFord(int v, int w);
+        Lista<T> BFS(int v, int w);
+        Lista<T> Dykstra(int v, int w);
+        Lista<T> BellmanFord(int v, int w);
 
     private:
         
-        ListaAdjacencia vertices;
+        ListaAdjacencia<T> vertices;
 };
 
 #endif
