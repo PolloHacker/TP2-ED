@@ -1,9 +1,11 @@
 #include <stdexcept>
 #include "fila.hpp"
 
-Fila::Fila() : _inicio(nullptr), _fim(nullptr) {}
+template <typename T>
+Fila<T>::Fila() : _inicio(nullptr), _fim(nullptr) {}
 
-void Fila::Enfileira(int valor) {
+template <typename T>
+void Fila<T>::Enfileira(int valor) {
     Node<int>* novo = new Node<int>(valor);
     if (Vazia()) {
         this->_inicio = novo;
@@ -14,7 +16,8 @@ void Fila::Enfileira(int valor) {
     }
 }
 
-int Fila::Desenfileira() {
+template <typename T>
+int Fila<T>::Desenfileira() {
     if (Vazia()) {
         throw std::runtime_error("Fila vazia");
     }
@@ -28,19 +31,22 @@ int Fila::Desenfileira() {
     return valor;
 }
 
-int Fila::Frente() const {
-    if (Vazia()) {
+template <typename T>
+int Fila<T>::Frente() const {
+    if (this->Vazia()) {
         throw std::runtime_error("Fila vazia");
     }
     return this->_inicio->GetData();
 }
 
-bool Fila::Vazia() const {
+template <typename T>
+bool Fila<T>::Vazia() const {
     return this->_inicio == nullptr;
 }
 
-Fila::~Fila() {
-    while (!Vazia()) {
-        Desenfileira();
+template <typename T>
+Fila<T>::~Fila() {
+    while (!this->Vazia()) {
+        this->Desenfileira();
     }
 }

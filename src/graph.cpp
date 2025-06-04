@@ -1,4 +1,3 @@
-#include <iostream>
 #include "graph.hpp"
 
 Grafo::Grafo(): vertices(ListaAdjacencia()) {}
@@ -53,8 +52,10 @@ void Grafo::ImprimeVizinhos(int from) {
     std::cout << std::endl;
 }
 
-int Grafo::BFS(int v, int w) {
+Lista<int> Grafo::BFS(int v, int w) {
     // Implementação do algoritmo BFS
+    Fila<int> fila;
+    Lista<int> caminho;
     Lista<bool> visitados;
 
     for (int i = 1; i <= this->vertices.GetVertices(); i++) {
@@ -62,9 +63,27 @@ int Grafo::BFS(int v, int w) {
         visitados.InsereFim(node);
     }
     
+    visitados.Posiciona(0)->SetData(true);
+    fila.Enfileira(0);
 
+    while(!fila.Vazia()) {
+        int currIdx = fila.Frente();
+        fila.Desenfileira();
+        caminho.InsereFim(Node<int>(currIdx));
 
-    return 0; // Placeholder
+        Lista<int> vizinhos = this->vertices.GetVizinhos(currIdx);
+        auto aux = vizinhos._head->GetNext();
+        while (aux != nullptr) {
+            int vizinho = aux->GetData();
+            if (!visitados.Posiciona(vizinho)->GetData()) {
+                visitados.Posiciona(vizinho)->SetData(true);
+                fila.Enfileira(vizinho);
+            }
+            aux = aux->GetNext();
+        }
+    }
+
+    return caminho; // Placeholder
 }
 
 int Grafo::Dykstra(int v, int w) {

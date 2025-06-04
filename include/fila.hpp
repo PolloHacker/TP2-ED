@@ -4,6 +4,7 @@
 #include "node.hpp"
 #include "lista.hpp"
 
+template <typename T>
 class Fila {
     public:
         Fila();
@@ -15,8 +16,8 @@ class Fila {
         bool Vazia() const;
 
     private:
-        Node<int>* _inicio;
-        Node<int>* _fim;
+        Node<T>* _inicio;
+        Node<T>* _fim;
 };
 
 #endif
