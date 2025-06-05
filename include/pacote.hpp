@@ -4,22 +4,12 @@
 #include <string>
 #include "armazem.hpp"
 
-enum class EstadoTransporte {
-    POR_POSTAR,
-    POSTADO,
-    POR_ARMAZENAR,
-    ARMAZENADO,
-    EM_ROTA,
-    ENTREGUE
-};
-
 template <typename T>
 class Pacote {
     private:
         std::string _nome_remente;
         std::string _nome_destinatario;
         T _conteudo;
-        EstadoTransporte _estado;
            
     public:
         Pacote();

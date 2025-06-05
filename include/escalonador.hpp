@@ -1,6 +1,8 @@
 #ifndef ESCALONADOR_HPP
 #define ESCALONADOR_HPP
 
+#include <stdexcept>
+#include <iostream>
 #include <chrono>
 #include "heap.hpp"
 
@@ -15,13 +17,14 @@ class Escalonador {
 
     public:
         Escalonador();
-        ~Escalonador();
 
         void Inicializa();
 
         void InsereEvento();
 
-        void RetiraProximoEvento();
+        Evento RetiraProximoEvento();
+
+        bool Vazio();
 
         void Finaliza();
 };
