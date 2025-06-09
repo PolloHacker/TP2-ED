@@ -4,10 +4,9 @@
 #include "graph.hpp"
 #include "armazem.hpp"
 
-template <typename T>
 class Transporte {
     private:
-        Grafo<Armazem> _rede;
+        Grafo _rede;
 
     public:
         Transporte();
@@ -15,9 +14,9 @@ class Transporte {
         void adicionaArmazem(int id);
         void conectaArmazens(int id1, int id2);
         
-        void imprimeRede() const;
+        void imprimeRede();
 
-        Grafo<Armazem> getRede() const;
+        Grafo getRede() const;
 };
 
 #endif

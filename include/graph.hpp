@@ -4,9 +4,12 @@
 #include <iostream>
 #include "adjacencia.hpp"
 #include "fila.hpp"
+#include "heap.hpp"
 
-template <typename T>
 class Grafo{
+    private:
+        ListaAdjacencia vertices;
+        
     public:
         Grafo();
         ~Grafo();
@@ -22,13 +25,10 @@ class Grafo{
 
         void ImprimeVizinhos(int v);
         
-        Lista<T> BFS(int v, int w);
-        Lista<T> Dykstra(int v, int w);
-        Lista<T> BellmanFord(int v, int w);
+        Lista<int> BFS(int v, int w);
+        Lista<int> Dykstra(int v, int w);
+        Lista<int> BellmanFord(int v, int w);
 
-    private:
-        
-        ListaAdjacencia<T> vertices;
 };
 
 #endif

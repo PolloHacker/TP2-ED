@@ -1,30 +1,24 @@
 #include "graph.hpp"
 
-template <typename T>
-Grafo<T>::Grafo(): vertices(ListaAdjacencia()) {}
+Grafo::Grafo(): vertices(ListaAdjacencia()) {}
 
-template <typename T>
-void Grafo<T>::InsereVertice() {
+void Grafo::InsereVertice() {
     this->vertices.InsereVertice();
 }
 
-template <typename T>
-void Grafo<T>::InsereAresta(int from, int to) {
+void Grafo::InsereAresta(int from, int to) {
     this->vertices.InsereAresta(from, to);
 }
 
-template <typename T>
-int Grafo<T>::QuantidadeVertices() {
+int Grafo::QuantidadeVertices() {
     return this->vertices.GetVertices();
 }
 
-template <typename T>
-int Grafo<T>::QuantidadeArestas() {
+int Grafo::QuantidadeArestas() {
     return this->vertices.GetArestas();
 }
 
-template <typename T>
-int Grafo<T>::GrauMinimo() {
+int Grafo::GrauMinimo() {
     int grauMinimo = this->vertices.GetVizinhos(1).GetTam();
 
     for (int i = 1; i < this->vertices.GetVertices(); i++) {
@@ -36,8 +30,7 @@ int Grafo<T>::GrauMinimo() {
     return grauMinimo;
 }
 
-template <typename T>
-int Grafo<T>::GrauMaximo() {
+int Grafo::GrauMaximo() {
     int grauMaximo = this->vertices.GetVizinhos(1).GetTam();
     for (int i = 1; i < this->vertices.GetVertices(); i++) {
         int grauAtual = this->vertices.GetVizinhos(i).GetTam();
@@ -48,8 +41,7 @@ int Grafo<T>::GrauMaximo() {
     return grauMaximo;
 }
 
-template <typename T>
-void Grafo<T>::ImprimeVizinhos(int from) {
+void Grafo::ImprimeVizinhos(int from) {
     Lista<int> vizinhos = this->vertices.GetVizinhos(from);
 
     auto aux = vizinhos._head->GetNext();
@@ -60,11 +52,10 @@ void Grafo<T>::ImprimeVizinhos(int from) {
     std::cout << std::endl;
 }
 
-template <typename T>
-Lista<T> Grafo<T>::BFS(int v, int w) {
+Lista<int> Grafo::BFS(int v, int w) {
     // Implementação do algoritmo BFS
     Fila<int> fila;
-    Lista<T> caminho;
+    Lista<int> caminho;
     Lista<bool> visitados;
 
     for (int i = 1; i <= this->vertices.GetVertices(); i++) {
@@ -78,9 +69,9 @@ Lista<T> Grafo<T>::BFS(int v, int w) {
     while(!fila.Vazia()) {
         int currIdx = fila.Frente();
         fila.Desenfileira();
-        caminho.InsereFim(Node<T>(currIdx));
+        caminho.InsereFim(Node<int>(currIdx));
 
-        Lista<T> vizinhos = this->vertices.GetVizinhos(currIdx);
+        Lista<int> vizinhos = this->vertices.GetVizinhos(currIdx);
         auto aux = vizinhos._head->GetNext();
         while (aux != nullptr) {
             int vizinho = aux->GetData();
@@ -95,19 +86,17 @@ Lista<T> Grafo<T>::BFS(int v, int w) {
     return caminho;
 }
 
-template <typename T>
-Lista<T> Grafo<T>::Dykstra(int v, int w) {
+Lista<int> Grafo::Dykstra(int v, int w) {
     // Implementação do algoritmo Dijkstra
-    return 0; // Placeholder
+        
+    return Lista<int>(); // Placeholder
 }
 
-template <typename T>
-Lista<T> Grafo<T>::BellmanFord(int v, int w) {
+Lista<int> Grafo::BellmanFord(int v, int w) {
     // Implementação do algoritmo Bellman-Ford
-    return 0; // Placeholder
+    return Lista<int>(); // Placeholder
 }
 
-template <typename T>
-Grafo<T>::~Grafo() {
+Grafo::~Grafo() {
     this->vertices.~ListaAdjacencia();
 }

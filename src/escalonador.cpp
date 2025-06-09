@@ -1,28 +1,26 @@
 #include "escalonador.hpp"
 
-Escalonador::Escalonador() 
-    : _inicio(std::chrono::system_clock::now()), 
-      _quantidadeEventos(0), 
-      _tempoAtual(0) {}
+Escalonador::Escalonador() : _quantidadeEventos(0) { }
 
+void Escalonador::Inicializa() {}
 
-void Escalonador::Inicializa() {
-    this->_inicio = std::chrono::system_clock::now();
-    this->_quantidadeEventos = 0;
-    this->_tempoAtual = 0;
-}
-
-void Escalonador::InsereEvento() {
-    // Logic to insert an event into the heap
+void Escalonador::InsereEvento(Evento& evento) {
+    if (evento.getTempo() < this->_relogioDiscreto.getTempoAtual()) {
+        throw std::invalid_argument("Tempo no evento não pode ser menor que o tempo atual do relógio discreto.");
+    }
+    this->_eventos.Inserir(evento);
     this->_quantidadeEventos++;
 }
 
 Evento Escalonador::RetiraProximoEvento() {
     if (this->_eventos.Vazio()) {
-        throw std::runtime_error("No events to process.");
+        throw std::runtime_error("Não há eventos para retirar.");
     }
     // Logic to remove the next event from the heap
+    Evento evento = this->_eventos.Remover();
     this->_quantidadeEventos--;
+
+    return evento;
 }
 
 bool Escalonador::Vazio() {
@@ -30,9 +28,6 @@ bool Escalonador::Vazio() {
 }
 
 void Escalonador::Finaliza() {
-    this->_fim = std::chrono::system_clock::now();
-    this->_duracao = _fim - _inicio;
-    // Logic to finalize the scheduler, e.g., logging the duration
-    std::cout << "Scheduler finished. Duration: " << 
-    this->_duracao.count() << " seconds." << std::endl;
+    this->_relogio.Finaliza();
+    // TODO: Calcular métricas
 }

@@ -4,6 +4,10 @@
 
 template <typename T>
 class Node {
+    private:
+        T _data;
+        Node<T>* _next;
+    
     public:
         Node();
         Node(T val);
@@ -15,10 +19,6 @@ class Node {
         void SetData(T val);
         void SetNext(Node<T>* obj);
 
-    private:
-        
-        T _data;
-        Node<T>* _next;
 };
 
 #endif

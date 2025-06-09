@@ -5,6 +5,10 @@
 
 template <typename T>
 class Lista {
+    private:
+        Node<T>* _lista;
+        int _tam;
+        
     public:
         Lista();
         ~Lista();
@@ -21,9 +25,6 @@ class Lista {
         Node<T>* _head;
         Node<T>* _tail;
         
-    private:
-        Node<T>* _lista;
-        int _tam;
 
 };
 

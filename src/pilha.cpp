@@ -1,4 +1,3 @@
-#include <stdexcept>
 #include "pilha.hpp"
 
 template <typename T>

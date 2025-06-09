@@ -6,6 +6,10 @@
 
 template <typename T>
 class Fila {
+    private:
+        Node<T>* _inicio;
+        Node<T>* _fim;
+        
     public:
         Fila();
         ~Fila();
@@ -15,9 +19,6 @@ class Fila {
         T Frente() const;
         bool Vazia() const;
 
-    private:
-        Node<T>* _inicio;
-        Node<T>* _fim;
 };
 
 #endif

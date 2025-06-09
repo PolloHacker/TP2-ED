@@ -4,12 +4,8 @@
 #include <string>
 
 enum class TipoEvento {
-    POR_POSTAR,
-    POSTADO,
-    POR_ARMAZENAR,
-    ARMAZENADO,
-    EM_ROTA,
-    ENTREGUE
+    POSTAGEM = 1,
+    TRANSPORTE = 2
 };
 
 class Evento {

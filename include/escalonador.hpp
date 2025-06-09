@@ -5,22 +5,22 @@
 #include <iostream>
 #include <chrono>
 #include "heap.hpp"
+#include "relogio.hpp"
+#include "relogioDiscreto.hpp"
 
 class Escalonador {
     private:
+        Relogio _relogio;
+        RelogioDiscreto _relogioDiscreto;
         Heap _eventos;
-        std::chrono::time_point<std::chrono::system_clock> _inicio;
-        std::chrono::time_point<std::chrono::system_clock> _fim;
-        std::chrono::duration<double> _duracao;
         int _quantidadeEventos;
-        int _tempoAtual;
 
     public:
         Escalonador();
 
         void Inicializa();
 
-        void InsereEvento();
+        void InsereEvento(Evento& evento);
 
         Evento RetiraProximoEvento();
 

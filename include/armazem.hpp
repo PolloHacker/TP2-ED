@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <iostream>
 #include "lista.hpp"
+#include "vetor.hpp"
 #include "pilha.hpp"
 #include "pacote.hpp"
 
@@ -11,7 +12,7 @@ class Armazem {
     private:
         int _id;
         Lista<Armazem> _vizinhos;
-        Pilha<Pacote<std::string>> _pacotes;
+        Vetor<Pilha<Pacote<std::string>>> _pacotesPorVizinho;
 
         int buscaVizinho(int id) const;
 
