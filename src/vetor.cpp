@@ -95,6 +95,30 @@ const T& Vetor<T>::operator[](int index) const {
 }
 
 /**
+ * @brief Sobrecarga do operador de atribuição para copiar o conteúdo de outro Vetor.
+ *
+ * Realiza uma cópia profunda dos dados do vetor fornecido, garantindo que cada instância
+ * tenha sua própria alocação de memória.
+ *
+ * @param other Referência constante para o Vetor a ser copiado.
+ * @return Referência ao Vetor atual após a atribuição.
+ */
+template <typename T>
+Vetor<T>& Vetor<T>::operator=(const Vetor<T>& other) {
+    if (this == &other) return *this;
+
+    this->_data = new T[other._size];
+    for (int i = 0; i < other._size; i++) {
+        this->_data[i] = other._data[i];
+    }
+    this->_size = other._size;
+    this->_capacity = other._capacity;
+    delete[] this->_data;
+
+    return *this;
+}
+
+/**
  * @brief Destrutor da classe Vetor.
  *
  * Libera a memória alocada dinamicamente para o array interno (_data).

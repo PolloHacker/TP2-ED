@@ -1,11 +1,14 @@
 #include "node.hpp"
 #include "lista.hpp"
+#include <type_traits>
 
 template <typename T>
-Node<T>::Node() : _data(std::is_same<T, int>::value ? static_cast<T>(-1) : T()), _next(nullptr) {}
+Node<T>::Node() : _data(T()), _next(nullptr) {}
+
 
 template <>
 Node<Lista<int>>::Node() : _data(Lista<int>()), _next(nullptr) {}
+
 template <>
 Node<int>::Node() : _data(-1), _next(nullptr) {}
 

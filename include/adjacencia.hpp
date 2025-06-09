@@ -18,9 +18,7 @@ class ListaAdjacencia {
         int GetVertices();
         int GetArestas();
 
-        Lista<int> GetVizinhos(int v);
-
-        
+        Lista<int> GetVizinhos(int v);    
 };
 
 #endif

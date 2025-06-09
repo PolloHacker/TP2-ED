@@ -26,8 +26,8 @@ class Grafo{
         void ImprimeVizinhos(int v);
         
         Lista<int> BFS(int v, int w);
-        Lista<int> Dykstra(int v, int w);
-        Lista<int> BellmanFord(int v, int w);
+        // Lista<int> Dykstra(int v, int w);
+        // Lista<int> BellmanFord(int v, int w);
 
 };
 

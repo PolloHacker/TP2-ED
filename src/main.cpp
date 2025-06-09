@@ -7,8 +7,11 @@
 #include "transporte.hpp"
 
 
+void leArquivo(
+    std::string nomeArquivo, Transporte& rotas, 
+    Vetor<Armazem>& armazens, Escalonador& escalonador, 
+    Vetor<Pacote<int>>& pacotes) {
 
-void leArquivo(std::string nomeArquivo, Transporte& rotas, Escalonador& escalonador, Lista<Pacote<int>>& pacotes) {
     int i, j;
     std::ifstream arquivo(nomeArquivo.c_str());
     if (!arquivo.is_open()) {
@@ -25,11 +28,13 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas, Escalonador& escalona
     arquivo >> custoRemocao;
     arquivo >> numeroArmazens;
 
+    armazens = Vetor<Armazem>(numeroArmazens);
+
     for (i = 0; i < numeroArmazens; ++i) {
         rotas.adicionaArmazem(i);
+        armazens[i] = Armazem(i);
     }
 
-    // Lê a matriz de conexões entre armazéns
     for (i = 0; i < numeroArmazens; ++i) {
         for (j = 0; j < numeroArmazens; ++j) {
             int conexao;
@@ -42,20 +47,25 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas, Escalonador& escalona
 
     arquivo >> numeroPacotes;
 
+    pacotes = Vetor<Pacote<int>>(numeroPacotes);
+
     for (int i = 0; i < numeroPacotes; ++i) {
-        Pacote<int> p;
         std::string tmp;
         int id, origem, destino;
         double tempoPostagem;
 
         arquivo >> tempoPostagem >> tmp >> id >> tmp >> origem >> tmp >> destino;
 
-        Evento ev = Evento(tempoPostagem, id, TipoEvento::POSTAGEM);
+        Pacote<int> p(id, "", "", 0);
+        p.setRota(rotas.calculaRota(origem, destino));
 
+        Evento ev(tempoPostagem, id, TipoEvento::POSTAGEM);
         escalonador.InsereEvento(ev);
+
+        Node<Pacote<int>> aux(p);
+        pacotes[i] = p;
     }
     arquivo.close();
-
 }
 
 
@@ -63,7 +73,8 @@ int main(int argc, char* argv[]) {
 
     Escalonador escalonador;
     Transporte rotas;
-    Lista<Pacote<int>> pacotes;
+    Vetor<Armazem> armazens(1);
+    Vetor<Pacote<int>> pacotes(1);
 
     // Verifica se o nome do arquivo foi passado como argumento
     if (argc < 2) {
@@ -73,7 +84,7 @@ int main(int argc, char* argv[]) {
 
     // Lê o arquivo de entrada
     std::string nomeArquivo = argv[1];
-    leArquivo(nomeArquivo, rotas, escalonador, pacotes);
+    leArquivo(nomeArquivo, rotas, armazens, escalonador, pacotes);
     
     // Inicializa as variáveis de controle do escalonador
     escalonador.Inicializa();
@@ -82,9 +93,9 @@ int main(int argc, char* argv[]) {
         // Retira o próximo evento do escalonador
         Evento prox_evento = escalonador.RetiraProximoEvento();
         
-        double tempo_atual = prox_evento.getTempo();
+        // double tempo_atual = prox_evento.getTempo();
 
-        switch (prox_evento.getTipo())
+        switch (prox_evento.getTipoEvento())
         {
         case TipoEvento::POSTAGEM:
             // Lógica para o evento "POSTAGEM"

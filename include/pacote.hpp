@@ -37,6 +37,7 @@ class Pacote {
         void setNomeRemetente(const std::string& nome_remente);
         void setNomeDestinatario(const std::string& nome_destinatario);
         void setConteudo(const T& conteudo);
+        void setRota(const Lista<int>& rota);
 };
 
 #endif

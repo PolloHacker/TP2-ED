@@ -4,7 +4,7 @@
 
 template <typename T>
 Lista<T>::Lista() : _tam(0) {
-    Node<T>* aux = Node<T>*(new Node<T>());
+    Node<T>* aux = new Node<T>();
     this->_head = aux;
     this->_tail = aux;
 }
@@ -29,7 +29,7 @@ Node<T>* Lista<T>::Posiciona(int pos) {
 
 template <typename T>
 void Lista<T>::InsereInicio(Node<T>& obj) {
-    Node<T>* entry = Node<T>*(new Node<T>(std::forward<Node<T>>(obj)));
+    Node<T>* entry = new Node<T>(std::forward<Node<T>>(obj));
     entry->SetNext(this->_head->GetNext());
     this->_head->SetNext(entry);
     this->_tam++;
@@ -41,9 +41,8 @@ void Lista<T>::InsereInicio(Node<T>& obj) {
 
 template <typename T>
 void Lista<T>::InserePos(int pos, Node<T>& obj) {
-    
     Node<T>* before = this->Posiciona(pos - 1);
-    Node<T>* entry = Node<T>*(new Node<T>(std::forward<Node<T>>(obj)));
+    Node<T>* entry = new Node<T>(std::forward<Node<T>>(obj));
 
     entry->SetNext(before->GetNext());
     before->SetNext(entry);
@@ -56,7 +55,7 @@ void Lista<T>::InserePos(int pos, Node<T>& obj) {
 
 template <typename T>
 void Lista<T>::InsereFim(Node<T>& obj) {
-    Node<T>* entry = Node<T>*(new Node<T>(std::forward<Node<T>>(obj)));
+    Node<T>* entry = new Node<T>(std::forward<Node<T>>(obj));
     this->_tail->SetNext(entry);
     this->_tail = entry;
     this->_tam++;

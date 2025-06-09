@@ -10,7 +10,7 @@ class Metricas {
         double _tempo_total;
         double _distancia_total;
     public:
-        Metricas() : _tempo_total(0), _distancia_total(0) {}
+        Metricas();
 
         void adicionaTempo(double tempo);
 

@@ -4,7 +4,6 @@ Transporte::Transporte() : _rede(Grafo()) {}
 
 void Transporte::adicionaArmazem(int id) {
     this->_rede.InsereVertice();
-    Armazem novoArmazem(id);
     this->_rede.InsereAresta(id, id); // Adiciona o armazém à lista de adjacência
 }
 
@@ -18,6 +17,13 @@ void Transporte::imprimeRede() {
         std::cout << "Armazém " << i << ": ";
         this->_rede.ImprimeVizinhos(i);
     }
+}
+
+Lista<int> Transporte::calculaRota(int origem, int destino) {
+    return this->_rede.BFS(origem, destino);
+}
+Lista<int> Transporte::calculaRotaComPeso(int origem, int destino) {
+    return this->_rede.BFS(origem, destino); // TODO: change back to Dykstra
 }
 
 Grafo Transporte::getRede() const {

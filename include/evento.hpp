@@ -1,7 +1,9 @@
 #ifndef EVENTO_HPP
 #define EVENTO_HPP
 
+#include <stdexcept>
 #include <string>
+#include "vetor.hpp"
 
 enum class TipoEvento {
     POSTAGEM = 1,
@@ -10,22 +12,21 @@ enum class TipoEvento {
 
 class Evento {
     private:
-        int _id;
-        double _tempo;
-        TipoEvento _tipo;
+        std::string _chave;
+        int _tempo;
 
 
     public:
         Evento();
-        Evento(int tempo, int id, const TipoEvento& tipo);
+        Evento(std::string data);
+        Evento(int tempo, int idPacote, TipoEvento tipoEvento);
+        Evento(int tempo, int idArmazemOrigem, int idArmazemDestino, TipoEvento tipoEvento);
 
-        double getTempo() const;
-        int getId() const;
-        TipoEvento getTipo() const;
-
-        void setTempo(double tempo);
-        void setId(int id);
-        void setTipo(const TipoEvento& tipo);
+        std::string getData() const;
+        int getTempo() const;
+        int getIdPacote() const;
+        Vetor<int> getArmazens() const;
+        TipoEvento getTipoEvento() const;
 
         bool operator<(const Evento& other) const;
         bool operator>(const Evento& other) const;

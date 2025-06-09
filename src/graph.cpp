@@ -55,47 +55,67 @@ void Grafo::ImprimeVizinhos(int from) {
 Lista<int> Grafo::BFS(int v, int w) {
     // Implementação do algoritmo BFS
     Fila<int> fila;
-    Lista<int> caminho;
     Lista<bool> visitados;
+    Lista<int> caminho, antecessores;
+    int n = this->vertices.GetVertices();
 
-    for (int i = 1; i <= this->vertices.GetVertices(); i++) {
+    for (int i = 0; i < n; i++) {
         Node<bool> node(false);
         visitados.InsereFim(node);
+
+        Node<int> pred(-1);
+        antecessores.InsereFim(pred);
     }
     
-    visitados.Posiciona(0)->SetData(true);
-    fila.Enfileira(0);
+    visitados.Posiciona(v + 1)->SetData(true);
+    fila.Enfileira(v);
 
-    while(!fila.Vazia()) {
+    bool encontrou = false;
+    while(!fila.Vazia() && !encontrou) {
         int currIdx = fila.Frente();
         fila.Desenfileira();
-        caminho.InsereFim(Node<int>(currIdx));
 
         Lista<int> vizinhos = this->vertices.GetVizinhos(currIdx);
         auto aux = vizinhos._head->GetNext();
         while (aux != nullptr) {
             int vizinho = aux->GetData();
-            if (!visitados.Posiciona(vizinho)->GetData()) {
-                visitados.Posiciona(vizinho)->SetData(true);
+            if (!visitados.Posiciona(vizinho + 1)->GetData()) {
+                visitados.Posiciona(vizinho + 1)->SetData(true);
+                antecessores.Posiciona(vizinho + 1)->SetData(currIdx);
                 fila.Enfileira(vizinho);
+
+                if (vizinho == w) {
+                    encontrou = true;
+                    break;
+                }
             }
             aux = aux->GetNext();
         }
     }
 
+    if (!visitados.Posiciona(w + 1)->GetData()) {
+        return Lista<int>();
+    }
+    int curr = w;
+    while (curr != -1) {
+        Node<int> curNode(curr);
+        caminho.InsereInicio(curNode);
+        curr = antecessores.Posiciona(curr + 1)->GetData();
+    }
+
     return caminho;
 }
 
-Lista<int> Grafo::Dykstra(int v, int w) {
-    // Implementação do algoritmo Dijkstra
+// Lista<int> Grafo::Dykstra(int v, int w) {
+//     // Implementação do algoritmo Dijkstra
         
-    return Lista<int>(); // Placeholder
-}
+//     return Lista<int>(); // Placeholder
+// }
 
-Lista<int> Grafo::BellmanFord(int v, int w) {
-    // Implementação do algoritmo Bellman-Ford
-    return Lista<int>(); // Placeholder
-}
+// Lista<int> Grafo::BellmanFord(int v, int w) {
+//     // Implementação do algoritmo Bellman-Ford
+//     return Lista<int>(); // Placeholder
+// }
 
 Grafo::~Grafo() {
     this->vertices.~ListaAdjacencia();

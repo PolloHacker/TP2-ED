@@ -11,21 +11,20 @@
 class Armazem {
     private:
         int _id;
-        Lista<Armazem> _vizinhos;
-        Vetor<Pilha<Pacote<std::string>>> _pacotesPorVizinho;
+        Lista<int> _vizinhos;
+        Lista<Pilha<Pacote<std::string>>> _pacotesPorVizinho;
 
         int buscaVizinho(int id) const;
 
     public:
         Armazem(int id);
 
-        void adicionaVizinho(Armazem& vizinho);
+        void adicionaVizinho(int vizinho);
         void removeVizinho(int id);
-        Lista<Armazem> getVizinhos() const;
+        Lista<int> getVizinhos() const;
 
-        void recebePacote(const Pacote<std::string>& pacote);
-        Pacote<std::string> enviaPacote();
-        Pilha<Pacote<std::string>> getPacotes() const;
+        void armazenaPacote(const Pacote<std::string>& pacote, int idVizinho);
+        Pacote<std::string> removePacotePorSecao(int idVizinho, int idPacote);
 
         int getId() const;
         void setId(int id);
