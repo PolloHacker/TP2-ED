@@ -8,7 +8,10 @@
  * @param size O tamanho do vetor a ser criado.
  */
 template <typename T>
-Vetor<T>::Vetor(int size): _size(size) {
+Vetor<T>::Vetor(int size): _size(size), _capacity(size) {
+    if (size <= 0) {
+        throw std::invalid_argument("Tamanho do vetor deve ser maior que zero.");
+    }
     this->_data = new T[size];
 }
 
@@ -26,6 +29,41 @@ Vetor<T>::Vetor(const Vetor& other) {
     this->_data = new T[other._size];
     for (int i = 0; i < other._size; i++) {
         this->_data[i] = other._data[i];
+    }
+    this->_size = other._size;
+    this->_capacity = other._capacity;
+}
+
+/**
+ * @brief Redimensiona o vetor para dobrar sua capacidade.
+ * 
+ * Cria um novo array com o dobro da capacidade atual, copia os elementos do vetor original
+ * para o novo array e libera a memória do vetor original.
+ */
+template <typename T>
+void Vetor<T>::resize() {
+    int newSize = this->_capacity * 2;
+    T* newData = new T[newSize];
+
+    for (int i = 0; i < std::min(_size, newSize); i++) {
+        newData[i] = _data[i];
+    }
+
+    delete[] _data;
+    this->_data = newData;
+    this->_capacity = newSize;
+    this->_size = newSize;
+}
+
+/**
+ * @brief Verifica se o vetor precisa ser redimensionado.
+ * 
+ * Se o tamanho atual do vetor for igual à sua capacidade, aumenta a capacidade do vetor.
+ */
+template <typename T>
+void Vetor<T>::shouldResize() {
+    if (this->_size >= this->_capacity) {
+        this->resize();
     }
 }
 

@@ -1,49 +1,29 @@
 #include "heap.hpp"
 
-Heap::Heap(): tamanho(0), capacidade(50) {
-    this->data = new Evento[50]; // Inicializa com tamanho padrão de 50
-}
+Heap::Heap(): _tamanho(0), _data(10) {}
 
-Heap::Heap(int maxsize): tamanho(0) {
-    this->data = new Evento[maxsize];
-}
-
-void Heap::Redimensionar() {
-    int novaCapacidade = capacidade * 2;
-    Evento* novoData = new Evento[novaCapacidade];
-    
-    for (int i = 0; i < tamanho; i++) {
-        novoData[i] = data[i];
-    }
-    
-    delete[] data;
-    data = novoData;
-    capacidade = novaCapacidade;
-}
+Heap::Heap(int maxsize): _tamanho(0), _data(maxsize) {}
 
 void Heap::Inserir(Evento evento) {
-    if (tamanho >= capacidade) {
-        this->Redimensionar();
-    }
-    
-    this->data[tamanho] = evento;
-    this->HeapifyPorBaixo(tamanho++);
+    this->_data.shouldResize();
+    this->_data[this->_tamanho] = evento;
+    this->HeapifyPorBaixo(this->_tamanho++);
 }
 
 Evento Heap::Remover() {
     if (this->Vazio()) {
-        return Evento(-1, -1, TipoEvento::POR_POSTAR);
+        return Evento(-1, -1, TipoEvento::POSTAGEM);
     }
-    Evento aux = data[0];
+    Evento aux = this->_data[0];
 
-    data[0] = data[tamanho - 1];
-    tamanho--;
+    this->_data[0] = _data[this->_tamanho - 1];
+    this->_tamanho--;
     HeapifyPorCima(0);
     return aux;
 }
 
 bool Heap::Vazio() {
-    return this->tamanho == 0;
+    return this->_tamanho == 0;
 }
 
 int Heap::GetAncestral(int posicao) {
@@ -63,10 +43,10 @@ void Heap::HeapifyPorBaixo(int posicao) {
     
     int ant = this->GetAncestral(posicao);
 
-    if (this->data[ant] > this->data[posicao]) {
-        Evento aux = this->data[ant];
-        this->data[ant] = this->data[posicao];
-        this->data[posicao] = aux;
+    if (this->_data[ant] > this->_data[posicao]) {
+        Evento aux = this->_data[ant];
+        this->_data[ant] = this->_data[posicao];
+        this->_data[posicao] = aux;
     }
     
     this->HeapifyPorBaixo(ant);
@@ -76,19 +56,15 @@ void Heap::HeapifyPorCima(int posicao) {
     int suD = this->GetSucessorDir(posicao);
     int suE = this->GetSucessorEsq(posicao);
 
-    if (suD > this->tamanho || suE > this->tamanho) return;
+    if (suD > this->_tamanho || suE > this->_tamanho) return;
 
-    int minSu = this->data[suE] < this->data[suD] ? suE : suD;
+    int minSu = this->_data[suE] < this->_data[suD] ? suE : suD;
 
-    if (this->data[minSu] < this->data[posicao]) {
-        Evento aux = this->data[minSu];
-        this->data[minSu] = this->data[posicao];
-        this->data[posicao] = aux;
+    if (this->_data[minSu] < this->_data[posicao]) {
+        Evento aux = this->_data[minSu];
+        this->_data[minSu] = this->_data[posicao];
+        this->_data[posicao] = aux;
     }
 
     this->HeapifyPorCima(minSu);
-}
-
-Heap::~Heap() {
-    delete[] data;
 }
