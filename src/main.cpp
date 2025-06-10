@@ -27,17 +27,14 @@ void leArquivo(
     arquivo >> intervaloTransportes;
     arquivo >> custoRemocao;
     arquivo >> numeroArmazens;
-
-    std::cout << "Número de armazéns: " << numeroArmazens << std::endl;
     
     for (i = 1; i <= numeroArmazens; ++i) {
         Armazem armazemToIns = rotas.adicionaArmazem(i);
         armazens.insere(i, armazemToIns);
-        std::cout << "Armazém " << i << " adicionado." << std::endl;
     }
 
-    for (i = 0; i < numeroArmazens; ++i) {
-        for (j = 0; j < numeroArmazens; ++j) {
+    for (i = 1; i <= numeroArmazens; ++i) {
+        for (j = 1; j <= numeroArmazens; ++j) {
             int conexao;
             arquivo >> conexao;
             if (conexao > 0) {
@@ -47,8 +44,6 @@ void leArquivo(
     }
 
     arquivo >> numeroPacotes;
-
-    pacotes = Vetor<Pacote<int>>(numeroPacotes);
 
     for (int i = 0; i < numeroPacotes; ++i) {
         std::string tmp;
@@ -63,8 +58,7 @@ void leArquivo(
         Evento ev(tempoPostagem, id, TipoEvento::PACOTE);
         escalonador.InsereEvento(ev);
 
-        Node<Pacote<int>> aux(p);
-        pacotes[i] = p;
+        pacotes.insere(i, p);
     }
     arquivo.close();
 }
@@ -86,6 +80,8 @@ int main(int argc, char* argv[]) {
     // Lê o arquivo de entrada
     std::string nomeArquivo = argv[1];
     leArquivo(nomeArquivo, rotas, armazens, escalonador, pacotes);
+
+    rotas.imprimeRede();
 
     std::cout << "Arquivo lido com sucesso!" << std::endl;
     

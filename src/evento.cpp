@@ -11,6 +11,7 @@ Evento::Evento(std::string chave)
     }
 
     this->_tempo = std::stoi(chave.substr(0, 6));
+    printf("Chave: %s\n", this->_chave.c_str());
 }
 
 Evento::Evento(int tempo, int idPacote, TipoEvento tipoEvento)
@@ -20,8 +21,9 @@ Evento::Evento(int tempo, int idPacote, TipoEvento tipoEvento)
         throw std::invalid_argument("Tipo de evento deve ser PACOTE.");
     }
 
-    this->_chave = std::to_string(tempo) + 
-                   std::string(6 - std::to_string(idPacote).length(), '0') + 
+    this->_chave = std::string(6 - std::to_string(tempo).length(), '0') +
+                   std::to_string(tempo) +
+                   std::string(6 - std::to_string(idPacote).length(), '0') +
                    std::to_string(idPacote) + "1";
 }
 Evento::Evento(int tempo, int idArmazemOrigem, int idArmazemDestino, TipoEvento tipoEvento)
@@ -31,10 +33,11 @@ Evento::Evento(int tempo, int idArmazemOrigem, int idArmazemDestino, TipoEvento 
         throw std::invalid_argument("Tipo de evento deve ser TRANSPORTE.");
     }
 
-    this->_chave = std::to_string(tempo) + 
-                   std::string(6 - std::to_string(idArmazemOrigem).length(), '0') + 
-                   std::to_string(idArmazemOrigem) + 
-                   std::string(3 - std::to_string(idArmazemDestino).length(), '0') + 
+    this->_chave = std::string(6 - std::to_string(tempo).length(), '0') +
+                   std::to_string(tempo) +
+                   std::string(3 - std::to_string(idArmazemOrigem).length(), '0') +
+                   std::to_string(idArmazemOrigem) +
+                   std::string(3 - std::to_string(idArmazemDestino).length(), '0') +
                    std::to_string(idArmazemDestino) + "2";
 }
 

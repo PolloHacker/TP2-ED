@@ -4,14 +4,12 @@ Transporte::Transporte() : _rede(Grafo()) {}
 
 Armazem Transporte::adicionaArmazem(int id) {
     this->_rede.InsereVertice();
-    std::cout << "Armazém " << id << " adicionado à rede." << std::endl;
     
     return Armazem(id);
 }
 
 void Transporte::conectaArmazens(int id1, int id2) {
     this->_rede.InsereAresta(id1, id2);
-    this->_rede.InsereAresta(id2, id1); // Conexão bidirecional
 }
 
 void Transporte::imprimeRede() {
