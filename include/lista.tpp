@@ -1,5 +1,5 @@
-#include <iostream>
-#include <exception>
+#pragma once
+
 #include "lista.hpp"
 
 template <typename T>
@@ -102,7 +102,3 @@ Lista<T>::~Lista() {
     delete this->_head;
     delete this->_tail;
 }
-
-template class Lista<int>;
-template class Lista<Lista<int>>;
-template class Lista<bool>;

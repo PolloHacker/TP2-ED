@@ -15,6 +15,7 @@ class Transporte {
         void conectaArmazens(int id1, int id2);
         
         void imprimeRede();
+
         Lista<int> calculaRota(int origem, int destino);
         Lista<int> calculaRotaComPeso(int origem, int destino);
 

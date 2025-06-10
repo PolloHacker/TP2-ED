@@ -1,5 +1,7 @@
 #include "armazem.hpp"
 
+Armazem::Armazem() : _id(-1) {}
+
 Armazem::Armazem(int id) : _id(id) {}
 
 int Armazem::buscaVizinho(int id) const {

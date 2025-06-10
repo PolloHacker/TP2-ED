@@ -29,7 +29,6 @@ void leArquivo(
     arquivo >> numeroArmazens;
 
     armazens = Vetor<Armazem>(numeroArmazens);
-
     for (i = 0; i < numeroArmazens; ++i) {
         rotas.adicionaArmazem(i);
         armazens[i] = Armazem(i);

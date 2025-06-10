@@ -1,6 +1,7 @@
 #ifndef ADJACENCIA_HPP
 #define ADJACENCIA_HPP
 
+#include <iostream>
 #include "lista.hpp"
 
 class ListaAdjacencia {

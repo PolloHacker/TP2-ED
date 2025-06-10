@@ -1,8 +1,8 @@
 #ifndef FILA_HPP
 #define FILA_HPP
 
+#include <stdexcept>
 #include "node.hpp"
-#include "lista.hpp"
 
 template <typename T>
 class Fila {
@@ -20,5 +20,7 @@ class Fila {
         bool Vazia() const;
 
 };
+
+#include "fila.tpp"
 
 #endif

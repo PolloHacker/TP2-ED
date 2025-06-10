@@ -1,6 +1,9 @@
 #ifndef LISTA_HPP
 #define LISTA_HPP
 
+#include <iostream>
+#include <exception>
+#include <string>
 #include "node.hpp"
 
 template <typename T>
@@ -27,5 +30,7 @@ class Lista {
         
 
 };
+
+#include "lista.tpp"
 
 #endif

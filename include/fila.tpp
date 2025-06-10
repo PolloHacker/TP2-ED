@@ -1,4 +1,5 @@
-#include <stdexcept>
+#pragma once 
+
 #include "fila.hpp"
 
 template <typename T>

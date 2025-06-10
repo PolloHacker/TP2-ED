@@ -3,7 +3,6 @@
 
 #include <stdexcept>
 #include "node.hpp"
-#include "lista.hpp"
 
 template <typename T>
 class Pilha {
@@ -20,5 +19,7 @@ class Pilha {
         bool Vazia() const;
 
 };
+
+#include "pilha.tpp"
 
 #endif

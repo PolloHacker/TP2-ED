@@ -1,4 +1,3 @@
-#include <iostream>
 #include "adjacencia.hpp"
 
 ListaAdjacencia::ListaAdjacencia(): _vertices(0) {

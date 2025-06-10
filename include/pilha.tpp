@@ -1,3 +1,5 @@
+#pragma once
+
 #include "pilha.hpp"
 
 template <typename T>
@@ -5,7 +7,7 @@ Pilha<T>::Pilha() : _topo(nullptr) {}
 
 template <typename T>
 void Pilha<T>::Empilha(T valor) {
-    Node<T>* novo = new Node<int>(valor);
+    Node<T>* novo = new Node<T>(valor);
     novo->SetNext(this->_topo);
     this->_topo = novo;
 }
@@ -15,8 +17,8 @@ T Pilha<T>::Desempilha() {
     if (Vazia()) {
         throw std::runtime_error("Pilha vazia");
     }
-    Node<int>* temp = this->_topo;
-    int valor = temp->GetData();
+    Node<T>* temp = this->_topo;
+    T valor = temp->GetData();
     this->_topo = this->_topo->GetNext();
     delete temp;
     return valor;
@@ -41,4 +43,3 @@ Pilha<T>::~Pilha() {
         this->Desempilha();
     }
 }
-

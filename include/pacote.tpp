@@ -1,3 +1,5 @@
+#pragma once
+
 #include "pacote.hpp"
 
 template <typename T>
@@ -56,4 +58,7 @@ void Pacote<T>::setConteudo(const T& conteudo) {
     this->_conteudo = conteudo;
 }
 
-template class Pacote<std::string>;
+template <typename T>
+void Pacote<T>::setRota(const Lista<int>& rota) {
+    this->_rota = rota;
+}

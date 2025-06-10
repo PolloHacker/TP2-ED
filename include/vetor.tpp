@@ -1,3 +1,5 @@
+#pragma once
+
 #include "vetor.hpp"
 
 /**
@@ -128,5 +130,3 @@ template <typename T>
 Vetor<T>::~Vetor() {
     delete[] this->_data;
 }
-
-template class Vetor<int>;

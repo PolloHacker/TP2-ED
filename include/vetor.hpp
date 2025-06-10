@@ -25,4 +25,6 @@ class Vetor {
         Vetor<T>& operator=(const Vetor<T>& other);
 };
 
+#include "vetor.tpp"
+
 #endif

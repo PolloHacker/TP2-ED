@@ -17,6 +17,7 @@ class Armazem {
         int buscaVizinho(int id) const;
 
     public:
+        Armazem();
         Armazem(int id);
 
         void adicionaVizinho(int vizinho);

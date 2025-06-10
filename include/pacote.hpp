@@ -40,4 +40,6 @@ class Pacote {
         void setRota(const Lista<int>& rota);
 };
 
+#include "pacote.tpp"
+
 #endif
