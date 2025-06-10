@@ -47,8 +47,7 @@ void leArquivo(
 
     for (int i = 0; i < numeroPacotes; ++i) {
         std::string tmp;
-        int id, origem, destino;
-        double tempoPostagem;
+        int id, origem, destino, tempoPostagem;
 
         arquivo >> tempoPostagem >> tmp >> id >> tmp >> origem >> tmp >> destino;
 
@@ -82,8 +81,6 @@ int main(int argc, char* argv[]) {
     leArquivo(nomeArquivo, rotas, armazens, escalonador, pacotes);
 
     rotas.imprimeRede();
-
-    std::cout << "Arquivo lido com sucesso!" << std::endl;
     
     // Inicializa as variáveis de controle do escalonador
     escalonador.Inicializa();
@@ -98,9 +95,18 @@ int main(int argc, char* argv[]) {
         {
         case TipoEvento::PACOTE:
             // Lógica para o evento "POSTAGEM"
+            std::cout << "Evento de postagem do pacote ID: " 
+                      << prox_evento.getIdPacote() << " no tempo: " 
+                      << prox_evento.getTempo() << std::endl;
+            // Aqui você pode implementar a lógica para processar o pacote
             break;
         case TipoEvento::TRANSPORTE:
             // Lógica para o evento "TRANSPORTE"
+            std::cout << "Evento de transporte entre armazéns: " 
+                      << prox_evento.getArmazens()[0] << " e " 
+                      << prox_evento.getArmazens()[1] << " no tempo: " 
+                      << prox_evento.getTempo() << std::endl;
+            // Aqui você pode implementar a lógica para processar o transporte
             break;
         default:
             break;

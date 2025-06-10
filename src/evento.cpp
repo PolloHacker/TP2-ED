@@ -55,7 +55,7 @@ int Evento::getIdPacote() const {
         throw std::logic_error("Evento não é do tipo PACOTE.");
     }
 
-    return std::stoi(this->_chave.substr(3, 6));
+    return std::stoi(this->_chave.substr(6, 6));
 }
 
 Vetor<int> Evento::getArmazens() const {
