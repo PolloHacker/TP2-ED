@@ -5,8 +5,7 @@ Heap::Heap(): _tamanho(0), _data(10) {}
 Heap::Heap(int maxsize): _tamanho(0), _data(maxsize) {}
 
 void Heap::Inserir(Evento evento) {
-    this->_data.shouldResize();
-    this->_data[this->_tamanho] = evento;
+    this->_data.insere(this->_tamanho, evento);
     this->HeapifyPorBaixo(this->_tamanho++);
 }
 

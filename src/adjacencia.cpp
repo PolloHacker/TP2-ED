@@ -1,8 +1,6 @@
 #include "adjacencia.hpp"
 
-ListaAdjacencia::ListaAdjacencia(): _vertices(0) {
-    this->_lista = Lista<Lista<int>>();
-}
+ListaAdjacencia::ListaAdjacencia(): _lista(), _vertices(0) {}
 
 int ListaAdjacencia::GetVertices() {
     return this->_vertices;
@@ -21,13 +19,12 @@ int ListaAdjacencia::GetArestas() {
             current = current->GetNext();
         }
     }
-    delete current;
 
     return count;
 }
 
 void ListaAdjacencia::InsereVertice() {
-    Node<Lista<int>> novaLista = Node<Lista<int>>(Lista<int>());
+    Node<Lista<int>> novaLista;
     this->_lista.InsereFim(novaLista);
     this->_vertices++;
 }

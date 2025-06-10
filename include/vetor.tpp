@@ -15,6 +15,7 @@ Vetor<T>::Vetor(int size): _size(size), _capacity(size) {
         throw std::invalid_argument("Tamanho do vetor deve ser maior que zero.");
     }
     this->_data = new T[size];
+    printf("Vetor criado com tamanho %d e capacidade %d.\n", size, size);
 }
 
 /**
@@ -28,7 +29,7 @@ Vetor<T>::Vetor(int size): _size(size), _capacity(size) {
  */
 template <typename T>
 Vetor<T>::Vetor(const Vetor& other) {
-    this->_data = new T[other._size];
+    this->_data = new T[other._capacity];
     for (int i = 0; i < other._size; i++) {
         this->_data[i] = other._data[i];
     }
@@ -43,18 +44,19 @@ Vetor<T>::Vetor(const Vetor& other) {
  * para o novo array e libera a memória do vetor original.
  */
 template <typename T>
-void Vetor<T>::resize() {
-    int newSize = this->_capacity * 2;
-    T* newData = new T[newSize];
+void Vetor<T>::resize(int newCapacity) {
+    if (newCapacity <= 0 || newCapacity < this->_size) {
+        throw std::invalid_argument("Nova capacidade deve ser maior do que o tamanho atual.");
+    }
+    T* newData = new T[newCapacity];
 
-    for (int i = 0; i < std::min(_size, newSize); i++) {
+    for (int i = 0; i < std::min(_size, newCapacity); i++) {
         newData[i] = _data[i];
     }
 
     delete[] _data;
     this->_data = newData;
-    this->_capacity = newSize;
-    this->_size = newSize;
+    this->_capacity = newCapacity;
 }
 
 /**
@@ -63,10 +65,53 @@ void Vetor<T>::resize() {
  * Se o tamanho atual do vetor for igual à sua capacidade, aumenta a capacidade do vetor.
  */
 template <typename T>
-void Vetor<T>::shouldResize() {
-    if (this->_size >= this->_capacity) {
-        this->resize();
+void Vetor<T>::shouldResize(int indx) {
+    printf("Verificando se o vetor precisa ser redimensionado para o índice %d.\n", indx);
+    if (indx + 1 >= this->_capacity) {
+        this->resize(indx + 1);
     }
+}
+
+
+template <typename T>
+/**
+ * @brief Insere um elemento no vetor na posição especificada.
+ * 
+ * Se o índice estiver fora dos limites do vetor, lança uma exceção.
+ * Se o vetor estiver cheio, redimensiona-o antes de inserir o novo elemento.
+ * 
+ * @param index Índice onde o elemento será inserido.
+ * @param value Valor do elemento a ser inserido.
+ */
+void Vetor<T>::insere(int index, const T& value) {
+    if (index < 0) {
+        throw std::out_of_range("Índice fora dos limites do vetor.");
+    }
+
+    this->shouldResize(index);
+    this->_data[index] = value;
+    if (index >= this->_size) {
+        this->_size = index + 1;
+    }
+}
+
+/**
+ * @brief Remove o elemento na posição especificada do vetor.
+ * 
+ * Se o índice estiver fora dos limites do vetor, lança uma exceção.
+ * 
+ * @param index Índice do elemento a ser removido.
+ */
+template <typename T>
+void Vetor<T>::remove(int index) {
+    if (index < 0 || index >= this->_size) {
+        throw std::out_of_range("Índice fora dos limites do vetor.");
+    }
+
+    for (int i = index; i < this->_size - 1; i++) {
+        this->_data[i] = this->_data[i + 1];
+    }
+    this->_size--;
 }
 
 /**
@@ -109,13 +154,14 @@ template <typename T>
 Vetor<T>& Vetor<T>::operator=(const Vetor<T>& other) {
     if (this == &other) return *this;
 
-    this->_data = new T[other._size];
+    delete[] this->_data;
+    this->_data = new T[other._capacity];
+
     for (int i = 0; i < other._size; i++) {
         this->_data[i] = other._data[i];
     }
     this->_size = other._size;
     this->_capacity = other._capacity;
-    delete[] this->_data;
 
     return *this;
 }

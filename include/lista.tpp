@@ -98,7 +98,5 @@ int Lista<T>::GetTam() {
 
 template <typename T>
 Lista<T>::~Lista() {
-    delete[] this->_lista;
     delete this->_head;
-    delete this->_tail;
 }

@@ -11,7 +11,7 @@ class Transporte {
     public:
         Transporte();
 
-        void adicionaArmazem(int id);
+        Armazem adicionaArmazem(int id);
         void conectaArmazens(int id1, int id2);
         
         void imprimeRede();

@@ -2,7 +2,9 @@
 
 Armazem::Armazem() : _id(-1) {}
 
-Armazem::Armazem(int id) : _id(id) {}
+Armazem::Armazem(int id) : _id(id) {
+    std::cout << "Armazém criado com ID: " << this->_id << std::endl;
+}
 
 int Armazem::buscaVizinho(int id) const {
     Node<int>* aux = this->_vizinhos._head->GetNext();

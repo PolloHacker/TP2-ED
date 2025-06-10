@@ -2,9 +2,11 @@
 
 Transporte::Transporte() : _rede(Grafo()) {}
 
-void Transporte::adicionaArmazem(int id) {
+Armazem Transporte::adicionaArmazem(int id) {
     this->_rede.InsereVertice();
-    this->_rede.InsereAresta(id, id); // Adiciona o armazém à lista de adjacência
+    std::cout << "Armazém " << id << " adicionado à rede." << std::endl;
+    
+    return Armazem(id);
 }
 
 void Transporte::conectaArmazens(int id1, int id2) {

@@ -28,10 +28,12 @@ void leArquivo(
     arquivo >> custoRemocao;
     arquivo >> numeroArmazens;
 
-    armazens = Vetor<Armazem>(numeroArmazens);
+    std::cout << "Número de armazéns: " << numeroArmazens << std::endl;
+    
     for (i = 0; i < numeroArmazens; ++i) {
-        rotas.adicionaArmazem(i);
-        armazens[i] = Armazem(i);
+        Armazem armazemToIns = rotas.adicionaArmazem(i);
+        armazens.insere(i, armazemToIns);
+        std::cout << "Armazém " << i << " adicionado." << std::endl;
     }
 
     for (i = 0; i < numeroArmazens; ++i) {
@@ -84,6 +86,8 @@ int main(int argc, char* argv[]) {
     // Lê o arquivo de entrada
     std::string nomeArquivo = argv[1];
     leArquivo(nomeArquivo, rotas, armazens, escalonador, pacotes);
+
+    std::cout << "Arquivo lido com sucesso!" << std::endl;
     
     // Inicializa as variáveis de controle do escalonador
     escalonador.Inicializa();

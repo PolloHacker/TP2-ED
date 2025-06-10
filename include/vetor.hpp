@@ -10,14 +10,16 @@ class Vetor {
         int _size;
         int _capacity;
 
-        void resize();
+        void shouldResize(int indx);
+        void resize(int newCapacity);
 
     public:
         Vetor(int size);
         Vetor(const Vetor& other);
         ~Vetor();
         
-        void shouldResize();
+        void insere(int index, const T& value);
+        void remove(int index);
         
         T& operator[](int index);
         const T& operator[](int index) const;

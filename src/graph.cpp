@@ -1,6 +1,6 @@
 #include "graph.hpp"
 
-Grafo::Grafo(): vertices(ListaAdjacencia()) {}
+Grafo::Grafo(): vertices() {}
 
 void Grafo::InsereVertice() {
     this->vertices.InsereVertice();
@@ -116,7 +116,3 @@ Lista<int> Grafo::BFS(int v, int w) {
 //     // Implementação do algoritmo Bellman-Ford
 //     return Lista<int>(); // Placeholder
 // }
-
-Grafo::~Grafo() {
-    this->vertices.~ListaAdjacencia();
-}
