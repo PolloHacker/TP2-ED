@@ -11,7 +11,9 @@ class Node {
     public:
         Node();
         Node(T val);
-        ~Node();
+        
+        Node(const Node<T>& other);
+        Node<T>& operator=(const Node<T>& other);
 
         T GetData();
         Node<T>* GetNext();

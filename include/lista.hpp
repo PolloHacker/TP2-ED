@@ -9,19 +9,20 @@
 template <typename T>
 class Lista {
     private:
-        Node<T>* _lista;
         int _tam;
         
     public:
         Lista();
+        Lista(const Lista<T>& other);
+        Lista<T>& operator=(const Lista<T>& other);
         ~Lista();
 
         Node<T>* Posiciona(int pos);
-        void InsereInicio(Node<T>& obj);
-        void InserePos(int pos, Node<T>& obj);
-        void InsereFim(Node<T>& obj);
+        void InsereInicio(T& obj);
+        void InserePos(int pos, T& obj);
+        void InsereFim(T& obj);
         
-        Node<T> RemovePos(int pos);
+        T RemovePos(int pos);
         Node<T>* GetElemPos(int pos);
 
         int GetTam();

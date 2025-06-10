@@ -30,7 +30,7 @@ void leArquivo(
 
     std::cout << "Número de armazéns: " << numeroArmazens << std::endl;
     
-    for (i = 0; i < numeroArmazens; ++i) {
+    for (i = 1; i <= numeroArmazens; ++i) {
         Armazem armazemToIns = rotas.adicionaArmazem(i);
         armazens.insere(i, armazemToIns);
         std::cout << "Armazém " << i << " adicionado." << std::endl;
@@ -60,7 +60,7 @@ void leArquivo(
         Pacote<int> p(id, "", "", 0);
         p.setRota(rotas.calculaRota(origem, destino));
 
-        Evento ev(tempoPostagem, id, TipoEvento::POSTAGEM);
+        Evento ev(tempoPostagem, id, TipoEvento::PACOTE);
         escalonador.InsereEvento(ev);
 
         Node<Pacote<int>> aux(p);
@@ -100,7 +100,7 @@ int main(int argc, char* argv[]) {
 
         switch (prox_evento.getTipoEvento())
         {
-        case TipoEvento::POSTAGEM:
+        case TipoEvento::PACOTE:
             // Lógica para o evento "POSTAGEM"
             break;
         case TipoEvento::TRANSPORTE:

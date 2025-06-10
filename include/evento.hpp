@@ -6,7 +6,7 @@
 #include "vetor.hpp"
 
 enum class TipoEvento {
-    POSTAGEM = 1,
+    PACOTE = 1,
     TRANSPORTE = 2
 };
 

@@ -11,7 +11,7 @@ int ListaAdjacencia::GetArestas() {
     Node<int>* current;
     for (int i = 1; i <= this->_vertices; i++) {
         Lista<int> vizinhos = this->_lista.GetElemPos(i)->GetData();
-        current = vizinhos._head;
+        current = vizinhos._head->GetNext();
         while (current != nullptr) {
             if (current->GetData() + 1 > i) {
                 count++;
@@ -24,19 +24,22 @@ int ListaAdjacencia::GetArestas() {
 }
 
 void ListaAdjacencia::InsereVertice() {
-    Node<Lista<int>> novaLista;
+    Lista<int> novaLista;
+    std::cout << "Tamanho da lista de adj " << this->_lista.GetTam() << std::endl;
     this->_lista.InsereFim(novaLista);
     this->_vertices++;
 }
 
 void ListaAdjacencia::InsereAresta(int from, int to) {
-    Node<int> node(to);
     Lista<int> vizinhos = this->_lista.GetElemPos(from)->GetData();
-    vizinhos.InsereFim(node);
+    vizinhos.InsereFim(to);
     this->_lista.GetElemPos(from)->SetData(vizinhos);
 }
 
 Lista<int> ListaAdjacencia::GetVizinhos(int v) {
+    if (v < 1 || v > this->_vertices) {
+        throw std::out_of_range("Índice de vértice inválido.");
+    }
     return this->_lista.GetElemPos(v)->GetData();
 }
 

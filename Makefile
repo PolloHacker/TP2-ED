@@ -1,6 +1,6 @@
 # Compiler and flags
 CXX := g++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++11 -I./include
+CXXFLAGS := -Wall -Wextra -Werror -g -std=c++11 -I./include
 
 # Folders
 BIN_FOLDER := ./bin

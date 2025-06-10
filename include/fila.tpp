@@ -6,6 +6,32 @@ template <typename T>
 Fila<T>::Fila() : _inicio(nullptr), _fim(nullptr) {}
 
 template <typename T>
+Fila<T>::Fila(const Fila<T>& other) : _inicio(nullptr), _fim(nullptr) {
+    Node<T>* current = other._inicio;
+    while (current != nullptr) {
+        this->Enfileira(current->GetData());
+        current = current->GetNext();
+    }
+}
+
+template <typename T>
+Fila<T>& Fila<T>::operator=(const Fila<T>& other) {
+    if (this != &other) {
+        // Limpa a fila atual
+        while (!this->Vazia()) {
+            this->Desenfileira();
+        }
+        // Copia os elementos da outra fila
+        Node<T>* current = other._inicio;
+        while (current != nullptr) {
+            this->Enfileira(current->GetData());
+            current = current->GetNext();
+        }
+    }
+    return *this;
+}
+
+template <typename T>
 void Fila<T>::Enfileira(T valor) {
     Node<T>* novo = new Node<T>(valor);
     if (Vazia()) {

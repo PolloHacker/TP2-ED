@@ -3,14 +3,12 @@
 Metricas::Metricas() : _tempo_total(0), _distancia_total(0) {}
 
 void Metricas::adicionaTempo(double tempo) {
-    Node<double> aux = Node<double>(tempo);
-    this->_tempos.InsereFim(aux);
+    this->_tempos.InsereFim(tempo);
     this->_tempo_total += tempo;
 }
 
 void Metricas::adicionaDistancia(double distancia) {
-    Node<double> aux = Node<double>(distancia);
-    this->_distancias.InsereFim(aux);
+    this->_distancias.InsereFim(distancia);
     this->_distancia_total += distancia;
 }
 

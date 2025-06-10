@@ -12,6 +12,8 @@ class Fila {
         
     public:
         Fila();
+        Fila(const Fila<T>& other);
+        Fila<T>& operator=(const Fila<T>& other);
         ~Fila();
 
         void Enfileira(T valor);

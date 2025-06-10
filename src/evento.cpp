@@ -16,8 +16,8 @@ Evento::Evento(std::string chave)
 Evento::Evento(int tempo, int idPacote, TipoEvento tipoEvento)
     : _tempo(tempo) {
     
-    if (tipoEvento != TipoEvento::POSTAGEM) {
-        throw std::invalid_argument("Tipo de evento deve ser POSTAGEM.");
+    if (tipoEvento != TipoEvento::PACOTE) {
+        throw std::invalid_argument("Tipo de evento deve ser PACOTE.");
     }
 
     this->_chave = std::to_string(tempo) + 
@@ -48,8 +48,8 @@ int Evento::getTempo() const {
 }
 
 int Evento::getIdPacote() const {
-    if (this->getTipoEvento() != TipoEvento::POSTAGEM) {
-        throw std::logic_error("Evento não é do tipo POSTAGEM.");
+    if (this->getTipoEvento() != TipoEvento::PACOTE) {
+        throw std::logic_error("Evento não é do tipo PACOTE.");
     }
 
     return std::stoi(this->_chave.substr(3, 6));
@@ -70,7 +70,7 @@ Vetor<int> Evento::getArmazens() const {
 
 TipoEvento Evento::getTipoEvento() const {
     return std::stoi(this->_chave.substr(12, 1)) == 1 ? 
-        TipoEvento::POSTAGEM : TipoEvento::TRANSPORTE;
+        TipoEvento::PACOTE : TipoEvento::TRANSPORTE;
 }
 
 bool Evento::operator<(const Evento& other) const {

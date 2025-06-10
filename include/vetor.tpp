@@ -68,7 +68,9 @@ template <typename T>
 void Vetor<T>::shouldResize(int indx) {
     printf("Verificando se o vetor precisa ser redimensionado para o índice %d.\n", indx);
     if (indx + 1 >= this->_capacity) {
-        this->resize(indx + 1);
+        this->resize(this->_capacity * 2);
+        printf("Vetor redimensionado para capacidade %d.\n", this->_capacity);
+        printf("Novo tamanho do vetor: %d.\n", this->_size);
     }
 }
 

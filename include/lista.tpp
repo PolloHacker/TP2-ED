@@ -10,6 +10,49 @@ Lista<T>::Lista() : _tam(0) {
 }
 
 template <typename T>
+Lista<T>::Lista(const Lista<T>& other) : _tam(other._tam) {
+    this->_head = new Node<T>();
+    Node<T>* current = this->_head;
+
+    Node<T>* otherCurrent = other._head->GetNext();
+    while (otherCurrent != nullptr) {
+        Node<T>* newNode = new Node<T>(otherCurrent->GetData());
+        current->SetNext(newNode);
+        current = newNode;
+        otherCurrent = otherCurrent->GetNext();
+    }
+    this->_tail = current;
+}
+
+template <typename T>
+Lista<T>& Lista<T>::operator=(const Lista<T>& other) {
+    if (this != &other) {
+        // Limpa a lista atual
+        Node<T>* current = this->_head;
+        while (current != nullptr) {
+            Node<T>* next = current->GetNext();
+            delete current;
+            current = next;
+        }
+        
+        // Copia os dados da outra lista
+        this->_tam = other._tam;
+        this->_head = new Node<T>();
+        Node<T>* newCurrent = this->_head;
+
+        Node<T>* otherCurrent = other._head->GetNext();
+        while (otherCurrent != nullptr) {
+            Node<T>* newNode = new Node<T>(otherCurrent->GetData());
+            newCurrent->SetNext(newNode);
+            newCurrent = newNode;
+            otherCurrent = otherCurrent->GetNext();
+        }
+        this->_tail = newCurrent;
+    }
+    return *this;
+}
+
+template <typename T>
 Node<T>* Lista<T>::Posiciona(int pos) {
     int i;
     Node<T>* aux;
@@ -28,8 +71,8 @@ Node<T>* Lista<T>::Posiciona(int pos) {
 }
 
 template <typename T>
-void Lista<T>::InsereInicio(Node<T>& obj) {
-    Node<T>* entry = new Node<T>(std::forward<Node<T>>(obj));
+void Lista<T>::InsereInicio(T& obj) {
+    Node<T>* entry = new Node<T>(obj);
     entry->SetNext(this->_head->GetNext());
     this->_head->SetNext(entry);
     this->_tam++;
@@ -40,9 +83,9 @@ void Lista<T>::InsereInicio(Node<T>& obj) {
 }
 
 template <typename T>
-void Lista<T>::InserePos(int pos, Node<T>& obj) {
+void Lista<T>::InserePos(int pos, T& obj) {
     Node<T>* before = this->Posiciona(pos - 1);
-    Node<T>* entry = new Node<T>(std::forward<Node<T>>(obj));
+    Node<T>* entry = new Node<T>(obj);
 
     entry->SetNext(before->GetNext());
     before->SetNext(entry);
@@ -54,15 +97,15 @@ void Lista<T>::InserePos(int pos, Node<T>& obj) {
 }
 
 template <typename T>
-void Lista<T>::InsereFim(Node<T>& obj) {
-    Node<T>* entry = new Node<T>(std::forward<Node<T>>(obj));
+void Lista<T>::InsereFim(T& obj) {
+    Node<T>* entry = new Node<T>(obj);
     this->_tail->SetNext(entry);
     this->_tail = entry;
     this->_tam++;
 }
 
 template <typename T>
-Node<T> Lista<T>::RemovePos(int pos) {
+T Lista<T>::RemovePos(int pos) {
     if (this->_tam == 0) {
         throw std::invalid_argument("Lista vazia");
     }
@@ -77,7 +120,10 @@ Node<T> Lista<T>::RemovePos(int pos) {
         this->_tail = before;
     }
 
-    return to_del->GetData();
+    T data = to_del->GetData();
+    delete to_del;
+
+    return data;
 }
 
 
@@ -98,5 +144,13 @@ int Lista<T>::GetTam() {
 
 template <typename T>
 Lista<T>::~Lista() {
-    delete this->_head;
+    Node<T>* curr = this->_head;
+
+    while (curr != nullptr) {
+        Node<T>* next = curr->GetNext();
+        delete curr;
+        curr = next;
+    }
+    this->_head = nullptr;
+    this->_tail = nullptr;
 }

@@ -11,7 +11,7 @@ void Heap::Inserir(Evento evento) {
 
 Evento Heap::Remover() {
     if (this->Vazio()) {
-        return Evento(-1, -1, TipoEvento::POSTAGEM);
+        return Evento(-1, -1, TipoEvento::PACOTE);
     }
     Evento aux = this->_data[0];
 

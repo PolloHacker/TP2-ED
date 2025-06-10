@@ -9,6 +9,18 @@ template <typename T>
 Node<T>::Node(T val) : _data(val), _next(nullptr) {}
 
 template <typename T>
+Node<T>::Node(const Node<T>& other) : _data(other._data), _next(nullptr) {}
+
+template <typename T>
+Node<T>& Node<T>::operator=(const Node<T>& other) {
+    if (this != &other) {
+        this->_data = other._data;
+        this->_next = nullptr;
+    }
+    return *this;
+}
+
+template <typename T>
 T Node<T>::GetData() {
     return this->_data;
 }
@@ -26,9 +38,4 @@ void Node<T>::SetData(T val) {
 template <typename T>
 void Node<T>::SetNext(Node<T>* obj) {
     this->_next = obj;
-}
-
-template <typename T>
-Node<T>::~Node() {
-    delete this->_next;
 }

@@ -11,6 +11,8 @@ class Pilha {
         
     public:
         Pilha();
+        Pilha(const Pilha<T>& other);
+        Pilha<T>& operator=(const Pilha<T>& other);
         ~Pilha();
 
         void Empilha(T valor);
