@@ -36,6 +36,8 @@ void leArquivo(
     
     for (i = 1; i <= numeroArmazens; ++i) {
         Armazem armazemToIns = rotas.adicionaArmazem(i);
+        armazemToIns.setCooldown(i, intervaloTransportes);
+        armazemToIns.setCapacidade(i, capacidadeTransporte);
         armazens.insere(i, armazemToIns);
     }
 
