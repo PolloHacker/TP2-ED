@@ -35,10 +35,6 @@ Lista<T>& Lista<T>::operator=(const Lista<T>& other) {
             current = next;
         }
         
-        // Reset pointers after clearing
-        this->_head = nullptr;
-        this->_tail = nullptr;
-        
         // Copia os dados da outra lista
         this->_tam = other._tam;
         this->_head = new Node<T>();
@@ -81,7 +77,7 @@ void Lista<T>::InsereInicio(T& obj) {
     this->_head->SetNext(entry);
     this->_tam++;
 
-    if (this->_tail == this->_head) {
+    if (this->_tail == nullptr) {
         this->_tail = entry;
     }
 }

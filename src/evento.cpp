@@ -19,11 +19,9 @@ Evento::Evento(int tempo, int idPacote, int idArmazemOrigem, int idArmazemDestin
         
     int tipo = 0;
     switch (tipoEvento) {
-        case TipoEvento::PACOTE: tipo = 1; break;
+        case TipoEvento::CHEGADA_PACOTE: tipo = 1; break;
         case TipoEvento::TRANSPORTE: tipo = 2; break;
-        case TipoEvento::REMOCAO: tipo = 3; break;
-        case TipoEvento::REARMAZENAMENTO: tipo = 4; break;
-        case TipoEvento::ENTREGA: tipo = 5; break;
+
         default:
             throw std::invalid_argument("Tipo de evento inválido.");
     }
@@ -55,7 +53,7 @@ int Evento::getIdPacote() const {
 Vetor<int> Evento::getArmazens() const {
     // Only TRANSPORTE, REARMAZENAMENTO, and ENTREGA have both armazemOrigem and armazemDestino
     TipoEvento tipo = this->getTipoEvento();
-    if (tipo != TipoEvento::TRANSPORTE && tipo != TipoEvento::REARMAZENAMENTO && tipo != TipoEvento::ENTREGA) {
+    if (tipo != TipoEvento::TRANSPORTE) {
         throw std::logic_error("Evento não possui armazéns de origem e destino.");
     }
 
@@ -69,11 +67,8 @@ TipoEvento Evento::getTipoEvento() const {
     // tipoEvento is always the last character of the key
     int tipo = std::stoi(this->_chave.substr(this->_chave.length() - 1, 1));
     switch (tipo) {
-        case 1: return TipoEvento::PACOTE;
+        case 1: return TipoEvento::CHEGADA_PACOTE;
         case 2: return TipoEvento::TRANSPORTE;
-        case 3: return TipoEvento::REMOCAO;
-        case 4: return TipoEvento::REARMAZENAMENTO;
-        case 5: return TipoEvento::ENTREGA;
         default: throw std::logic_error("Tipo de evento desconhecido.");
     }
 }

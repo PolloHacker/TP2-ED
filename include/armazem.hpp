@@ -11,8 +11,7 @@
 class Armazem {
     private:
         int _id;
-        Lista<int> _vizinhos;
-        Lista<Pilha<Pacote<std::string>>> _pacotesPorVizinho;
+        Lista<Pilha<int>> _pacotesPorVizinho;
         Lista<Lista<int>> _transportesPorVizinho;
         Lista<int> _cooldownsPorVizinho;
         Lista<int> _capacidadesPorVizinho;
@@ -26,14 +25,11 @@ class Armazem {
         // Copy constructor and assignment operator
         Armazem(const Armazem& other);
         Armazem& operator=(const Armazem& other);
-
-        void adicionaVizinho(int vizinho);
-        void removeVizinho(int id);
         
-        void armazenaPacote(const Pacote<std::string>& pacote, int idVizinho);
-        Pacote<std::string> removePacotePorSecao(int idVizinho, int idPacote);
+        void armazenaPacote(int idVizinho, int idPacote);
+        int removePacotePorSecao(int idVizinho, int idPacote);
         
-        void adicionaPacoteParaTransporte(int idVizinho, const Pacote<std::string>& pacote);
+        void adicionaPacoteParaTransporte(int idVizinho, int idPacote);
         Lista<int> getTransportesPorVizinho(int idVizinho);
         
         int getId() const;

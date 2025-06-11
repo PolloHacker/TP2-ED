@@ -52,7 +52,7 @@ T Fila<T>::Desenfileira() {
     T valor = temp->GetData();
     this->_inicio = this->_inicio->GetNext();
     if (this->_inicio == nullptr) {
-        this->_fim = nullptr; // Se a fila ficar vazia, atualiza o fim
+        this->_fim = nullptr;
     }
     delete temp;
     return valor;

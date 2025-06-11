@@ -4,27 +4,26 @@ Armazem::Armazem() : _id(-1) {}
 
 Armazem::Armazem(int id) : _id(id) {}
 
-// Copy constructor
-Armazem::Armazem(const Armazem& other) 
-    : _id(other._id),
-      _vizinhos(other._vizinhos),
+Armazem::Armazem(const Armazem& other)
+    : _id(other._id), 
+      _vizinhos(other._vizinhos), 
       _pacotesPorVizinho(other._pacotesPorVizinho),
       _transportesPorVizinho(other._transportesPorVizinho),
       _cooldownsPorVizinho(other._cooldownsPorVizinho),
       _capacidadesPorVizinho(other._capacidadesPorVizinho) {}
 
-// Assignment operator
 Armazem& Armazem::operator=(const Armazem& other) {
     if (this != &other) {
-        _id = other._id;
-        _vizinhos = other._vizinhos;
-        _pacotesPorVizinho = other._pacotesPorVizinho;
-        _transportesPorVizinho = other._transportesPorVizinho;
-        _cooldownsPorVizinho = other._cooldownsPorVizinho;
-        _capacidadesPorVizinho = other._capacidadesPorVizinho;
+        this->_id = other._id;
+        this->_vizinhos = other._vizinhos;
+        this->_pacotesPorVizinho = other._pacotesPorVizinho;
+        this->_transportesPorVizinho = other._transportesPorVizinho;
+        this->_cooldownsPorVizinho = other._cooldownsPorVizinho;
+        this->_capacidadesPorVizinho = other._capacidadesPorVizinho;
     }
     return *this;
 }
+
 
 int Armazem::buscaVizinho(int id) const {
     Node<int>* aux = this->_vizinhos._head->GetNext();
@@ -42,7 +41,7 @@ int Armazem::buscaVizinho(int id) const {
 
 void Armazem::adicionaVizinho(int vizinho) {
     this->_vizinhos.InsereFim(vizinho);
-    Pilha<Pacote<std::string>> pilhaAux;
+    Pilha<int> pilhaAux;
     this->_pacotesPorVizinho.InsereFim(pilhaAux);
 }
 
@@ -56,16 +55,16 @@ Lista<int> Armazem::getVizinhos() const {
     return this->_vizinhos;
 }  
 
-void Armazem::armazenaPacote(const Pacote<std::string>& pacote, int idVizinho) {
+void Armazem::armazenaPacote(int idVizinho, int idPacote) {
     int pos = this->buscaVizinho(idVizinho);
     if (pos == -1) {
         throw std::runtime_error("Vizinho não encontrado.");
     }
 
-    this->_pacotesPorVizinho.Posiciona(pos)->GetData().Empilha(pacote);
+    this->_pacotesPorVizinho.Posiciona(pos)->GetData().Empilha(idPacote);
 }
 
-Pacote<std::string> Armazem::removePacotePorSecao(int idVizinho, int idPacote) {
+int Armazem::removePacotePorSecao(int idVizinho, int idPacote) {
     int pos = this->buscaVizinho(idVizinho);
     if (pos == -1) {
         throw std::runtime_error("Vizinho não encontrado.");
@@ -75,8 +74,8 @@ Pacote<std::string> Armazem::removePacotePorSecao(int idVizinho, int idPacote) {
         throw std::runtime_error("Nenhum pacote para enviar.");
     }
 
-    Pilha<Pacote<std::string>> pilhaAux;
-    int curId = this->_pacotesPorVizinho.Posiciona(pos)->GetData().Topo().getId();
+    Pilha<int> pilhaAux;
+    int curId = this->_pacotesPorVizinho.Posiciona(pos)->GetData().Topo();
 
     while (curId != idPacote) {
         if (this->_pacotesPorVizinho.Posiciona(pos)->GetData().Vazia()) {
@@ -85,7 +84,7 @@ Pacote<std::string> Armazem::removePacotePorSecao(int idVizinho, int idPacote) {
 
         pilhaAux.Empilha(
             this->_pacotesPorVizinho.Posiciona(pos)->GetData().Desempilha());
-        curId = this->_pacotesPorVizinho.Posiciona(pos)->GetData().Topo().getId();
+        curId = this->_pacotesPorVizinho.Posiciona(pos)->GetData().Topo();
     }
     
     while (!pilhaAux.Vazia()) {
@@ -96,7 +95,7 @@ Pacote<std::string> Armazem::removePacotePorSecao(int idVizinho, int idPacote) {
     return this->_pacotesPorVizinho.Posiciona(pos)->GetData().Desempilha();
 }
 
-void Armazem::adicionaPacoteParaTransporte(int idVizinho, const Pacote<std::string>& pacote) {
+void Armazem::adicionaPacoteParaTransporte(int idVizinho, int IdPacote) {
     int pos = this->buscaVizinho(idVizinho);
     if (pos == -1) {
         throw std::runtime_error("Vizinho não encontrado.");
@@ -106,8 +105,7 @@ void Armazem::adicionaPacoteParaTransporte(int idVizinho, const Pacote<std::stri
         throw std::runtime_error("Transporte já está cheio para este vizinho.");
     }
 
-    int idToInsert = pacote.getId();
-    this->_transportesPorVizinho.Posiciona(pos)->GetData().InsereFim(idToInsert);
+    this->_transportesPorVizinho.Posiciona(pos)->GetData().InsereFim(IdPacote);
 }
 
 Lista<int> Armazem::getTransportesPorVizinho(int idVizinho) {

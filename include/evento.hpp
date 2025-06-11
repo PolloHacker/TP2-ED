@@ -6,11 +6,8 @@
 #include "vetor.hpp"
 
 enum class TipoEvento {
-    PACOTE = 1,
-    TRANSPORTE,
-    REMOCAO,
-    REARMAZENAMENTO,
-    ENTREGA 
+    CHEGADA_PACOTE = 1,
+    TRANSPORTE = 2
 };
 
 enum class CustoEvento {

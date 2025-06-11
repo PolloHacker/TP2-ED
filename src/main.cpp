@@ -8,8 +8,21 @@
 #include "transporte.hpp"
 
 
-void leArquivo(
-    std::string nomeArquivo, Transporte& rotas, 
+void escalonaTransportes(Escalonador& escalonador, 
+    Vetor<Armazem>& armazens, int numArmazens, int tempoAtual) {
+
+    for (int origem = 1; origem <= numArmazens; ++origem) {
+        for (int destino = 1; destino <= numArmazens; ++destino) {
+            if (origem != destino) {
+                int cooldown = armazens[origem].getCooldown(destino);
+                Evento novoTransporte(tempoAtual + cooldown, -1, origem, destino, TipoEvento::TRANSPORTE);
+                escalonador.InsereEvento(novoTransporte);
+            }
+        }
+    }
+}
+
+void leArquivo(std::string nomeArquivo, Transporte& rotas, 
     Vetor<Armazem>& armazens, Escalonador& escalonador, 
     Vetor<Pacote<int>>& pacotes, Vetor<int>& custos) {
 
@@ -36,8 +49,6 @@ void leArquivo(
     
     for (i = 1; i <= numeroArmazens; ++i) {
         Armazem armazemToIns = rotas.adicionaArmazem(i);
-        armazemToIns.setCooldown(i, intervaloTransportes);
-        armazemToIns.setCapacidade(i, capacidadeTransporte);
         armazens.insere(i, armazemToIns);
     }
 
@@ -47,6 +58,9 @@ void leArquivo(
             arquivo >> conexao;
             if (conexao > 0) {
                 rotas.conectaArmazens(i, j);
+                armazens[i].adicionaVizinho(j);
+                armazens[i].setCooldown(j, latenciaTransporte);
+                armazens[i].setCapacidade(j, capacidadeTransporte);
             }
         }
     }
@@ -82,7 +96,11 @@ void leArquivo(
                   << ", Seção Atual: " << p.getIdSecaoAtual()
                   << std::endl;
 
-        Evento ev(tempoPostagem, i, origem, destino, TipoEvento::PACOTE);
+        if (i == 0) {
+            escalonaTransportes(escalonador, armazens, numeroArmazens, tempoPostagem);
+        }
+
+        Evento ev(tempoPostagem, i, origem, destino, TipoEvento::CHEGADA_PACOTE);
         escalonador.InsereEvento(ev);
 
         pacotes.insere(i, p);
@@ -91,13 +109,13 @@ void leArquivo(
 }
 
 
-void handlePostagem(
-    Evento prox_evento, Escalonador& Escalonador,
+void handleChegadaPacote(
+    Evento evento, Escalonador& escalonador,
     Vetor<Armazem>& armazens, Vetor<Pacote<int>>& pacotes, Vetor<int>& custos) {
-    int idPacote = prox_evento.getIdPacote();
-    int tempoAtual = prox_evento.getTempo();
-    int armazemAtual = pacotes[idPacote].getIdArmazemAtual() - 1;
-    int secaoAtual = pacotes[idPacote].getIdSecaoAtual() - 1;
+    int idPacote = evento.getIdPacote();
+    int tempoAtual = evento.getTempo();
+    int armazemAntigo = pacotes[idPacote].getIdArmazemAtual() - 1;
+    int secaoAntiga = pacotes[idPacote].getIdSecaoAtual() - 1;
 
     try {
         pacotes[idPacote];
@@ -105,188 +123,63 @@ void handlePostagem(
         std::cerr << "Erro: Pacote com ID " << idPacote << " não encontrado." << std::endl;
         return;
     }
+
+    if (pacotes[idPacote].getIdArmazemAtual() == pacotes[idPacote].getRota().GetElemPos(pacotes[idPacote].getRota().GetTam())->GetData()) {
+        pacotes[idPacote].setEstado(EstadoPacote::ENTREGUE);
+
+        std::cout << std::setfill('0')
+                  << std::setw(7) << tempoAtual << " pacote "
+                  << std::setw(3) << idPacote << " entregue em "
+                  << std::setw(3) << armazemAntigo << std::endl;
+
+        return;
+    } else {
+        Lista<int> rota = pacotes[idPacote].getRota();
+        int armazemAtual;
+
+        if (rota.GetTam() > 1) {
+            rota.RemovePos(1); // Remove o armazém atual (primeiro da rota)
+            pacotes[idPacote].setRota(rota);
+
+            armazemAtual = rota.GetElemPos(1)->GetData();
+            pacotes[idPacote].setIdArmazemAtual(armazemAtual);
+            if (rota.GetTam() > 1) {
+                pacotes[idPacote].setIdSecaoAtual(rota.GetElemPos(2)->GetData());
+            } else {
+                pacotes[idPacote].setIdSecaoAtual(armazemAtual);
+            }
+        }
+        
+        armazens[armazemAtual].armazenaPacote(armazemAtual, idPacote);
+        
+    }
+
+    // Agendar próximo evento de transporte para este pacote
+    Evento novoEvento(
+        tempoAtual,
+        idPacote,
+        pacotes[idPacote].getIdArmazemAtual(),
+        pacotes[idPacote].getIdSecaoAtual(),
+        TipoEvento::TRANSPORTE
+    );
 
     pacotes[idPacote].setEstado(EstadoPacote::POSTADO);
 
     std::cout << std::setfill('0') 
               << std::setw(7) << tempoAtual << " pacote "
               << std::setw(3) << idPacote << " armazenado em "
-              << std::setw(3) << armazemAtual << " na secao "
-              << std::setw(3) << secaoAtual
+              << std::setw(3) << armazemAntigo << " na secao "
+              << std::setw(3) << secaoAntiga
               << std::endl;
     
-    Evento novoEvento(
-        tempoAtual + 
-        custos[static_cast<int>(CustoEvento::INTERVALO_TRANSPORTE)] + 
-        custos[static_cast<int>(CustoEvento::CUSTO_REMOVER_PACOTE)],
-        idPacote,
-        pacotes[idPacote].getIdArmazemAtual(),
-        pacotes[idPacote].getRota().GetElemPos(2)->GetData(), // Próximo armazém na rota
-        TipoEvento::REMOCAO
-    );
-
-    Escalonador.InsereEvento(novoEvento);
-}
-
-void handleRemocao(
-    Evento prox_evento, Escalonador& Escalonador,
-    Vetor<Armazem>& armazens, Vetor<Pacote<int>>& pacotes, Vetor<int>& custos) {
-
-    int idPacote = prox_evento.getIdPacote();
-    int tempoAtual = prox_evento.getTempo();
-    int armazemAtual = pacotes[idPacote].getIdArmazemAtual() - 1;
-    int secaoAtual = pacotes[idPacote].getIdSecaoAtual() - 1;
-
-    try {
-        pacotes[idPacote];
-    } catch (const std::out_of_range& e) {
-        std::cerr << "Erro: Pacote com ID " << idPacote << " não encontrado." << std::endl;
-        return;
-    }
     
-    pacotes[idPacote].setEstado(EstadoPacote::EM_SEPARACAO);
 
-    std::cout << std::setfill('0') 
-              << std::setw(7) << tempoAtual << " pacote "
-              << std::setw(3) << idPacote << " removido de "
-              << std::setw(3) << armazemAtual << " na secao " 
-              << std::setw(3) << secaoAtual
-              << std::endl;
-    
-    Lista<int> rota = pacotes[idPacote].getRota();
-
-    Evento novoEvento(
-        tempoAtual,
-        idPacote,
-        pacotes[idPacote].getIdArmazemAtual(),
-        rota.GetElemPos(2)->GetData(), // Próximo armazém na rota
-        TipoEvento::TRANSPORTE
-    );
-
-    Escalonador.InsereEvento(novoEvento);
+    escalonador.InsereEvento(novoEvento);
 }
 
 void handleTransporte(
     Evento prox_evento, Escalonador& Escalonador,
     Vetor<Armazem>& armazens, Vetor<Pacote<int>>& pacotes, Vetor<int>& custos) {
-
-    int idPacote = prox_evento.getIdPacote();
-    int tempoAtual = prox_evento.getTempo();
-    int armazemAtual = pacotes[idPacote].getIdArmazemAtual() - 1;
-    int secaoAtual = pacotes[idPacote].getIdSecaoAtual() - 1;
-
-    try {
-        pacotes[idPacote];
-    } catch (const std::out_of_range& e) {
-        std::cerr << "Erro: Pacote com ID " << idPacote << " não encontrado." << std::endl;
-        return;
-    }
-    
-    pacotes[idPacote].setEstado(EstadoPacote::EM_TRANSPORTE);
-
-    std::cout << std::setfill('0') 
-              << std::setw(7) << tempoAtual << " pacote "
-              << std::setw(3) << idPacote << " em transito de "
-              << std::setw(3) << armazemAtual << " para " 
-              << std::setw(3) << secaoAtual
-              << std::endl;
-    
-    Evento novoEvento(
-        tempoAtual + custos[static_cast<int>(CustoEvento::LATENCIA_TRANSPORTE)],
-        idPacote,
-        pacotes[idPacote].getIdArmazemAtual(),
-        pacotes[idPacote].getRota().GetElemPos(2)->GetData(), // Próximo armazém na rota
-        TipoEvento::ENTREGA
-    );
-
-    Escalonador.InsereEvento(novoEvento);
-}
-
-void handleRearmazenamento(
-    Evento prox_evento, Escalonador& Escalonador,
-    Vetor<Armazem>& armazens, Vetor<Pacote<int>>& pacotes, Vetor<int>& custos) {
-
-    int idPacote = prox_evento.getIdPacote();
-    int tempoAtual = prox_evento.getTempo();
-    int armazemAtual = pacotes[idPacote].getIdArmazemAtual() - 1;
-    int secaoAtual = pacotes[idPacote].getIdSecaoAtual() - 1;
-
-    try {
-        pacotes[idPacote];
-    } catch (const std::out_of_range& e) {
-        std::cerr << "Erro: Pacote com ID " << idPacote << " não encontrado." << std::endl;
-        return;
-    }
-
-    pacotes[idPacote].setEstado(EstadoPacote::EM_SEPARACAO);
-
-    std::cout << std::setfill('0') 
-              << std::setw(7) << tempoAtual << " pacote "
-              << std::setw(3) << idPacote << " rearmazenado em "
-              << std::setw(3) << armazemAtual << " na secao " 
-              << std::setw(3) << secaoAtual
-              << std::endl;
-
-    Evento novoEvento(
-        tempoAtual,
-        idPacote,
-        pacotes[idPacote].getIdArmazemAtual(),
-        pacotes[idPacote].getRota().GetElemPos(2)->GetData(), // Próximo armazém na rota
-        TipoEvento::REARMAZENAMENTO
-    );
-
-}
-
-void handleEntrega(
-    Evento prox_evento, Escalonador& Escalonador,
-    Vetor<Armazem>& armazens, Vetor<Pacote<int>>& pacotes, Vetor<int>& custos) {
-
-    int idPacote = prox_evento.getIdPacote();
-    int tempoAtual = prox_evento.getTempo();
-
-    try {
-        pacotes[idPacote];
-    } catch (const std::out_of_range& e) {
-        std::cerr << "Erro: Pacote com ID " << idPacote << " não encontrado." << std::endl;
-        return;
-    }
-
-    pacotes[idPacote].setEstado(EstadoPacote::EM_TRANSPORTE);
-    int armazemAtual = pacotes[idPacote].getIdArmazemAtual();
-    int destino = pacotes[idPacote].getRota().GetElemPos(pacotes[idPacote].getRota().GetTam())->GetData();
-
-    if (armazemAtual == destino) {
-        pacotes[idPacote].setEstado(EstadoPacote::ENTREGUE);
-
-        std::cout << std::setfill('0') 
-                  << std::setw(7) << tempoAtual << " pacote "
-                  << std::setw(3) << idPacote << " entregue em "
-                  << std::setw(3) << destino - 1 << std::endl;
-    } else {
-        int proximaPos = 0;
-        Lista<int> rota = pacotes[idPacote].getRota();
-
-        for (int k = 1; k <= rota.GetTam(); ++k) {
-            if (rota.GetElemPos(k)->GetData() == armazemAtual) {
-                proximaPos = k + 1;
-                break;
-            }
-        }
-        if (proximaPos > 0 && proximaPos <= rota.GetTam()) {
-            int proximoArmazem = rota.GetElemPos(proximaPos)->GetData();
-            pacotes[idPacote].setIdArmazemAtual(proximoArmazem);
-
-            Evento novoEvento(
-                tempoAtual + custos[static_cast<int>(CustoEvento::LATENCIA_TRANSPORTE)],
-                idPacote,
-                proximoArmazem,
-                destino,
-                TipoEvento::ENTREGA
-            );
-
-            Escalonador.InsereEvento(novoEvento);
-        }
-    }
 
 }
 
@@ -321,20 +214,11 @@ int main(int argc, char* argv[]) {
 
         switch (prox_evento.getTipoEvento())
         {
-        case TipoEvento::PACOTE:
-            handlePostagem(prox_evento, escalonador, armazens, pacotes, custos);
-            break;
-        case TipoEvento::REMOCAO:
-            handleRemocao(prox_evento, escalonador, armazens, pacotes, custos);
+        case TipoEvento::CHEGADA_PACOTE:
+            handleChegadaPacote(prox_evento, escalonador, armazens, pacotes, custos);
             break;
         case TipoEvento::TRANSPORTE:
             handleTransporte(prox_evento, escalonador, armazens, pacotes, custos);
-            break;
-        case TipoEvento::REARMAZENAMENTO:
-            handleRearmazenamento(prox_evento, escalonador, armazens, pacotes, custos);
-            break;
-        case TipoEvento::ENTREGA:
-            handleEntrega(prox_evento, escalonador, armazens, pacotes, custos);
             break;
         default:
             break;
