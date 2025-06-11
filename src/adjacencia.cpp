@@ -25,7 +25,6 @@ int ListaAdjacencia::GetArestas() {
 
 void ListaAdjacencia::InsereVertice() {
     Lista<int> novaLista;
-    std::cout << "Tamanho da lista de adj " << this->_lista.GetTam() << std::endl;
     this->_lista.InsereFim(novaLista);
     this->_vertices++;
 }

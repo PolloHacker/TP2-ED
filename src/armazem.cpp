@@ -2,9 +2,7 @@
 
 Armazem::Armazem() : _id(-1) {}
 
-Armazem::Armazem(int id) : _id(id) {
-    std::cout << "Armazém criado com ID: " << this->_id << std::endl;
-}
+Armazem::Armazem(int id) : _id(id) {}
 
 int Armazem::buscaVizinho(int id) const {
     Node<int>* aux = this->_vizinhos._head->GetNext();
@@ -24,14 +22,12 @@ void Armazem::adicionaVizinho(int vizinho) {
     this->_vizinhos.InsereFim(vizinho);
     Pilha<Pacote<std::string>> pilhaAux;
     this->_pacotesPorVizinho.InsereFim(pilhaAux);
-    std::cout << "Vizinho " << vizinho << " adicionado ao armazém " << this->_id << "." << std::endl;
 }
 
 void Armazem::removeVizinho(int id) {
     int pos = this->buscaVizinho(id);
     this->_vizinhos.RemovePos(pos);
     this->_pacotesPorVizinho.RemovePos(pos);
-    std::cout << "Vizinho " << id << " removido do armazém " << this->_id << "." << std::endl;
 }
 
 Lista<int> Armazem::getVizinhos() const {

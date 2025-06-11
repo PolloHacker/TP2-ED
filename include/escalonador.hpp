@@ -3,14 +3,11 @@
 
 #include <stdexcept>
 #include <iostream>
-#include <chrono>
 #include "heap.hpp"
-#include "relogio.hpp"
 #include "relogioDiscreto.hpp"
 
 class Escalonador {
     private:
-        Relogio _relogio;
         RelogioDiscreto _relogioDiscreto;
         Heap _eventos;
         int _quantidadeEventos;

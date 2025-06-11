@@ -28,6 +28,5 @@ bool Escalonador::Vazio() {
 }
 
 void Escalonador::Finaliza() {
-    this->_relogio.Finaliza();
     // TODO: Calcular métricas
 }

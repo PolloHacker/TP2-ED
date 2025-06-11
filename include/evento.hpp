@@ -7,7 +7,17 @@
 
 enum class TipoEvento {
     PACOTE = 1,
-    TRANSPORTE = 2
+    TRANSPORTE,
+    REMOCAO,
+    REARMAZENAMENTO,
+    ENTREGA 
+};
+
+enum class CustoEvento {
+    CAPACIDADE_TRANSPORTE,
+    LATENCIA_TRANSPORTE,
+    INTERVALO_TRANSPORTE,
+    CUSTO_REMOVER_PACOTE,
 };
 
 class Evento {
@@ -19,8 +29,7 @@ class Evento {
     public:
         Evento();
         Evento(std::string data);
-        Evento(int tempo, int idPacote, TipoEvento tipoEvento);
-        Evento(int tempo, int idArmazemOrigem, int idArmazemDestino, TipoEvento tipoEvento);
+        Evento(int tempo, int idPacote, int idArmazemOrigem, int idArmazemDestino, TipoEvento tipoEvento);
 
         std::string getData() const;
         int getTempo() const;

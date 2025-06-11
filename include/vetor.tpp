@@ -15,7 +15,6 @@ Vetor<T>::Vetor(int size): _size(size), _capacity(size) {
         throw std::invalid_argument("Tamanho do vetor deve ser maior que zero.");
     }
     this->_data = new T[size];
-    printf("Vetor criado com tamanho %d e capacidade %d.\n", size, size);
 }
 
 /**
@@ -66,11 +65,8 @@ void Vetor<T>::resize(int newCapacity) {
  */
 template <typename T>
 void Vetor<T>::shouldResize(int indx) {
-    printf("Verificando se o vetor precisa ser redimensionado para o índice %d.\n", indx);
     if (indx + 1 >= this->_capacity) {
         this->resize(this->_capacity * 2);
-        printf("Vetor redimensionado para capacidade %d.\n", this->_capacity);
-        printf("Novo tamanho do vetor: %d.\n", this->_size);
     }
 }
 

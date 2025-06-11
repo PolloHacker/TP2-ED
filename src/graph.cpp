@@ -63,7 +63,8 @@ void Grafo::ImprimeVizinhos(int from) {
 
 Lista<int> Grafo::BFS(int v, int w) {
     int n = this->vertices.GetVertices();
-    if (n == 0 || v < 0 || v >= n || w < 0 || w >= n) {
+    // Ajuste para índices de vértices de 1 a n
+    if (n == 0 || v < 1 || v > n || w < 1 || w > n) {
         std::cerr << "Índices de vértice inválidos em BFS: v=" << v << ", w=" << w << std::endl;
         return Lista<int>();
     }
@@ -71,15 +72,16 @@ Lista<int> Grafo::BFS(int v, int w) {
     Lista<bool> visitados;
     Lista<int> caminho, antecessores;
 
-    for (int i = 0; i < n; i++) {
+    // Inicializa listas para 1 a n (posição 1 corresponde ao vértice 1)
+    for (int i = 1; i <= n; i++) {
         bool visitado = false;
+        int antecessor = -1; // -1 indica que não há antecessor
         visitados.InsereFim(visitado);
 
-        int pred = -1;
-        antecessores.InsereFim(pred);
+        antecessores.InsereFim(antecessor);
     }
 
-    visitados.Posiciona(v + 1)->SetData(true);
+    visitados.Posiciona(v)->SetData(true);
     fila.Enfileira(v);
 
     bool encontrou = false;
@@ -87,17 +89,17 @@ Lista<int> Grafo::BFS(int v, int w) {
         int currIdx = fila.Frente();
         fila.Desenfileira();
 
-        Lista<int> vizinhos = this->vertices.GetVizinhos(currIdx + 1); // fix: +1 for 1-based
+        Lista<int> vizinhos = this->vertices.GetVizinhos(currIdx);
         auto aux = vizinhos._head ? vizinhos._head->GetNext() : nullptr;
         while (aux != nullptr) {
             int vizinho = aux->GetData();
-            if (vizinho < 0 || vizinho >= n) {
+            if (vizinho < 1 || vizinho > n) {
                 aux = aux->GetNext();
                 continue;
             }
-            if (!visitados.Posiciona(vizinho + 1)->GetData()) {
-                visitados.Posiciona(vizinho + 1)->SetData(true);
-                antecessores.Posiciona(vizinho + 1)->SetData(currIdx);
+            if (!visitados.Posiciona(vizinho)->GetData()) {
+                visitados.Posiciona(vizinho)->SetData(true);
+                antecessores.Posiciona(vizinho)->SetData(currIdx);
                 fila.Enfileira(vizinho);
 
                 if (vizinho == w) {
@@ -109,13 +111,13 @@ Lista<int> Grafo::BFS(int v, int w) {
         }
     }
 
-    if (!visitados.Posiciona(w + 1)->GetData()) {
+    if (!visitados.Posiciona(w)->GetData()) {
         return Lista<int>();
     }
     int curr = w;
     while (curr != -1) {
         caminho.InsereInicio(curr);
-        curr = antecessores.Posiciona(curr + 1)->GetData();
+        curr = antecessores.Posiciona(curr)->GetData();
     }
 
     return caminho;

@@ -6,19 +6,13 @@
 
 /*
 * Chave da fila de prioridades:
-* Dígitos: 13
+* Dígitos: 19
 *
-* 1. Tempo: 6 dígitos
-*
-* Se for pacote:
+*   1. Tempo: 6 dígitos
 *   2. ID do pacote: 6 dígitos
-* Se for transporte:
-*   2. ID do armazém de origem: 3 dígitos
-*   3. ID do armazém de destino: 3 dígitos
-*
-* (3/4). Tipo de evento: 1 dígito
-*   1 - Postagem
-*   2 - Transporte
+*   3. ID do armazém de origem: 3 dígitos
+*   4. ID do armazém de destino: 3 dígitos
+*   5. Tipo de evento: 1 dígito
 */
 
 class Heap{

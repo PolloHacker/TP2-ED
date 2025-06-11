@@ -21,6 +21,8 @@ class Pacote {
         std::string _nome_destinatario;
         T _conteudo;
         Lista<int> _rota;
+        int _idArmazemAtual;
+        int _idSecaoAtual;
         Metricas _metricas;
         EstadoPacote _estado;
            
@@ -32,12 +34,20 @@ class Pacote {
         std::string getNomeRemetente() const;
         std::string getNomeDestinatario() const;
         T getConteudo() const;
+        Lista<int> getRota() const;
+        int getIdArmazemAtual() const;
+        int getIdSecaoAtual() const;
+        Metricas getMetricas() const;
+        EstadoPacote getEstado() const;
         
         void setId(int id);
         void setNomeRemetente(const std::string& nome_remente);
         void setNomeDestinatario(const std::string& nome_destinatario);
         void setConteudo(const T& conteudo);
         void setRota(const Lista<int>& rota);
+        void setIdArmazemAtual(int idArmazem);
+        void setIdSecaoAtual(int idSecao);
+        void setEstado(EstadoPacote estado);
 };
 
 #include "pacote.tpp"

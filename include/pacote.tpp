@@ -39,6 +39,32 @@ T Pacote<T>::getConteudo() const {
 }
 
 template <typename T>
+Lista<int> Pacote<T>::getRota() const {
+    return this->_rota;
+}
+
+template <typename T>
+int Pacote<T>::getIdArmazemAtual() const {
+    return this->_idArmazemAtual;
+}
+
+template <typename T>
+int Pacote<T>::getIdSecaoAtual() const {
+    return this->_idSecaoAtual;
+}
+
+template <typename T>
+Metricas Pacote<T>::getMetricas() const {
+    return this->_metricas;
+}
+
+template <typename T>
+EstadoPacote Pacote<T>::getEstado() const {
+    return this->_estado;
+}
+
+
+template <typename T>
 void Pacote<T>::setId(int id) {
     this->_id = id;
 }
@@ -61,4 +87,19 @@ void Pacote<T>::setConteudo(const T& conteudo) {
 template <typename T>
 void Pacote<T>::setRota(const Lista<int>& rota) {
     this->_rota = rota;
+}
+
+template <typename T>
+void Pacote<T>::setIdArmazemAtual(int idArmazem) {
+    this->_idArmazemAtual = idArmazem;
+}
+
+template <typename T>
+void Pacote<T>::setIdSecaoAtual(int idSecao) {
+    this->_idSecaoAtual = idSecao;
+}
+
+template <typename T>
+void Pacote<T>::setEstado(EstadoPacote estado) {
+    this->_estado = estado;
 }
