@@ -29,6 +29,10 @@ class Pacote {
     public:
         Pacote();
         Pacote(int id, const std::string& nome_remente, const std::string& nome_destinatario, const T& conteudo);
+
+        void removeArmazemAtualDaRota();
+        int getProximoArmazemRota();
+        int getProximaSecaoRota();
         
         int getId() const;
         std::string getNomeRemetente() const;

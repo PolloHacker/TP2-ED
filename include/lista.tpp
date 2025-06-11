@@ -57,7 +57,7 @@ Node<T>* Lista<T>::Posiciona(int pos) {
     int i;
     Node<T>* aux;
 
-    if (this->_tam < pos || pos <= 0) {
+    if (this->_tam < pos || pos < 0) {
         throw std::invalid_argument("Posicao invalida");
     }
 

@@ -21,6 +21,11 @@ Node<T>& Node<T>::operator=(const Node<T>& other) {
 }
 
 template <typename T>
+T& Node<T>::GetDataRef() {
+    return this->_data;
+}
+
+template <typename T>
 T Node<T>::GetData() {
     return this->_data;
 }

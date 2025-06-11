@@ -19,6 +19,29 @@ Pacote<T>::Pacote(
 
 
 template <typename T>
+void Pacote<T>::removeArmazemAtualDaRota() {
+    if (this->_rota.GetTam() > 0) {
+        this->_rota.RemovePos(1);
+    }
+}
+
+template <typename T>
+int Pacote<T>::getProximaSecaoRota() {
+    if (this->_rota.GetTam() > 1) {
+        return this->_rota.GetElemPos(2)->GetData();
+    }
+    return -1;
+}
+
+template <typename T>
+int Pacote<T>::getProximoArmazemRota() {
+    if (this->_rota.GetTam() > 0) {
+        return this->_rota.GetElemPos(1)->GetData();
+    }
+    return -1;
+}
+
+template <typename T>
 int Pacote<T>::getId() const {
     return this->_id;
 }

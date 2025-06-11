@@ -11,6 +11,7 @@
 class Armazem {
     private:
         int _id;
+        Lista<int> _vizinhos;
         Lista<Pilha<int>> _pacotesPorVizinho;
         Lista<Lista<int>> _transportesPorVizinho;
         Lista<int> _cooldownsPorVizinho;
@@ -26,11 +27,16 @@ class Armazem {
         Armazem(const Armazem& other);
         Armazem& operator=(const Armazem& other);
         
+        void adicionaVizinho(int idVizinho);
+        void removeVizinho(int idVizinho);
+
         void armazenaPacote(int idVizinho, int idPacote);
         int removePacotePorSecao(int idVizinho, int idPacote);
         
         void adicionaPacoteParaTransporte(int idVizinho, int idPacote);
         Lista<int> getTransportesPorVizinho(int idVizinho);
+
+        bool verificaSecoesVazias();
         
         int getId() const;
         int getCooldown(int idVizinho);

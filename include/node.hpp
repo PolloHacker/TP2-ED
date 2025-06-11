@@ -15,6 +15,7 @@ class Node {
         Node(const Node<T>& other);
         Node<T>& operator=(const Node<T>& other);
 
+        T& GetDataRef();
         T GetData();
         Node<T>* GetNext();
 

@@ -37,6 +37,16 @@ Vetor<T>::Vetor(const Vetor& other) {
 }
 
 /**
+ * @brief Retorna o tamanho atual do vetor.
+ * 
+ * @return O número de elementos atualmente armazenados no vetor.
+ */
+template <typename T>
+int Vetor<T>::getSize() const {
+    return this->_size;
+}
+
+/**
  * @brief Redimensiona o vetor para dobrar sua capacidade.
  * 
  * Cria um novo array com o dobro da capacidade atual, copia os elementos do vetor original

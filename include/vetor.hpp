@@ -17,6 +17,8 @@ class Vetor {
         Vetor(int size);
         Vetor(const Vetor& other);
         ~Vetor();
+
+        int getSize() const;
         
         void insere(int index, const T& value);
         void remove(int index);

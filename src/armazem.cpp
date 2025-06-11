@@ -40,9 +40,12 @@ int Armazem::buscaVizinho(int id) const {
 }
 
 void Armazem::adicionaVizinho(int vizinho) {
-    this->_vizinhos.InsereFim(vizinho);
     Pilha<int> pilhaAux;
+    Lista<int> listaAux;
+
+    this->_vizinhos.InsereFim(vizinho);
     this->_pacotesPorVizinho.InsereFim(pilhaAux);
+    this->_transportesPorVizinho.InsereFim(listaAux);
 }
 
 void Armazem::removeVizinho(int id) {
@@ -105,7 +108,16 @@ void Armazem::adicionaPacoteParaTransporte(int idVizinho, int IdPacote) {
         throw std::runtime_error("Transporte já está cheio para este vizinho.");
     }
 
-    this->_transportesPorVizinho.Posiciona(pos)->GetData().InsereFim(IdPacote);
+    this->_transportesPorVizinho.Posiciona(pos)->GetDataRef().InsereFim(IdPacote);
+    std::cout << "Pacote " << IdPacote << " adicionado para transporte no vizinho " << idVizinho << std::endl;
+    std::cout << "Pacotes no transporte do vizinho " << idVizinho << ": ";
+    auto lista = this->_transportesPorVizinho.Posiciona(pos)->GetData();
+    auto node = lista._head->GetNext();
+    while (node != nullptr) {
+        std::cout << node->GetData() << " ";
+        node = node->GetNext();
+    }
+    std::cout << std::endl;
 }
 
 Lista<int> Armazem::getTransportesPorVizinho(int idVizinho) {
@@ -115,6 +127,15 @@ Lista<int> Armazem::getTransportesPorVizinho(int idVizinho) {
     }
 
     return this->_transportesPorVizinho.Posiciona(pos)->GetData();
+}
+
+bool Armazem::verificaSecoesVazias() {
+    for (int i = 1; i <= this->_vizinhos.GetTam(); ++i) {
+        if (!this->_pacotesPorVizinho.Posiciona(i)->GetData().Vazia()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int Armazem::getCooldown(int idVizinho) {
@@ -131,7 +152,10 @@ void Armazem::setCooldown(int idVizinho, int cooldown) {
     if (pos == -1) {
         throw std::runtime_error("Vizinho não encontrado.");
     }
-
+    if (this->_cooldownsPorVizinho.GetTam() < pos + 1) {
+        this->_cooldownsPorVizinho.InsereFim(cooldown);
+        return;
+    }
     this->_cooldownsPorVizinho.Posiciona(pos)->SetData(cooldown);
 }
 
@@ -150,5 +174,9 @@ void Armazem::setCapacidade(int idVizinho, int capacidade) {
         throw std::runtime_error("Vizinho não encontrado.");
     }
 
+    if (this->_capacidadesPorVizinho.GetTam() < pos + 1) {
+        this->_capacidadesPorVizinho.InsereFim(capacidade);
+        return;
+    }
     this->_capacidadesPorVizinho.Posiciona(pos)->SetData(capacidade);
 }
