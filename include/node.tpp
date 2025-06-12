@@ -26,7 +26,7 @@ T& Node<T>::GetDataRef() {
 }
 
 template <typename T>
-T Node<T>::GetData() {
+T& Node<T>::GetData() {
     return this->_data;
 }
 

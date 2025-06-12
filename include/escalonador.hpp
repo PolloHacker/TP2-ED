@@ -4,11 +4,9 @@
 #include <stdexcept>
 #include <iostream>
 #include "heap.hpp"
-#include "relogioDiscreto.hpp"
 
 class Escalonador {
     private:
-        RelogioDiscreto _relogioDiscreto;
         Heap _eventos;
         int _quantidadeEventos;
 

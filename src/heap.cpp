@@ -1,4 +1,5 @@
 #include "heap.hpp"
+#include <iostream>
 
 Heap::Heap(): _tamanho(0), _data(10) {}
 

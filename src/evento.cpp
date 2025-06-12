@@ -74,11 +74,33 @@ TipoEvento Evento::getTipoEvento() const {
 }
 
 bool Evento::operator<(const Evento& other) const {
-    return this->_tempo < other._tempo;
+    if (this->_tempo != other._tempo)
+        return this->_tempo < other._tempo;
+
+    // Compare armazemOrigem
+    int thisOrigem = 0, otherOrigem = 0;
+    try {
+        thisOrigem = std::stoi(this->_chave.substr(12, 3));
+        otherOrigem = std::stoi(other._chave.substr(12, 3));
+    } catch (...) {
+        // If not TRANSPORTE, fallback to 0
+    }
+    if (thisOrigem != otherOrigem)
+        return thisOrigem < otherOrigem;
+
+    // Compare armazemDestino
+    int thisDestino = 0, otherDestino = 0;
+    try {
+        thisDestino = std::stoi(this->_chave.substr(15, 3));
+        otherDestino = std::stoi(other._chave.substr(15, 3));
+    } catch (...) {
+        // If not TRANSPORTE, fallback to 0
+    }
+    return thisDestino < otherDestino;
 }
 
 bool Evento::operator>(const Evento& other) const {
-    return this->_tempo > other._tempo;
+    return other < *this;
 }
 
 bool Evento::operator==(const Evento& other) const {
@@ -90,9 +112,9 @@ bool Evento::operator!=(const Evento& other) const {
 }
 
 bool Evento::operator<=(const Evento& other) const {
-    return this->_tempo <= other._tempo;
+    return !(other < *this);
 }
 
 bool Evento::operator>=(const Evento& other) const {
-    return this->_tempo >= other._tempo;
+    return !(*this < other);
 }

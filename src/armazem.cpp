@@ -64,7 +64,7 @@ void Armazem::armazenaPacote(int idVizinho, int idPacote) {
         throw std::runtime_error("Vizinho não encontrado.");
     }
 
-    this->_pacotesPorVizinho.Posiciona(pos)->GetData().Empilha(idPacote);
+    this->_pacotesPorVizinho.Posiciona(pos)->GetDataRef().Empilha(idPacote);
 }
 
 int Armazem::removePacotePorSecao(int idVizinho, int idPacote) {
@@ -98,26 +98,42 @@ int Armazem::removePacotePorSecao(int idVizinho, int idPacote) {
     return this->_pacotesPorVizinho.Posiciona(pos)->GetData().Desempilha();
 }
 
-void Armazem::adicionaPacoteParaTransporte(int idVizinho, int IdPacote) {
+void Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao) {
     int pos = this->buscaVizinho(idVizinho);
     if (pos == -1) {
         throw std::runtime_error("Vizinho não encontrado.");
     }
 
-    if (this->_transportesPorVizinho.Posiciona(pos)->GetData().GetTam() >= this->_capacidadesPorVizinho.Posiciona(pos)->GetData()) {
-        throw std::runtime_error("Transporte já está cheio para este vizinho.");
+    int capacidade = this->_capacidadesPorVizinho.Posiciona(pos)->GetData();
+    Lista<int>& transporte = this->_transportesPorVizinho.Posiciona(pos)->GetDataRef();
+    Pilha<int>& pilhaPacotes = this->_pacotesPorVizinho.Posiciona(pos)->GetDataRef();
+
+    // Clear the transport list before adding new packages
+    while (transporte.GetTam() > 0) {
+        transporte.RemovePos(1);
     }
 
-    this->_transportesPorVizinho.Posiciona(pos)->GetDataRef().InsereFim(IdPacote);
-    std::cout << "Pacote " << IdPacote << " adicionado para transporte no vizinho " << idVizinho << std::endl;
-    std::cout << "Pacotes no transporte do vizinho " << idVizinho << ": ";
-    auto lista = this->_transportesPorVizinho.Posiciona(pos)->GetData();
-    auto node = lista._head->GetNext();
-    while (node != nullptr) {
-        std::cout << node->GetData() << " ";
-        node = node->GetNext();
+    Pilha<int> pilhaAux;
+    int count = 0;
+
+    // Desempilha até a capacidade ou até esvaziar, colocando em pilha auxiliar
+    while (count < capacidade && !pilhaPacotes.Vazia()) {
+        pilhaAux.Empilha(pilhaPacotes.Desempilha());
+        count++;
+        tempoAtual += custoRemocao;
+
+        std::cout << std::setfill('0')
+                  << std::setw(7) << tempoAtual << " pacote "
+                  << std::setw(3) << pilhaAux.Topo() << " removido de "
+                  << std::setw(3) << this->_id - 1 << " na secao "
+                  << std::setw(3) << idVizinho - 1 << std::endl;
     }
-    std::cout << std::endl;
+
+    // Agora desempilha da pilha auxiliar e insere no transporte (do fundo para o topo original)
+    while (!pilhaAux.Vazia()) {
+        int pacote = pilhaAux.Desempilha();
+        transporte.InsereFim(pacote);
+    }
 }
 
 Lista<int> Armazem::getTransportesPorVizinho(int idVizinho) {
@@ -129,13 +145,13 @@ Lista<int> Armazem::getTransportesPorVizinho(int idVizinho) {
     return this->_transportesPorVizinho.Posiciona(pos)->GetData();
 }
 
-bool Armazem::verificaSecoesVazias() {
+bool Armazem::temPacotesArmazenados() {
     for (int i = 1; i <= this->_vizinhos.GetTam(); ++i) {
         if (!this->_pacotesPorVizinho.Posiciona(i)->GetData().Vazia()) {
-            return false;
+            return true;
         }
     }
-    return true;
+    return false;
 }
 
 int Armazem::getCooldown(int idVizinho) {

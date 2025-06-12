@@ -2,6 +2,7 @@
 #define ARMAZEM_HPP
 
 #include <stdexcept>
+#include <iomanip>
 #include <iostream>
 #include "lista.hpp"
 #include "vetor.hpp"
@@ -33,10 +34,10 @@ class Armazem {
         void armazenaPacote(int idVizinho, int idPacote);
         int removePacotePorSecao(int idVizinho, int idPacote);
         
-        void adicionaPacoteParaTransporte(int idVizinho, int idPacote);
+        void adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao);
         Lista<int> getTransportesPorVizinho(int idVizinho);
 
-        bool verificaSecoesVazias();
+        bool temPacotesArmazenados();
         
         int getId() const;
         int getCooldown(int idVizinho);

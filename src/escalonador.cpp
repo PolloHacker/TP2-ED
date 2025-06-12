@@ -5,9 +5,6 @@ Escalonador::Escalonador() : _quantidadeEventos(0) { }
 void Escalonador::Inicializa() {}
 
 void Escalonador::InsereEvento(Evento& evento) {
-    if (evento.getTempo() < this->_relogioDiscreto.getTempoAtual()) {
-        throw std::invalid_argument("Tempo no evento não pode ser menor que o tempo atual do relógio discreto.");
-    }
     this->_eventos.Inserir(evento);
     this->_quantidadeEventos++;
 }
