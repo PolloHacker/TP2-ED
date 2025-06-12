@@ -6,18 +6,22 @@ Evento::Evento()
 Evento::Evento(std::string chave)
     : _chave(chave) {
     
-    if (chave.length() < 13) {
+    if (chave.length() != 13) {
         throw std::invalid_argument("Chave deve ter pelo menos 13 caracteres.");
     }
 
     this->_tempo = std::stoi(chave.substr(0, 6));
-    printf("Chave: %s\n", this->_chave.c_str());
 }
 
 Evento::Evento(int tempo, int idPacote, int idArmazemOrigem, int idArmazemDestino, TipoEvento tipoEvento) 
     : _tempo(tempo) {
         
     int tipo = 0;
+
+    if (tempo < 0) {
+        throw std::invalid_argument("Tempo não pode ser negativo.");
+    }
+
     switch (tipoEvento) {
         case TipoEvento::CHEGADA_PACOTE: tipo = 1; break;
         case TipoEvento::TRANSPORTE: tipo = 2; break;
@@ -26,15 +30,26 @@ Evento::Evento(int tempo, int idPacote, int idArmazemOrigem, int idArmazemDestin
             throw std::invalid_argument("Tipo de evento inválido.");
     }
 
-    this->_chave = std::string(6 - std::to_string(tempo).length(), '0') +
-                   std::to_string(tempo) +
-                   std::string(6 - std::to_string(idPacote).length(), '0') +
-                   std::to_string(idPacote) +
-                   std::string(3 - std::to_string(idArmazemOrigem).length(), '0') +
-                   std::to_string(idArmazemOrigem) +
-                   std::string(3 - std::to_string(idArmazemDestino).length(), '0') +
-                   std::to_string(idArmazemDestino) + 
-                   std::to_string(tipo);
+    std::ostringstream oss;
+    oss << std::setfill('0');
+
+    // Always start with time (6 digits)
+    oss << std::setw(6) << tempo;
+
+    if (idPacote >= 0) {
+        // Valid packet ID: time(6) + pacote(6) + tipo(1)
+        oss << std::setw(6) << idPacote;
+        oss << tipo;
+    } else if (idArmazemOrigem >= 0 && idArmazemDestino >= 0) {
+        // Invalid packet but valid warehouses: time(6) + origem(3) + destino(3) + tipo(1)
+        oss << std::setw(3) << idArmazemOrigem;
+        oss << std::setw(3) << idArmazemDestino;
+        oss << tipo;
+    } else {
+        throw std::invalid_argument("Evento inválido: deve ter pacote válido ou armazéns válidos.");
+    }
+
+    this->_chave = oss.str();
 }
 
 std::string Evento::getData() const {
@@ -58,8 +73,8 @@ Vetor<int> Evento::getArmazens() const {
     }
 
     Vetor<int> armazens(2);
-    armazens[0] = std::stoi(this->_chave.substr(12, 3)); // armazemOrigem
-    armazens[1] = std::stoi(this->_chave.substr(15, 3)); // armazemDestino
+    armazens[0] = std::stoi(this->_chave.substr(6, 3)); // armazemOrigem
+    armazens[1] = std::stoi(this->_chave.substr(9, 3)); // armazemDestino
     return armazens;
 }
 
@@ -74,33 +89,11 @@ TipoEvento Evento::getTipoEvento() const {
 }
 
 bool Evento::operator<(const Evento& other) const {
-    if (this->_tempo != other._tempo)
-        return this->_tempo < other._tempo;
-
-    // Compare armazemOrigem
-    int thisOrigem = 0, otherOrigem = 0;
-    try {
-        thisOrigem = std::stoi(this->_chave.substr(12, 3));
-        otherOrigem = std::stoi(other._chave.substr(12, 3));
-    } catch (...) {
-        // If not TRANSPORTE, fallback to 0
-    }
-    if (thisOrigem != otherOrigem)
-        return thisOrigem < otherOrigem;
-
-    // Compare armazemDestino
-    int thisDestino = 0, otherDestino = 0;
-    try {
-        thisDestino = std::stoi(this->_chave.substr(15, 3));
-        otherDestino = std::stoi(other._chave.substr(15, 3));
-    } catch (...) {
-        // If not TRANSPORTE, fallback to 0
-    }
-    return thisDestino < otherDestino;
+    return this->_chave < other._chave;
 }
 
 bool Evento::operator>(const Evento& other) const {
-    return other < *this;
+    return this->_chave > other._chave;
 }
 
 bool Evento::operator==(const Evento& other) const {
@@ -108,13 +101,13 @@ bool Evento::operator==(const Evento& other) const {
 }
 
 bool Evento::operator!=(const Evento& other) const {
-    return !(*this == other);
+    return this->_chave != other._chave;
 }
 
 bool Evento::operator<=(const Evento& other) const {
-    return !(other < *this);
+    return this->_chave <= other._chave;
 }
 
 bool Evento::operator>=(const Evento& other) const {
-    return !(*this < other);
+    return this->_chave >= other._chave;
 }

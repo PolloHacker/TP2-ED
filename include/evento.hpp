@@ -2,6 +2,8 @@
 #define EVENTO_HPP
 
 #include <stdexcept>
+#include <iomanip>
+#include <sstream>
 #include <string>
 #include "vetor.hpp"
 
