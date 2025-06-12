@@ -17,11 +17,6 @@ void escalonaTransportes(Escalonador& escalonador,
             int destino = vizinhos.GetElemPos(i)->GetData();
             int cooldown = armazens[origem].getCooldown(destino);
 
-            std::cout << "Escalonando transporte de " 
-                      << origem << " para " 
-                      << destino 
-                      << " no tempo " << tempoAtual + cooldown << std::endl;
-
             Evento novoTransporte(tempoAtual + cooldown, -1, origem, destino, TipoEvento::TRANSPORTE);
             escalonador.InsereEvento(novoTransporte);
         }
@@ -86,21 +81,8 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
         Lista<int> rota = rotas.calculaRota(origem, destino);
         p.setRota(rota);
 
-        std::cout << "Rota calculada tem tamanho " << rota.GetTam() << ": ";
-        for (int k = 1; k <= rota.GetTam(); ++k) {
-            std::cout << rota.GetElemPos(k)->GetData() << " ";
-        }
-
         p.setIdArmazemAtual(origem);
         p.setIdSecaoAtual(rota.GetElemPos(2)->GetData());
-
-        std::cout << "Pacote ID: " << id 
-                  << ", Origem: " << origem 
-                  << ", Destino: " << destino 
-                  << ", Tempo de Postagem: " << tempoPostagem 
-                  << ", Armazem Atual: " << p.getIdArmazemAtual()
-                  << ", Seção Atual: " << p.getIdSecaoAtual()
-                  << std::endl;
 
         if (i == 0) {
             escalonaTransportes(escalonador, armazens, numeroArmazens, tempoPostagem);
@@ -232,8 +214,6 @@ int main(int argc, char* argv[]) {
     // Lê o arquivo de entrada
     std::string nomeArquivo = argv[1];
     leArquivo(nomeArquivo, rotas, armazens, escalonador, pacotes, custos);
-
-    rotas.imprimeRede();
     
     // Inicializa as variáveis de controle do escalonador
     escalonador.Inicializa();
