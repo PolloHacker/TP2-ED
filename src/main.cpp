@@ -171,7 +171,7 @@ void handleTransporte(
 
     Armazem& armazemOrigem = armazens[armazensEvento[0]];
 
-    armazemOrigem.adicionaPacotesParaTransporte(armazensEvento[1], tempoAtual, remocao);
+    Pilha<int> pacotesRearmazenar = armazemOrigem.adicionaPacotesParaTransporte(armazensEvento[1], tempoAtual, remocao);
     Lista<int> pacotesParaTransportar = armazemOrigem.getTransportesPorVizinho(armazensEvento[1]);
 
     if (pacotesParaTransportar.GetTam() > 0) {
@@ -199,6 +199,9 @@ void handleTransporte(
     }
 
     // Escalona o próximo evento de transporte para esta rota
+    int timeDiff = (pacotesParaTransportar.GetTam() + pacotesRearmazenar.GetTam()) * remocao;
+    tempoAtual -= timeDiff;
+
     Evento proximoTransporte(
         tempoAtual + custos[2], // intervaloTransportes
         -1,
@@ -207,6 +210,9 @@ void handleTransporte(
         TipoEvento::TRANSPORTE
     );
     Escalonador.InsereEvento(proximoTransporte);
+
+    // Rearmazenar pacotes após o transporte
+    armazemOrigem.rearmazenarPacotes(armazensEvento[1], pacotesRearmazenar, tempoAtual + timeDiff);
 }
 
 int main(int argc, char* argv[]) {

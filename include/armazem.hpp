@@ -34,7 +34,9 @@ class Armazem {
         void armazenaPacote(int idVizinho, int idPacote);
         int removePacotePorSecao(int idVizinho, int idPacote);
         
-        void adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao);
+        // Agora retorna os pacotes a serem rearmazenados
+        Pilha<int> adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao);
+        void rearmazenarPacotes(int idVizinho, Pilha<int> pacotes, int tempoAtual);
         Lista<int> getTransportesPorVizinho(int idVizinho);
 
         bool temPacotesArmazenados();

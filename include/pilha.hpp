@@ -20,6 +20,8 @@ class Pilha {
         T Topo() const;
         bool Vazia() const;
 
+        int GetTam() const;
+
 };
 
 #include "pilha.tpp"

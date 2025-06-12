@@ -81,6 +81,17 @@ bool Pilha<T>::Vazia() const {
 }
 
 template <typename T>
+int Pilha<T>::GetTam() const {
+    int count = 0;
+    Node<T>* current = this->_topo;
+    while (current != nullptr) {
+        count++;
+        current = current->GetNext();
+    }
+    return count;
+}
+
+template <typename T>
 Pilha<T>::~Pilha() {
     while (!this->Vazia()) {
         this->Desempilha();

@@ -98,7 +98,7 @@ int Armazem::removePacotePorSecao(int idVizinho, int idPacote) {
     return this->_pacotesPorVizinho.Posiciona(pos)->GetData().Desempilha();
 }
 
-void Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao) {
+Pilha<int> Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao) {
     int pos = this->buscaVizinho(idVizinho);
     if (pos == -1) {
         throw std::runtime_error("Vizinho não encontrado.");
@@ -108,7 +108,6 @@ void Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int 
     Lista<int>& transporte = this->_transportesPorVizinho.Posiciona(pos)->GetDataRef();
     Pilha<int>& pilhaPacotes = this->_pacotesPorVizinho.Posiciona(pos)->GetDataRef();
 
-    // Clear the transport list before adding new packages
     while (transporte.GetTam() > 0) {
         transporte.RemovePos(1);
     }
@@ -116,12 +115,10 @@ void Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int 
     Pilha<int> pilhaAux;
     int count = 0;
 
-    // Desempilha até a capacidade ou até esvaziar, colocando em pilha auxiliar
-    while (count < capacidade && !pilhaPacotes.Vazia()) {
+    // Desempilha até esvaziar, colocando em pilha auxiliar
+    while (!pilhaPacotes.Vazia()) {
         pilhaAux.Empilha(pilhaPacotes.Desempilha());
-        count++;
         tempoAtual += custoRemocao;
-
         std::cout << std::setfill('0')
                   << std::setw(7) << tempoAtual << " pacote "
                   << std::setw(3) << pilhaAux.Topo() << " removido de "
@@ -130,10 +127,32 @@ void Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int 
     }
 
     // Agora desempilha da pilha auxiliar e insere no transporte (do fundo para o topo original)
-    while (!pilhaAux.Vazia()) {
+    while (count < capacidade && !pilhaAux.Vazia()) {
         int pacote = pilhaAux.Desempilha();
+        count++;
         transporte.InsereFim(pacote);
     }
+
+    return pilhaAux;
+}
+
+void Armazem::rearmazenarPacotes(int idVizinho, Pilha<int> pacotes, int tempoAtual) {
+    int pos = this->buscaVizinho(idVizinho);
+    if (pos == -1) {
+        throw std::runtime_error("Vizinho não encontrado.");
+    }
+
+    Pilha<int>& pilhaPacotes = this->_pacotesPorVizinho.Posiciona(pos)->GetDataRef();
+
+    while (!pacotes.Vazia()) {
+        int pacote = pacotes.Desempilha();
+        pilhaPacotes.Empilha(pacote);
+        std::cout << std::setfill('0')
+                  << std::setw(7) << tempoAtual << " pacote "
+                  << std::setw(3) << pacote << " rearmazenado em "
+                  << std::setw(3) << this->_id - 1 << " na secao "
+                  << std::setw(3) << idVizinho - 1 << std::endl;
+    } 
 }
 
 Lista<int> Armazem::getTransportesPorVizinho(int idVizinho) {
