@@ -1,4 +1,4 @@
-2
+3
 20
 110
 1
@@ -7,7 +7,11 @@
 1 0 1 1
 0 1 0 0
 0 1 0 0
-3
+7
 10 pac 1101 org 0 dst 2
-15 pac 1102 org 3 dst 0
-20 pac 1103 org 2 dst 3
+15 pac 1102 org 0 dst 2
+20 pac 1103 org 0 dst 2
+25 pac 1104 org 0 dst 2
+30 pac 1105 org 0 dst 2
+35 pac 1106 org 0 dst 2
+40 pac 1107 org 0 dst 2
