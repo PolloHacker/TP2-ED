@@ -96,8 +96,8 @@ inline Vetor<int> Evento::getArmazens() const {
         throw std::logic_error("Evento não possui armazéns de origem e destino.");
     }
     Vetor<int> armazens(2);
-    armazens[0] = std::stoi(this->_chave.substr(6, 3));
-    armazens[1] = std::stoi(this->_chave.substr(9, 3));
+    armazens[0] = std::stoi(this->_chave.substr(6, 3)) + 1;
+    armazens[1] = std::stoi(this->_chave.substr(9, 3)) + 1;
     return armazens;
 }
 

@@ -17,7 +17,7 @@ void escalonaTransportes(Escalonador& escalonador,
             int destino = vizinhos.GetElemPos(i)->GetData();
             int cooldown = armazens[origem].getCooldown(destino);
 
-            Evento novoTransporte(tempoAtual + cooldown, -1, origem, destino, TipoEvento::TRANSPORTE);
+            Evento novoTransporte(tempoAtual + cooldown, -1, origem - 1, destino - 1, TipoEvento::TRANSPORTE);
             escalonador.InsereEvento(novoTransporte);
         }
     }
@@ -27,7 +27,7 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
     Vetor<Armazem>& armazens, Escalonador& escalonador, 
     Vetor<Pacote<int>>& pacotes, Vetor<int>& custos) {
 
-    int i, j;
+    int i, j, k;
     std::ifstream arquivo(nomeArquivo.c_str());
     if (!arquivo.is_open()) {
         std::cerr << "Erro ao abrir o arquivo: " << nomeArquivo << std::endl;
@@ -68,7 +68,7 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
 
     arquivo >> numeroPacotes;
 
-    for (int i = 0; i < numeroPacotes; ++i) {
+    for (k = 0; k < numeroPacotes; ++k) {
         std::string tmp;
         int id, origem, destino, tempoPostagem;
 
@@ -84,14 +84,14 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
         p.setIdArmazemAtual(origem);
         p.setIdSecaoAtual(rota.GetElemPos(2)->GetData());
 
-        if (i == 0) {
+        if (k == 0) {
             escalonaTransportes(escalonador, armazens, numeroArmazens, tempoPostagem);
         }
 
-        Evento ev(tempoPostagem, i, origem, destino, TipoEvento::CHEGADA_PACOTE);
+        Evento ev(tempoPostagem, k, origem, destino, TipoEvento::CHEGADA_PACOTE);
         escalonador.InsereEvento(ev);
 
-        pacotes.insere(i, p);
+        pacotes.insere(k, p);
     }
     arquivo.close();
 }
@@ -166,7 +166,7 @@ void handleTransporte(
             Evento chegadaEvento(
                 tempoAtual + latencia,
                 idPacote,
-                armazensEvento[1],
+                armazensEvento[1] - 1,
                 pacotes[idPacote].getIdSecaoAtual(),
                 TipoEvento::CHEGADA_PACOTE
             );
@@ -187,8 +187,8 @@ void handleTransporte(
     Evento proximoTransporte(
         tempoAtual + custos[2], // intervaloTransportes
         -1,
-        armazensEvento[0],
-        armazensEvento[1],
+        armazensEvento[0] - 1,
+        armazensEvento[1] - 1,
         TipoEvento::TRANSPORTE
     );
     Escalonador.InsereEvento(proximoTransporte);
