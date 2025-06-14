@@ -73,8 +73,8 @@ Vetor<int> Evento::getArmazens() const {
     }
 
     Vetor<int> armazens(2);
-    armazens[0] = std::stoi(this->_chave.substr(6, 3)); // armazemOrigem
-    armazens[1] = std::stoi(this->_chave.substr(9, 3)); // armazemDestino
+    armazens[0] = std::stoi(this->_chave.substr(6, 3)) + 1; // armazemOrigem
+    armazens[1] = std::stoi(this->_chave.substr(9, 3)) + 1; // armazemDestino
     return armazens;
 }
 
