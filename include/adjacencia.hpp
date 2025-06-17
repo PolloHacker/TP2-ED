@@ -2,16 +2,16 @@
 #define ADJACENCIA_HPP
 
 #include <iostream>
+#include "vetor.hpp"
 #include "lista.hpp"
 
 class ListaAdjacencia {
     private:
-        Lista<Lista<int>> _lista;
+        Vetor<Lista<int>> _lista;
         int _vertices;
 
     public:
         ListaAdjacencia();
-        ~ListaAdjacencia();
 
         void InsereVertice();
         void InsereAresta(int v, int w);

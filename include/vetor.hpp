@@ -14,6 +14,7 @@ class Vetor {
         void resize(int newCapacity);
 
     public:
+        Vetor();
         Vetor(int size);
         Vetor(const Vetor& other);
         ~Vetor();
@@ -21,6 +22,8 @@ class Vetor {
         int getSize() const;
         
         void insere(int index, const T& value);
+        void insereFim(const T& value);
+
         void remove(int index);
         
         T& operator[](int index);

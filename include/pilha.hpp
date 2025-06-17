@@ -8,6 +8,7 @@ template <typename T>
 class Pilha {
     private:
         Node<T>* _topo;
+        int _tam;
         
     public:
         Pilha();

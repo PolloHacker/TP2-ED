@@ -25,33 +25,11 @@ Armazem& Armazem::operator=(const Armazem& other) {
 }
 
 
-int Armazem::buscaVizinho(int id) const {
-    Node<int>* aux = this->_vizinhos._head->GetNext();
-    int pos = 1;
-
-    while (aux != nullptr) {
-        if (aux->GetData() == id) {
-            return pos;
-        }
-        aux = aux->GetNext();
-        pos++;
-    }
-    return -1;
-}
-
 void Armazem::adicionaVizinho(int vizinho) {
-    Pilha<int> pilhaAux;
-    Lista<int> listaAux;
-
     this->_vizinhos.InsereFim(vizinho);
-    this->_pacotesPorVizinho.InsereFim(pilhaAux);
-    this->_transportesPorVizinho.InsereFim(listaAux);
-}
 
-void Armazem::removeVizinho(int id) {
-    int pos = this->buscaVizinho(id);
-    this->_vizinhos.RemovePos(pos);
-    this->_pacotesPorVizinho.RemovePos(pos);
+    this->_pacotesPorVizinho.insere(vizinho, Pilha<int>());
+    this->_transportesPorVizinho.insere(vizinho, Lista<int>());
 }
 
 Lista<int> Armazem::getVizinhos() const {
@@ -59,54 +37,65 @@ Lista<int> Armazem::getVizinhos() const {
 }  
 
 void Armazem::armazenaPacote(int idVizinho, int idPacote) {
-    int pos = this->buscaVizinho(idVizinho);
-    if (pos == -1) {
+    Pilha<int>* pacoteStack = this->_pacotesPorVizinho.getValor(idVizinho);
+
+    if (pacoteStack == nullptr) {
         throw std::runtime_error("Vizinho não encontrado.");
     }
 
-    this->_pacotesPorVizinho.Posiciona(pos)->GetDataRef().Empilha(idPacote);
+    pacoteStack->Empilha(idPacote);
 }
 
 int Armazem::removePacotePorSecao(int idVizinho, int idPacote) {
-    int pos = this->buscaVizinho(idVizinho);
-    if (pos == -1) {
+    int* capacidadePtr = this->_capacidadesPorVizinho.getValor(idVizinho);
+    if (capacidadePtr == nullptr) {
         throw std::runtime_error("Vizinho não encontrado.");
     }
 
-    if (this->_pacotesPorVizinho.Posiciona(pos)->GetData().Vazia()) {
+    if (this->_pacotesPorVizinho.getValor(idVizinho)->Vazia()) {
         throw std::runtime_error("Nenhum pacote para enviar.");
     }
 
     Pilha<int> pilhaAux;
-    int curId = this->_pacotesPorVizinho.Posiciona(pos)->GetData().Topo();
+    Pilha<int>* pilhaPacotes = this->_pacotesPorVizinho.getValor(idVizinho);
 
-    while (curId != idPacote) {
-        if (this->_pacotesPorVizinho.Posiciona(pos)->GetData().Vazia()) {
-            throw std::runtime_error("Pacote não encontrado.");
-        }
-
-        pilhaAux.Empilha(
-            this->_pacotesPorVizinho.Posiciona(pos)->GetData().Desempilha());
-        curId = this->_pacotesPorVizinho.Posiciona(pos)->GetData().Topo();
-    }
-    
-    while (!pilhaAux.Vazia()) {
-        this->_pacotesPorVizinho
-            .Posiciona(pos)->GetData().Empilha(pilhaAux.Desempilha());
-    }
-
-    return this->_pacotesPorVizinho.Posiciona(pos)->GetData().Desempilha();
-}
-
-Pilha<int> Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao) {
-    int pos = this->buscaVizinho(idVizinho);
-    if (pos == -1) {
+    if (pilhaPacotes == nullptr) {
         throw std::runtime_error("Vizinho não encontrado.");
     }
 
-    int capacidade = this->_capacidadesPorVizinho.Posiciona(pos)->GetData();
-    Lista<int>& transporte = this->_transportesPorVizinho.Posiciona(pos)->GetDataRef();
-    Pilha<int>& pilhaPacotes = this->_pacotesPorVizinho.Posiciona(pos)->GetDataRef();
+    int curId = pilhaPacotes->Topo();
+
+    while (curId != idPacote) {
+        if (pilhaPacotes->Vazia()) {
+            throw std::runtime_error("Pacote não encontrado.");
+        }
+
+        pilhaAux.Empilha(pilhaPacotes->Desempilha());
+        if (pilhaPacotes->Vazia()) {
+            throw std::runtime_error("Pacote não encontrado.");
+        }
+        curId = pilhaPacotes->Topo();
+    }
+    
+    while (!pilhaAux.Vazia()) {
+        pilhaPacotes->Empilha(pilhaAux.Desempilha());
+    }
+
+    return pilhaPacotes->Desempilha();
+}
+
+Pilha<int> Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao) {
+    int* capacidadePtr = this->_capacidadesPorVizinho.getValor(idVizinho);
+    Lista<int>* transportePtr = this->_transportesPorVizinho.getValor(idVizinho);
+    Pilha<int>* pilhaPacotesPtr = this->_pacotesPorVizinho.getValor(idVizinho);
+
+    if (capacidadePtr == nullptr || transportePtr == nullptr || pilhaPacotesPtr == nullptr) {
+        throw std::runtime_error("Vizinho não encontrado.");
+    }
+
+    int capacidade = *capacidadePtr;
+    Lista<int>& transporte = *transportePtr;
+    Pilha<int>& pilhaPacotes = *pilhaPacotesPtr;
 
     while (transporte.GetTam() > 0) {
         transporte.RemovePos(1);
@@ -115,7 +104,6 @@ Pilha<int> Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual
     Pilha<int> pilhaAux;
     int count = 0;
 
-    // Desempilha até esvaziar, colocando em pilha auxiliar
     while (!pilhaPacotes.Vazia()) {
         pilhaAux.Empilha(pilhaPacotes.Desempilha());
         tempoAtual += custoRemocao;
@@ -126,7 +114,6 @@ Pilha<int> Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual
                   << std::setw(3) << idVizinho - 1 << std::endl;
     }
 
-    // Agora desempilha da pilha auxiliar e insere no transporte (do fundo para o topo original)
     while (count < capacidade && !pilhaAux.Vazia()) {
         int pacote = pilhaAux.Desempilha();
         count++;
@@ -137,12 +124,12 @@ Pilha<int> Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual
 }
 
 void Armazem::rearmazenarPacotes(int idVizinho, Pilha<int> pacotes, int tempoAtual) {
-    int pos = this->buscaVizinho(idVizinho);
-    if (pos == -1) {
+    Pilha<int>* pilhaPacotesPtr = this->_pacotesPorVizinho.getValor(idVizinho);
+    if (pilhaPacotesPtr == nullptr) {
         throw std::runtime_error("Vizinho não encontrado.");
     }
 
-    Pilha<int>& pilhaPacotes = this->_pacotesPorVizinho.Posiciona(pos)->GetDataRef();
+    Pilha<int>& pilhaPacotes = *pilhaPacotesPtr;
 
     while (!pacotes.Vazia()) {
         int pacote = pacotes.Desempilha();
@@ -156,42 +143,22 @@ void Armazem::rearmazenarPacotes(int idVizinho, Pilha<int> pacotes, int tempoAtu
 }
 
 Lista<int> Armazem::getTransportesPorVizinho(int idVizinho) {
-    int pos = this->buscaVizinho(idVizinho);
-    if (pos == -1) {
-        throw std::runtime_error("Vizinho não encontrado.");
-    }
-
-    return this->_transportesPorVizinho.Posiciona(pos)->GetData();
+    return *this->_transportesPorVizinho.getValor(idVizinho);
 }
 
-bool Armazem::temPacotesArmazenados() {
-    for (int i = 1; i <= this->_vizinhos.GetTam(); ++i) {
-        if (!this->_pacotesPorVizinho.Posiciona(i)->GetData().Vazia()) {
-            return true;
-        }
-    }
-    return false;
-}
 
 int Armazem::getCooldown(int idVizinho) {
-    int pos = this->buscaVizinho(idVizinho);
-    if (pos == -1) {
+    int* coolPtr = this->_cooldownsPorVizinho.getValor(idVizinho);
+
+    if (coolPtr == nullptr) {
         throw std::runtime_error("Vizinho não encontrado.");
     }
 
-    return this->_cooldownsPorVizinho.Posiciona(pos)->GetData();
+    return *coolPtr;
 }
 
 void Armazem::setCooldown(int idVizinho, int cooldown) {
-    int pos = this->buscaVizinho(idVizinho);
-    if (pos == -1) {
-        throw std::runtime_error("Vizinho não encontrado.");
-    }
-    if (this->_cooldownsPorVizinho.GetTam() < pos + 1) {
-        this->_cooldownsPorVizinho.InsereFim(cooldown);
-        return;
-    }
-    this->_cooldownsPorVizinho.Posiciona(pos)->SetData(cooldown);
+    this->_cooldownsPorVizinho.insere(idVizinho, cooldown);
 }
 
 int Armazem::getId() const {
@@ -204,14 +171,5 @@ void Armazem::setId(int id) {
 
 
 void Armazem::setCapacidade(int idVizinho, int capacidade) {
-    int pos = this->buscaVizinho(idVizinho);
-    if (pos == -1) {
-        throw std::runtime_error("Vizinho não encontrado.");
-    }
-
-    if (this->_capacidadesPorVizinho.GetTam() < pos + 1) {
-        this->_capacidadesPorVizinho.InsereFim(capacidade);
-        return;
-    }
-    this->_capacidadesPorVizinho.Posiciona(pos)->SetData(capacidade);
+    this->_capacidadesPorVizinho.insere(idVizinho, capacidade);
 }

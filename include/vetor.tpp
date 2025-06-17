@@ -2,6 +2,17 @@
 
 #include "vetor.hpp"
 
+
+/**
+ * @brief Construtor padrão da classe Vetor.
+ * 
+ * Inicializa um vetor vazio com tamanho e capacidade zero.
+ */
+template <typename T>
+Vetor<T>::Vetor(): _size(1), _capacity(1) {
+    this->_data = new T[1];
+}
+
 /**
  * @brief Construtor da classe Vetor.
  * 
@@ -101,6 +112,20 @@ void Vetor<T>::insere(int index, const T& value) {
     if (index >= this->_size) {
         this->_size = index + 1;
     }
+}
+
+/**
+ * @brief Insere um elemento no final do vetor.
+ * 
+ * Se o vetor estiver cheio, redimensiona-o antes de inserir o novo elemento.
+ * 
+ * @param value Valor do elemento a ser inserido no final do vetor.
+ */
+template <typename T>
+void Vetor<T>::insereFim(const T& value) {
+    this->shouldResize(this->_size);
+    this->_data[this->_size] = value;
+    this->_size++;
 }
 
 /**

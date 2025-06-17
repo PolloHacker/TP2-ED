@@ -3,7 +3,7 @@
 #include "pilha.hpp"
 
 template <typename T>
-Pilha<T>::Pilha() : _topo(nullptr) {}
+Pilha<T>::Pilha() : _topo(nullptr), _tam(0) {}
 
 template <typename T>
 Pilha<T>::Pilha(const Pilha<T>& other) : _topo(nullptr) {
@@ -22,6 +22,8 @@ Pilha<T>::Pilha(const Pilha<T>& other) : _topo(nullptr) {
         prev = novo;
         current = current->GetNext();
     }
+
+    this->_tam = other._tam;
 }
 
 template <typename T>
@@ -45,6 +47,8 @@ Pilha<T>& Pilha<T>::operator=(const Pilha<T>& other) {
             current = current->GetNext();
         }
     }
+    this->_tam = other._tam;
+
     return *this;
 }
 
@@ -53,6 +57,7 @@ void Pilha<T>::Empilha(T valor) {
     Node<T>* novo = new Node<T>(valor);
     novo->SetNext(this->_topo);
     this->_topo = novo;
+    this->_tam++;
 }
 
 template <typename T>
@@ -60,9 +65,12 @@ T Pilha<T>::Desempilha() {
     if (Vazia()) {
         throw std::runtime_error("Pilha vazia");
     }
+
     Node<T>* temp = this->_topo;
     T valor = temp->GetData();
     this->_topo = this->_topo->GetNext();
+    this->_tam--;
+
     delete temp;
     return valor;
 }
@@ -82,13 +90,7 @@ bool Pilha<T>::Vazia() const {
 
 template <typename T>
 int Pilha<T>::GetTam() const {
-    int count = 0;
-    Node<T>* current = this->_topo;
-    while (current != nullptr) {
-        count++;
-        current = current->GetNext();
-    }
-    return count;
+    return this->_tam;
 }
 
 template <typename T>

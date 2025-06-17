@@ -7,18 +7,24 @@
 #include "lista.hpp"
 #include "vetor.hpp"
 #include "pilha.hpp"
+#include "hashTable.hpp"
 #include "pacote.hpp"
 
 class Armazem {
     private:
         int _id;
         Lista<int> _vizinhos;
-        Lista<Pilha<int>> _pacotesPorVizinho;
-        Lista<Lista<int>> _transportesPorVizinho;
-        Lista<int> _cooldownsPorVizinho;
-        Lista<int> _capacidadesPorVizinho;
 
-        int buscaVizinho(int id) const;
+        HashTable<Pilha<int>> _pacotesPorVizinho;
+        HashTable<Lista<int>> _transportesPorVizinho;
+        HashTable<int> _cooldownsPorVizinho;
+        HashTable<int> _capacidadesPorVizinho;
+
+        // Vetor<Pilha<int>> _pacotesPorVizinho;
+
+        // Vetor<Lista<int>> _transportesPorVizinho;
+        // Vetor<int> _cooldownsPorVizinho;
+        // Vetor<int> _capacidadesPorVizinho;
 
     public:
         Armazem();
@@ -29,7 +35,6 @@ class Armazem {
         Armazem& operator=(const Armazem& other);
         
         void adicionaVizinho(int idVizinho);
-        void removeVizinho(int idVizinho);
 
         void armazenaPacote(int idVizinho, int idPacote);
         int removePacotePorSecao(int idVizinho, int idPacote);
@@ -38,8 +43,6 @@ class Armazem {
         Pilha<int> adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao);
         void rearmazenarPacotes(int idVizinho, Pilha<int> pacotes, int tempoAtual);
         Lista<int> getTransportesPorVizinho(int idVizinho);
-
-        bool temPacotesArmazenados();
         
         int getId() const;
         int getCooldown(int idVizinho);
