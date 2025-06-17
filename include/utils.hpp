@@ -1,5 +1,71 @@
-#include "evento.hpp"
+#ifndef UTILS_HPP
+#define UTILS_HPP
 
+#include <stdexcept>
+#include <iomanip>
+#include <sstream>
+#include <string>
+#include "vetor.hpp"
+#include "lista.hpp"
+
+// ===== EVENTO CLASS =====
+enum class TipoEvento {
+    CHEGADA_PACOTE = 1,
+    TRANSPORTE = 2
+};
+
+enum class CustoEvento {
+    CAPACIDADE_TRANSPORTE,
+    LATENCIA_TRANSPORTE,
+    INTERVALO_TRANSPORTE,
+    CUSTO_REMOVER_PACOTE,
+};
+
+class Evento {
+    private:
+        std::string _chave;
+        int _tempo;
+
+    public:
+        Evento();
+        Evento(std::string data);
+        Evento(int tempo, int idPacote, int idArmazemOrigem, int idArmazemDestino, TipoEvento tipoEvento);
+
+        std::string getData() const;
+        int getTempo() const;
+        int getIdPacote() const;
+        Vetor<int> getArmazens() const;
+        TipoEvento getTipoEvento() const;
+
+        bool operator<(const Evento& other) const;
+        bool operator>(const Evento& other) const;
+        bool operator==(const Evento& other) const;
+        bool operator!=(const Evento& other) const;
+        bool operator<=(const Evento& other) const;
+        bool operator>=(const Evento& other) const;
+};
+
+// ===== METRICAS CLASS =====
+class Metricas {
+    private:
+        Lista<double> _tempos;
+        Lista<double> _distancias;
+        double _tempo_total;
+        double _distancia_total;
+    public:
+        Metricas();
+
+        void adicionaTempo(double tempo);
+        void adicionaDistancia(double distancia);
+
+        double getTempoTotal() const;
+        double getDistanciaTotal() const;
+
+        Lista<double> getTempos() const;
+        Lista<double> getDistancias() const;
+};
+
+// ===== EVENTO IMPLEMENTATIONS =====
 Evento::Evento()
     : _chave(""), _tempo(-1) {}
 
@@ -111,3 +177,34 @@ bool Evento::operator<=(const Evento& other) const {
 bool Evento::operator>=(const Evento& other) const {
     return this->_chave >= other._chave;
 }
+
+// ===== METRICAS IMPLEMENTATIONS =====
+Metricas::Metricas() : _tempo_total(0), _distancia_total(0) {}
+
+void Metricas::adicionaTempo(double tempo) {
+    this->_tempos.InsereFim(tempo);
+    this->_tempo_total += tempo;
+}
+
+void Metricas::adicionaDistancia(double distancia) {
+    this->_distancias.InsereFim(distancia);
+    this->_distancia_total += distancia;
+}
+
+double Metricas::getTempoTotal() const {
+    return this->_tempo_total;
+}
+
+double Metricas::getDistanciaTotal() const {
+    return this->_distancia_total;
+}
+
+Lista<double> Metricas::getTempos() const {
+    return this->_tempos;
+}
+
+Lista<double> Metricas::getDistancias() const {
+    return this->_distancias;
+}
+
+#endif
