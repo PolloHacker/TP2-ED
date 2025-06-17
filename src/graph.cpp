@@ -1,30 +1,45 @@
 #include "graph.hpp"
 
-Grafo::Grafo(): vertices() {}
+Grafo::Grafo() : _lista(), _vertices(0) {}
 
 void Grafo::InsereVertice() {
-    this->vertices.InsereVertice();
+    Lista<int> novaLista;
+    this->_lista.insereFim(novaLista);
+    this->_vertices++;
 }
 
 void Grafo::InsereAresta(int from, int to) {
-    this->vertices.InsereAresta(from, to);
+    Lista<int> vizinhos = this->_lista[from - 1];
+    vizinhos.InsereFim(to);
+    this->_lista[from - 1] = vizinhos;
 }
 
 int Grafo::QuantidadeVertices() {
-    return this->vertices.GetVertices();
+    return this->_vertices;
 }
 
 int Grafo::QuantidadeArestas() {
-    return this->vertices.GetArestas();
+    int count = 0;
+    Node<int>* current;
+    for (int i = 1; i <= this->_vertices; i++) {
+        Lista<int> vizinhos = this->_lista[i - 1];
+        current = vizinhos._head->GetNext();
+        while (current != nullptr) {
+            if (current->GetData() + 1 > i) {
+                count++;
+            }
+            current = current->GetNext();
+        }
+    }
+    return count;
 }
 
 int Grafo::GrauMinimo() {
-    int n = this->vertices.GetVertices();
+    int n = this->_vertices;
     if (n == 0) return 0;
-    int grauMinimo = this->vertices.GetVizinhos(1).GetTam();
-
-    for (int i = 2; i <= n; i++) { // fix: start at 2, go to n inclusive
-        int grauAtual = this->vertices.GetVizinhos(i).GetTam();
+    int grauMinimo = this->GetVizinhos(1).GetTam();
+    for (int i = 2; i <= n; i++) {
+        int grauAtual = this->GetVizinhos(i).GetTam();
         if (grauAtual < grauMinimo) {
             grauMinimo = grauAtual;
         }
@@ -33,11 +48,11 @@ int Grafo::GrauMinimo() {
 }
 
 int Grafo::GrauMaximo() {
-    int n = this->vertices.GetVertices();
+    int n = this->_vertices;
     if (n == 0) return 0;
-    int grauMaximo = this->vertices.GetVizinhos(1).GetTam();
-    for (int i = 2; i <= n; i++) { // fix: start at 2, go to n inclusive
-        int grauAtual = this->vertices.GetVizinhos(i).GetTam();
+    int grauMaximo = this->GetVizinhos(1).GetTam();
+    for (int i = 2; i <= n; i++) {
+        int grauAtual = this->GetVizinhos(i).GetTam();
         if (grauAtual > grauMaximo) {
             grauMaximo = grauAtual;
         }
@@ -46,13 +61,12 @@ int Grafo::GrauMaximo() {
 }
 
 void Grafo::ImprimeVizinhos(int from) {
-    int n = this->vertices.GetVertices();
+    int n = this->_vertices;
     if (from < 1 || from > n) {
         std::cerr << "Índice de vértice inválido em ImprimeVizinhos: " << from << std::endl;
         return;
     }
-    Lista<int> vizinhos = this->vertices.GetVizinhos(from);
-
+    Lista<int> vizinhos = this->GetVizinhos(from);
     auto aux = vizinhos._head ? vizinhos._head->GetNext() : nullptr;
     while (aux != nullptr) {
         std::cout << aux->GetData() << " ";
@@ -61,9 +75,15 @@ void Grafo::ImprimeVizinhos(int from) {
     std::cout << std::endl;
 }
 
+Lista<int> Grafo::GetVizinhos(int v) {
+    if (v < 1 || v > this->_vertices) {
+        throw std::out_of_range("Índice de vértice inválido.");
+    }
+    return this->_lista[v - 1];
+}
+
 Lista<int> Grafo::BFS(int v, int w) {
-    int n = this->vertices.GetVertices();
-    // Ajuste para índices de vértices de 1 a n
+    int n = this->_vertices;
     if (n == 0 || v < 1 || v > n || w < 1 || w > n) {
         std::cerr << "Índices de vértice inválidos em BFS: v=" << v << ", w=" << w << std::endl;
         return Lista<int>();
@@ -71,25 +91,19 @@ Lista<int> Grafo::BFS(int v, int w) {
     Fila<int> fila;
     Lista<bool> visitados;
     Lista<int> caminho, antecessores;
-
-    // Inicializa listas para 1 a n (posição 1 corresponde ao vértice 1)
     for (int i = 1; i <= n; i++) {
         bool visitado = false;
-        int antecessor = -1; // -1 indica que não há antecessor
+        int antecessor = -1;
         visitados.InsereFim(visitado);
-
         antecessores.InsereFim(antecessor);
     }
-
     visitados.Posiciona(v)->SetData(true);
     fila.Enfileira(v);
-
     bool encontrou = false;
     while(!fila.Vazia() && !encontrou) {
         int currIdx = fila.Frente();
         fila.Desenfileira();
-
-        Lista<int> vizinhos = this->vertices.GetVizinhos(currIdx);
+        Lista<int> vizinhos = this->GetVizinhos(currIdx);
         auto aux = vizinhos._head ? vizinhos._head->GetNext() : nullptr;
         while (aux != nullptr) {
             int vizinho = aux->GetData();
@@ -101,7 +115,6 @@ Lista<int> Grafo::BFS(int v, int w) {
                 visitados.Posiciona(vizinho)->SetData(true);
                 antecessores.Posiciona(vizinho)->SetData(currIdx);
                 fila.Enfileira(vizinho);
-
                 if (vizinho == w) {
                     encontrou = true;
                     break;
@@ -110,7 +123,6 @@ Lista<int> Grafo::BFS(int v, int w) {
             aux = aux->GetNext();
         }
     }
-
     if (!visitados.Posiciona(w)->GetData()) {
         return Lista<int>();
     }
@@ -119,7 +131,6 @@ Lista<int> Grafo::BFS(int v, int w) {
         caminho.InsereInicio(curr);
         curr = antecessores.Posiciona(curr)->GetData();
     }
-
     return caminho;
 }
 

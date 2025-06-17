@@ -2,32 +2,33 @@
 #define GRAPH_HPP
 
 #include <iostream>
-#include "adjacencia.hpp"
+#include "vetor.hpp"
+#include "lista.hpp"
 #include "fila.hpp"
 #include "heap.hpp"
 
-class Grafo{
-    private:
-        ListaAdjacencia vertices;
-        
-    public:
-        Grafo();
+class Grafo {
+private:
+    Vetor<Lista<int>> _lista;
+    int _vertices;
 
-        void InsereVertice();
-        void InsereAresta(int v, int w);
+public:
+    Grafo();
 
-        int QuantidadeVertices();
-        int QuantidadeArestas();
+    void InsereVertice();
+    void InsereAresta(int v, int w);
 
-        int GrauMinimo();
-        int GrauMaximo();
+    int QuantidadeVertices();
+    int QuantidadeArestas();
 
-        void ImprimeVizinhos(int v);
-        
-        Lista<int> BFS(int v, int w);
-        // Lista<int> Dykstra(int v, int w);
-        // Lista<int> BellmanFord(int v, int w);
+    int GrauMinimo();
+    int GrauMaximo();
 
+    void ImprimeVizinhos(int v);
+    Lista<int> GetVizinhos(int v);
+    Lista<int> BFS(int v, int w);
+    // Lista<int> Dykstra(int v, int w);
+    // Lista<int> BellmanFord(int v, int w);
 };
 
 #endif

@@ -21,7 +21,6 @@ class HashTable {
 
     public:
         HashTable(int capacity = 7); // Default to a small prime number
-        ~HashTable();
 
         // Inserts a key-value pair. If the key exists, it updates the value.
         void insere(int key, T value);
