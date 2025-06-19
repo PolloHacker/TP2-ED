@@ -5,24 +5,24 @@
 
 class Metricas {
     private:
-        Lista<double> _tempos;
-        Lista<double> _distancias;
-        double _tempo_total;
-        double _distancia_total;
+        Lista<int> _tempos;
+        Lista<int> _distancias;
+        int _tempo_total;
+        int _distancia_total;
     public:
         Metricas();
 
-        void adicionaTempo(double tempo);
+        void adicionaTempo(int tempo);
 
-        void adicionaDistancia(double distancia);
+        void adicionaDistancia(int distancia);
 
-        double getTempoTotal() const;
+        int getTempoTotal() const;
 
-        double getDistanciaTotal() const;
+        int getDistanciaTotal() const;
 
-        Lista<double> getTempos() const;
+        Lista<int> getTempos() const;
 
-        Lista<double> getDistancias() const;
+        Lista<int> getDistancias() const;
 
 };
 

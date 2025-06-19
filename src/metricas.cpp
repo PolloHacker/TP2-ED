@@ -2,28 +2,28 @@
 
 Metricas::Metricas() : _tempo_total(0), _distancia_total(0) {}
 
-void Metricas::adicionaTempo(double tempo) {
+void Metricas::adicionaTempo(int tempo) {
     this->_tempos.InsereFim(tempo);
     this->_tempo_total += tempo;
 }
 
-void Metricas::adicionaDistancia(double distancia) {
+void Metricas::adicionaDistancia(int distancia) {
     this->_distancias.InsereFim(distancia);
     this->_distancia_total += distancia;
 }
 
-double Metricas::getTempoTotal() const {
+int Metricas::getTempoTotal() const {
     return this->_tempo_total;
 }
 
-double Metricas::getDistanciaTotal() const {
+int Metricas::getDistanciaTotal() const {
     return this->_distancia_total;
 }
 
-Lista<double> Metricas::getTempos() const {
+Lista<int> Metricas::getTempos() const {
     return this->_tempos;
 }
 
-Lista<double> Metricas::getDistancias() const {
+Lista<int> Metricas::getDistancias() const {
     return this->_distancias;
 }
