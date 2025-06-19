@@ -8,10 +8,9 @@ OBJ_FOLDER := ./obj
 SRC_FOLDER := ./src
 
 # Source and object files
-EXP_FILE := $(SRC_FOLDER)/exp.cpp
+EXP_FILE := $(SRC_FOLDER)/genwkl.c
 SRCS := $(filter-out $(EXP_FILE), $(wildcard $(SRC_FOLDER)/*.cpp))
 OBJS := $(patsubst $(SRC_FOLDER)/%.cpp, $(OBJ_FOLDER)/%.o, $(SRCS))
-EXP_OBJS := $(filter-out $(OBJ_FOLDER)/main.o $(OBJ_FOLDER)/exp.o, $(OBJS))
 
 # Output binary
 TARGET := $(BIN_FOLDER)/tp2.out
@@ -19,10 +18,8 @@ TARGET := $(BIN_FOLDER)/tp2.out
 # Default target
 all: $(TARGET)
 
-exp: $(OBJS) | $(BIN_FOLDER)
-	@echo "params: $(KEYSZ) $(PLSZ) $(VETSZ)"
-	$(CXX) $(CXXFLAGS) -DKEYSZ=$(KEYSZ) -DPLSZ=$(PLSZ) -DVETSZ=$(VETSZ) \
-	 -o $(BIN_FOLDER)/exp.k$(KEYSZ).p$(PLSZ).v$(VETSZ).out $(EXP_FILE) $(EXP_OBJS) -lm
+exp: $(BIN_FOLDER)
+	$(CXX) $(CXXFLAGS) $(EXP_FILE) -o $(BIN_FOLDER)/genwkl.out -lm
 		
 
 print: 

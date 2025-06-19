@@ -11,7 +11,8 @@ int HashTable<T>::hash(int key) {
     key = ((key >> 16) ^ key) * 0x45d9f3b;
     key = ((key >> 16) ^ key) * 0x45d9f3b;
     key = (key >> 16) ^ key;
-    return std::abs(key * 31 % this->_capacity);
+    // If capacity is a power of 2, use bitwise AND for better distribution
+    return std::abs(key) & (this->_capacity - 1);
 }
 
 template <typename T>
