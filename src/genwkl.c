@@ -37,7 +37,7 @@ void Union(subset subsets[], int xroot, int yroot){
 
 int rndnode(int nodes){ return (int)(drand48()*nodes); }  
 
-int main(){
+int main(int argc, char *argv[]){
   int seed = 1;
   int transportcapacity = 2;
   int transportcost = 20;
@@ -45,9 +45,19 @@ int main(){
   int retrievecost = 1;
   int nodes = 10;
   int numpackets = 100;
+  long rtime=10;
+
+  // Parse command-line arguments if provided
+  if (argc > 1) transportcapacity = atoi(argv[1]);
+  if (argc > 2) transportcost = atoi(argv[2]);
+  if (argc > 3) transportinterval = atoi(argv[3]);
+  if (argc > 4) retrievecost = atoi(argv[4]);
+  if (argc > 5) nodes = atoi(argv[5]);
+  if (argc > 6) numpackets = atoi(argv[6]);
+  if (argc > 7) rtime = atol(argv[7]);
+
   int conncomp = nodes;
   long atime=1;
-  long rtime=10;
   int src, dst, fsrc, fdst;
 
   srand48(seed);
