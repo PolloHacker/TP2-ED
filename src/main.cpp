@@ -7,6 +7,14 @@
 #include "transporte.hpp"
 
 
+/**
+ * @brief Escalona eventos de transporte entre armazéns conectados.
+ *
+ * @param escalonador Referência para o objeto responsável por gerenciar os eventos.
+ * @param armazens Vetor contendo todos os armazéns.
+ * @param numArmazens Número total de armazéns.
+ * @param tempoAtual Tempo atual do sistema, utilizado como base para o agendamento dos eventos.
+ */
 void escalonaTransportes(Escalonador& escalonador, 
     Vetor<Armazem>& armazens, int numArmazens, int tempoAtual) {
 
@@ -23,6 +31,18 @@ void escalonaTransportes(Escalonador& escalonador,
     }
 }
 
+/**
+ * @brief Lê os dados de um arquivo e inicializa as estruturas principais do sistema de transporte.
+ *
+ * @param nomeArquivo Nome do arquivo de entrada a ser lido.
+ * @param rotas Referência para o objeto Transporte, responsável pelas rotas e conexões entre armazéns.
+ * @param armazens Vetor de Armazem, onde serão inseridos os armazéns lidos do arquivo.
+ * @param escalonador Referência para o objeto Escalonador, utilizado para agendar eventos de transporte.
+ * @param pacotes Vetor de Pacote<int>, onde serão inseridos os pacotes lidos do arquivo.
+ * @param custos Vetor de int, onde serão inseridos os custos e parâmetros globais do sistema.
+ *
+ * @note Em caso de erro ao abrir o arquivo, a função imprime uma mensagem de erro e encerra o programa.
+ */
 void leArquivo(std::string nomeArquivo, Transporte& rotas, 
     Vetor<Armazem>& armazens, Escalonador& escalonador, 
     Vetor<Pacote<int>>& pacotes, Vetor<int>& custos) {
@@ -34,6 +54,7 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
         exit(1);
     }
 
+    // Lê os parâmetros iniciais do arquivo
     int capacidadeTransporte, latenciaTransporte, intervaloTransportes, custoRemocao;
     int numeroArmazens, numeroPacotes;
 
@@ -48,6 +69,7 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
     custos.insere(2, intervaloTransportes);
     custos.insere(3, custoRemocao);
     
+    // Cria a topologia de armazéns e suas conexões
     for (i = 1; i <= numeroArmazens; ++i) {
         Armazem armazemToIns = rotas.adicionaArmazem(i);
         armazens.insere(i, armazemToIns);
@@ -68,6 +90,10 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
 
     arquivo >> numeroPacotes;
 
+    /*
+    * Lê os pacotes do arquivo e os insere no vetor de pacotes.
+    * Cada pacote é associado a uma rota calculada entre o armazém de origem e o de destino. 
+    */
     for (k = 0; k < numeroPacotes; ++k) {
         std::string tmp;
         int id, origem, destino, tempoPostagem;
@@ -84,10 +110,12 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
         p.setIdArmazemAtual(origem);
         p.setIdSecaoAtual(rota.GetElemPos(2)->GetData());
 
+        // Se for a primeira postagem, escalona os transportes entre todas as conexões
         if (k == 0) {
             escalonaTransportes(escalonador, armazens, numeroArmazens, tempoPostagem);
         }
 
+        // Cria o evento de chegada do pacote no armazém de origem e o insere no escalonador
         Evento ev(tempoPostagem, k, origem, destino, TipoEvento::CHEGADA_PACOTE);
         escalonador.InsereEvento(ev);
 
@@ -97,15 +125,29 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
 }
 
 
+/**
+ * @brief Manipula o evento de chegada de um pacote em um armazém.
+ *
+ * Esta função processa a chegada de um pacote, atualizando seu estado e posição
+ * conforme sua rota. Caso o pacote tenha chegado ao destino final, seu estado é
+ * definido como ENTREGUE e uma mensagem é exibida. Caso contrário, o pacote é
+ * armazenado no próximo armazém e seção de acordo com sua rota, e seu estado é
+ * atualizado para POSTADO.
+ *
+ * @param evento Objeto do tipo Evento que representa o evento de chegada do pacote.
+ * @param armazens Vetor de armazéns onde os pacotes podem ser armazenados.
+ * @param pacotes Vetor contendo todos os pacotes em trânsito.
+ */
 void handleChegadaPacote(
     Evento evento, Vetor<Armazem>& armazens, 
     Vetor<Pacote<int>>& pacotes) {
 
+    // Extrai informações do evento
     int idPacote = evento.getIdPacote();
     int tempoAtual = evento.getTempo();
-    int armazemAntigo = pacotes[idPacote].getIdArmazemAtual() - 1;
-    // int secaoAntiga = pacotes[idPacote].getIdSecaoAtual() - 1;
+    int armazemAntigo = pacotes[idPacote].getIdArmazemAtual() - 1; // Armazém atual do pacote (ajustado para índice 0)
 
+    // Verifica se o pacote existe
     try {
         pacotes[idPacote];
     } catch (const std::out_of_range& e) {
@@ -113,6 +155,10 @@ void handleChegadaPacote(
         return;
     }
 
+    /*
+    * Verifica se o pacote chegou ao armazém final da rota.
+    * Se sim, atualiza o estado do pacote para ENTREGUE e indica no log do sistema.
+    */
     if (pacotes[idPacote].getIdArmazemAtual() == pacotes[idPacote].getRota().GetElemPos(pacotes[idPacote].getRota().GetTam())->GetData()) {
         pacotes[idPacote].setEstado(EstadoPacote::ENTREGUE);
 
@@ -122,6 +168,11 @@ void handleChegadaPacote(
                   << std::setw(3) << armazemAntigo << std::endl;
 
         return;
+
+    /*
+    * Caso contrário, remove o armazém atual da rota,
+    * atualiza o armazém e seção atuais do pacote, e o armazena no armazém correspondente.
+    */ 
     } else {
         int armazemAtual = pacotes[idPacote].removeArmazemAtualDaRota();
         int secaoAtual = pacotes[idPacote].getProximoArmazemRota();
@@ -141,28 +192,49 @@ void handleChegadaPacote(
     }
 }
 
+/**
+ * @brief Manipula o evento de transporte de pacotes entre armazéns.
+ *
+ * Esta função processa o transporte de pacotes de um armazém de origem para um armazém de destino,
+ * atualizando o estado dos pacotes, agendando eventos de chegada e transporte futuros, e realizando
+ * a rearmazenagem dos pacotes conforme necessário.
+ *
+ * @param evento Evento de transporte a ser processado, contendo informações sobre armazéns e tempo.
+ * @param Escalonador Referência ao escalonador responsável pelo agendamento dos próximos eventos.
+ * @param armazens Vetor contendo todos os armazéns do sistema.
+ * @param pacotes Vetor contendo todos os pacotes do sistema.
+ * @param custos Vetor com os custos associados às operações (latência, remoção, etc).
+ */
 void handleTransporte(
     Evento evento, Escalonador& Escalonador,
     Vetor<Armazem>& armazens, Vetor<Pacote<int>>& pacotes, Vetor<int>& custos) {
 
+    // Extrai os armazéns envolvidos no evento de transporte
     Vetor<int> armazensEvento = evento.getArmazens();
 
+    // Muda o relógio do sistema para o tempo do evento
     int tempoAtual = evento.getTempo();
     int latencia = custos[static_cast<int>(CustoEvento::LATENCIA_TRANSPORTE)];
     int remocao = custos[static_cast<int>(CustoEvento::CUSTO_REMOVER_PACOTE)];
 
     Armazem& armazemOrigem = armazens[armazensEvento[0]];
 
+    /*
+    * Adiciona os pacotes do armazém de origem para transporte para o armazém de destino.
+    * Os pacotes restantes que não puderem ser transportados são armazenados em uma pilha para rearmazenamento.
+    */
     Pilha<int> pacotesRearmazenar = armazemOrigem.adicionaPacotesParaTransporte(armazensEvento[1], tempoAtual, remocao);
     Lista<int> pacotesParaTransportar = armazemOrigem.getTransportesPorVizinho(armazensEvento[1]);
 
     if (pacotesParaTransportar.GetTam() > 0) {
         for (int idx = 1; idx <= pacotesParaTransportar.GetTam(); ++idx) {
 
+            // Remove o pacote da lista de transporte e atualiza seu estado
             int idPacote = pacotesParaTransportar.GetElemPos(idx)->GetData();
             pacotes[idPacote].setEstado(EstadoPacote::EM_TRANSPORTE);
             pacotes[idPacote].setIdArmazemAtual(armazensEvento[1]);
 
+            // Cria um evento de chegada do pacote no armazém de destino e o insere no escalonador
             Evento chegadaEvento(
                 tempoAtual + latencia,
                 idPacote,
@@ -184,6 +256,7 @@ void handleTransporte(
     int timeDiff = (pacotesParaTransportar.GetTam() + pacotesRearmazenar.GetTam()) * remocao;
     tempoAtual -= timeDiff;
 
+    // Cria um novo evento de transporte para o próximo intervalo
     Evento proximoTransporte(
         tempoAtual + custos[2], // intervaloTransportes
         -1,
@@ -197,6 +270,19 @@ void handleTransporte(
     armazemOrigem.rearmazenarPacotes(armazensEvento[1], pacotesRearmazenar, tempoAtual + timeDiff);
 }
 
+/**
+ * @brief Função principal do programa.
+ *
+ * Esta função inicializa os principais componentes do sistema de entrega de pacotes,
+ * incluindo o escalonador de eventos, as rotas de transporte, armazéns, pacotes e custos.
+ * 
+ * Após a leitura do arquivo, o escalonador é inicializado e o loop principal processa os eventos
+ * até que todos os pacotes sejam entregues ou não haja mais eventos a serem processados.
+ *
+ * @param argc Número de argumentos da linha de comando.
+ * @param argv Vetor de argumentos da linha de comando.
+ * @return int Código de retorno da aplicação (0 para sucesso, 1 para erro de argumento).
+ */
 int main(int argc, char* argv[]) {
 
     Escalonador escalonador;
@@ -235,6 +321,7 @@ int main(int argc, char* argv[]) {
             break;
         }
 
+        // Processa o evento de acordo com seu tipo
         switch (prox_evento.getTipoEvento())
         {
         case TipoEvento::CHEGADA_PACOTE:
@@ -248,7 +335,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    // Gerar relatório de estatísticas
+    // Gera relatório de estatísticas
     escalonador.Finaliza();
 
     return (0);
