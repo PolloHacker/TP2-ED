@@ -114,7 +114,7 @@ def generate_baseline(seed=42, use_c=True):
     print(f"Baseline input written to {fname}")
 
 def generate_experiment_A(seed=42, use_c=True):
-    sizes = [5, 10, 17, 24, 28, 32]
+    sizes = [5, 8, 10, 12, 15, 18, 20, 24, 28, 32, 36, 40]
     for n in sizes:
         params = dict(
             capacidadetransporte=5,
@@ -131,7 +131,7 @@ def generate_experiment_A(seed=42, use_c=True):
         print(f"Experiment A input for {n} warehouses written to {fname}")
 
 def generate_experiment_B(seed=42, use_c=True):
-    windows = [5, 10, 17, 24, 28, 32]
+    windows = [2, 4, 6, 8, 10, 12, 15, 18, 20, 24, 28, 32, 36, 40]
     n_armazens = 10
     n_pacotes = 1000
     for w in windows:
@@ -152,8 +152,8 @@ def generate_experiment_B(seed=42, use_c=True):
 def generate_experiment_C(seed=42, use_c=True):
     n_armazens = 10
     n_pacotes = 1000
-    capacidades = [2, 4, 6, 8, 10, 15, 20]
-    intervalos = [100, 75, 50, 25, 10, 5]
+    capacidades = [2, 3, 4, 5, 6, 8, 10, 12, 15, 18, 20]
+    intervalos = [120, 100, 90, 80, 70, 60, 50, 40, 30, 25, 20, 15, 10, 5]
     # Vary capacity
     for cap in capacidades:
         params = dict(

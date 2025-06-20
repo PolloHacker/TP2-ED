@@ -1,0 +1,12 @@
+{
+  "params": {
+    "capacidadetransporte": 5,
+    "latenciatransporte": 20,
+    "intervalotransportes": 100,
+    "custoremocao": 1,
+    "numeroarmazens": 15,
+    "numeropacotes": 750,
+    "arrival_window": 25,
+    "seed": 57
+  }
+}
