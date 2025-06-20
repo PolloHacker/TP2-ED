@@ -1,34 +1,34 @@
 {
-  "avg_section_depth": 3.3514674302075877,
+  "avg_section_depth": 5.567511383884379,
   "delivery_time_stats": {
-    "max": 1718,
-    "mean": 537.414,
-    "median": 450,
-    "p95": 1311
+    "max": 2379,
+    "mean": 712.309,
+    "median": 537,
+    "p95": 1700
   },
-  "execution_time": 0.214108655,
-  "heap_extracts": 3128,
-  "heap_inserts": 3145,
-  "max_section_depth": 24,
-  "packages_moved": 5648,
-  "peak_memory_kb": 24936,
-  "re_storage_events": 1457,
-  "stack_pops": 2824,
+  "execution_time": 0.516056401,
+  "heap_extracts": 6274,
+  "heap_inserts": 6291,
+  "max_section_depth": 37,
+  "packages_moved": 14770,
+  "peak_memory_kb": 25192,
+  "re_storage_events": 4668,
+  "stack_pops": 7385,
   "stack_pops_rearmazenado": 0,
-  "stack_pushes": 2824,
+  "stack_pushes": 7385,
   "storage_time_stats": {
-    "max": 1619,
-    "mean": 222.9407461594733,
-    "median": 99,
-    "p95": 916
+    "max": 2279,
+    "mean": 299.46963562753035,
+    "median": 94,
+    "p95": 1343
   },
   "transit_time_stats": {
-    "max": 1192,
-    "mean": 176.5669348939283,
+    "max": 1879,
+    "mean": 242.16746411483254,
     "median": 81,
-    "p95": 585
+    "p95": 1000
   },
   "transport_capacity": 2,
-  "transport_events": 1243,
-  "transport_utilization": 227.19227674979888
+  "transport_events": 2539,
+  "transport_utilization": 290.86254430878296
 }

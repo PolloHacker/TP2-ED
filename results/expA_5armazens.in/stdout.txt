@@ -578,6 +578,7 @@
 0001250 pacote 097 armazenado em 000 na secao 004
 0001257 pacote 098 armazenado em 004 na secao 000
 0001267 pacote 099 armazenado em 000 na secao 004
+0001291 pacote 100 armazenado em 003 na secao 001
 0001305 pacote 099 removido de 000 na secao 004
 0001306 pacote 097 removido de 000 na secao 004
 0001307 pacote 090 removido de 000 na secao 004
@@ -592,6 +593,8 @@
 0001307 pacote 088 em transito de 001 para 004
 0001307 pacote 091 em transito de 001 para 004
 0001307 pacote 094 em transito de 001 para 004
+0001305 pacote 100 removido de 003 na secao 001
+0001305 pacote 100 em transito de 003 para 001
 0001305 pacote 098 removido de 004 na secao 000
 0001306 pacote 079 removido de 004 na secao 000
 0001307 pacote 077 removido de 004 na secao 000
@@ -602,7 +605,10 @@
 0001306 pacote 095 removido de 004 na secao 001
 0001306 pacote 095 em transito de 004 para 001
 0001306 pacote 089 em transito de 004 para 001
+0001311 pacote 101 armazenado em 003 na secao 001
+0001318 pacote 102 armazenado em 003 na secao 001
 0001325 pacote 096 entregue em 003
+0001325 pacote 100 armazenado em 001 na secao 004
 0001326 pacote 089 entregue em 001
 0001326 pacote 095 entregue em 001
 0001327 pacote 077 armazenado em 000 na secao 002
@@ -614,8 +620,35 @@
 0001327 pacote 097 armazenado em 004 na secao 001
 0001327 pacote 098 entregue em 000
 0001327 pacote 099 armazenado em 004 na secao 001
+0001339 pacote 103 armazenado em 002 na secao 000
+0001357 pacote 104 armazenado em 003 na secao 001
+0001373 pacote 105 armazenado em 000 na secao 004
+0001375 pacote 106 armazenado em 000 na secao 004
+0001378 pacote 107 armazenado em 000 na secao 004
+0001398 pacote 108 armazenado em 003 na secao 001
+0001403 pacote 109 armazenado em 002 na secao 000
 0001405 pacote 077 removido de 000 na secao 002
 0001405 pacote 077 em transito de 000 para 002
+0001405 pacote 107 removido de 000 na secao 004
+0001406 pacote 106 removido de 000 na secao 004
+0001407 pacote 105 removido de 000 na secao 004
+0001407 pacote 105 em transito de 000 para 004
+0001407 pacote 106 em transito de 000 para 004
+0001407 pacote 107 em transito de 000 para 004
+0001405 pacote 100 removido de 001 na secao 004
+0001405 pacote 100 em transito de 001 para 004
+0001405 pacote 109 removido de 002 na secao 000
+0001406 pacote 103 removido de 002 na secao 000
+0001406 pacote 103 em transito de 002 para 000
+0001406 pacote 109 em transito de 002 para 000
+0001405 pacote 108 removido de 003 na secao 001
+0001406 pacote 104 removido de 003 na secao 001
+0001407 pacote 102 removido de 003 na secao 001
+0001408 pacote 101 removido de 003 na secao 001
+0001408 pacote 101 em transito de 003 para 001
+0001408 pacote 102 em transito de 003 para 001
+0001408 pacote 104 em transito de 003 para 001
+0001408 pacote 108 em transito de 003 para 001
 0001405 pacote 094 removido de 004 na secao 000
 0001406 pacote 088 removido de 004 na secao 000
 0001406 pacote 088 em transito de 004 para 000
@@ -626,16 +659,1113 @@
 0001407 pacote 090 em transito de 004 para 001
 0001407 pacote 097 em transito de 004 para 001
 0001407 pacote 099 em transito de 004 para 001
+0001406 pacote 110 armazenado em 001 na secao 004
 0001425 pacote 077 entregue em 002
+0001425 pacote 100 armazenado em 004 na secao 000
 0001426 pacote 088 armazenado em 000 na secao 002
 0001426 pacote 094 entregue em 000
+0001426 pacote 103 armazenado em 000 na secao 004
+0001426 pacote 109 armazenado em 000 na secao 004
 0001427 pacote 090 entregue em 001
 0001427 pacote 097 entregue em 001
 0001427 pacote 099 armazenado em 001 na secao 003
+0001427 pacote 105 armazenado em 004 na secao 001
+0001427 pacote 106 armazenado em 004 na secao 001
+0001427 pacote 107 armazenado em 004 na secao 001
+0001428 pacote 101 entregue em 001
+0001428 pacote 102 armazenado em 001 na secao 004
+0001428 pacote 104 armazenado em 001 na secao 004
+0001428 pacote 108 armazenado em 001 na secao 004
+0001430 pacote 111 armazenado em 002 na secao 000
+0001453 pacote 112 armazenado em 000 na secao 004
+0001462 pacote 113 armazenado em 003 na secao 001
+0001480 pacote 114 armazenado em 002 na secao 000
+0001496 pacote 115 armazenado em 003 na secao 001
 0001505 pacote 088 removido de 000 na secao 002
 0001505 pacote 088 em transito de 000 para 002
+0001505 pacote 112 removido de 000 na secao 004
+0001506 pacote 109 removido de 000 na secao 004
+0001507 pacote 103 removido de 000 na secao 004
+0001507 pacote 103 em transito de 000 para 004
+0001507 pacote 109 em transito de 000 para 004
+0001507 pacote 112 em transito de 000 para 004
 0001505 pacote 099 removido de 001 na secao 003
 0001505 pacote 099 em transito de 001 para 003
+0001505 pacote 108 removido de 001 na secao 004
+0001506 pacote 104 removido de 001 na secao 004
+0001507 pacote 102 removido de 001 na secao 004
+0001508 pacote 110 removido de 001 na secao 004
+0001508 pacote 110 em transito de 001 para 004
+0001508 pacote 102 em transito de 001 para 004
+0001508 pacote 104 em transito de 001 para 004
+0001508 pacote 108 em transito de 001 para 004
+0001505 pacote 114 removido de 002 na secao 000
+0001506 pacote 111 removido de 002 na secao 000
+0001506 pacote 111 em transito de 002 para 000
+0001506 pacote 114 em transito de 002 para 000
+0001505 pacote 115 removido de 003 na secao 001
+0001506 pacote 113 removido de 003 na secao 001
+0001506 pacote 113 em transito de 003 para 001
+0001506 pacote 115 em transito de 003 para 001
+0001505 pacote 100 removido de 004 na secao 000
+0001505 pacote 100 em transito de 004 para 000
+0001505 pacote 107 removido de 004 na secao 001
+0001506 pacote 106 removido de 004 na secao 001
+0001507 pacote 105 removido de 004 na secao 001
+0001507 pacote 105 em transito de 004 para 001
+0001507 pacote 106 em transito de 004 para 001
+0001507 pacote 107 em transito de 004 para 001
+0001510 pacote 116 armazenado em 004 na secao 001
 0001525 pacote 088 entregue em 002
 0001525 pacote 099 entregue em 003
+0001525 pacote 100 entregue em 000
+0001526 pacote 111 entregue em 000
+0001526 pacote 113 entregue em 001
+0001526 pacote 114 armazenado em 000 na secao 004
+0001526 pacote 115 armazenado em 001 na secao 004
+0001527 pacote 103 entregue em 004
+0001527 pacote 105 entregue em 001
+0001527 pacote 106 armazenado em 001 na secao 003
+0001527 pacote 107 entregue em 001
+0001527 pacote 109 entregue em 004
+0001527 pacote 112 armazenado em 004 na secao 001
+0001527 pacote 117 armazenado em 004 na secao 000
+0001528 pacote 102 entregue em 004
+0001528 pacote 104 entregue em 004
+0001528 pacote 108 armazenado em 004 na secao 000
+0001528 pacote 110 armazenado em 004 na secao 000
+0001530 pacote 118 armazenado em 000 na secao 002
+0001543 pacote 119 armazenado em 002 na secao 000
+0001552 pacote 120 armazenado em 003 na secao 001
+0001562 pacote 121 armazenado em 003 na secao 001
+0001565 pacote 122 armazenado em 000 na secao 002
+0001575 pacote 123 armazenado em 001 na secao 004
+0001581 pacote 124 armazenado em 002 na secao 000
+0001605 pacote 122 removido de 000 na secao 002
+0001606 pacote 118 removido de 000 na secao 002
+0001606 pacote 118 em transito de 000 para 002
+0001606 pacote 122 em transito de 000 para 002
+0001605 pacote 114 removido de 000 na secao 004
+0001605 pacote 114 em transito de 000 para 004
+0001605 pacote 106 removido de 001 na secao 003
+0001605 pacote 106 em transito de 001 para 003
+0001605 pacote 123 removido de 001 na secao 004
+0001606 pacote 115 removido de 001 na secao 004
+0001606 pacote 115 em transito de 001 para 004
+0001606 pacote 123 em transito de 001 para 004
+0001605 pacote 124 removido de 002 na secao 000
+0001606 pacote 119 removido de 002 na secao 000
+0001606 pacote 119 em transito de 002 para 000
+0001606 pacote 124 em transito de 002 para 000
+0001605 pacote 121 removido de 003 na secao 001
+0001606 pacote 120 removido de 003 na secao 001
+0001606 pacote 120 em transito de 003 para 001
+0001606 pacote 121 em transito de 003 para 001
+0001605 pacote 110 removido de 004 na secao 000
+0001606 pacote 108 removido de 004 na secao 000
+0001607 pacote 117 removido de 004 na secao 000
+0001607 pacote 117 em transito de 004 para 000
+0001607 pacote 108 em transito de 004 para 000
+0001607 pacote 110 em transito de 004 para 000
+0001605 pacote 112 removido de 004 na secao 001
+0001606 pacote 116 removido de 004 na secao 001
+0001606 pacote 116 em transito de 004 para 001
+0001606 pacote 112 em transito de 004 para 001
+0001605 pacote 125 armazenado em 002 na secao 000
+0001620 pacote 126 armazenado em 002 na secao 000
+0001625 pacote 106 entregue em 003
+0001625 pacote 114 entregue em 004
+0001626 pacote 112 entregue em 001
+0001626 pacote 115 armazenado em 004 na secao 000
+0001626 pacote 116 entregue em 001
+0001626 pacote 118 entregue em 002
+0001626 pacote 119 entregue em 000
+0001626 pacote 120 armazenado em 001 na secao 004
+0001626 pacote 121 armazenado em 001 na secao 004
+0001626 pacote 122 entregue em 002
+0001626 pacote 123 armazenado em 004 na secao 000
+0001626 pacote 124 armazenado em 000 na secao 004
+0001627 pacote 108 entregue em 000
+0001627 pacote 110 entregue em 000
+0001627 pacote 117 entregue em 000
+0001644 pacote 127 armazenado em 003 na secao 001
+0001662 pacote 128 armazenado em 002 na secao 000
+0001665 pacote 129 armazenado em 003 na secao 001
+0001683 pacote 130 armazenado em 000 na secao 004
+0001695 pacote 131 armazenado em 002 na secao 000
+0001705 pacote 130 removido de 000 na secao 004
+0001706 pacote 124 removido de 000 na secao 004
+0001706 pacote 124 em transito de 000 para 004
+0001706 pacote 130 em transito de 000 para 004
+0001705 pacote 121 removido de 001 na secao 004
+0001706 pacote 120 removido de 001 na secao 004
+0001706 pacote 120 em transito de 001 para 004
+0001706 pacote 121 em transito de 001 para 004
+0001705 pacote 131 removido de 002 na secao 000
+0001706 pacote 128 removido de 002 na secao 000
+0001707 pacote 126 removido de 002 na secao 000
+0001708 pacote 125 removido de 002 na secao 000
+0001708 pacote 125 em transito de 002 para 000
+0001708 pacote 126 em transito de 002 para 000
+0001708 pacote 128 em transito de 002 para 000
+0001708 pacote 131 em transito de 002 para 000
+0001705 pacote 129 removido de 003 na secao 001
+0001706 pacote 127 removido de 003 na secao 001
+0001706 pacote 127 em transito de 003 para 001
+0001706 pacote 129 em transito de 003 para 001
+0001705 pacote 123 removido de 004 na secao 000
+0001706 pacote 115 removido de 004 na secao 000
+0001706 pacote 115 em transito de 004 para 000
+0001706 pacote 123 em transito de 004 para 000
+0001713 pacote 132 armazenado em 000 na secao 004
+0001713 pacote 133 armazenado em 002 na secao 000
+0001726 pacote 115 armazenado em 000 na secao 002
+0001726 pacote 120 entregue em 004
+0001726 pacote 121 entregue em 004
+0001726 pacote 123 entregue em 000
+0001726 pacote 124 armazenado em 004 na secao 001
+0001726 pacote 127 entregue em 001
+0001726 pacote 129 armazenado em 001 na secao 004
+0001726 pacote 130 armazenado em 004 na secao 001
+0001728 pacote 125 armazenado em 000 na secao 004
+0001728 pacote 126 armazenado em 000 na secao 004
+0001728 pacote 128 armazenado em 000 na secao 004
+0001728 pacote 131 armazenado em 000 na secao 004
+0001734 pacote 134 armazenado em 001 na secao 004
+0001743 pacote 135 armazenado em 001 na secao 003
+0001766 pacote 136 armazenado em 001 na secao 004
+0001781 pacote 137 armazenado em 000 na secao 004
+0001793 pacote 138 armazenado em 001 na secao 004
+0001796 pacote 139 armazenado em 004 na secao 000
+0001805 pacote 115 removido de 000 na secao 002
+0001805 pacote 115 em transito de 000 para 002
+0001805 pacote 137 removido de 000 na secao 004
+0001806 pacote 131 removido de 000 na secao 004
+0001807 pacote 128 removido de 000 na secao 004
+0001808 pacote 126 removido de 000 na secao 004
+0001809 pacote 125 removido de 000 na secao 004
+0001810 pacote 132 removido de 000 na secao 004
+0001810 pacote 132 em transito de 000 para 004
+0001810 pacote 125 em transito de 000 para 004
+0001810 pacote 126 em transito de 000 para 004
+0001810 pacote 128 em transito de 000 para 004
+0001810 pacote 131 em transito de 000 para 004
+0001810 pacote 137 rearmazenado em 000 na secao 004
+0001805 pacote 135 removido de 001 na secao 003
+0001805 pacote 135 em transito de 001 para 003
+0001805 pacote 138 removido de 001 na secao 004
+0001806 pacote 136 removido de 001 na secao 004
+0001807 pacote 134 removido de 001 na secao 004
+0001808 pacote 129 removido de 001 na secao 004
+0001808 pacote 129 em transito de 001 para 004
+0001808 pacote 134 em transito de 001 para 004
+0001808 pacote 136 em transito de 001 para 004
+0001808 pacote 138 em transito de 001 para 004
+0001805 pacote 133 removido de 002 na secao 000
+0001805 pacote 133 em transito de 002 para 000
+0001805 pacote 139 removido de 004 na secao 000
+0001805 pacote 139 em transito de 004 para 000
+0001805 pacote 130 removido de 004 na secao 001
+0001806 pacote 124 removido de 004 na secao 001
+0001806 pacote 124 em transito de 004 para 001
+0001806 pacote 130 em transito de 004 para 001
+0001812 pacote 140 armazenado em 002 na secao 000
+0001825 pacote 115 entregue em 002
+0001825 pacote 133 entregue em 000
+0001825 pacote 135 entregue em 003
+0001825 pacote 139 armazenado em 000 na secao 002
+0001826 pacote 124 entregue em 001
+0001826 pacote 130 armazenado em 001 na secao 003
+0001828 pacote 129 armazenado em 004 na secao 000
+0001828 pacote 134 armazenado em 004 na secao 000
+0001828 pacote 136 armazenado em 004 na secao 000
+0001828 pacote 138 armazenado em 004 na secao 000
+0001830 pacote 125 armazenado em 004 na secao 001
+0001830 pacote 126 armazenado em 004 na secao 001
+0001830 pacote 128 armazenado em 004 na secao 001
+0001830 pacote 131 armazenado em 004 na secao 001
+0001830 pacote 132 entregue em 004
+0001833 pacote 141 armazenado em 000 na secao 004
+0001854 pacote 142 armazenado em 000 na secao 004
+0001869 pacote 143 armazenado em 004 na secao 001
+0001869 pacote 144 armazenado em 001 na secao 004
+0001887 pacote 145 armazenado em 001 na secao 003
+0001905 pacote 139 removido de 000 na secao 002
+0001905 pacote 139 em transito de 000 para 002
+0001905 pacote 142 removido de 000 na secao 004
+0001906 pacote 141 removido de 000 na secao 004
+0001907 pacote 137 removido de 000 na secao 004
+0001907 pacote 137 em transito de 000 para 004
+0001907 pacote 141 em transito de 000 para 004
+0001907 pacote 142 em transito de 000 para 004
+0001905 pacote 145 removido de 001 na secao 003
+0001906 pacote 130 removido de 001 na secao 003
+0001906 pacote 130 em transito de 001 para 003
+0001906 pacote 145 em transito de 001 para 003
+0001905 pacote 144 removido de 001 na secao 004
+0001905 pacote 144 em transito de 001 para 004
+0001905 pacote 140 removido de 002 na secao 000
+0001905 pacote 140 em transito de 002 para 000
+0001905 pacote 138 removido de 004 na secao 000
+0001906 pacote 136 removido de 004 na secao 000
+0001907 pacote 134 removido de 004 na secao 000
+0001908 pacote 129 removido de 004 na secao 000
+0001908 pacote 129 em transito de 004 para 000
+0001908 pacote 134 em transito de 004 para 000
+0001908 pacote 136 em transito de 004 para 000
+0001908 pacote 138 em transito de 004 para 000
+0001905 pacote 143 removido de 004 na secao 001
+0001906 pacote 131 removido de 004 na secao 001
+0001907 pacote 128 removido de 004 na secao 001
+0001908 pacote 126 removido de 004 na secao 001
+0001909 pacote 125 removido de 004 na secao 001
+0001909 pacote 125 em transito de 004 para 001
+0001909 pacote 126 em transito de 004 para 001
+0001909 pacote 128 em transito de 004 para 001
+0001909 pacote 131 em transito de 004 para 001
+0001909 pacote 143 em transito de 004 para 001
+0001907 pacote 146 armazenado em 004 na secao 000
+0001925 pacote 139 entregue em 002
+0001925 pacote 140 armazenado em 000 na secao 004
+0001925 pacote 144 armazenado em 004 na secao 000
+0001925 pacote 147 armazenado em 001 na secao 003
+0001926 pacote 130 entregue em 003
+0001926 pacote 145 entregue em 003
+0001927 pacote 137 entregue em 004
+0001927 pacote 141 armazenado em 004 na secao 001
+0001927 pacote 142 armazenado em 004 na secao 001
+0001927 pacote 148 armazenado em 001 na secao 004
+0001928 pacote 129 entregue em 000
+0001928 pacote 134 armazenado em 000 na secao 002
+0001928 pacote 136 entregue em 000
+0001928 pacote 138 entregue em 000
+0001929 pacote 125 entregue em 001
+0001929 pacote 126 armazenado em 001 na secao 003
+0001929 pacote 128 entregue em 001
+0001929 pacote 131 armazenado em 001 na secao 003
+0001929 pacote 143 entregue em 001
+0001944 pacote 149 armazenado em 003 na secao 001
+0001961 pacote 150 armazenado em 002 na secao 000
+0001979 pacote 151 armazenado em 000 na secao 002
+0001991 pacote 152 armazenado em 001 na secao 004
+0002001 pacote 153 armazenado em 000 na secao 004
+0002005 pacote 151 removido de 000 na secao 002
+0002006 pacote 134 removido de 000 na secao 002
+0002006 pacote 134 em transito de 000 para 002
+0002006 pacote 151 em transito de 000 para 002
+0002005 pacote 153 removido de 000 na secao 004
+0002006 pacote 140 removido de 000 na secao 004
+0002006 pacote 140 em transito de 000 para 004
+0002006 pacote 153 em transito de 000 para 004
+0002005 pacote 131 removido de 001 na secao 003
+0002006 pacote 126 removido de 001 na secao 003
+0002007 pacote 147 removido de 001 na secao 003
+0002007 pacote 147 em transito de 001 para 003
+0002007 pacote 126 em transito de 001 para 003
+0002007 pacote 131 em transito de 001 para 003
+0002005 pacote 152 removido de 001 na secao 004
+0002006 pacote 148 removido de 001 na secao 004
+0002006 pacote 148 em transito de 001 para 004
+0002006 pacote 152 em transito de 001 para 004
+0002005 pacote 150 removido de 002 na secao 000
+0002005 pacote 150 em transito de 002 para 000
+0002005 pacote 149 removido de 003 na secao 001
+0002005 pacote 149 em transito de 003 para 001
+0002005 pacote 144 removido de 004 na secao 000
+0002006 pacote 146 removido de 004 na secao 000
+0002006 pacote 146 em transito de 004 para 000
+0002006 pacote 144 em transito de 004 para 000
+0002005 pacote 142 removido de 004 na secao 001
+0002006 pacote 141 removido de 004 na secao 001
+0002006 pacote 141 em transito de 004 para 001
+0002006 pacote 142 em transito de 004 para 001
+0002013 pacote 154 armazenado em 004 na secao 001
+0002024 pacote 155 armazenado em 001 na secao 003
+0002025 pacote 149 armazenado em 001 na secao 004
+0002025 pacote 150 armazenado em 000 na secao 004
+0002026 pacote 134 entregue em 002
+0002026 pacote 140 entregue em 004
+0002026 pacote 141 entregue em 001
+0002026 pacote 142 armazenado em 001 na secao 003
+0002026 pacote 144 armazenado em 000 na secao 002
+0002026 pacote 146 armazenado em 000 na secao 002
+0002026 pacote 148 entregue em 004
+0002026 pacote 151 entregue em 002
+0002026 pacote 152 armazenado em 004 na secao 000
+0002026 pacote 153 armazenado em 004 na secao 001
+0002027 pacote 126 entregue em 003
+0002027 pacote 131 entregue em 003
+0002027 pacote 147 entregue em 003
+0002041 pacote 156 armazenado em 002 na secao 000
+0002058 pacote 157 armazenado em 002 na secao 000
+0002081 pacote 158 armazenado em 004 na secao 001
+0002085 pacote 159 armazenado em 000 na secao 004
+0002103 pacote 160 armazenado em 002 na secao 000
+0002105 pacote 146 removido de 000 na secao 002
+0002106 pacote 144 removido de 000 na secao 002
+0002106 pacote 144 em transito de 000 para 002
+0002106 pacote 146 em transito de 000 para 002
+0002105 pacote 159 removido de 000 na secao 004
+0002106 pacote 150 removido de 000 na secao 004
+0002106 pacote 150 em transito de 000 para 004
+0002106 pacote 159 em transito de 000 para 004
+0002105 pacote 142 removido de 001 na secao 003
+0002106 pacote 155 removido de 001 na secao 003
+0002106 pacote 155 em transito de 001 para 003
+0002106 pacote 142 em transito de 001 para 003
+0002105 pacote 149 removido de 001 na secao 004
+0002105 pacote 149 em transito de 001 para 004
+0002105 pacote 160 removido de 002 na secao 000
+0002106 pacote 157 removido de 002 na secao 000
+0002107 pacote 156 removido de 002 na secao 000
+0002107 pacote 156 em transito de 002 para 000
+0002107 pacote 157 em transito de 002 para 000
+0002107 pacote 160 em transito de 002 para 000
+0002105 pacote 152 removido de 004 na secao 000
+0002105 pacote 152 em transito de 004 para 000
+0002105 pacote 158 removido de 004 na secao 001
+0002106 pacote 153 removido de 004 na secao 001
+0002107 pacote 154 removido de 004 na secao 001
+0002107 pacote 154 em transito de 004 para 001
+0002107 pacote 153 em transito de 004 para 001
+0002107 pacote 158 em transito de 004 para 001
+0002125 pacote 149 armazenado em 004 na secao 000
+0002125 pacote 152 entregue em 000
+0002126 pacote 142 entregue em 003
+0002126 pacote 144 entregue em 002
+0002126 pacote 146 entregue em 002
+0002126 pacote 150 armazenado em 004 na secao 001
+0002126 pacote 155 entregue em 003
+0002126 pacote 159 entregue em 004
+0002127 pacote 153 armazenado em 001 na secao 003
+0002127 pacote 154 armazenado em 001 na secao 003
+0002127 pacote 156 armazenado em 000 na secao 004
+0002127 pacote 157 armazenado em 000 na secao 004
+0002127 pacote 158 armazenado em 001 na secao 003
+0002127 pacote 160 armazenado em 000 na secao 004
+0002127 pacote 161 armazenado em 000 na secao 002
+0002127 pacote 162 armazenado em 003 na secao 001
+0002132 pacote 163 armazenado em 002 na secao 000
+0002140 pacote 164 armazenado em 001 na secao 004
+0002159 pacote 165 armazenado em 000 na secao 004
+0002178 pacote 166 armazenado em 002 na secao 000
+0002196 pacote 167 armazenado em 000 na secao 004
+0002205 pacote 161 removido de 000 na secao 002
+0002205 pacote 161 em transito de 000 para 002
+0002205 pacote 167 removido de 000 na secao 004
+0002206 pacote 165 removido de 000 na secao 004
+0002207 pacote 160 removido de 000 na secao 004
+0002208 pacote 157 removido de 000 na secao 004
+0002209 pacote 156 removido de 000 na secao 004
+0002209 pacote 156 em transito de 000 para 004
+0002209 pacote 157 em transito de 000 para 004
+0002209 pacote 160 em transito de 000 para 004
+0002209 pacote 165 em transito de 000 para 004
+0002209 pacote 167 em transito de 000 para 004
+0002205 pacote 158 removido de 001 na secao 003
+0002206 pacote 154 removido de 001 na secao 003
+0002207 pacote 153 removido de 001 na secao 003
+0002207 pacote 153 em transito de 001 para 003
+0002207 pacote 154 em transito de 001 para 003
+0002207 pacote 158 em transito de 001 para 003
+0002205 pacote 164 removido de 001 na secao 004
+0002205 pacote 164 em transito de 001 para 004
+0002205 pacote 166 removido de 002 na secao 000
+0002206 pacote 163 removido de 002 na secao 000
+0002206 pacote 163 em transito de 002 para 000
+0002206 pacote 166 em transito de 002 para 000
+0002205 pacote 162 removido de 003 na secao 001
+0002205 pacote 162 em transito de 003 para 001
+0002205 pacote 149 removido de 004 na secao 000
+0002205 pacote 149 em transito de 004 para 000
+0002205 pacote 150 removido de 004 na secao 001
+0002205 pacote 150 em transito de 004 para 001
+0002216 pacote 168 armazenado em 004 na secao 001
+0002219 pacote 169 armazenado em 002 na secao 000
+0002225 pacote 149 armazenado em 000 na secao 002
+0002225 pacote 150 entregue em 001
+0002225 pacote 161 entregue em 002
+0002225 pacote 162 entregue em 001
+0002225 pacote 164 armazenado em 004 na secao 000
+0002226 pacote 163 armazenado em 000 na secao 004
+0002226 pacote 166 entregue em 000
+0002227 pacote 153 entregue em 003
+0002227 pacote 154 entregue em 003
+0002227 pacote 158 entregue em 003
+0002229 pacote 156 armazenado em 004 na secao 001
+0002229 pacote 157 armazenado em 004 na secao 001
+0002229 pacote 160 entregue em 004
+0002229 pacote 165 armazenado em 004 na secao 001
+0002229 pacote 167 armazenado em 004 na secao 001
+0002235 pacote 170 armazenado em 000 na secao 004
+0002254 pacote 171 armazenado em 001 na secao 004
+0002275 pacote 172 armazenado em 000 na secao 004
+0002276 pacote 173 armazenado em 004 na secao 001
+0002297 pacote 174 armazenado em 000 na secao 004
+0002305 pacote 149 removido de 000 na secao 002
+0002305 pacote 149 em transito de 000 para 002
+0002305 pacote 174 removido de 000 na secao 004
+0002306 pacote 172 removido de 000 na secao 004
+0002307 pacote 170 removido de 000 na secao 004
+0002308 pacote 163 removido de 000 na secao 004
+0002308 pacote 163 em transito de 000 para 004
+0002308 pacote 170 em transito de 000 para 004
+0002308 pacote 172 em transito de 000 para 004
+0002308 pacote 174 em transito de 000 para 004
+0002305 pacote 171 removido de 001 na secao 004
+0002305 pacote 171 em transito de 001 para 004
+0002305 pacote 169 removido de 002 na secao 000
+0002305 pacote 169 em transito de 002 para 000
+0002305 pacote 164 removido de 004 na secao 000
+0002305 pacote 164 em transito de 004 para 000
+0002305 pacote 173 removido de 004 na secao 001
+0002306 pacote 167 removido de 004 na secao 001
+0002307 pacote 165 removido de 004 na secao 001
+0002308 pacote 157 removido de 004 na secao 001
+0002309 pacote 156 removido de 004 na secao 001
+0002310 pacote 168 removido de 004 na secao 001
+0002310 pacote 168 em transito de 004 para 001
+0002310 pacote 156 em transito de 004 para 001
+0002310 pacote 157 em transito de 004 para 001
+0002310 pacote 165 em transito de 004 para 001
+0002310 pacote 167 em transito de 004 para 001
+0002310 pacote 173 rearmazenado em 004 na secao 001
+0002320 pacote 175 armazenado em 001 na secao 004
+0002324 pacote 176 armazenado em 001 na secao 003
+0002325 pacote 149 entregue em 002
+0002325 pacote 164 entregue em 000
+0002325 pacote 169 entregue em 000
+0002325 pacote 171 armazenado em 004 na secao 000
+0002328 pacote 163 armazenado em 004 na secao 001
+0002328 pacote 170 armazenado em 004 na secao 001
+0002328 pacote 172 armazenado em 004 na secao 001
+0002328 pacote 174 entregue em 004
+0002330 pacote 156 armazenado em 001 na secao 003
+0002330 pacote 157 entregue em 001
+0002330 pacote 165 entregue em 001
+0002330 pacote 167 armazenado em 001 na secao 003
+0002330 pacote 168 entregue em 001
+0002338 pacote 177 armazenado em 003 na secao 001
+0002351 pacote 178 armazenado em 001 na secao 004
+0002369 pacote 179 armazenado em 004 na secao 000
+0002386 pacote 180 armazenado em 001 na secao 004
+0002399 pacote 181 armazenado em 002 na secao 000
+0002400 pacote 182 armazenado em 003 na secao 001
+0002405 pacote 167 removido de 001 na secao 003
+0002406 pacote 156 removido de 001 na secao 003
+0002407 pacote 176 removido de 001 na secao 003
+0002407 pacote 176 em transito de 001 para 003
+0002407 pacote 156 em transito de 001 para 003
+0002407 pacote 167 em transito de 001 para 003
+0002405 pacote 180 removido de 001 na secao 004
+0002406 pacote 178 removido de 001 na secao 004
+0002407 pacote 175 removido de 001 na secao 004
+0002407 pacote 175 em transito de 001 para 004
+0002407 pacote 178 em transito de 001 para 004
+0002407 pacote 180 em transito de 001 para 004
+0002405 pacote 181 removido de 002 na secao 000
+0002405 pacote 181 em transito de 002 para 000
+0002405 pacote 182 removido de 003 na secao 001
+0002406 pacote 177 removido de 003 na secao 001
+0002406 pacote 177 em transito de 003 para 001
+0002406 pacote 182 em transito de 003 para 001
+0002405 pacote 179 removido de 004 na secao 000
+0002406 pacote 171 removido de 004 na secao 000
+0002406 pacote 171 em transito de 004 para 000
+0002406 pacote 179 em transito de 004 para 000
+0002405 pacote 172 removido de 004 na secao 001
+0002406 pacote 170 removido de 004 na secao 001
+0002407 pacote 163 removido de 004 na secao 001
+0002408 pacote 173 removido de 004 na secao 001
+0002408 pacote 173 em transito de 004 para 001
+0002408 pacote 163 em transito de 004 para 001
+0002408 pacote 170 em transito de 004 para 001
+0002408 pacote 172 em transito de 004 para 001
+0002418 pacote 183 armazenado em 002 na secao 000
+0002425 pacote 181 armazenado em 000 na secao 004
+0002426 pacote 171 entregue em 000
+0002426 pacote 177 armazenado em 001 na secao 004
+0002426 pacote 179 entregue em 000
+0002426 pacote 182 armazenado em 001 na secao 004
+0002427 pacote 156 entregue em 003
+0002427 pacote 167 entregue em 003
+0002427 pacote 175 armazenado em 004 na secao 000
+0002427 pacote 176 entregue em 003
+0002427 pacote 178 entregue em 004
+0002427 pacote 180 armazenado em 004 na secao 000
+0002428 pacote 163 entregue em 001
+0002428 pacote 170 armazenado em 001 na secao 003
+0002428 pacote 172 armazenado em 001 na secao 003
+0002428 pacote 173 entregue em 001
+0002440 pacote 184 armazenado em 004 na secao 001
+0002453 pacote 185 armazenado em 003 na secao 001
+0002465 pacote 186 armazenado em 001 na secao 004
+0002470 pacote 187 armazenado em 003 na secao 001
+0002472 pacote 188 armazenado em 003 na secao 001
+0002473 pacote 189 armazenado em 003 na secao 001
+0002496 pacote 190 armazenado em 003 na secao 001
+0002505 pacote 181 removido de 000 na secao 004
+0002505 pacote 181 em transito de 000 para 004
+0002505 pacote 172 removido de 001 na secao 003
+0002506 pacote 170 removido de 001 na secao 003
+0002506 pacote 170 em transito de 001 para 003
+0002506 pacote 172 em transito de 001 para 003
+0002505 pacote 186 removido de 001 na secao 004
+0002506 pacote 182 removido de 001 na secao 004
+0002507 pacote 177 removido de 001 na secao 004
+0002507 pacote 177 em transito de 001 para 004
+0002507 pacote 182 em transito de 001 para 004
+0002507 pacote 186 em transito de 001 para 004
+0002505 pacote 183 removido de 002 na secao 000
+0002505 pacote 183 em transito de 002 para 000
+0002505 pacote 190 removido de 003 na secao 001
+0002506 pacote 189 removido de 003 na secao 001
+0002507 pacote 188 removido de 003 na secao 001
+0002508 pacote 187 removido de 003 na secao 001
+0002509 pacote 185 removido de 003 na secao 001
+0002509 pacote 185 em transito de 003 para 001
+0002509 pacote 187 em transito de 003 para 001
+0002509 pacote 188 em transito de 003 para 001
+0002509 pacote 189 em transito de 003 para 001
+0002509 pacote 190 em transito de 003 para 001
+0002505 pacote 180 removido de 004 na secao 000
+0002506 pacote 175 removido de 004 na secao 000
+0002506 pacote 175 em transito de 004 para 000
+0002506 pacote 180 em transito de 004 para 000
+0002505 pacote 184 removido de 004 na secao 001
+0002505 pacote 184 em transito de 004 para 001
+0002520 pacote 191 armazenado em 000 na secao 004
+0002525 pacote 181 armazenado em 004 na secao 001
+0002525 pacote 183 entregue em 000
+0002525 pacote 184 armazenado em 001 na secao 003
+0002526 pacote 170 entregue em 003
+0002526 pacote 172 entregue em 003
+0002526 pacote 175 entregue em 000
+0002526 pacote 180 armazenado em 000 na secao 002
+0002526 pacote 192 armazenado em 004 na secao 001
+0002527 pacote 177 armazenado em 004 na secao 000
+0002527 pacote 182 armazenado em 004 na secao 000
+0002527 pacote 186 armazenado em 004 na secao 000
+0002529 pacote 185 armazenado em 001 na secao 004
+0002529 pacote 187 armazenado em 001 na secao 004
+0002529 pacote 188 armazenado em 001 na secao 004
+0002529 pacote 189 armazenado em 001 na secao 004
+0002529 pacote 190 armazenado em 001 na secao 004
+0002539 pacote 193 armazenado em 004 na secao 000
+0002552 pacote 194 armazenado em 002 na secao 000
+0002569 pacote 195 armazenado em 001 na secao 004
+0002591 pacote 196 armazenado em 004 na secao 000
+0002605 pacote 180 removido de 000 na secao 002
+0002605 pacote 180 em transito de 000 para 002
+0002605 pacote 191 removido de 000 na secao 004
+0002605 pacote 191 em transito de 000 para 004
+0002605 pacote 184 removido de 001 na secao 003
+0002605 pacote 184 em transito de 001 para 003
+0002605 pacote 195 removido de 001 na secao 004
+0002606 pacote 190 removido de 001 na secao 004
+0002607 pacote 189 removido de 001 na secao 004
+0002608 pacote 188 removido de 001 na secao 004
+0002609 pacote 187 removido de 001 na secao 004
+0002610 pacote 185 removido de 001 na secao 004
+0002610 pacote 185 em transito de 001 para 004
+0002610 pacote 187 em transito de 001 para 004
+0002610 pacote 188 em transito de 001 para 004
+0002610 pacote 189 em transito de 001 para 004
+0002610 pacote 190 em transito de 001 para 004
+0002610 pacote 195 rearmazenado em 001 na secao 004
+0002605 pacote 194 removido de 002 na secao 000
+0002605 pacote 194 em transito de 002 para 000
+0002605 pacote 196 removido de 004 na secao 000
+0002606 pacote 193 removido de 004 na secao 000
+0002607 pacote 186 removido de 004 na secao 000
+0002608 pacote 182 removido de 004 na secao 000
+0002609 pacote 177 removido de 004 na secao 000
+0002609 pacote 177 em transito de 004 para 000
+0002609 pacote 182 em transito de 004 para 000
+0002609 pacote 186 em transito de 004 para 000
+0002609 pacote 193 em transito de 004 para 000
+0002609 pacote 196 em transito de 004 para 000
+0002605 pacote 192 removido de 004 na secao 001
+0002606 pacote 181 removido de 004 na secao 001
+0002606 pacote 181 em transito de 004 para 001
+0002606 pacote 192 em transito de 004 para 001
+0002609 pacote 197 armazenado em 000 na secao 004
+0002611 pacote 198 armazenado em 002 na secao 000
+0002625 pacote 180 entregue em 002
+0002625 pacote 184 entregue em 003
+0002625 pacote 191 entregue em 004
+0002625 pacote 194 armazenado em 000 na secao 004
+0002626 pacote 181 armazenado em 001 na secao 003
+0002626 pacote 192 armazenado em 001 na secao 003
+0002629 pacote 177 armazenado em 000 na secao 002
+0002629 pacote 182 armazenado em 000 na secao 002
+0002629 pacote 186 entregue em 000
+0002629 pacote 193 armazenado em 000 na secao 002
+0002629 pacote 196 armazenado em 000 na secao 002
+0002630 pacote 185 armazenado em 004 na secao 000
+0002630 pacote 187 armazenado em 004 na secao 000
+0002630 pacote 188 armazenado em 004 na secao 000
+0002630 pacote 189 armazenado em 004 na secao 000
+0002630 pacote 190 armazenado em 004 na secao 000
+0002630 pacote 199 armazenado em 003 na secao 001
+0002635 pacote 200 armazenado em 001 na secao 004
+0002658 pacote 201 armazenado em 000 na secao 002
+0002666 pacote 202 armazenado em 003 na secao 001
+0002686 pacote 203 armazenado em 000 na secao 004
+0002690 pacote 204 armazenado em 000 na secao 004
+0002690 pacote 205 armazenado em 003 na secao 001
+0002699 pacote 206 armazenado em 001 na secao 003
+0002699 pacote 207 armazenado em 000 na secao 004
+0002701 pacote 208 armazenado em 002 na secao 000
+0002705 pacote 201 removido de 000 na secao 002
+0002706 pacote 196 removido de 000 na secao 002
+0002707 pacote 193 removido de 000 na secao 002
+0002708 pacote 182 removido de 000 na secao 002
+0002709 pacote 177 removido de 000 na secao 002
+0002709 pacote 177 em transito de 000 para 002
+0002709 pacote 182 em transito de 000 para 002
+0002709 pacote 193 em transito de 000 para 002
+0002709 pacote 196 em transito de 000 para 002
+0002709 pacote 201 em transito de 000 para 002
+0002705 pacote 207 removido de 000 na secao 004
+0002706 pacote 204 removido de 000 na secao 004
+0002707 pacote 203 removido de 000 na secao 004
+0002708 pacote 194 removido de 000 na secao 004
+0002709 pacote 197 removido de 000 na secao 004
+0002709 pacote 197 em transito de 000 para 004
+0002709 pacote 194 em transito de 000 para 004
+0002709 pacote 203 em transito de 000 para 004
+0002709 pacote 204 em transito de 000 para 004
+0002709 pacote 207 em transito de 000 para 004
+0002705 pacote 206 removido de 001 na secao 003
+0002706 pacote 192 removido de 001 na secao 003
+0002707 pacote 181 removido de 001 na secao 003
+0002707 pacote 181 em transito de 001 para 003
+0002707 pacote 192 em transito de 001 para 003
+0002707 pacote 206 em transito de 001 para 003
+0002705 pacote 200 removido de 001 na secao 004
+0002706 pacote 195 removido de 001 na secao 004
+0002706 pacote 195 em transito de 001 para 004
+0002706 pacote 200 em transito de 001 para 004
+0002705 pacote 208 removido de 002 na secao 000
+0002706 pacote 198 removido de 002 na secao 000
+0002706 pacote 198 em transito de 002 para 000
+0002706 pacote 208 em transito de 002 para 000
+0002705 pacote 205 removido de 003 na secao 001
+0002706 pacote 202 removido de 003 na secao 001
+0002707 pacote 199 removido de 003 na secao 001
+0002707 pacote 199 em transito de 003 para 001
+0002707 pacote 202 em transito de 003 para 001
+0002707 pacote 205 em transito de 003 para 001
+0002705 pacote 190 removido de 004 na secao 000
+0002706 pacote 189 removido de 004 na secao 000
+0002707 pacote 188 removido de 004 na secao 000
+0002708 pacote 187 removido de 004 na secao 000
+0002709 pacote 185 removido de 004 na secao 000
+0002709 pacote 185 em transito de 004 para 000
+0002709 pacote 187 em transito de 004 para 000
+0002709 pacote 188 em transito de 004 para 000
+0002709 pacote 189 em transito de 004 para 000
+0002709 pacote 190 em transito de 004 para 000
+0002719 pacote 209 armazenado em 000 na secao 004
+0002726 pacote 195 armazenado em 004 na secao 000
+0002726 pacote 198 armazenado em 000 na secao 004
+0002726 pacote 200 armazenado em 004 na secao 000
+0002726 pacote 208 armazenado em 000 na secao 004
+0002727 pacote 181 entregue em 003
+0002727 pacote 192 entregue em 003
+0002727 pacote 199 armazenado em 001 na secao 004
+0002727 pacote 202 armazenado em 001 na secao 004
+0002727 pacote 205 entregue em 001
+0002727 pacote 206 entregue em 003
+0002729 pacote 177 entregue em 002
+0002729 pacote 182 entregue em 002
+0002729 pacote 185 armazenado em 000 na secao 002
+0002729 pacote 187 entregue em 000
+0002729 pacote 188 entregue em 000
+0002729 pacote 189 entregue em 000
+0002729 pacote 190 armazenado em 000 na secao 002
+0002729 pacote 193 entregue em 002
+0002729 pacote 194 armazenado em 004 na secao 001
+0002729 pacote 196 entregue em 002
+0002729 pacote 197 armazenado em 004 na secao 001
+0002729 pacote 201 entregue em 002
+0002729 pacote 203 armazenado em 004 na secao 001
+0002729 pacote 204 armazenado em 004 na secao 001
+0002729 pacote 207 armazenado em 004 na secao 001
+0002738 pacote 210 armazenado em 004 na secao 001
+0002748 pacote 211 armazenado em 004 na secao 001
+0002752 pacote 212 armazenado em 000 na secao 004
+0002752 pacote 213 armazenado em 000 na secao 002
+0002752 pacote 214 armazenado em 004 na secao 001
+0002752 pacote 215 armazenado em 004 na secao 001
+0002754 pacote 216 armazenado em 004 na secao 000
+0002762 pacote 217 armazenado em 002 na secao 000
+0002765 pacote 218 armazenado em 000 na secao 004
+0002774 pacote 219 armazenado em 002 na secao 000
+0002777 pacote 220 armazenado em 002 na secao 000
+0002785 pacote 221 armazenado em 001 na secao 004
+0002794 pacote 222 armazenado em 002 na secao 000
+0002803 pacote 223 armazenado em 004 na secao 001
+0002805 pacote 213 removido de 000 na secao 002
+0002806 pacote 190 removido de 000 na secao 002
+0002807 pacote 185 removido de 000 na secao 002
+0002807 pacote 185 em transito de 000 para 002
+0002807 pacote 190 em transito de 000 para 002
+0002807 pacote 213 em transito de 000 para 002
+0002805 pacote 218 removido de 000 na secao 004
+0002806 pacote 212 removido de 000 na secao 004
+0002807 pacote 208 removido de 000 na secao 004
+0002808 pacote 198 removido de 000 na secao 004
+0002809 pacote 209 removido de 000 na secao 004
+0002809 pacote 209 em transito de 000 para 004
+0002809 pacote 198 em transito de 000 para 004
+0002809 pacote 208 em transito de 000 para 004
+0002809 pacote 212 em transito de 000 para 004
+0002809 pacote 218 em transito de 000 para 004
+0002805 pacote 221 removido de 001 na secao 004
+0002806 pacote 202 removido de 001 na secao 004
+0002807 pacote 199 removido de 001 na secao 004
+0002807 pacote 199 em transito de 001 para 004
+0002807 pacote 202 em transito de 001 para 004
+0002807 pacote 221 em transito de 001 para 004
+0002805 pacote 222 removido de 002 na secao 000
+0002806 pacote 220 removido de 002 na secao 000
+0002807 pacote 219 removido de 002 na secao 000
+0002808 pacote 217 removido de 002 na secao 000
+0002808 pacote 217 em transito de 002 para 000
+0002808 pacote 219 em transito de 002 para 000
+0002808 pacote 220 em transito de 002 para 000
+0002808 pacote 222 em transito de 002 para 000
+0002805 pacote 216 removido de 004 na secao 000
+0002806 pacote 200 removido de 004 na secao 000
+0002807 pacote 195 removido de 004 na secao 000
+0002807 pacote 195 em transito de 004 para 000
+0002807 pacote 200 em transito de 004 para 000
+0002807 pacote 216 em transito de 004 para 000
+0002805 pacote 223 removido de 004 na secao 001
+0002806 pacote 215 removido de 004 na secao 001
+0002807 pacote 214 removido de 004 na secao 001
+0002808 pacote 211 removido de 004 na secao 001
+0002809 pacote 210 removido de 004 na secao 001
+0002810 pacote 207 removido de 004 na secao 001
+0002811 pacote 204 removido de 004 na secao 001
+0002812 pacote 203 removido de 004 na secao 001
+0002813 pacote 197 removido de 004 na secao 001
+0002814 pacote 194 removido de 004 na secao 001
+0002814 pacote 194 em transito de 004 para 001
+0002814 pacote 197 em transito de 004 para 001
+0002814 pacote 203 em transito de 004 para 001
+0002814 pacote 204 em transito de 004 para 001
+0002814 pacote 207 em transito de 004 para 001
+0002814 pacote 210 rearmazenado em 004 na secao 001
+0002814 pacote 211 rearmazenado em 004 na secao 001
+0002814 pacote 214 rearmazenado em 004 na secao 001
+0002814 pacote 215 rearmazenado em 004 na secao 001
+0002814 pacote 223 rearmazenado em 004 na secao 001
+0002823 pacote 224 armazenado em 002 na secao 000
+0002827 pacote 185 entregue em 002
+0002827 pacote 190 entregue em 002
+0002827 pacote 195 entregue em 000
+0002827 pacote 199 armazenado em 004 na secao 000
+0002827 pacote 200 armazenado em 000 na secao 002
+0002827 pacote 202 entregue em 004
+0002827 pacote 213 entregue em 002
+0002827 pacote 216 entregue em 000
+0002827 pacote 221 entregue em 004
+0002828 pacote 217 entregue em 000
+0002828 pacote 219 armazenado em 000 na secao 004
+0002828 pacote 220 armazenado em 000 na secao 004
+0002828 pacote 222 armazenado em 000 na secao 004
+0002829 pacote 198 armazenado em 004 na secao 001
+0002829 pacote 208 armazenado em 004 na secao 001
+0002829 pacote 209 armazenado em 004 na secao 001
+0002829 pacote 212 armazenado em 004 na secao 001
+0002829 pacote 218 armazenado em 004 na secao 001
+0002831 pacote 225 armazenado em 002 na secao 000
+0002834 pacote 194 armazenado em 001 na secao 003
+0002834 pacote 197 entregue em 001
+0002834 pacote 203 armazenado em 001 na secao 003
+0002834 pacote 204 armazenado em 001 na secao 003
+0002834 pacote 207 entregue em 001
+0002841 pacote 226 armazenado em 000 na secao 004
+0002847 pacote 227 armazenado em 002 na secao 000
+0002860 pacote 228 armazenado em 000 na secao 004
+0002882 pacote 229 armazenado em 002 na secao 000
+0002901 pacote 230 armazenado em 002 na secao 000
+0002905 pacote 200 removido de 000 na secao 002
+0002905 pacote 200 em transito de 000 para 002
+0002905 pacote 228 removido de 000 na secao 004
+0002906 pacote 226 removido de 000 na secao 004
+0002907 pacote 222 removido de 000 na secao 004
+0002908 pacote 220 removido de 000 na secao 004
+0002909 pacote 219 removido de 000 na secao 004
+0002909 pacote 219 em transito de 000 para 004
+0002909 pacote 220 em transito de 000 para 004
+0002909 pacote 222 em transito de 000 para 004
+0002909 pacote 226 em transito de 000 para 004
+0002909 pacote 228 em transito de 000 para 004
+0002905 pacote 204 removido de 001 na secao 003
+0002906 pacote 203 removido de 001 na secao 003
+0002907 pacote 194 removido de 001 na secao 003
+0002907 pacote 194 em transito de 001 para 003
+0002907 pacote 203 em transito de 001 para 003
+0002907 pacote 204 em transito de 001 para 003
+0002905 pacote 230 removido de 002 na secao 000
+0002906 pacote 229 removido de 002 na secao 000
+0002907 pacote 227 removido de 002 na secao 000
+0002908 pacote 225 removido de 002 na secao 000
+0002909 pacote 224 removido de 002 na secao 000
+0002909 pacote 224 em transito de 002 para 000
+0002909 pacote 225 em transito de 002 para 000
+0002909 pacote 227 em transito de 002 para 000
+0002909 pacote 229 em transito de 002 para 000
+0002909 pacote 230 em transito de 002 para 000
+0002905 pacote 199 removido de 004 na secao 000
+0002905 pacote 199 em transito de 004 para 000
+0002905 pacote 218 removido de 004 na secao 001
+0002906 pacote 212 removido de 004 na secao 001
+0002907 pacote 209 removido de 004 na secao 001
+0002908 pacote 208 removido de 004 na secao 001
+0002909 pacote 198 removido de 004 na secao 001
+0002910 pacote 223 removido de 004 na secao 001
+0002911 pacote 215 removido de 004 na secao 001
+0002912 pacote 214 removido de 004 na secao 001
+0002913 pacote 211 removido de 004 na secao 001
+0002914 pacote 210 removido de 004 na secao 001
+0002914 pacote 210 em transito de 004 para 001
+0002914 pacote 211 em transito de 004 para 001
+0002914 pacote 214 em transito de 004 para 001
+0002914 pacote 215 em transito de 004 para 001
+0002914 pacote 223 em transito de 004 para 001
+0002914 pacote 198 rearmazenado em 004 na secao 001
+0002914 pacote 208 rearmazenado em 004 na secao 001
+0002914 pacote 209 rearmazenado em 004 na secao 001
+0002914 pacote 212 rearmazenado em 004 na secao 001
+0002914 pacote 218 rearmazenado em 004 na secao 001
+0002915 pacote 231 armazenado em 003 na secao 001
+0002925 pacote 199 armazenado em 000 na secao 002
+0002925 pacote 200 entregue em 002
+0002927 pacote 194 entregue em 003
+0002927 pacote 203 entregue em 003
+0002927 pacote 204 entregue em 003
+0002929 pacote 219 entregue em 004
+0002929 pacote 220 armazenado em 004 na secao 001
+0002929 pacote 222 entregue em 004
+0002929 pacote 224 armazenado em 000 na secao 004
+0002929 pacote 225 armazenado em 000 na secao 004
+0002929 pacote 226 armazenado em 004 na secao 001
+0002929 pacote 227 armazenado em 000 na secao 004
+0002929 pacote 228 armazenado em 004 na secao 001
+0002929 pacote 229 armazenado em 000 na secao 004
+0002929 pacote 230 armazenado em 000 na secao 004
+0002934 pacote 210 armazenado em 001 na secao 003
+0002934 pacote 211 armazenado em 001 na secao 003
+0002934 pacote 214 armazenado em 001 na secao 003
+0002934 pacote 215 armazenado em 001 na secao 003
+0002934 pacote 223 armazenado em 001 na secao 003
+0002935 pacote 232 armazenado em 003 na secao 001
+0002945 pacote 233 armazenado em 004 na secao 000
+0002951 pacote 234 armazenado em 002 na secao 000
+0002969 pacote 235 armazenado em 002 na secao 000
+0002988 pacote 236 armazenado em 002 na secao 000
+0003005 pacote 199 removido de 000 na secao 002
+0003005 pacote 199 em transito de 000 para 002
+0003005 pacote 230 removido de 000 na secao 004
+0003006 pacote 229 removido de 000 na secao 004
+0003007 pacote 227 removido de 000 na secao 004
+0003008 pacote 225 removido de 000 na secao 004
+0003009 pacote 224 removido de 000 na secao 004
+0003009 pacote 224 em transito de 000 para 004
+0003009 pacote 225 em transito de 000 para 004
+0003009 pacote 227 em transito de 000 para 004
+0003009 pacote 229 em transito de 000 para 004
+0003009 pacote 230 em transito de 000 para 004
+0003005 pacote 223 removido de 001 na secao 003
+0003006 pacote 215 removido de 001 na secao 003
+0003007 pacote 214 removido de 001 na secao 003
+0003008 pacote 211 removido de 001 na secao 003
+0003009 pacote 210 removido de 001 na secao 003
+0003009 pacote 210 em transito de 001 para 003
+0003009 pacote 211 em transito de 001 para 003
+0003009 pacote 214 em transito de 001 para 003
+0003009 pacote 215 em transito de 001 para 003
+0003009 pacote 223 em transito de 001 para 003
+0003005 pacote 236 removido de 002 na secao 000
+0003006 pacote 235 removido de 002 na secao 000
+0003007 pacote 234 removido de 002 na secao 000
+0003007 pacote 234 em transito de 002 para 000
+0003007 pacote 235 em transito de 002 para 000
+0003007 pacote 236 em transito de 002 para 000
+0003005 pacote 232 removido de 003 na secao 001
+0003006 pacote 231 removido de 003 na secao 001
+0003006 pacote 231 em transito de 003 para 001
+0003006 pacote 232 em transito de 003 para 001
+0003005 pacote 233 removido de 004 na secao 000
+0003005 pacote 233 em transito de 004 para 000
+0003005 pacote 228 removido de 004 na secao 001
+0003006 pacote 226 removido de 004 na secao 001
+0003007 pacote 220 removido de 004 na secao 001
+0003008 pacote 218 removido de 004 na secao 001
+0003009 pacote 212 removido de 004 na secao 001
+0003010 pacote 209 removido de 004 na secao 001
+0003011 pacote 208 removido de 004 na secao 001
+0003012 pacote 198 removido de 004 na secao 001
+0003012 pacote 198 em transito de 004 para 001
+0003012 pacote 208 em transito de 004 para 001
+0003012 pacote 209 em transito de 004 para 001
+0003012 pacote 212 em transito de 004 para 001
+0003012 pacote 218 em transito de 004 para 001
+0003012 pacote 220 rearmazenado em 004 na secao 001
+0003012 pacote 226 rearmazenado em 004 na secao 001
+0003012 pacote 228 rearmazenado em 004 na secao 001
+0003011 pacote 237 armazenado em 001 na secao 004
+0003025 pacote 199 entregue em 002
+0003025 pacote 233 entregue em 000
+0003026 pacote 231 armazenado em 001 na secao 004
+0003026 pacote 232 armazenado em 001 na secao 004
+0003027 pacote 234 armazenado em 000 na secao 004
+0003027 pacote 235 entregue em 000
+0003027 pacote 236 entregue em 000
+0003028 pacote 238 armazenado em 002 na secao 000
+0003029 pacote 210 entregue em 003
+0003029 pacote 211 entregue em 003
+0003029 pacote 214 entregue em 003
+0003029 pacote 215 entregue em 003
+0003029 pacote 223 entregue em 003
+0003029 pacote 224 armazenado em 004 na secao 001
+0003029 pacote 225 entregue em 004
+0003029 pacote 227 entregue em 004
+0003029 pacote 229 entregue em 004
+0003029 pacote 230 armazenado em 004 na secao 001
+0003032 pacote 198 entregue em 001
+0003032 pacote 208 armazenado em 001 na secao 003
+0003032 pacote 209 armazenado em 001 na secao 003
+0003032 pacote 212 entregue em 001
+0003032 pacote 218 entregue em 001
+0003039 pacote 239 armazenado em 000 na secao 004
+0003044 pacote 240 armazenado em 004 na secao 000
+0003054 pacote 241 armazenado em 002 na secao 000
+0003058 pacote 242 armazenado em 001 na secao 004
+0003064 pacote 243 armazenado em 004 na secao 000
+0003081 pacote 244 armazenado em 000 na secao 004
+0003094 pacote 245 armazenado em 004 na secao 000
+0003105 pacote 244 removido de 000 na secao 004
+0003106 pacote 239 removido de 000 na secao 004
+0003107 pacote 234 removido de 000 na secao 004
+0003107 pacote 234 em transito de 000 para 004
+0003107 pacote 239 em transito de 000 para 004
+0003107 pacote 244 em transito de 000 para 004
+0003105 pacote 209 removido de 001 na secao 003
+0003106 pacote 208 removido de 001 na secao 003
+0003106 pacote 208 em transito de 001 para 003
+0003106 pacote 209 em transito de 001 para 003
+0003105 pacote 242 removido de 001 na secao 004
+0003106 pacote 232 removido de 001 na secao 004
+0003107 pacote 231 removido de 001 na secao 004
+0003108 pacote 237 removido de 001 na secao 004
+0003108 pacote 237 em transito de 001 para 004
+0003108 pacote 231 em transito de 001 para 004
+0003108 pacote 232 em transito de 001 para 004
+0003108 pacote 242 em transito de 001 para 004
+0003105 pacote 241 removido de 002 na secao 000
+0003106 pacote 238 removido de 002 na secao 000
+0003106 pacote 238 em transito de 002 para 000
+0003106 pacote 241 em transito de 002 para 000
+0003105 pacote 245 removido de 004 na secao 000
+0003106 pacote 243 removido de 004 na secao 000
+0003107 pacote 240 removido de 004 na secao 000
+0003107 pacote 240 em transito de 004 para 000
+0003107 pacote 243 em transito de 004 para 000
+0003107 pacote 245 em transito de 004 para 000
+0003105 pacote 230 removido de 004 na secao 001
+0003106 pacote 224 removido de 004 na secao 001
+0003107 pacote 228 removido de 004 na secao 001
+0003108 pacote 226 removido de 004 na secao 001
+0003109 pacote 220 removido de 004 na secao 001
+0003109 pacote 220 em transito de 004 para 001
+0003109 pacote 226 em transito de 004 para 001
+0003109 pacote 228 em transito de 004 para 001
+0003109 pacote 224 em transito de 004 para 001
+0003109 pacote 230 em transito de 004 para 001
+0003113 pacote 246 armazenado em 001 na secao 004
+0003126 pacote 208 entregue em 003
+0003126 pacote 209 entregue em 003
+0003126 pacote 238 entregue em 000
+0003126 pacote 241 armazenado em 000 na secao 004
+0003127 pacote 234 armazenado em 004 na secao 001
+0003127 pacote 239 armazenado em 004 na secao 001
+0003127 pacote 240 entregue em 000
+0003127 pacote 243 armazenado em 000 na secao 002
+0003127 pacote 244 armazenado em 004 na secao 001
+0003127 pacote 245 entregue em 000
+0003128 pacote 231 entregue em 004
+0003128 pacote 232 entregue em 004
+0003128 pacote 237 armazenado em 004 na secao 000
+0003128 pacote 242 entregue em 004
+0003129 pacote 220 armazenado em 001 na secao 003
+0003129 pacote 224 entregue em 001
+0003129 pacote 226 entregue em 001
+0003129 pacote 228 entregue em 001
+0003129 pacote 230 armazenado em 001 na secao 003
+0003134 pacote 247 armazenado em 001 na secao 004
+0003154 pacote 248 armazenado em 002 na secao 000
+0003173 pacote 249 armazenado em 001 na secao 004
+0003205 pacote 243 removido de 000 na secao 002
+0003205 pacote 243 em transito de 000 para 002
+0003205 pacote 241 removido de 000 na secao 004
+0003205 pacote 241 em transito de 000 para 004
+0003205 pacote 230 removido de 001 na secao 003
+0003206 pacote 220 removido de 001 na secao 003
+0003206 pacote 220 em transito de 001 para 003
+0003206 pacote 230 em transito de 001 para 003
+0003205 pacote 249 removido de 001 na secao 004
+0003206 pacote 247 removido de 001 na secao 004
+0003207 pacote 246 removido de 001 na secao 004
+0003207 pacote 246 em transito de 001 para 004
+0003207 pacote 247 em transito de 001 para 004
+0003207 pacote 249 em transito de 001 para 004
+0003205 pacote 248 removido de 002 na secao 000
+0003205 pacote 248 em transito de 002 para 000
+0003205 pacote 237 removido de 004 na secao 000
+0003205 pacote 237 em transito de 004 para 000
+0003205 pacote 244 removido de 004 na secao 001
+0003206 pacote 239 removido de 004 na secao 001
+0003207 pacote 234 removido de 004 na secao 001
+0003207 pacote 234 em transito de 004 para 001
+0003207 pacote 239 em transito de 004 para 001
+0003207 pacote 244 em transito de 004 para 001
+0003225 pacote 237 armazenado em 000 na secao 002
+0003225 pacote 241 entregue em 004
+0003225 pacote 243 entregue em 002
+0003225 pacote 248 entregue em 000
+0003226 pacote 220 entregue em 003
+0003226 pacote 230 entregue em 003
+0003227 pacote 234 armazenado em 001 na secao 003
+0003227 pacote 239 armazenado em 001 na secao 003
+0003227 pacote 244 armazenado em 001 na secao 003
+0003227 pacote 246 armazenado em 004 na secao 000
+0003227 pacote 247 armazenado em 004 na secao 000
+0003227 pacote 249 armazenado em 004 na secao 000
+0003305 pacote 237 removido de 000 na secao 002
+0003305 pacote 237 em transito de 000 para 002
+0003305 pacote 244 removido de 001 na secao 003
+0003306 pacote 239 removido de 001 na secao 003
+0003307 pacote 234 removido de 001 na secao 003
+0003307 pacote 234 em transito de 001 para 003
+0003307 pacote 239 em transito de 001 para 003
+0003307 pacote 244 em transito de 001 para 003
+0003305 pacote 249 removido de 004 na secao 000
+0003306 pacote 247 removido de 004 na secao 000
+0003307 pacote 246 removido de 004 na secao 000
+0003307 pacote 246 em transito de 004 para 000
+0003307 pacote 247 em transito de 004 para 000
+0003307 pacote 249 em transito de 004 para 000
+0003325 pacote 237 entregue em 002
+0003327 pacote 234 entregue em 003
+0003327 pacote 239 entregue em 003
+0003327 pacote 244 entregue em 003
+0003327 pacote 246 entregue em 000
+0003327 pacote 247 entregue em 000
+0003327 pacote 249 entregue em 000
 Metrics saved to /home/isaacreyes/Documents/ed/TP2-ED/metrics.json

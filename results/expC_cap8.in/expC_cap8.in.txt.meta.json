@@ -5,7 +5,7 @@
     "intervalotransportes": 100,
     "custoremocao": 1,
     "numeroarmazens": 10,
-    "numeropacotes": 500,
+    "numeropacotes": 1000,
     "arrival_window": 25,
     "seed": 50
   }

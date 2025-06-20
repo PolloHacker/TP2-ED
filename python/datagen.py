@@ -122,7 +122,7 @@ def generate_experiment_A(seed=42, use_c=True):
             intervalotransportes=100,
             custoremocao=1,
             numeroarmazens=n,
-            numeropacotes=n*20,
+            numeropacotes=n*50,
             arrival_window=25,
             seed=seed+n
         )
@@ -133,7 +133,7 @@ def generate_experiment_A(seed=42, use_c=True):
 def generate_experiment_B(seed=42, use_c=True):
     windows = [5, 10, 17, 24, 28, 32]
     n_armazens = 10
-    n_pacotes = 500
+    n_pacotes = 1000
     for w in windows:
         params = dict(
             capacidadetransporte=5,
@@ -151,7 +151,7 @@ def generate_experiment_B(seed=42, use_c=True):
 
 def generate_experiment_C(seed=42, use_c=True):
     n_armazens = 10
-    n_pacotes = 500
+    n_pacotes = 1000
     capacidades = [2, 4, 6, 8, 10, 15, 20]
     intervalos = [100, 75, 50, 25, 10, 5]
     # Vary capacity
@@ -267,8 +267,8 @@ def main(num_runs=4):
 if __name__ == "__main__":
     print("Starting data generation...")
 
-    # generate_baseline()
-    # generate_experiment_A()
-    # generate_experiment_B()
-    # generate_experiment_C()
+    generate_baseline()
+    generate_experiment_A()
+    generate_experiment_B()
+    generate_experiment_C()
     run_all_experiments()
