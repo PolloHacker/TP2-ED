@@ -5,7 +5,10 @@
 #include "pacote.hpp"
 #include "escalonador.hpp"
 #include "transporte.hpp"
+#include "metricas.hpp"
 
+
+Metricas metricas;
 
 void escalonaTransportes(Escalonador& escalonador, 
     Vetor<Armazem>& armazens, int numArmazens, int tempoAtual) {
@@ -18,7 +21,7 @@ void escalonaTransportes(Escalonador& escalonador,
             int cooldown = armazens[origem].getCooldown(destino);
 
             Evento novoTransporte(tempoAtual + cooldown, -1, origem - 1, destino - 1, TipoEvento::TRANSPORTE);
-            escalonador.InsereEvento(novoTransporte);
+            escalonador.InsereEvento(novoTransporte, metricas);
         }
     }
 }
@@ -83,13 +86,15 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
 
         p.setIdArmazemAtual(origem);
         p.setIdSecaoAtual(rota.GetElemPos(2)->GetData());
+        p.setTempoPostagem(tempoPostagem);
+        p.setUltimoTempoArmazenamento(tempoPostagem);
 
         if (k == 0) {
             escalonaTransportes(escalonador, armazens, numeroArmazens, tempoPostagem);
         }
 
         Evento ev(tempoPostagem, k, origem, destino, TipoEvento::CHEGADA_PACOTE);
-        escalonador.InsereEvento(ev);
+        escalonador.InsereEvento(ev, metricas);
 
         pacotes.insere(k, p);
     }
@@ -115,6 +120,8 @@ void handleChegadaPacote(
 
     if (pacotes[idPacote].getIdArmazemAtual() == pacotes[idPacote].getRota().GetElemPos(pacotes[idPacote].getRota().GetTam())->GetData()) {
         pacotes[idPacote].setEstado(EstadoPacote::ENTREGUE);
+        // Record delivery time
+        metricas.addDeliveryTime(tempoAtual - pacotes[idPacote].getTempoPostagem());
 
         std::cout << std::setfill('0')
                   << std::setw(7) << tempoAtual << " pacote "
@@ -125,12 +132,15 @@ void handleChegadaPacote(
     } else {
         int armazemAtual = pacotes[idPacote].removeArmazemAtualDaRota();
         int secaoAtual = pacotes[idPacote].getProximoArmazemRota();
-        
         pacotes[idPacote].setIdArmazemAtual(armazemAtual);
         pacotes[idPacote].setIdSecaoAtual(secaoAtual);
-        armazens[armazemAtual].armazenaPacote(secaoAtual, idPacote);
-
+        armazens[armazemAtual].armazenaPacote(secaoAtual, idPacote, metricas);
         pacotes[idPacote].setEstado(EstadoPacote::POSTADO);
+
+        metricas.addStorageTime(tempoAtual - pacotes[idPacote].getTempoPostagem());
+        
+        pacotes[idPacote].setUltimoTempoArmazenamento(tempoAtual);
+
 
         std::cout << std::setfill('0') 
                 << std::setw(7) << tempoAtual << " pacote "
@@ -152,17 +162,17 @@ void handleTransporte(
     int remocao = custos[static_cast<int>(CustoEvento::CUSTO_REMOVER_PACOTE)];
 
     Armazem& armazemOrigem = armazens[armazensEvento[0]];
-
-    Pilha<int> pacotesRearmazenar = armazemOrigem.adicionaPacotesParaTransporte(armazensEvento[1], tempoAtual, remocao);
+    Pilha<int> pacotesRearmazenar = armazemOrigem.adicionaPacotesParaTransporte(armazensEvento[1], tempoAtual, remocao, metricas);
     Lista<int> pacotesParaTransportar = armazemOrigem.getTransportesPorVizinho(armazensEvento[1]);
-
     if (pacotesParaTransportar.GetTam() > 0) {
         for (int idx = 1; idx <= pacotesParaTransportar.GetTam(); ++idx) {
-
             int idPacote = pacotesParaTransportar.GetElemPos(idx)->GetData();
+
             pacotes[idPacote].setEstado(EstadoPacote::EM_TRANSPORTE);
             pacotes[idPacote].setIdArmazemAtual(armazensEvento[1]);
-
+            // Record transit time
+            metricas.addTransitTime(tempoAtual - pacotes[idPacote].getLastStorageTime());
+            metricas.incPackagesMoved();
             Evento chegadaEvento(
                 tempoAtual + latencia,
                 idPacote,
@@ -170,7 +180,7 @@ void handleTransporte(
                 pacotes[idPacote].getIdSecaoAtual(),
                 TipoEvento::CHEGADA_PACOTE
             );
-            Escalonador.InsereEvento(chegadaEvento);
+            Escalonador.InsereEvento(chegadaEvento, metricas);
 
             std::cout << std::setfill('0')
                         << std::setw(7) << tempoAtual << " pacote "
@@ -191,36 +201,35 @@ void handleTransporte(
         armazensEvento[1] - 1,
         TipoEvento::TRANSPORTE
     );
-    Escalonador.InsereEvento(proximoTransporte);
+    Escalonador.InsereEvento(proximoTransporte, metricas);
 
     // Rearmazenar pacotes após o transporte
-    armazemOrigem.rearmazenarPacotes(armazensEvento[1], pacotesRearmazenar, tempoAtual + timeDiff);
+    armazemOrigem.rearmazenarPacotes(armazensEvento[1], pacotesRearmazenar, tempoAtual + timeDiff, metricas);
 }
 
 int main(int argc, char* argv[]) {
-
     Escalonador escalonador;
     Transporte rotas;
     Vetor<Armazem> armazens(1);
     Vetor<Pacote<int>> pacotes(1);
     Vetor<int> custos(5);
 
-    // Verifica se o nome do arquivo foi passado como argumento
     if (argc < 2) {
         std::cerr << "Uso: " << argv[0] << " <nome_do_arquivo>" << std::endl;
         return 1;
     }
-
-    // Lê o arquivo de entrada
     std::string nomeArquivo = argv[1];
     leArquivo(nomeArquivo, rotas, armazens, escalonador, pacotes, custos);
-    
-    // Inicializa as variáveis de controle do escalonador
-    escalonador.Inicializa();
 
+    // Set transport capacity for metrics
+    metricas.setTransportCapacity(custos[0]);
+    metricas.startTimer();
+    metricas.updatePeakMemory();
+
+    escalonador.Inicializa();
     while (!escalonador.Vazio()) {
-        // Retira o próximo evento do escalonador
-        Evento prox_evento = escalonador.RetiraProximoEvento();
+        metricas.updatePeakMemory();
+        Evento prox_evento = escalonador.RetiraProximoEvento(metricas);
 
         // Verifica se todos os pacotes foram entregues
         bool todosEntregues = true;
@@ -242,14 +251,31 @@ int main(int argc, char* argv[]) {
             break;
         case TipoEvento::TRANSPORTE:
             handleTransporte(prox_evento, escalonador, armazens, pacotes, custos);
+            metricas.incTransportEvents();
             break;
         default:
             break;
         }
     }
-
-    // Gerar relatório de estatísticas
+    metricas.stopTimer();
+    metricas.updatePeakMemory();
     escalonador.Finaliza();
 
+    while (!escalonador.Vazio()) {
+        Evento prox_evento = escalonador.RetiraProximoEvento(metricas);
+        metricas.decHeapExtract();
+
+        switch (prox_evento.getTipoEvento())
+        {
+        case TipoEvento::CHEGADA_PACOTE:
+            break;
+        case TipoEvento::TRANSPORTE:
+            metricas.decTransportEvents();
+            break;
+        default:
+            break;
+        }
+    }
+    metricas.printMetrics();
     return (0);
 }

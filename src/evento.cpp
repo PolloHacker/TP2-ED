@@ -6,11 +6,11 @@ Evento::Evento()
 Evento::Evento(std::string chave)
     : _chave(chave) {
     
-    if (chave.length() != 13) {
-        throw std::invalid_argument("Chave deve ter pelo menos 13 caracteres.");
+    if (chave.length() < 20) {
+        throw std::invalid_argument("Chave deve ter pelo menos 20 caracteres.");
     }
 
-    this->_tempo = std::stoi(chave.substr(0, 6));
+    this->_tempo = std::stoll(chave.substr(0, 13));
 }
 
 Evento::Evento(int tempo, int idPacote, int idArmazemOrigem, int idArmazemDestino, TipoEvento tipoEvento) 
@@ -33,15 +33,15 @@ Evento::Evento(int tempo, int idPacote, int idArmazemOrigem, int idArmazemDestin
     std::ostringstream oss;
     oss << std::setfill('0');
 
-    // Always start with time (6 digits)
-    oss << std::setw(6) << tempo;
+    // Always start with time (13 digits)
+    oss << std::setw(13) << tempo;
 
     if (idPacote >= 0) {
-        // Valid packet ID: time(6) + pacote(6) + tipo(1)
+        // Valid packet ID: time(13) + pacote(6) + tipo(1)
         oss << std::setw(6) << idPacote;
         oss << tipo;
     } else if (idArmazemOrigem >= 0 && idArmazemDestino >= 0) {
-        // Invalid packet but valid warehouses: time(6) + origem(3) + destino(3) + tipo(1)
+        // Invalid packet but valid warehouses: time(13) + origem(3) + destino(3) + tipo(1)
         oss << std::setw(3) << idArmazemOrigem;
         oss << std::setw(3) << idArmazemDestino;
         oss << tipo;
@@ -62,7 +62,7 @@ int Evento::getTempo() const {
 
 int Evento::getIdPacote() const {
     // idPacote is always present in the key, regardless of event type
-    return std::stoi(this->_chave.substr(6, 6));
+    return std::stoi(this->_chave.substr(13, 6));
 }
 
 Vetor<int> Evento::getArmazens() const {
@@ -73,8 +73,8 @@ Vetor<int> Evento::getArmazens() const {
     }
 
     Vetor<int> armazens(2);
-    armazens[0] = std::stoi(this->_chave.substr(6, 3)) + 1; // armazemOrigem
-    armazens[1] = std::stoi(this->_chave.substr(9, 3)) + 1; // armazemDestino
+    armazens[0] = std::stoi(this->_chave.substr(13, 3)) + 1; // armazemOrigem
+    armazens[1] = std::stoi(this->_chave.substr(16, 3)) + 1; // armazemDestino
     return armazens;
 }
 
