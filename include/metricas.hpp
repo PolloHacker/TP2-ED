@@ -43,10 +43,10 @@ class Metricas {
         // Timing
         void startTimer();
         void stopTimer();
-        double getTotalExecutionTime() const;
-        // Memory
+        double getTotalExecutionTime() const;        // Memory
         void updatePeakMemory();
         size_t getPeakMemory() const;
+        size_t getCurrentMemory() const;
         // Heap operations
         void incHeapInsert();
         void incHeapExtract();

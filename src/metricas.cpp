@@ -2,6 +2,9 @@
 #include <fstream>
 #include <algorithm>
 #include <sys/resource.h>
+#include <unistd.h>
+#include <sstream>
+#include <string>
 #include "json.hpp" // For JSON output, add to your project if not present
 
 Metricas::Metricas() : _tempo_total(0), _distancia_total(0), peak_memory(0), heap_inserts(0), heap_extracts(0), stack_pushes(0), stack_pops(0), stack_pops_rearmazenado(0), re_storage_events(0), max_section_depth(0), total_section_depth(0), section_depth_samples(0), packages_moved(0), transport_capacity(0), transport_events(0) {}
@@ -18,11 +21,63 @@ double Metricas::getTotalExecutionTime() const {
 }
 // Memory
 void Metricas::updatePeakMemory() {
+    // Method 1: Try to read current RSS from /proc/self/status (more accurate)
+    std::ifstream status_file("/proc/self/status");
+    if (status_file.is_open()) {
+        std::string line;
+        while (std::getline(status_file, line)) {
+            if (line.substr(0, 6) == "VmRSS:") {
+                std::istringstream iss(line);
+                std::string label, unit;
+                size_t current_rss;
+                iss >> label >> current_rss >> unit;
+                
+                if (current_rss > peak_memory) {
+                    peak_memory = current_rss;
+                }
+                status_file.close();
+                return;
+            }
+        }
+        status_file.close();
+    }
+    
+    // Method 2: Fallback to getrusage if /proc method fails
     struct rusage usage;
-    getrusage(RUSAGE_SELF, &usage);
-    if (static_cast<size_t>(usage.ru_maxrss) > peak_memory) peak_memory = static_cast<size_t>(usage.ru_maxrss);
+    if (getrusage(RUSAGE_SELF, &usage) == 0) {
+        // On Linux, ru_maxrss is in kilobytes
+        size_t current_memory = static_cast<size_t>(usage.ru_maxrss);
+        if (current_memory > peak_memory) {
+            peak_memory = current_memory;
+        }
+    }
 }
 size_t Metricas::getPeakMemory() const { return peak_memory; }
+
+// Get current memory usage in KB
+size_t Metricas::getCurrentMemory() const {
+    std::ifstream status_file("/proc/self/status");
+    if (status_file.is_open()) {
+        std::string line;
+        while (std::getline(status_file, line)) {
+            if (line.substr(0, 6) == "VmRSS:") {
+                std::istringstream iss(line);
+                std::string label, unit;
+                size_t current_rss;
+                iss >> label >> current_rss >> unit;
+                return current_rss;
+            }
+        }
+    }
+    
+    // Fallback to getrusage
+    struct rusage usage;
+    if (getrusage(RUSAGE_SELF, &usage) == 0) {
+        return static_cast<size_t>(usage.ru_maxrss);
+    }
+    
+    return 0;
+}
 // Heap operations
 void Metricas::incHeapInsert() { ++heap_inserts; }
 void Metricas::incHeapExtract() { ++heap_extracts; }

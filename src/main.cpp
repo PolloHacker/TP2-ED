@@ -225,10 +225,15 @@ int main(int argc, char* argv[]) {
     
     // Measure initial memory before loading data
     metricas.updatePeakMemory();
+    size_t initial_memory = metricas.getCurrentMemory();
+    std::cout << "Initial memory: " << initial_memory << " KB" << std::endl;
+    
     leArquivo(nomeArquivo, rotas, armazens, escalonador, pacotes, custos);
     
     // Measure memory after loading all data structures
     metricas.updatePeakMemory();
+    size_t after_load_memory = metricas.getCurrentMemory();
+    std::cout << "Memory after loading: " << after_load_memory << " KB (+" << (after_load_memory - initial_memory) << " KB)" << std::endl;
 
     // Set transport capacity for metrics
     metricas.setTransportCapacity(custos[0]);
@@ -269,10 +274,12 @@ int main(int argc, char* argv[]) {
             metricas.updatePeakMemory();
             break;
         default:
-            break;
-        }
+            break;        }
     }    metricas.stopTimer();
     metricas.updatePeakMemory();
+    size_t final_memory = metricas.getCurrentMemory();
+    std::cout << "Final memory: " << final_memory << " KB, Peak: " << metricas.getPeakMemory() << " KB" << std::endl;
+    
     escalonador.Finaliza();
 
     // Clean up remaining events and measure memory during cleanup
