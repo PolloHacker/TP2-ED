@@ -23,7 +23,8 @@ class Pacote {
         Lista<int> _rota;
         int _idArmazemAtual;
         int _idSecaoAtual;
-        Metricas _metricas;
+        int _ultimoTempoArmazenamento;
+        int _tempoPostagem;
         EstadoPacote _estado;
            
     public:
@@ -40,8 +41,9 @@ class Pacote {
         Lista<int> getRota() const;
         int getIdArmazemAtual() const;
         int getIdSecaoAtual() const;
-        Metricas getMetricas() const;
         EstadoPacote getEstado() const;
+        int getLastStorageTime() const;
+        int getTempoPostagem() const;
         
         void setId(int id);
         void setNomeRemetente(const std::string& nome_remente);
@@ -51,6 +53,8 @@ class Pacote {
         void setIdArmazemAtual(int idArmazem);
         void setIdSecaoAtual(int idSecao);
         void setEstado(EstadoPacote estado);
+        void setUltimoTempoArmazenamento(int tempo);
+        void setTempoPostagem(int tempo);
 };
 
 #include "pacote.tpp"

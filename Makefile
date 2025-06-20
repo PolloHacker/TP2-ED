@@ -6,6 +6,8 @@ CXXFLAGS := -Wall -Wextra -Werror -Wpedantic -g -std=c++11 -I./include
 BIN_FOLDER := ./bin
 OBJ_FOLDER := ./obj
 SRC_FOLDER := ./src
+INPUT_FOLDER := ./inputs
+RESULTS_FOLDER := ./results
 
 # Source and object files
 EXP_FILE := $(SRC_FOLDER)/genwkl.c
@@ -45,6 +47,9 @@ $(OBJ_FOLDER):
 
 $(BIN_FOLDER):
 	mkdir -p $(BIN_FOLDER)
+
+cleanExp:
+	rm -rf $(INPUT_FOLDER) $(RESULTS_FOLDER)
 
 clean:
 	rm -rf $(BIN_FOLDER) $(OBJ_FOLDER)

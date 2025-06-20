@@ -69,14 +69,20 @@ int Pacote<T>::getIdSecaoAtual() const {
     return this->_idSecaoAtual;
 }
 
-template <typename T>
-Metricas Pacote<T>::getMetricas() const {
-    return this->_metricas;
-}
 
 template <typename T>
 EstadoPacote Pacote<T>::getEstado() const {
     return this->_estado;
+}
+
+template <typename T>
+int Pacote<T>::getLastStorageTime() const {
+    return this->_ultimoTempoArmazenamento;
+}
+
+template <typename T>
+int Pacote<T>::getTempoPostagem() const {
+    return this->_tempoPostagem;
 }
 
 
@@ -118,4 +124,14 @@ void Pacote<T>::setIdSecaoAtual(int idSecao) {
 template <typename T>
 void Pacote<T>::setEstado(EstadoPacote estado) {
     this->_estado = estado;
+}
+
+template <typename T>
+void Pacote<T>::setUltimoTempoArmazenamento(int tempo) {
+    this->_ultimoTempoArmazenamento = tempo;
+}
+
+template <typename T>
+void Pacote<T>::setTempoPostagem(int tempo) {
+    this->_tempoPostagem = tempo;
 }

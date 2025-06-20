@@ -35,13 +35,12 @@ class Armazem {
         Armazem& operator=(const Armazem& other);
         
         void adicionaVizinho(int idVizinho);
-
-        void armazenaPacote(int idVizinho, int idPacote);
+        void armazenaPacote(int idVizinho, int idPacote, Metricas& metricas);
         int removePacotePorSecao(int idVizinho, int idPacote);
         
         // Agora retorna os pacotes a serem rearmazenados
-        Pilha<int> adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao);
-        void rearmazenarPacotes(int idVizinho, Pilha<int> pacotes, int tempoAtual);
+        Pilha<int> adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao, Metricas& metricas);
+        void rearmazenarPacotes(int idVizinho, Pilha<int> pacotes, int tempoAtual, Metricas& metricas);
         Lista<int> getTransportesPorVizinho(int idVizinho);
         
         int getId() const;

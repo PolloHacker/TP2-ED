@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <iostream>
 #include "heap.hpp"
+#include "metricas.hpp"
 
 class Escalonador {
     private:
@@ -15,9 +16,9 @@ class Escalonador {
 
         void Inicializa();
 
-        void InsereEvento(Evento& evento);
+        void InsereEvento(Evento& evento, Metricas& metricas);
 
-        Evento RetiraProximoEvento();
+        Evento RetiraProximoEvento(Metricas& metricas);
 
         bool Vazio();
 
