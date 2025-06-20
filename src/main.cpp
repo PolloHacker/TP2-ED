@@ -50,10 +50,11 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
     custos.insere(1, latenciaTransporte);
     custos.insere(2, intervaloTransportes);
     custos.insere(3, custoRemocao);
-    
-    for (i = 1; i <= numeroArmazens; ++i) {
+      for (i = 1; i <= numeroArmazens; ++i) {
         Armazem armazemToIns = rotas.adicionaArmazem(i);
         armazens.insere(i, armazemToIns);
+        // Measure memory growth as warehouses are added
+        if (i % 5 == 0) metricas.updatePeakMemory();
     }
 
     for (i = 1; i <= numeroArmazens; ++i) {
@@ -67,11 +68,11 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
                 armazens[i].setCapacidade(j, capacidadeTransporte);
             }
         }
+        // Measure memory after setting up connections for each warehouse
+        if (i % 5 == 0) metricas.updatePeakMemory();
     }
 
-    arquivo >> numeroPacotes;
-
-    for (k = 0; k < numeroPacotes; ++k) {
+    arquivo >> numeroPacotes;    for (k = 0; k < numeroPacotes; ++k) {
         std::string tmp;
         int id, origem, destino, tempoPostagem;
 
@@ -97,6 +98,9 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
         escalonador.InsereEvento(ev, metricas);
 
         pacotes.insere(k, p);
+        
+        // Measure memory growth as packages and events are added
+        if (k % 50 == 0) metricas.updatePeakMemory();
     }
     arquivo.close();
 }
@@ -216,20 +220,27 @@ int main(int argc, char* argv[]) {
 
     if (argc < 2) {
         std::cerr << "Uso: " << argv[0] << " <nome_do_arquivo>" << std::endl;
-        return 1;
-    }
+        return 1;    }
     std::string nomeArquivo = argv[1];
+    
+    // Measure initial memory before loading data
+    metricas.updatePeakMemory();
     leArquivo(nomeArquivo, rotas, armazens, escalonador, pacotes, custos);
+    
+    // Measure memory after loading all data structures
+    metricas.updatePeakMemory();
 
     // Set transport capacity for metrics
     metricas.setTransportCapacity(custos[0]);
     metricas.startTimer();
-    metricas.updatePeakMemory();
-
-    escalonador.Inicializa();
+    metricas.updatePeakMemory();escalonador.Inicializa();
     while (!escalonador.Vazio()) {
+        // Update memory before extracting event (heap operations can affect memory)
         metricas.updatePeakMemory();
         Evento prox_evento = escalonador.RetiraProximoEvento(metricas);
+        
+        // Update memory after heap extraction
+        metricas.updatePeakMemory();
 
         // Verifica se todos os pacotes foram entregues
         bool todosEntregues = true;
@@ -248,22 +259,28 @@ int main(int argc, char* argv[]) {
         {
         case TipoEvento::CHEGADA_PACOTE:
             handleChegadaPacote(prox_evento, armazens, pacotes);
+            // Update memory after package handling (stack operations)
+            metricas.updatePeakMemory();
             break;
         case TipoEvento::TRANSPORTE:
             handleTransporte(prox_evento, escalonador, armazens, pacotes, custos);
             metricas.incTransportEvents();
+            // Update memory after transport handling (multiple stack/heap operations)
+            metricas.updatePeakMemory();
             break;
         default:
             break;
         }
-    }
-    metricas.stopTimer();
+    }    metricas.stopTimer();
     metricas.updatePeakMemory();
     escalonador.Finaliza();
 
+    // Clean up remaining events and measure memory during cleanup
     while (!escalonador.Vazio()) {
+        metricas.updatePeakMemory();
         Evento prox_evento = escalonador.RetiraProximoEvento(metricas);
         metricas.decHeapExtract();
+        metricas.updatePeakMemory(); // Measure after each cleanup operation
 
         switch (prox_evento.getTipoEvento())
         {
