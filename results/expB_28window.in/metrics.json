@@ -1,17 +1,17 @@
 {
-  "avg_section_depth": 1.1553433712816745,
+  "avg_section_depth": 33748927.22915901,
   "delivery_time_stats": {
     "max": 551,
     "mean": 244.494,
     "median": 248,
     "p95": 438
   },
-  "execution_time": 0.306228431,
+  "execution_time": 0.647061606,
   "heap_extracts": 6220,
   "heap_inserts": 6237,
-  "max_section_depth": 9,
+  "max_section_depth": 858862861,
   "packages_moved": 5458,
-  "peak_memory_kb": 25416,
+  "peak_memory_kb": 3812,
   "re_storage_events": 12,
   "stack_pops": 2729,
   "stack_pops_rearmazenado": 0,

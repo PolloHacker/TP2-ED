@@ -1,3 +1,5 @@
+Initial memory: 1496 KB
+Memory after loading: 3400 KB (+1904 KB)
 0000004 pacote 000 armazenado em 001 na secao 004
 0000007 pacote 001 armazenado em 000 na secao 004
 0000027 pacote 002 armazenado em 002 na secao 000
@@ -1768,4 +1770,5 @@
 0003327 pacote 246 entregue em 000
 0003327 pacote 247 entregue em 000
 0003327 pacote 249 entregue em 000
+Final memory: 3400 KB, Peak: 3400 KB
 Metrics saved to /home/isaacreyes/Documents/ed/TP2-ED/metrics.json
