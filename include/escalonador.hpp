@@ -13,14 +13,11 @@ class Escalonador {
     public:
         Escalonador();
 
-        void Inicializa();
+        void InsereEvento(Evento& evento, Metricas& metricas);
 
-        void InsereEvento(Evento& evento);
+        Evento RetiraProximoEvento(Metricas& metricas);
 
-        Evento RetiraProximoEvento();
-
-        bool Vazio();        
-        void Finaliza();
+        bool Vazio();
 };
 
 /**
@@ -31,14 +28,6 @@ class Escalonador {
 Escalonador::Escalonador() : _quantidadeEventos(0) { }
 
 /**
- * @brief Inicializa o escalonador.
- *
- * Este método prepara o objeto Escalonador para uso, realizando as configurações
- * ou inicializações necessárias antes do início do escalonamento de tarefas.
- */
-void Escalonador::Inicializa() {}
-
-/**
  * @brief Insere um novo evento na lista de eventos do escalonador.
  *
  * Esta função adiciona o evento fornecido à estrutura interna de eventos
@@ -46,10 +35,11 @@ void Escalonador::Inicializa() {}
  *
  * @param evento Referência para o objeto Evento a ser inserido.
  */
-void Escalonador::InsereEvento(Evento& evento) {
+void Escalonador::InsereEvento(Evento& evento, Metricas& metricas) {
     // Adiciona o evento ao heap de eventos
     this->_eventos.Inserir(evento);
     this->_quantidadeEventos++;
+    metricas.incHeapInsert();
 }
 
 /**
@@ -58,7 +48,7 @@ void Escalonador::InsereEvento(Evento& evento) {
  * @throws std::runtime_error Se não houver eventos para retirar.
  * @return Evento O próximo evento retirado da fila.
  */
-Evento Escalonador::RetiraProximoEvento() {
+Evento Escalonador::RetiraProximoEvento(Metricas& metricas) {
     // Verifica se há eventos disponíveis para serem retirados
     if (this->_eventos.Vazio()) {
         throw std::runtime_error("Não há eventos para retirar.");
@@ -69,6 +59,7 @@ Evento Escalonador::RetiraProximoEvento() {
     Evento evento = this->_eventos.Remover();
     this->_quantidadeEventos--;
 
+    metricas.incHeapExtract();
     return evento;
 }
 
@@ -79,16 +70,6 @@ Evento Escalonador::RetiraProximoEvento() {
  */
 bool Escalonador::Vazio() {
     return this->_eventos.Vazio();
-}
-
-/**
- * @brief Finaliza o escalonador e calcula as métricas finais.
- *
- * Este método deve ser chamado ao término da execução do escalonador para realizar
- * o cálculo e registro das métricas de desempenho, como tempo de execução, tempo de espera,
- * tempo de resposta, entre outras estatísticas relevantes.
- */
-void Escalonador::Finaliza() {
 }
 
 #endif

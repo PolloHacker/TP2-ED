@@ -5,6 +5,14 @@
 #include <iomanip>
 #include <sstream>
 #include <string>
+#include <fstream>
+#include <sys/resource.h>
+#include <unistd.h>
+#include <sstream>
+#include <string>
+#include <chrono>
+#include <string>
+#include "json.hpp"
 #include "vetor.hpp"
 #include "lista.hpp"
 
@@ -48,22 +56,89 @@ class Evento {
 // ===== METRICAS CLASS =====
 class Metricas {
     private:
-        Lista<double> _tempos;
-        Lista<double> _distancias;
-        double _tempo_total;
-        double _distancia_total;
+        Lista<int> _tempos;
+        Lista<int> _distancias;
+        int _tempo_total;
+        int _distancia_total;
+        // Timing
+        std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
+        std::chrono::time_point<std::chrono::high_resolution_clock> end_time;
+        // Memory
+        size_t peak_memory;
+        // Heap operations
+        size_t heap_inserts;
+        size_t heap_extracts;
+        // Stack operations
+        size_t stack_pushes;
+        size_t stack_pops;
+        size_t stack_pops_rearmazenado;
+        // Re-storage events
+        size_t re_storage_events;
+        // Warehouse section depth
+        size_t max_section_depth;
+        size_t total_section_depth;
+        size_t section_depth_samples;
+        // Transport utilization
+        size_t packages_moved;
+        size_t transport_capacity;
+        size_t transport_events;
+        // Package delivery times
+        Vetor<int> delivery_times;
+        Vetor<int> transit_times;
+        Vetor<int> storage_times;
     public:
         Metricas();
+        // Timing
+        void startTimer();
+        void stopTimer();
+        double getTotalExecutionTime() const;        // Memory
+        void updatePeakMemory();
+        size_t getPeakMemory() const;
+        size_t getCurrentMemory() const;
+        // Heap operations
+        void incHeapInsert();
+        void incHeapExtract();
+        void decHeapExtract();
+        // Stack operations
+        void incStackPush();
+        void incStackPop(bool re_storage = false);
+        // Re-storage events
+        void incReStorage();
+        // Warehouse section depth
+        void sampleSectionDepth(size_t depth);
+        double getAvgSectionDepth() const;
+        size_t getMaxSectionDepth() const;
+        // Transport utilization
+        void incPackagesMoved();
+        void setTransportCapacity(size_t cap);
+        void incTransportEvents();
+        void decTransportEvents();
+        double getTransportUtilization() const;
+        // Package times
+        void addDeliveryTime(int t);
+        void addTransitTime(int t);
+        void addStorageTime(int t);
+        // Output all metrics
+        void printMetrics(const std::string& filename = "metrics.json") const;
 
-        void adicionaTempo(double tempo);
-        void adicionaDistancia(double distancia);
+        void adicionaTempo(int tempo);
 
-        double getTempoTotal() const;
-        double getDistanciaTotal() const;
+        void adicionaDistancia(int distancia);
 
-        Lista<double> getTempos() const;
-        Lista<double> getDistancias() const;
+        int getTempoTotal() const;
+
+        int getDistanciaTotal() const;
+
+        Lista<int> getTempos() const;
+
+        Lista<int> getDistancias() const;
+
 };
+
+// Helper functions for statistics
+void quickSort(Vetor<int>& arr, int low, int high);
+int partition(Vetor<int>& arr, int low, int high);
+double accumulate(const Vetor<int>& v);
 
 // ===== EVENTO IMPLEMENTATIONS =====
 
@@ -252,82 +327,281 @@ bool Evento::operator>=(const Evento& other) const {
 
 // ===== METRICAS IMPLEMENTATIONS =====
 
-/**
- * @brief Construtor padrão da classe Metricas.
- *
- * Inicializa os atributos de tempo total e distância total como zero,
- * e cria listas vazias para armazenar os tempos e distâncias individuais.
- */
-Metricas::Metricas() : _tempo_total(0), _distancia_total(0) {}
-
-/**
- * @brief Adiciona um tempo à lista de tempos e atualiza o tempo total.
- *
- * Insere o tempo fornecido no final da lista de tempos e acumula
- * o valor no tempo total.
- *
- * @param tempo Tempo a ser adicionado (em segundos).
- */
-void Metricas::adicionaTempo(double tempo) {
-    this->_tempos.InsereFim(tempo);
-    this->_tempo_total += tempo;
+Metricas::Metricas() : _tempo_total(0), _distancia_total(0), peak_memory(0), heap_inserts(0), heap_extracts(0), stack_pushes(0), stack_pops(0), stack_pops_rearmazenado(0), re_storage_events(0), max_section_depth(0), total_section_depth(0), section_depth_samples(0), packages_moved(0), transport_capacity(0), transport_events(0), delivery_times(), transit_times(), storage_times() {
+    // Initialize vectors as empty by removing the default garbage element
+    if (delivery_times.getSize() > 0) {
+        delivery_times.remove(0);
+    }
+    if (transit_times.getSize() > 0) {
+        transit_times.remove(0);
+    }
+    if (storage_times.getSize() > 0) {
+        storage_times.remove(0);
+    }
+    
+    // Initialize peak_memory with current memory usage
+    updatePeakMemory();
 }
 
-/**
- * @brief Adiciona uma distância à lista de distâncias e atualiza a distância total.
- *
- * Insere a distância fornecida no final da lista de distâncias e acumula
- * o valor na distância total.
- *
- * @param distancia Distância a ser adicionada (em metros).
- */
-void Metricas::adicionaDistancia(double distancia) {
-    this->_distancias.InsereFim(distancia);
-    this->_distancia_total += distancia;
+// Timing
+void Metricas::startTimer() {
+    start_time = std::chrono::high_resolution_clock::now();
+}
+void Metricas::stopTimer() {
+    end_time = std::chrono::high_resolution_clock::now();
+}
+double Metricas::getTotalExecutionTime() const {
+    return std::chrono::duration<double>(end_time - start_time).count();
+}
+// Memory
+void Metricas::updatePeakMemory() {
+    size_t current_memory = 0;
+    
+    // Method 1: Try to read current RSS from /proc/self/status (more accurate)
+    std::ifstream status_file("/proc/self/status");
+    if (status_file.is_open()) {
+        std::string line;
+        while (std::getline(status_file, line)) {
+            if (line.substr(0, 6) == "VmRSS:") {
+                std::istringstream iss(line);
+                std::string label, unit;
+                iss >> label >> current_memory >> unit;
+                status_file.close();
+                break;
+            }
+        }
+        status_file.close();
+    }
+    
+    // Method 2: Fallback to getrusage if /proc method fails
+    if (current_memory == 0) {
+        struct rusage usage;
+        if (getrusage(RUSAGE_SELF, &usage) == 0) {
+            // On Linux, ru_maxrss is in kilobytes
+            current_memory = static_cast<size_t>(usage.ru_maxrss);
+        }
+    }
+    
+    // Update peak if current is higher or if peak is not set yet
+    if (current_memory > peak_memory || peak_memory == 0) {
+        peak_memory = current_memory;
+    }
+}
+size_t Metricas::getPeakMemory() const { return peak_memory; }
+
+// Get current memory usage in KB
+size_t Metricas::getCurrentMemory() const {
+    std::ifstream status_file("/proc/self/status");
+    if (status_file.is_open()) {
+        std::string line;
+        while (std::getline(status_file, line)) {
+            if (line.substr(0, 6) == "VmRSS:") {
+                std::istringstream iss(line);
+                std::string label, unit;
+                size_t current_rss;
+                iss >> label >> current_rss >> unit;
+                return current_rss;
+            }
+        }
+    }
+    
+    // Fallback to getrusage
+    struct rusage usage;
+    if (getrusage(RUSAGE_SELF, &usage) == 0) {
+        return static_cast<size_t>(usage.ru_maxrss);
+    }
+    
+    return 0;
+}
+// Heap operations
+void Metricas::incHeapInsert() { ++heap_inserts; }
+void Metricas::incHeapExtract() { ++heap_extracts; }
+void Metricas::decHeapExtract() {
+    if (heap_extracts > 0) --heap_extracts; // Prevent negative counts
+}
+// Stack operations
+void Metricas::incStackPush() { ++stack_pushes; }
+void Metricas::incStackPop(bool re_storage) {
+    ++stack_pops;
+    if (re_storage) ++stack_pops_rearmazenado;
+}
+// Re-storage events
+void Metricas::incReStorage() { ++re_storage_events; }
+// Warehouse section depth
+void Metricas::sampleSectionDepth(size_t depth) {
+    if (depth > max_section_depth) max_section_depth = depth;
+    total_section_depth += depth;
+    ++section_depth_samples;
+}
+double Metricas::getAvgSectionDepth() const {
+    return section_depth_samples ? (double)total_section_depth / section_depth_samples : 0.0;
+}
+size_t Metricas::getMaxSectionDepth() const { return max_section_depth; }
+// Transport utilization
+void Metricas::incPackagesMoved() { ++packages_moved; }
+void Metricas::setTransportCapacity(size_t cap) { transport_capacity = cap; }
+void Metricas::incTransportEvents() { ++transport_events; }
+void Metricas::decTransportEvents() {
+    if (transport_events > 0) --transport_events; // Prevent negative counts
+}
+double Metricas::getTransportUtilization() const {
+    if (transport_capacity == 0 || transport_events == 0) return 0.0;
+    return 100.0 * packages_moved / (transport_capacity * transport_events);
+}
+// Package times
+void Metricas::addDeliveryTime(int t) { 
+    delivery_times.insereFim(t); 
+}
+void Metricas::addTransitTime(int t) { 
+    transit_times.insereFim(t); 
+}
+void Metricas::addStorageTime(int t) { 
+    storage_times.insereFim(t); 
 }
 
-/**
- * @brief Obtém o tempo total acumulado.
- *
- * Retorna o valor total de tempo acumulado em segundos.
- *
- * @return double Tempo total (em segundos).
- */
-double Metricas::getTempoTotal() const {
-    return this->_tempo_total;
+// Custom sorting function using quicksort
+void quickSort(Vetor<int>& arr, int low, int high) {
+    if (low < high) {
+        // Partition the array
+        int pivot = partition(arr, low, high);
+        
+        // Sort elements before and after partition
+        quickSort(arr, low, pivot - 1);
+        quickSort(arr, pivot + 1, high);
+    }
 }
 
-/**
- * @brief Obtém a distância total acumulada.
- *
- * Retorna o valor total de distância acumulada em metros.
- *
- * @return double Distância total (em metros).
- */
-double Metricas::getDistanciaTotal() const {
-    return this->_distancia_total;
+int partition(Vetor<int>& arr, int low, int high) {
+    int pivot = arr[high]; // Choose rightmost element as pivot
+    int i = (low - 1); // Index of smaller element
+    
+    for (int j = low; j <= high - 1; j++) {
+        // If current element is smaller than or equal to pivot
+        if (arr[j] <= pivot) {
+            i++; // increment index of smaller element
+            // Swap elements
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+    // Swap pivot with element at i+1
+    int temp = arr[i + 1];
+    arr[i + 1] = arr[high];
+    arr[high] = temp;
+    return (i + 1);
 }
 
-/**
- * @brief Obtém a lista de tempos individuais.
- *
- * Retorna uma lista contendo todos os tempos registrados.
- *
- * @return Lista<double> Lista de tempos (em segundos).
- */
-Lista<double> Metricas::getTempos() const {
-    return this->_tempos;
+// Custom accumulation function
+double accumulate(const Vetor<int>& v) {
+    double sum = 0.0;
+    for (int i = 0; i < v.getSize(); i++) {
+        sum += v[i];
+    }
+    return sum;
 }
 
-/**
- * @brief Obtém a lista de distâncias individuais.
- *
- * Retorna uma lista contendo todas as distâncias registradas.
- *
- * @return Lista<double> Lista de distâncias (em metros).
- */
-Lista<double> Metricas::getDistancias() const {
-    return this->_distancias;
+// Output all metrics
+void Metricas::printMetrics(const std::string& filename) const {
+    nlohmann::json j;
+    j["execution_time"] = getTotalExecutionTime();
+    j["peak_memory_kb"] = getPeakMemory();
+    j["heap_inserts"] = heap_inserts;
+    j["heap_extracts"] = heap_extracts;
+    j["stack_pushes"] = stack_pushes;
+    j["stack_pops"] = stack_pops;
+    j["stack_pops_rearmazenado"] = stack_pops_rearmazenado;
+    j["re_storage_events"] = re_storage_events;
+    j["max_section_depth"] = getMaxSectionDepth();
+    j["avg_section_depth"] = getAvgSectionDepth();
+    j["packages_moved"] = packages_moved;
+    j["transport_capacity"] = transport_capacity;
+    j["transport_events"] = transport_events;
+    j["transport_utilization"] = getTransportUtilization();
+    
+    auto stats = [](const Vetor<int>& v) {
+        nlohmann::json s;
+        if (v.getSize() == 0) return s;
+        
+        // Create a copy for sorting - handle the default constructor issue
+        Vetor<int> sorted;
+        // Remove the garbage element from default constructor
+        if (sorted.getSize() > 0) {
+            sorted.remove(0);
+        }
+        
+        // Now copy actual data
+        for (int i = 0; i < v.getSize(); i++) {
+            sorted.insereFim(v[i]);
+        }
+        
+        // Sort the copy
+        if (sorted.getSize() > 1) {
+            quickSort(sorted, 0, sorted.getSize() - 1);
+        }
+        
+        // Calculate statistics
+        double sum = 0.0;
+        for (int i = 0; i < sorted.getSize(); i++) {
+            sum += sorted[i];
+        }
+        
+        s["mean"] = sum / sorted.getSize();
+        
+        // Safe median calculation
+        int medianIndex = sorted.getSize() / 2;
+        if (sorted.getSize() % 2 == 0 && sorted.getSize() > 1) {
+            // Even number of elements: average of two middle elements
+            s["median"] = (sorted[medianIndex - 1] + sorted[medianIndex]) / 2.0;
+        } else {
+            // Odd number of elements: middle element
+            s["median"] = sorted[medianIndex];
+        }
+        
+        // Safe percentile calculation
+        int p95Index = (sorted.getSize() * 95) / 100;
+        if (p95Index >= sorted.getSize()) p95Index = sorted.getSize() - 1;
+        s["p95"] = sorted[p95Index];
+        
+        s["max"] = sorted[sorted.getSize() - 1];
+        s["min"] = sorted[0];
+        s["count"] = sorted.getSize();
+        return s;
+    };
+    
+    j["delivery_time_stats"] = stats(delivery_times);
+    j["transit_time_stats"] = stats(transit_times);
+    j["storage_time_stats"] = stats(storage_times);
+    std::ofstream f(filename);
+    f << j.dump(2);
+
+    std::cout << "Metrics saved to " << filename << std::endl;
+}
+
+void Metricas::adicionaTempo(int tempo) {
+    _tempos.InsereFim(tempo);
+    _tempo_total += tempo;
+}
+
+void Metricas::adicionaDistancia(int distancia) {
+    _distancias.InsereFim(distancia);
+    _distancia_total += distancia;
+}
+
+int Metricas::getTempoTotal() const {
+    return _tempo_total;
+}
+
+int Metricas::getDistanciaTotal() const {
+    return _distancia_total;
+}
+
+Lista<int> Metricas::getTempos() const {
+    return _tempos;
+}
+
+Lista<int> Metricas::getDistancias() const {
+    return _distancias;
 }
 
 #endif

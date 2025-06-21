@@ -27,19 +27,17 @@ class Armazem {
     public:
         Armazem();
         Armazem(int id);
-        
-        // Copy constructor and assignment operator
+
         Armazem(const Armazem& other);
         Armazem& operator=(const Armazem& other);
         
         void adicionaVizinho(int idVizinho);
 
-        void armazenaPacote(int idVizinho, int idPacote);
+        void armazenaPacote(int idVizinho, int idPacote, Metricas& metricas);
         int removePacotePorSecao(int idVizinho, int idPacote);
         
-        // Agora retorna os pacotes a serem rearmazenados
-        Pilha<int> adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao);
-        void rearmazenarPacotes(int idVizinho, Pilha<int> pacotes, int tempoAtual);
+        Pilha<int> adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao, Metricas& metricas);
+        void rearmazenarPacotes(int idVizinho, Pilha<int> pacotes, int tempoAtual, Metricas& metricas);
         Lista<int> getTransportesPorVizinho(int idVizinho);
         
         int getId() const;
@@ -138,7 +136,7 @@ Lista<int> Armazem::getVizinhos() const {
  * 
  * @throws std::runtime_error Caso o vizinho com o id especificado não seja encontrado.
  */
-void Armazem::armazenaPacote(int idVizinho, int idPacote) {
+void Armazem::armazenaPacote(int idVizinho, int idPacote, Metricas& metricas) {
     Vizinho* vizinho = this->_dadosVizinho.getValor(idVizinho);
 
     if (vizinho == nullptr) {
@@ -146,6 +144,9 @@ void Armazem::armazenaPacote(int idVizinho, int idPacote) {
     }
 
     vizinho->pacotes.Empilha(idPacote);
+
+    metricas.incStackPush();
+    metricas.sampleSectionDepth(vizinho->pacotes.GetTam());
 }
 
 /**
@@ -210,7 +211,9 @@ int Armazem::removePacotePorSecao(int idVizinho, int idPacote) {
  *
  * @throws std::runtime_error Caso o vizinho não seja encontrado.
  */
-Pilha<int> Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual, int custoRemocao) {
+Pilha<int> Armazem::adicionaPacotesParaTransporte(
+    int idVizinho, int& tempoAtual, int custoRemocao, Metricas& metricas) {
+    
     Vizinho* vizinho = this->_dadosVizinho.getValor(idVizinho);
 
     // Verifica se o vizinho existe
@@ -237,6 +240,11 @@ Pilha<int> Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual
     while (!pilhaPacotes.Vazia()) {
         pilhaAux.Empilha(pilhaPacotes.Desempilha());
         tempoAtual += custoRemocao;
+
+        metricas.incPackagesMoved();
+        metricas.incStackPop();
+        metricas.sampleSectionDepth(pilhaPacotes.GetTam());
+
         std::cout << std::setfill('0')
                   << std::setw(7) << tempoAtual << " pacote "
                   << std::setw(3) << pilhaAux.Topo() << " removido de "
@@ -262,7 +270,9 @@ Pilha<int> Armazem::adicionaPacotesParaTransporte(int idVizinho, int& tempoAtual
  *
  * @throws std::runtime_error Caso o vizinho não seja encontrado.
  */
-void Armazem::rearmazenarPacotes(int idVizinho, Pilha<int> pacotes, int tempoAtual) {
+void Armazem::rearmazenarPacotes(
+    int idVizinho, Pilha<int> pacotes, int tempoAtual, Metricas& metricas) {
+    
     Vizinho* vizinho = this->_dadosVizinho.getValor(idVizinho);
 
     // Verifica se o vizinho existe
@@ -279,6 +289,11 @@ void Armazem::rearmazenarPacotes(int idVizinho, Pilha<int> pacotes, int tempoAtu
     while (!pacotes.Vazia()) {
         int pacote = pacotes.Desempilha();
         pilhaPacotes.Empilha(pacote);
+
+        metricas.incStackPush();
+        metricas.incReStorage();
+        metricas.incPackagesMoved();
+
         std::cout << std::setfill('0')
                   << std::setw(7) << tempoAtual << " pacote "
                   << std::setw(3) << pacote << " rearmazenado em "

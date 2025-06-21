@@ -23,7 +23,8 @@ class Pacote {
         Lista<int> _rota;
         int _idArmazemAtual;
         int _idSecaoAtual;
-        Metricas _metricas;
+        int _ultimoTempoArmazenamento;
+        int _tempoPostagem;
         EstadoPacote _estado;
            
     public:
@@ -40,8 +41,9 @@ class Pacote {
         Lista<int> getRota() const;
         int getIdArmazemAtual() const;
         int getIdSecaoAtual() const;
-        Metricas getMetricas() const;
         EstadoPacote getEstado() const;
+        int getUltimoTempoArmazenamento() const;
+        int getTempoPostagem() const;
         
         void setId(int id);
         void setNomeRemetente(const std::string& nome_remente);
@@ -51,6 +53,8 @@ class Pacote {
         void setIdArmazemAtual(int idArmazem);
         void setIdSecaoAtual(int idSecao);
         void setEstado(EstadoPacote estado);
+        void setUltimoTempoArmazenamento(int tempo);
+        void setTempoPostagem(int tempo);
 };
 
 
@@ -61,7 +65,7 @@ class Pacote {
  * e o conteúdo do tipo T inicializado com seu valor padrão.
  */
 template <typename T>
-Pacote<T>::Pacote() : _nome_remente(""), _nome_destinatario(""), _conteudo(T()) {}
+Pacote<T>::Pacote() : _nome_remente(""), _nome_destinatario("") {}
 
 /**
  * @brief Construtor da classe Pacote.
@@ -207,18 +211,6 @@ int Pacote<T>::getIdSecaoAtual() const {
 }
 
 /**
- * @brief Obtém as métricas do pacote.
- *
- * Este método retorna as métricas associadas ao pacote, como tempo de transporte, etc.
- *
- * @return Metricas Métricas do pacote.
- */
-template <typename T>
-Metricas Pacote<T>::getMetricas() const {
-    return this->_metricas;
-}
-
-/**
  * @brief Obtém o estado atual do pacote.
  *
  * Este método retorna o estado do pacote, que pode ser POR_POSTAR, POSTADO, EM_SEPARACAO,
@@ -229,6 +221,27 @@ Metricas Pacote<T>::getMetricas() const {
 template <typename T>
 EstadoPacote Pacote<T>::getEstado() const {
     return this->_estado;
+}
+
+/**
+ * @brief Obtém o último tempo de armazenamento do pacote.
+ *
+ * @return int Último tempo de armazenamento do pacote.
+ */
+template <typename T>
+int Pacote<T>::getUltimoTempoArmazenamento() const {
+    return this->_ultimoTempoArmazenamento;
+}
+
+
+/**
+ * @brief Obtém o tempo de postagem do pacote.
+ *
+ * @return int Tempo de postagem do pacote.
+ */
+template <typename T>
+int Pacote<T>::getTempoPostagem() const {
+    return this->_tempoPostagem;
 }
 
 /**
@@ -326,6 +339,30 @@ void Pacote<T>::setIdSecaoAtual(int idSecao) {
 template <typename T>
 void Pacote<T>::setEstado(EstadoPacote estado) {
     this->_estado = estado;
+}
+
+/**
+ * @brief Define o último tempo de armazenamento do pacote.
+ *
+ * Este método atualiza o último tempo em que o pacote foi armazenado.
+ *
+ * @param tempo Novo tempo de armazenamento do pacote.
+ */
+template <typename T>
+void Pacote<T>::setUltimoTempoArmazenamento(int tempo) {
+    this->_ultimoTempoArmazenamento = tempo;
+}
+
+/**
+ * @brief Define o tempo de postagem do pacote.
+ *
+ * Este método atualiza o tempo em que o pacote foi postado.
+ *
+ * @param tempo Novo tempo de postagem do pacote.
+ */
+template <typename T>
+void Pacote<T>::setTempoPostagem(int tempo) {
+    this->_tempoPostagem = tempo;
 }
 
 #endif

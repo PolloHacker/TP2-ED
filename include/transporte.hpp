@@ -12,12 +12,13 @@ class Transporte {
         Transporte();
 
         Armazem adicionaArmazem(int id);
-        void conectaArmazens(int id1, int id2);
+        void conectaArmazens(int id1, int id2, int peso);
         
         void imprimeRede();
 
         Lista<int> calculaRota(int origem, int destino);
-        Lista<int> calculaRotaComPeso(int origem, int destino);        Grafo getRede() const;
+        Lista<int> calculaRotaComPeso(int origem, int destino);        
+        Grafo getRede() const;
 };
 
 
@@ -51,9 +52,10 @@ Armazem Transporte::adicionaArmazem(int id) {
  *
  * @param id1 Identificador do primeiro armazém.
  * @param id2 Identificador do segundo armazém.
+ * @param peso Peso da aresta que conecta os armazéns.
  */
-void Transporte::conectaArmazens(int id1, int id2) {
-    this->_rede.InsereAresta(id1, id2);
+void Transporte::conectaArmazens(int id1, int id2, int peso) {
+    this->_rede.InsereAresta(id1, id2, peso);
 }
 
 /**
@@ -94,7 +96,7 @@ Lista<int> Transporte::calculaRota(int origem, int destino) {
  * @return Lista<int> Lista de IDs dos armazéns no caminho encontrado, ou vazia se não houver caminho.
  */
 Lista<int> Transporte::calculaRotaComPeso(int origem, int destino) {
-    return this->_rede.BFS(origem, destino); // TODO: change back to Dykstra
+    return this->_rede.Dykstra(origem, destino);
 }
 
 /**

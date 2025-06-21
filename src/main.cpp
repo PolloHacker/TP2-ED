@@ -7,6 +7,8 @@
 #include "transporte.hpp"
 
 
+Metricas metricas;
+
 /**
  * @brief Escalona eventos de transporte entre armazéns conectados.
  *
@@ -26,7 +28,7 @@ void escalonaTransportes(Escalonador& escalonador,
             int cooldown = armazens[origem].getCooldown(destino);
 
             Evento novoTransporte(tempoAtual + cooldown, -1, origem - 1, destino - 1, TipoEvento::TRANSPORTE);
-            escalonador.InsereEvento(novoTransporte);
+            escalonador.InsereEvento(novoTransporte, metricas);
         }
     }
 }
@@ -73,6 +75,8 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
     for (i = 1; i <= numeroArmazens; ++i) {
         Armazem armazemToIns = rotas.adicionaArmazem(i);
         armazens.insere(i, armazemToIns);
+
+        if (i % 5 == 0) metricas.updatePeakMemory();
     }
 
     for (i = 1; i <= numeroArmazens; ++i) {
@@ -80,12 +84,14 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
             int conexao;
             arquivo >> conexao;
             if (conexao > 0) {
-                rotas.conectaArmazens(i, j);
+                rotas.conectaArmazens(i, j, conexao);
                 armazens[i].adicionaVizinho(j);
                 armazens[i].setCooldown(j, intervaloTransportes);
                 armazens[i].setCapacidade(j, capacidadeTransporte);
             }
         }
+
+        if (i % 5 == 0) metricas.updatePeakMemory();
     }
 
     arquivo >> numeroPacotes;
@@ -104,7 +110,7 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
         destino++;
 
         Pacote<int> p(id, "", "", 0);
-        Lista<int> rota = rotas.calculaRota(origem, destino);
+        Lista<int> rota = rotas.calculaRotaComPeso(origem, destino);
         p.setRota(rota);
 
         p.setIdArmazemAtual(origem);
@@ -117,9 +123,12 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
 
         // Cria o evento de chegada do pacote no armazém de origem e o insere no escalonador
         Evento ev(tempoPostagem, k, origem, destino, TipoEvento::CHEGADA_PACOTE);
-        escalonador.InsereEvento(ev);
+        escalonador.InsereEvento(ev, metricas);
 
         pacotes.insere(k, p);
+
+        // Measure memory growth as packages and events are added
+        if (k % 10 == 0) metricas.updatePeakMemory();
     }
     arquivo.close();
 }
@@ -162,6 +171,8 @@ void handleChegadaPacote(
     if (pacotes[idPacote].getIdArmazemAtual() == pacotes[idPacote].getRota().GetElemPos(pacotes[idPacote].getRota().GetTam())->GetData()) {
         pacotes[idPacote].setEstado(EstadoPacote::ENTREGUE);
 
+        metricas.addDeliveryTime(tempoAtual - pacotes[idPacote].getTempoPostagem());
+
         std::cout << std::setfill('0')
                   << std::setw(7) << tempoAtual << " pacote "
                   << std::setw(3) << idPacote << " entregue em "
@@ -179,9 +190,12 @@ void handleChegadaPacote(
         
         pacotes[idPacote].setIdArmazemAtual(armazemAtual);
         pacotes[idPacote].setIdSecaoAtual(secaoAtual);
-        armazens[armazemAtual].armazenaPacote(secaoAtual, idPacote);
-
         pacotes[idPacote].setEstado(EstadoPacote::POSTADO);
+        pacotes[idPacote].setUltimoTempoArmazenamento(tempoAtual);
+
+        armazens[armazemAtual].armazenaPacote(secaoAtual, idPacote, metricas);
+
+        metricas.addStorageTime(tempoAtual - pacotes[idPacote].getTempoPostagem());
 
         std::cout << std::setfill('0') 
                 << std::setw(7) << tempoAtual << " pacote "
@@ -223,7 +237,7 @@ void handleTransporte(
     * Adiciona os pacotes do armazém de origem para transporte para o armazém de destino.
     * Os pacotes restantes que não puderem ser transportados são armazenados em uma pilha para rearmazenamento.
     */
-    Pilha<int> pacotesRearmazenar = armazemOrigem.adicionaPacotesParaTransporte(armazensEvento[1], tempoAtual, remocao);
+    Pilha<int> pacotesRearmazenar = armazemOrigem.adicionaPacotesParaTransporte(armazensEvento[1], tempoAtual, remocao, metricas);
     Lista<int> pacotesParaTransportar = armazemOrigem.getTransportesPorVizinho(armazensEvento[1]);
 
     if (pacotesParaTransportar.GetTam() > 0) {
@@ -234,6 +248,9 @@ void handleTransporte(
             pacotes[idPacote].setEstado(EstadoPacote::EM_TRANSPORTE);
             pacotes[idPacote].setIdArmazemAtual(armazensEvento[1]);
 
+            metricas.addTransitTime(tempoAtual - pacotes[idPacote].getUltimoTempoArmazenamento());
+            metricas.incPackagesMoved();
+
             // Cria um evento de chegada do pacote no armazém de destino e o insere no escalonador
             Evento chegadaEvento(
                 tempoAtual + latencia,
@@ -242,7 +259,7 @@ void handleTransporte(
                 pacotes[idPacote].getIdSecaoAtual(),
                 TipoEvento::CHEGADA_PACOTE
             );
-            Escalonador.InsereEvento(chegadaEvento);
+            Escalonador.InsereEvento(chegadaEvento, metricas);
 
             std::cout << std::setfill('0')
                         << std::setw(7) << tempoAtual << " pacote "
@@ -264,10 +281,11 @@ void handleTransporte(
         armazensEvento[1] - 1,
         TipoEvento::TRANSPORTE
     );
-    Escalonador.InsereEvento(proximoTransporte);
+    Escalonador.InsereEvento(proximoTransporte, metricas);
 
     // Rearmazenar pacotes após o transporte
-    armazemOrigem.rearmazenarPacotes(armazensEvento[1], pacotesRearmazenar, tempoAtual + timeDiff);
+    armazemOrigem.rearmazenarPacotes(
+        armazensEvento[1], pacotesRearmazenar, tempoAtual + timeDiff, metricas);
 }
 
 /**
@@ -299,14 +317,30 @@ int main(int argc, char* argv[]) {
 
     // Lê o arquivo de entrada
     std::string nomeArquivo = argv[1];
+
+    metricas.updatePeakMemory();
+    size_t initial_memory = metricas.getCurrentMemory();
+    std::cout << "Memória inicial: " << initial_memory << " KB" << std::endl;
+
     leArquivo(nomeArquivo, rotas, armazens, escalonador, pacotes, custos);
+
+    metricas.updatePeakMemory();
+    size_t after_load_memory = metricas.getCurrentMemory();
+    std::cout << "Memória depois de ler arquivo: " << after_load_memory 
+            << " KB (+" << (after_load_memory - initial_memory) 
+            << " KB)" << std::endl;
     
     // Inicializa as variáveis de controle do escalonador
-    escalonador.Inicializa();
+    metricas.setTransportCapacity(custos[0]);
+    metricas.startTimer();
+    metricas.updatePeakMemory();
 
     while (!escalonador.Vazio()) {
         // Retira o próximo evento do escalonador
-        Evento prox_evento = escalonador.RetiraProximoEvento();
+        metricas.updatePeakMemory();
+        Evento prox_evento = escalonador.RetiraProximoEvento(metricas);
+
+        metricas.updatePeakMemory();
 
         // Verifica se todos os pacotes foram entregues
         bool todosEntregues = true;
@@ -326,17 +360,42 @@ int main(int argc, char* argv[]) {
         {
         case TipoEvento::CHEGADA_PACOTE:
             handleChegadaPacote(prox_evento, armazens, pacotes);
+            metricas.updatePeakMemory();
             break;
         case TipoEvento::TRANSPORTE:
             handleTransporte(prox_evento, escalonador, armazens, pacotes, custos);
+            metricas.incTransportEvents();
+            metricas.updatePeakMemory();
             break;
         default:
             break;
         }
     }
+    metricas.stopTimer();
+    metricas.updatePeakMemory();
 
-    // Gera relatório de estatísticas
-    escalonador.Finaliza();
+    size_t final_memory = metricas.getCurrentMemory();
+    std::cout << "Memória final: " << final_memory << " KB, Pico: " 
+            << metricas.getPeakMemory() << " KB" << std::endl;
+
+    while (!escalonador.Vazio()) {
+        metricas.updatePeakMemory();
+        Evento prox_evento = escalonador.RetiraProximoEvento(metricas);
+        metricas.decHeapExtract();
+        metricas.updatePeakMemory();
+
+        switch (prox_evento.getTipoEvento())
+        {
+        case TipoEvento::CHEGADA_PACOTE:
+            break;
+        case TipoEvento::TRANSPORTE:
+            metricas.decTransportEvents();
+            break;
+        default:
+            break;
+        }
+    }
+    metricas.printMetrics();
 
     return (0);
 }
