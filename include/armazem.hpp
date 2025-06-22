@@ -16,6 +16,29 @@ struct Vizinho {
     Lista<int> transportes;
     int cooldown;
     int capacidade;
+    int rearmazenamentos_recentes = 0;
+    int ultimo_tempo_rearmazenamento = 0;  // Timestamp do último rearmazenamento
+    
+    // Método para incrementar congestão com timestamp
+    void incrementarCongestion(int tempo_atual) {
+        rearmazenamentos_recentes++;
+        ultimo_tempo_rearmazenamento = tempo_atual;
+    }
+    
+    // Método para decair congestão baseado no tempo
+    void decairCongestionTemporal(int tempo_atual, int fator_decaimento = 10) {
+        if (ultimo_tempo_rearmazenamento > 0) {
+            int tempo_decorrido = tempo_atual - ultimo_tempo_rearmazenamento;
+            // Decaimento exponencial: reduz 1 ponto a cada 'fator_decaimento' unidades de tempo
+            int reducao = tempo_decorrido / fator_decaimento;
+            rearmazenamentos_recentes = std::max(0, rearmazenamentos_recentes - reducao);
+            
+            // Se zeramos a congestão, resetamos o timestamp
+            if (rearmazenamentos_recentes == 0) {
+                ultimo_tempo_rearmazenamento = 0;
+            }
+        }
+    }
 };
 
 class Armazem {
@@ -43,10 +66,15 @@ class Armazem {
         int getId() const;
         int getCooldown(int idVizinho);
         Lista<int> getVizinhos() const;
+        Vizinho* getDadosVizinho(int idVizinho);  // New method for accessing neighbor data
 
         void setId(int id);
         void setCooldown(int idVizinho, int cooldown);        
         void setCapacidade(int idVizinho, int capacidade);
+        
+        void decayCongestion(int idVizinho);  // Original method (backward compatibility)
+        void decayCongestion(int idVizinho, int tempo_atual);  // New temporal decay method
+        bool isVizinhoCongestionado(int idVizinho, int threshold = 2);  // Check if a neighbor is congested
 };
 
 /**
@@ -290,6 +318,7 @@ void Armazem::rearmazenarPacotes(
         int pacote = pacotes.Desempilha();
         pilhaPacotes.Empilha(pacote);
 
+        vizinho->incrementarCongestion(tempoAtual); // Usa novo método com timestamp
         metricas.incStackPush();
         metricas.incReStorage();
         metricas.incPackagesMoved();
@@ -333,6 +362,16 @@ int Armazem::getCooldown(int idVizinho) {
     }
 
     return vizinho->cooldown;
+}
+
+/**
+ * @brief Retorna os dados completos de um vizinho específico.
+ *
+ * @param idVizinho Identificador do vizinho cujos dados serão retornados.
+ * @return Vizinho* Ponteiro para os dados do vizinho, ou nullptr se não encontrado.
+ */
+Vizinho* Armazem::getDadosVizinho(int idVizinho) {
+    return this->_dadosVizinho.getValor(idVizinho);
 }
 
 /**
@@ -384,6 +423,66 @@ void Armazem::setCapacidade(int idVizinho, int capacidade) {
         throw std::runtime_error("Vizinho não encontrado.");
     }
     vizinho->capacidade = capacidade;
+}
+
+/**
+ * @brief Decai o valor de rearmazenamentos recentes de um vizinho específico.
+ *
+ * Este método reduz pela metade o contador de rearmazenamentos recentes,
+ * simulando o decaimento da congestão ao longo do tempo.
+ *
+ * @param idVizinho Identificador do vizinho cuja congestão será decaída.
+ * @throws std::runtime_error Se o vizinho com o ID especificado não for encontrado.
+ */
+void Armazem::decayCongestion(int idVizinho) {
+    Vizinho* vizinho = this->_dadosVizinho.getValor(idVizinho);
+    if (vizinho == nullptr) {
+        throw std::runtime_error("Vizinho não encontrado.");
+    }
+    vizinho->rearmazenamentos_recentes = vizinho->rearmazenamentos_recentes / 2;
+}
+
+/**
+ * @brief Decai a congestão de um vizinho específico com base no tempo.
+ *
+ * Este método implementa um decaimento temporal mais inteligente que considera
+ * o tempo decorrido desde o último rearmazenamento, ao invés de simplesmente
+ * dividir por 2. Isso proporciona um decaimento mais realístico.
+ *
+ * @param idVizinho Identificador do vizinho cuja congestão será decaída.
+ * @param tempo_atual Tempo atual do sistema para cálculo de decaimento.
+ * @throws std::runtime_error Se o vizinho com o ID especificado não for encontrado.
+ */
+void Armazem::decayCongestion(int idVizinho, int tempo_atual) {
+    Vizinho* vizinho = this->_dadosVizinho.getValor(idVizinho);
+    if (vizinho == nullptr) {
+        throw std::runtime_error("Vizinho não encontrado.");
+    }
+    vizinho->decairCongestionTemporal(tempo_atual);
+}
+
+/**
+ * @brief Verifica se um vizinho está congestionado.
+ *
+ * Este método verifica se um vizinho específico tem congestão acima do threshold,
+ * considerando tanto o número de pacotes quanto os rearmazenamentos recentes.
+ *
+ * @param idVizinho Identificador do vizinho a ser verificado.
+ * @param threshold Limite mínimo de congestão para considerar como congestionado.
+ * @return true se o vizinho estiver congestionado, false caso contrário.
+ */
+bool Armazem::isVizinhoCongestionado(int idVizinho, int threshold) {
+    try {
+        Vizinho* vizinho = this->_dadosVizinho.getValor(idVizinho);
+        if (vizinho == nullptr) {
+            return false; // Vizinho não encontrado, não está congestionado
+        }
+        
+        int congestao_total = vizinho->pacotes.GetTam() + vizinho->rearmazenamentos_recentes;
+        return congestao_total >= threshold;
+    } catch (const std::exception&) {
+        return false; // Em caso de erro, assume não congestionado
+    }
 }
 
 #endif

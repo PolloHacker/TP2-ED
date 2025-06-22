@@ -33,6 +33,7 @@ class Pacote {
 
         int removeArmazemAtualDaRota();
         int getProximoArmazemRota();
+        int getDestinoFinal();  // New method to get final destination (removed const)
         
         int getId() const;
         std::string getNomeRemetente() const;
@@ -122,6 +123,22 @@ template <typename T>
 int Pacote<T>::getProximoArmazemRota() {
     if (this->_rota.GetTam() > 0) {
         return this->_rota.GetElemPos(1)->GetData();
+    }
+    return -1;
+}
+
+/**
+ * @brief Obtém o destino final do pacote.
+ *
+ * Este método retorna o identificador do último armazém na rota,
+ * que representa o destino final do pacote.
+ *
+ * @return int ID do armazém de destino final ou -1 se a rota estiver vazia.
+ */
+template <typename T>
+int Pacote<T>::getDestinoFinal() {
+    if (this->_rota.GetTam() > 0) {
+        return this->_rota.GetElemPos(this->_rota.GetTam())->GetData();
     }
     return -1;
 }

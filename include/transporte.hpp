@@ -17,7 +17,11 @@ class Transporte {
         void imprimeRede();
 
         Lista<int> calculaRota(int origem, int destino);
-        Lista<int> calculaRotaComPeso(int origem, int destino);        
+        Lista<int> calculaRotaComPeso(int origem, int destino);
+        Lista<int> calculaRotaDinamica(int origem, int destino, const Vetor<Armazem>& armazens);  // New dynamic routing
+        Lista<int> calculaRotaComCongestion(int origem, int destino, const Vetor<Vetor<int>>& congestion_matrix);  // Alternative: matrix-based routing
+        Vetor<Vetor<int>> construirMatrizCongestion(const Vetor<Armazem>& armazens);  // Alternative: build congestion matrix (less efficient)
+        void decairCongestionTodosArmazens(Vetor<Armazem>& armazens);  // Decay congestion for all warehouses
         Grafo getRede() const;
 };
 
@@ -108,6 +112,234 @@ Lista<int> Transporte::calculaRotaComPeso(int origem, int destino) {
  */
 Grafo Transporte::getRede() const {
     return this->_rede;
+}
+
+/**
+ * @brief Calcula a rota dinâmica entre dois armazéns considerando congestão.
+ *
+ * Este método implementa um algoritmo de Dijkstra otimizado que consulta
+ * a congestão dos armazéns sob demanda, evitando a criação de matrizes custosas.
+ * O peso dinâmico é calculado como peso_estático + peso_congestão_atual.
+ *
+ * @param origem Identificador do armazém de origem.
+ * @param destino Identificador do armazém de destino.
+ * @param armazens Vetor com os dados atuais dos armazéns para consulta de congestão.
+ * @return Lista<int> Lista de IDs dos armazéns no caminho encontrado, ou vazia se não houver caminho.
+ */
+Lista<int> Transporte::calculaRotaDinamica(int origem, int destino, const Vetor<Armazem>& armazens) {
+    int n = this->_rede.QuantidadeVertices();
+    const int INF = 2147483647; // Valor máximo para representar infinito
+    
+    // Validação de entrada
+    if (n == 0 || origem < 1 || origem > n || destino < 1 || destino > n) {
+        std::cerr << "Índices de vértice inválidos em calculaRotaDinamica: origem=" << origem << ", destino=" << destino << std::endl;
+        return Lista<int>();
+    }
+    
+    // Arrays para distâncias e antecessores (índices de 1 a n)
+    Vetor<int> distancia(n + 1);
+    Vetor<int> antecessor(n + 1);
+    Vetor<bool> visitado(n + 1);
+    
+    // Inicialização
+    for (int i = 1; i <= n; i++) {
+        distancia[i] = INF;
+        antecessor[i] = -1;
+        visitado[i] = false;
+    }
+    
+    distancia[origem] = 0;
+    
+    // Algoritmo de Dijkstra com consulta de congestão sob demanda
+    for (int count = 0; count < n; count++) {
+        // Encontra o vértice não visitado com menor distância
+        int u = -1;
+        int minDist = INF;
+        
+        for (int i = 1; i <= n; i++) {
+            if (!visitado[i] && distancia[i] < minDist) {
+                minDist = distancia[i];
+                u = i;
+            }
+        }
+        
+        // Se não encontrou vértice válido, todos os restantes são inacessíveis
+        if (u == -1) break;
+        
+        visitado[u] = true;
+        
+        // Se chegou ao destino, pode parar
+        if (u == destino) break;
+        
+        // Atualiza as distâncias dos vizinhos com custos dinâmicos
+        Lista<Edge> vizinhos = this->_rede.GetVizinhosWeighted(u);
+        auto aux = vizinhos._head ? vizinhos._head->GetNext() : nullptr;
+        
+        while (aux != nullptr) {
+            Edge edge = aux->GetData();
+            int vizinho = edge.destino;
+            int peso_estatico = edge.peso;
+            
+            // Verifica se o vizinho está dentro dos limites
+            if (vizinho >= 1 && vizinho <= n && !visitado[vizinho]) {
+                // Consulta a congestão diretamente do armazém de origem
+                int custo_congestion = 0;
+                
+                if (u <= armazens.getSize()) {
+                    try {
+                        // Cast para não-const necessário para acessar getDadosVizinho
+                        Armazem& armazem_atual = const_cast<Armazem&>(armazens[u - 1]);
+                        Vizinho* dados_vizinho = armazem_atual.getDadosVizinho(vizinho);
+                        
+                        if (dados_vizinho != nullptr) {
+                            // Calcula peso de congestão: pacotes + (rearmazenamentos * multiplicador)
+                            int pacotes_na_secao = dados_vizinho->pacotes.GetTam();
+                            int rearmazenamentos = dados_vizinho->rearmazenamentos_recentes;
+                            
+                            // SEPARAÇÃO DE CONCEITOS: 
+                            // - Peso dinâmico considera apenas congestão (para encontrar melhor caminho)
+                            // - Cooldown é aplicado separadamente no tempo de transporte
+                            custo_congestion = pacotes_na_secao + (rearmazenamentos * 3);
+                            
+                            // Opcional: Se quiser incluir cooldown, use fator reduzido
+                            // int cooldown_normalizado = dados_vizinho->cooldown / 20; // Reduz impacto
+                            // custo_congestion += cooldown_normalizado;
+                        }
+                    } catch (const std::exception&) {
+                        custo_congestion = 0; // Em caso de erro, usa congestão zero
+                    }
+                }
+                
+                int peso_dinamico = peso_estatico + custo_congestion;
+                int novaDist = distancia[u] + peso_dinamico;
+                
+                // Relaxamento da aresta com peso dinâmico
+                if (novaDist < distancia[vizinho]) {
+                    distancia[vizinho] = novaDist;
+                    antecessor[vizinho] = u;
+                }
+            }
+            aux = aux->GetNext();
+        }
+    }
+    
+    // Se não há caminho para o destino
+    if (distancia[destino] == INF) {
+        return Lista<int>();
+    }
+    
+    // Reconstrói o caminho a partir dos antecessores
+    Lista<int> caminho;
+    int curr = destino;
+    
+    while (curr != -1) {
+        caminho.InsereInicio(curr);
+        curr = antecessor[curr];
+    }
+    
+    return caminho;
+}
+
+/**
+ * @brief Calcula a rota considerando uma matriz de congestão pré-calculada.
+ *
+ * Este método utiliza o algoritmo de Dijkstra com matriz de congestão
+ * para encontrar o caminho de menor custo considerando congestionamentos.
+ *
+ * @param origem Identificador do armazém de origem.
+ * @param destino Identificador do armazém de destino.
+ * @param congestion_matrix Matriz com custos de congestão entre armazéns.
+ * @return Lista<int> Lista de IDs dos armazéns no caminho encontrado, ou vazia se não houver caminho.
+ */
+Lista<int> Transporte::calculaRotaComCongestion(int origem, int destino, const Vetor<Vetor<int>>& congestion_matrix) {
+    return this->_rede.DijkstraComCongestion(origem, destino, congestion_matrix);
+}
+
+/**
+ * @brief Constrói uma matriz de congestão baseada no estado atual dos armazéns.
+ *
+ * Este método analisa o estado atual dos armazéns (pacotes armazenados e rearmazenamentos)
+ * para construir uma matriz de custos de congestão que pode ser usada no roteamento dinâmico.
+ *
+ * @param armazens Vetor com os dados atuais dos armazéns.
+ * @return Vetor<Vetor<int>> Matriz de custos de congestão entre armazéns.
+ */
+Vetor<Vetor<int>> Transporte::construirMatrizCongestion(const Vetor<Armazem>& armazens) {
+    int numArmazens = armazens.getSize();
+    Vetor<Vetor<int>> matriz(numArmazens);
+    
+    // Inicializa a matriz com zeros
+    for (int i = 0; i < numArmazens; i++) {
+        Vetor<int> linha(numArmazens);
+        for (int j = 0; j < numArmazens; j++) {
+            linha[j] = 0;
+        }
+        matriz[i] = linha;
+    }
+    
+    // Calcula custos de congestão baseados nos dados dos armazéns
+    for (int i = 1; i <= numArmazens; i++) {
+        const Armazem& armazem = armazens[i - 1];
+        Lista<int> vizinhos = armazem.getVizinhos();
+        
+        // Percorre todos os vizinhos do armazém atual
+        auto aux = vizinhos._head ? vizinhos._head->GetNext() : nullptr;
+        while (aux != nullptr) {
+            int idVizinho = aux->GetData();
+            
+            try {
+                // Tenta obter os dados do vizinho (precisa de cast não-const)
+                Armazem& armazem_mut = const_cast<Armazem&>(armazem);
+                Vizinho* dados_vizinho = armazem_mut.getDadosVizinho(idVizinho);
+                
+                if (dados_vizinho != nullptr && idVizinho <= numArmazens) {
+                    // Calcula custo de congestão: pacotes + (rearmazenamentos * multiplicador)
+                    int pacotes_na_secao = dados_vizinho->pacotes.GetTam();
+                    int rearmazenamentos = dados_vizinho->rearmazenamentos_recentes;
+                    int custo_congestion = pacotes_na_secao + (rearmazenamentos * 3);
+                    
+                    // Armazena na matriz (ajusta índices para 0-based)
+                    matriz[i - 1][idVizinho - 1] = custo_congestion;
+                }
+            } catch (const std::exception&) {
+                // Em caso de erro, mantém custo zero
+                matriz[i - 1][idVizinho - 1] = 0;
+            }
+            
+            aux = aux->GetNext();
+        }
+    }
+    
+    return matriz;
+}
+
+/**
+ * @brief Decai a congestão de todos os armazéns da rede.
+ *
+ * Este método percorre todos os armazéns e decai a congestão de suas seções,
+ * simulando a redução natural da congestão ao longo do tempo.
+ *
+ * @param armazens Vetor com os armazéns da rede (modificado in-place).
+ */
+void Transporte::decairCongestionTodosArmazens(Vetor<Armazem>& armazens) {
+    int numArmazens = armazens.getSize();
+    
+    for (int i = 0; i < numArmazens; i++) {
+        Armazem& armazem = armazens[i];
+        Lista<int> vizinhos = armazem.getVizinhos();
+        
+        // Decai a congestão para cada vizinho deste armazém
+        auto aux = vizinhos._head ? vizinhos._head->GetNext() : nullptr;
+        while (aux != nullptr) {
+            int idVizinho = aux->GetData();
+            try {
+                armazem.decayCongestion(idVizinho);
+            } catch (const std::exception&) {
+                // Se houver erro, simplesmente ignora e continua
+            }
+            aux = aux->GetNext();
+        }
+    }
 }
 
 #endif

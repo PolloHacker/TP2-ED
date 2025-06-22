@@ -86,6 +86,8 @@ class Metricas {
         Vetor<int> delivery_times;
         Vetor<int> transit_times;
         Vetor<int> storage_times;
+        // Dynamic routing metrics
+        size_t rerouting_count;
     public:
         Metricas();
         // Timing
@@ -118,6 +120,9 @@ class Metricas {
         void addDeliveryTime(int t);
         void addTransitTime(int t);
         void addStorageTime(int t);
+        // Dynamic routing metrics
+        void incReroutingCount();
+        size_t getReroutingCount() const;
         // Output all metrics
         void printMetrics(const std::string& filename = "metrics.json") const;
 
@@ -327,7 +332,14 @@ bool Evento::operator>=(const Evento& other) const {
 
 // ===== METRICAS IMPLEMENTATIONS =====
 
-Metricas::Metricas() : _tempo_total(0), _distancia_total(0), peak_memory(0), heap_inserts(0), heap_extracts(0), stack_pushes(0), stack_pops(0), stack_pops_rearmazenado(0), re_storage_events(0), max_section_depth(0), total_section_depth(0), section_depth_samples(0), packages_moved(0), transport_capacity(0), transport_events(0), delivery_times(), transit_times(), storage_times() {
+Metricas::Metricas() : 
+    _tempo_total(0), _distancia_total(0), peak_memory(0), heap_inserts(0), 
+    heap_extracts(0), stack_pushes(0), stack_pops(0), stack_pops_rearmazenado(0), 
+    re_storage_events(0), max_section_depth(0), total_section_depth(0), 
+    section_depth_samples(0), packages_moved(0), transport_capacity(0), 
+    transport_events(0), delivery_times(), transit_times(), storage_times(), 
+    rerouting_count(0) {
+
     // Initialize vectors as empty by removing the default garbage element
     if (delivery_times.getSize() > 0) {
         delivery_times.remove(0);
@@ -518,6 +530,7 @@ void Metricas::printMetrics(const std::string& filename) const {
     j["transport_capacity"] = transport_capacity;
     j["transport_events"] = transport_events;
     j["transport_utilization"] = getTransportUtilization();
+    j["rerouting_count"] = getReroutingCount();
     
     auto stats = [](const Vetor<int>& v) {
         nlohmann::json s;
@@ -602,6 +615,15 @@ Lista<int> Metricas::getTempos() const {
 
 Lista<int> Metricas::getDistancias() const {
     return _distancias;
+}
+
+// Dynamic routing metrics methods
+void Metricas::incReroutingCount() {
+    rerouting_count++;
+}
+
+size_t Metricas::getReroutingCount() const {
+    return rerouting_count;
 }
 
 #endif

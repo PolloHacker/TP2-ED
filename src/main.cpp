@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "vetor.hpp"
 #include "pacote.hpp"
 #include "escalonador.hpp"
@@ -79,15 +80,50 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
         if (i % 5 == 0) metricas.updatePeakMemory();
     }
 
+    // Detecta formato do arquivo (antigo: só conexao, novo: conexao cooldown)
+    // Pula qualquer whitespace/newline restante
+    arquivo >> std::ws;
+    
+    // Salva posição antes da matriz
+    std::streampos pos_before_matrix = arquivo.tellg();
+    
+    std::string primeira_linha;
+    std::getline(arquivo, primeira_linha);
+    
+    // Conta números na primeira linha para detectar formato
+    std::stringstream ss(primeira_linha);
+    int contador_numeros = 0;
+    int num;
+    while (ss >> num) {
+        contador_numeros++;
+    }
+    
+    // Formato novo: tem exatamente numeroArmazens * 2 números (cada posição tem conexao + cooldown)
+    // Formato antigo: tem exatamente numeroArmazens números
+    bool formato_novo = (contador_numeros == numeroArmazens * 2);
+    
+    // Volta para o início da matriz
+    arquivo.seekg(pos_before_matrix);
+    
+    std::cout << "DEBUG: Formato detectado: " << (formato_novo ? "NOVO (conexao cooldown)" : "ANTIGO (só conexao)") << std::endl;
+    
     for (i = 1; i <= numeroArmazens; ++i) {
         for (j = 1; j <= numeroArmazens; ++j) {
-            int conexao;
+            int conexao, cooldown = intervaloTransportes;
+            
             arquivo >> conexao;
+            if (formato_novo) {
+                arquivo >> cooldown;
+            }
+            
             if (conexao > 0) {
                 rotas.conectaArmazens(i, j, conexao);
                 armazens[i].adicionaVizinho(j);
-                armazens[i].setCooldown(j, intervaloTransportes);
+                armazens[i].setCooldown(j, cooldown);
                 armazens[i].setCapacidade(j, capacidadeTransporte);
+                
+                std::cout << "DEBUG: Armazém " << i << "->" << j 
+                          << " peso=" << conexao << " cooldown=" << cooldown << std::endl;
             }
         }
 
@@ -110,6 +146,7 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
         destino++;
 
         Pacote<int> p(id, "", "", 0);
+        p.setTempoPostagem(tempoPostagem); // FIX: Define o tempo de postagem
         Lista<int> rota = rotas.calculaRotaComPeso(origem, destino);
         p.setRota(rota);
 
@@ -148,8 +185,8 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
  * @param pacotes Vetor contendo todos os pacotes em trânsito.
  */
 void handleChegadaPacote(
-    Evento evento, Vetor<Armazem>& armazens, 
-    Vetor<Pacote<int>>& pacotes) {
+    Evento evento, Transporte& rotas, Vetor<Armazem>& armazens, 
+    Vetor<Pacote<int>>& pacotes, Vetor<int>& custos) {
 
     // Extrai informações do evento
     int idPacote = evento.getIdPacote();
@@ -183,26 +220,141 @@ void handleChegadaPacote(
     /*
     * Caso contrário, remove o armazém atual da rota,
     * atualiza o armazém e seção atuais do pacote, e o armazena no armazém correspondente.
+    * NOVO: Implementa roteamento dinâmico para recalcular a rota considerando congestão.
     */ 
     } else {
         int armazemAtual = pacotes[idPacote].removeArmazemAtualDaRota();
+        
+        int destinoFinal = pacotes[idPacote].getDestinoFinal();
+        
+        if (destinoFinal != -1 && armazemAtual != destinoFinal) {
+            // OTIMIZAÇÃO: Só recalcula rota se o próximo destino estiver congestionado
+            int proximoDestino = pacotes[idPacote].getProximoArmazemRota();
+            bool destinoCongestionado = false;
+            
+            if (proximoDestino != -1 && proximoDestino <= armazens.getSize()) {
+                try {
+                    int capacidadeTransporte = custos[0]; // Usa capacidade como threshold
+                    destinoCongestionado = armazens[armazemAtual].isVizinhoCongestionado(proximoDestino, capacidadeTransporte);
+                } catch (const std::exception&) {
+                    destinoCongestionado = false;
+                }
+            }
+            
+            // Log do estado de congestão
+            std::cout << std::setfill('0') 
+                      << std::setw(7) << tempoAtual << " DEBUG: Próximo destino " 
+                      << proximoDestino << (destinoCongestionado ? " CONGESTIONADO" : " NORMAL") << std::endl;
+            
+            if (destinoCongestionado) {
+                // Salva a rota original para comparação
+                Lista<int> rotaOriginal = pacotes[idPacote].getRota();
+                
+                // Recalcula a rota usando algoritmo dinâmico
+                Lista<int> novaRota = rotas.calculaRotaDinamica(armazemAtual, destinoFinal, armazens);
+                
+                // Log detalhado para validação
+                std::cout << std::setfill('0') 
+                          << std::setw(7) << tempoAtual << " DEBUG: Pacote " << idPacote
+                          << " rota original: ";
+                for (int i = 1; i <= rotaOriginal.GetTam(); i++) {
+                    std::cout << rotaOriginal.GetElemPos(i)->GetData();
+                    if (i < rotaOriginal.GetTam()) std::cout << "->";
+                }
+                std::cout << " (tam: " << rotaOriginal.GetTam() << ")" << std::endl;
+                
+                std::cout << std::setfill('0') 
+                          << std::setw(7) << tempoAtual << " DEBUG: Pacote " << idPacote
+                          << " nova rota: ";
+                for (int i = 1; i <= novaRota.GetTam(); i++) {
+                    std::cout << novaRota.GetElemPos(i)->GetData();
+                    if (i < novaRota.GetTam()) std::cout << "->";
+                }
+                std::cout << " (tam: " << novaRota.GetTam() << ")" << std::endl;
+                
+                // Se encontrou uma rota válida e é diferente da rota atual, atualiza a rota do pacote
+                if (novaRota.GetTam() > 1) { // Precisa ter pelo menos origem e próximo destino
+                    // Remove o primeiro elemento (origem atual) da nova rota para compatibilidade
+                    if (novaRota.GetTam() > 0 && novaRota.GetElemPos(1)->GetData() == armazemAtual) {
+                        novaRota.RemovePos(1);
+                        std::cout << std::setfill('0') 
+                                  << std::setw(7) << tempoAtual << " DEBUG: Removido origem " 
+                                  << armazemAtual << " da nova rota" << std::endl;
+                    }
+                    
+                    if (novaRota.GetTam() > 0) {
+                        // Verifica se a rota realmente mudou
+                        bool rotaMudou = false;
+                        if (rotaOriginal.GetTam() != novaRota.GetTam()) {
+                            rotaMudou = true;
+                        } else {
+                            for (int i = 1; i <= rotaOriginal.GetTam(); i++) {
+                                if (rotaOriginal.GetElemPos(i)->GetData() != novaRota.GetElemPos(i)->GetData()) {
+                                    rotaMudou = true;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        if (rotaMudou) {
+                            pacotes[idPacote].setRota(novaRota);
+                            metricas.incReroutingCount(); // Conta o reroteamento
+                            
+                            // Log da recalculação de rota
+                            std::cout << std::setfill('0') 
+                                      << std::setw(7) << tempoAtual << " pacote "
+                                      << std::setw(3) << idPacote << " rota recalculada de "
+                                      << std::setw(3) << armazemAtual << " para "
+                                      << std::setw(3) << destinoFinal << " (MUDOU)" << std::endl;
+                        } else {
+                            std::cout << std::setfill('0') 
+                                      << std::setw(7) << tempoAtual << " pacote "
+                                      << std::setw(3) << idPacote << " manteve rota original (IGUAL)" << std::endl;
+                        }
+                    }
+                }
+            } else {
+                std::cout << std::setfill('0') 
+                          << std::setw(7) << tempoAtual << " pacote "
+                          << std::setw(3) << idPacote << " manteve rota (destino não congestionado)" << std::endl;
+            }
+        }
+        
         int secaoAtual = pacotes[idPacote].getProximoArmazemRota();
         
-        pacotes[idPacote].setIdArmazemAtual(armazemAtual);
-        pacotes[idPacote].setIdSecaoAtual(secaoAtual);
-        pacotes[idPacote].setEstado(EstadoPacote::POSTADO);
-        pacotes[idPacote].setUltimoTempoArmazenamento(tempoAtual);
+        // Verificação de segurança: garante que a seção existe
+        if (secaoAtual != -1) {
+            try {
+                pacotes[idPacote].setIdArmazemAtual(armazemAtual);
+                pacotes[idPacote].setIdSecaoAtual(secaoAtual);
+                pacotes[idPacote].setEstado(EstadoPacote::POSTADO);
+                pacotes[idPacote].setUltimoTempoArmazenamento(tempoAtual);
 
-        armazens[armazemAtual].armazenaPacote(secaoAtual, idPacote, metricas);
+                armazens[armazemAtual].armazenaPacote(secaoAtual, idPacote, metricas);
 
-        metricas.addStorageTime(tempoAtual - pacotes[idPacote].getTempoPostagem());
+                metricas.addStorageTime(tempoAtual - pacotes[idPacote].getTempoPostagem());
 
-        std::cout << std::setfill('0') 
-                << std::setw(7) << tempoAtual << " pacote "
-                << std::setw(3) << idPacote << " armazenado em "
-                << std::setw(3) << armazemAtual - 1 << " na secao "
-                << std::setw(3) << secaoAtual - 1
-                << std::endl;
+                std::cout << std::setfill('0') 
+                        << std::setw(7) << tempoAtual << " pacote "
+                        << std::setw(3) << idPacote << " armazenado em "
+                        << std::setw(3) << armazemAtual - 1 << " na secao "
+                        << std::setw(3) << secaoAtual - 1
+                        << std::endl;
+            } catch (const std::runtime_error& e) {
+                std::cerr << "Erro ao armazenar pacote " << idPacote 
+                          << " no armazém " << armazemAtual 
+                          << " seção " << secaoAtual << ": " << e.what() << std::endl;
+                // Fallback: usa rota estática
+                pacotes[idPacote].setRota(rotas.calculaRotaComPeso(armazemAtual, destinoFinal));
+                secaoAtual = pacotes[idPacote].getProximoArmazemRota();
+                if (secaoAtual != -1) {
+                    pacotes[idPacote].setIdSecaoAtual(secaoAtual);
+                    armazens[armazemAtual].armazenaPacote(secaoAtual, idPacote, metricas);
+                }
+            }
+        } else {
+            std::cerr << "Erro: Não foi possível determinar próximo armazém para pacote " << idPacote << std::endl;
+        }
     }
 }
 
@@ -220,7 +372,7 @@ void handleChegadaPacote(
  * @param custos Vetor com os custos associados às operações (latência, remoção, etc).
  */
 void handleTransporte(
-    Evento evento, Escalonador& Escalonador,
+    Evento evento, Escalonador& Escalonador, Transporte& rotas,
     Vetor<Armazem>& armazens, Vetor<Pacote<int>>& pacotes, Vetor<int>& custos) {
 
     // Extrai os armazéns envolvidos no evento de transporte
@@ -286,6 +438,10 @@ void handleTransporte(
     // Rearmazenar pacotes após o transporte
     armazemOrigem.rearmazenarPacotes(
         armazensEvento[1], pacotesRearmazenar, tempoAtual + timeDiff, metricas);
+    
+    // DYNAMIC ROUTING: Decai a congestão em todos os armazéns durante eventos de transporte
+    // Isso simula a redução natural da congestão ao longo do tempo
+    rotas.decairCongestionTodosArmazens(armazens);
 }
 
 /**
@@ -359,11 +515,11 @@ int main(int argc, char* argv[]) {
         switch (prox_evento.getTipoEvento())
         {
         case TipoEvento::CHEGADA_PACOTE:
-            handleChegadaPacote(prox_evento, armazens, pacotes);
+            handleChegadaPacote(prox_evento, rotas, armazens, pacotes, custos);
             metricas.updatePeakMemory();
             break;
         case TipoEvento::TRANSPORTE:
-            handleTransporte(prox_evento, escalonador, armazens, pacotes, custos);
+            handleTransporte(prox_evento, escalonador, rotas, armazens, pacotes, custos);
             metricas.incTransportEvents();
             metricas.updatePeakMemory();
             break;
