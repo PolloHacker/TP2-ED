@@ -129,7 +129,6 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
                 
                 std::cout << "DEBUG: Armazém " << i << "->" << j 
                           << " peso=" << conexao << " cooldown=" << cooldown << std::endl;
-                std::cout << "DEBUG: Vizinho " << j << " adicionado ao armazém " << i << std::endl;
             }
         }
 
@@ -461,9 +460,11 @@ void handleTransporte(
     int timeDiff = (pacotesParaTransportar.GetTam() + pacotesRearmazenar.GetTam()) * remocao;
     tempoAtual -= timeDiff;
 
+    int cooldown = armazens[armazensEvento[0]].getCooldown(armazensEvento[1]);
+
     // Cria um novo evento de transporte para o próximo intervalo
     Evento proximoTransporte(
-        tempoAtual + custos[2], // intervaloTransportes
+        tempoAtual + cooldown, // intervaloTransportes
         -1,
         armazensEvento[0] - 1,
         armazensEvento[1] - 1,
