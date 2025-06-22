@@ -35,7 +35,8 @@ void Union(subset subsets[], int xroot, int yroot){
     }
 }
 
-int rndnode(int nodes){ return (int)(drand48()*nodes); }  
+int rndnode(int nodes){ return (int)(drand48()*nodes); }
+int rndweight(int maxweight){ return 1 + (int)(drand48()*maxweight); }
 
 int main(int argc, char *argv[]){
   int seed = 1;
@@ -46,6 +47,8 @@ int main(int argc, char *argv[]){
   int nodes = 10;
   int numpackets = 100;
   long rtime=10;
+  int maxweight = 10;
+  double edgeprobability = 0.3;
 
   // Parse command-line arguments if provided
   if (argc > 1) transportcapacity = atoi(argv[1]);
@@ -55,38 +58,39 @@ int main(int argc, char *argv[]){
   if (argc > 5) nodes = atoi(argv[5]);
   if (argc > 6) numpackets = atoi(argv[6]);
   if (argc > 7) rtime = atol(argv[7]);
-
-  int conncomp = nodes;
-  long atime=1;
-  int src, dst, fsrc, fdst;
+  if (argc > 8) maxweight = atoi(argv[8]);
+  if (argc > 9) edgeprobability = atof(argv[9]);
 
   srand48(seed);
 
-  subset * ss = (subset*)malloc(sizeof(subset)*nodes);
-  for (int i=0; i<nodes; i++){
-    ss[i].parent = i;
-    ss[i].rank = 0;
-  }
+  // Generate weighted directed graph
   int * graph = (int*) malloc(sizeof(int)*nodes*nodes);
   for (int i=0; i<nodes*nodes; i++) graph[i] = 0;
+  
+  // Generate random directed edges with weights
+  for (int i = 0; i < nodes; i++) {
+    for (int j = 0; j < nodes; j++) {
+      if (i != j && drand48() < edgeprobability) {
+        graph[i*nodes+j] = rndweight(maxweight);
+      }
+    }
+  }
+  
+  // Ensure graph connectivity by adding a spanning structure
+  // Create a directed path through all nodes to guarantee connectivity
+  for (int i = 0; i < nodes - 1; i++) {
+    int next = (i + 1) % nodes;
+    if (graph[i*nodes+next] == 0) {
+      graph[i*nodes+next] = rndweight(maxweight);
+    }
+  }
+  // Add one more edge to make it more connected
+  if (graph[(nodes-1)*nodes+0] == 0) {
+    graph[(nodes-1)*nodes+0] = rndweight(maxweight);
+  }
 
   printf("%d\n%d\n%d\n%d\n", transportcapacity, transportcost, 
          transportinterval, retrievecost);
- 
-  while(conncomp>1){
-    do {
-      src = rndnode(nodes);
-      dst = rndnode(nodes);
-    } while (src == dst);
-    fsrc = Find(ss,src);
-    fdst = Find(ss,dst);
-    if (fsrc!=fdst){
-      Union(ss,fsrc,fdst); 
-      conncomp--;
-      graph[src*nodes+dst] = 1;
-      graph[dst*nodes+src] = 1;
-    }
-  }
 
   printf("%d\n",nodes);
   for (int i=0; i<nodes; i++){
@@ -101,6 +105,8 @@ int main(int argc, char *argv[]){
   }
  
   printf("%d\n",numpackets);
+  long atime = 1;
+  int src, dst;
   for (int i=0; i<numpackets; i++){
     do {
       src = rndnode(nodes);
