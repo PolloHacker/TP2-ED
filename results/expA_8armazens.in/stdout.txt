@@ -1,0 +1,4232 @@
+Memória inicial: 1476 KB
+DEBUG: Formato do arquivo: NOVO (conexao cooldown) - Números na primeira linha: 16
+Primeira linha: 0 0 5 134 6 50 10 125 4 107 1 146 6 71 0 0
+DEBUG: Formato detectado: NOVO (conexao cooldown)
+DEBUG: Armazém 1->2 peso=5 cooldown=134
+DEBUG: Vizinho 2 adicionado ao armazém 1
+DEBUG: Armazém 1->3 peso=6 cooldown=50
+DEBUG: Vizinho 3 adicionado ao armazém 1
+DEBUG: Armazém 1->4 peso=10 cooldown=125
+DEBUG: Vizinho 4 adicionado ao armazém 1
+DEBUG: Armazém 1->5 peso=4 cooldown=107
+DEBUG: Vizinho 5 adicionado ao armazém 1
+DEBUG: Armazém 1->6 peso=1 cooldown=146
+DEBUG: Vizinho 6 adicionado ao armazém 1
+DEBUG: Armazém 1->7 peso=6 cooldown=71
+DEBUG: Vizinho 7 adicionado ao armazém 1
+DEBUG: Armazém 2->1 peso=7 cooldown=71
+DEBUG: Vizinho 1 adicionado ao armazém 2
+DEBUG: Armazém 2->3 peso=6 cooldown=144
+DEBUG: Vizinho 3 adicionado ao armazém 2
+DEBUG: Armazém 2->4 peso=9 cooldown=109
+DEBUG: Vizinho 4 adicionado ao armazém 2
+DEBUG: Armazém 2->5 peso=9 cooldown=120
+DEBUG: Vizinho 5 adicionado ao armazém 2
+DEBUG: Armazém 2->6 peso=10 cooldown=51
+DEBUG: Vizinho 6 adicionado ao armazém 2
+DEBUG: Armazém 2->7 peso=9 cooldown=61
+DEBUG: Vizinho 7 adicionado ao armazém 2
+DEBUG: Armazém 3->1 peso=7 cooldown=93
+DEBUG: Vizinho 1 adicionado ao armazém 3
+DEBUG: Armazém 3->4 peso=5 cooldown=116
+DEBUG: Vizinho 4 adicionado ao armazém 3
+DEBUG: Armazém 3->8 peso=10 cooldown=118
+DEBUG: Vizinho 8 adicionado ao armazém 3
+DEBUG: Armazém 4->1 peso=9 cooldown=120
+DEBUG: Vizinho 1 adicionado ao armazém 4
+DEBUG: Armazém 4->2 peso=6 cooldown=97
+DEBUG: Vizinho 2 adicionado ao armazém 4
+DEBUG: Armazém 4->3 peso=10 cooldown=76
+DEBUG: Vizinho 3 adicionado ao armazém 4
+DEBUG: Armazém 4->5 peso=7 cooldown=58
+DEBUG: Vizinho 5 adicionado ao armazém 4
+DEBUG: Armazém 5->1 peso=1 cooldown=78
+DEBUG: Vizinho 1 adicionado ao armazém 5
+DEBUG: Armazém 5->6 peso=2 cooldown=71
+DEBUG: Vizinho 6 adicionado ao armazém 5
+DEBUG: Armazém 5->7 peso=6 cooldown=105
+DEBUG: Vizinho 7 adicionado ao armazém 5
+DEBUG: Armazém 6->2 peso=6 cooldown=58
+DEBUG: Vizinho 2 adicionado ao armazém 6
+DEBUG: Armazém 6->4 peso=10 cooldown=73
+DEBUG: Vizinho 4 adicionado ao armazém 6
+DEBUG: Armazém 6->7 peso=6 cooldown=145
+DEBUG: Vizinho 7 adicionado ao armazém 6
+DEBUG: Armazém 7->2 peso=3 cooldown=99
+DEBUG: Vizinho 2 adicionado ao armazém 7
+DEBUG: Armazém 7->4 peso=9 cooldown=81
+DEBUG: Vizinho 4 adicionado ao armazém 7
+DEBUG: Armazém 7->8 peso=2 cooldown=150
+DEBUG: Vizinho 8 adicionado ao armazém 7
+DEBUG: Armazém 8->1 peso=2 cooldown=104
+DEBUG: Vizinho 1 adicionado ao armazém 8
+DEBUG: Armazém 8->6 peso=10 cooldown=115
+DEBUG: Vizinho 6 adicionado ao armazém 8
+DEBUG: Pacote 0 rota: 7->8->1->6
+DEBUG: Pacote 1 rota: 7->2->3
+DEBUG: Pacote 2 rota: 3->8
+DEBUG: Pacote 3 rota: 3->8
+DEBUG: Pacote 4 rota: 8->1->4
+DEBUG: Pacote 5 rota: 4->5
+DEBUG: Pacote 6 rota: 8->1->6
+DEBUG: Pacote 7 rota: 1->2
+DEBUG: Pacote 8 rota: 4->5->1
+DEBUG: Pacote 9 rota: 7->4
+DEBUG: Pacote 10 rota: 2->4
+DEBUG: Pacote 11 rota: 3->1->6
+DEBUG: Pacote 12 rota: 6->7->8->1->5
+DEBUG: Pacote 13 rota: 1->2
+DEBUG: Pacote 14 rota: 8->1->5
+DEBUG: Pacote 15 rota: 6->7->8->1
+DEBUG: Pacote 16 rota: 5->1->3
+DEBUG: Pacote 17 rota: 7->2->3
+DEBUG: Pacote 18 rota: 4->5->6
+DEBUG: Pacote 19 rota: 7->2->3
+DEBUG: Pacote 20 rota: 3->1
+DEBUG: Pacote 21 rota: 8->1
+DEBUG: Pacote 22 rota: 8->1->7
+DEBUG: Pacote 23 rota: 7->2->3
+DEBUG: Pacote 24 rota: 5->1->2
+DEBUG: Pacote 25 rota: 4->5->7->8
+DEBUG: Pacote 26 rota: 7->2->3
+DEBUG: Pacote 27 rota: 3->1->7
+DEBUG: Pacote 28 rota: 5->6
+DEBUG: Pacote 29 rota: 4->5->1
+DEBUG: Pacote 30 rota: 2->1->6
+DEBUG: Pacote 31 rota: 5->7->8
+DEBUG: Pacote 32 rota: 7->8->1->5
+DEBUG: Pacote 33 rota: 8->1->4
+DEBUG: Pacote 34 rota: 6->2->3
+DEBUG: Pacote 35 rota: 8->1->3
+DEBUG: Pacote 36 rota: 1->5
+DEBUG: Pacote 37 rota: 5->1
+DEBUG: Pacote 38 rota: 1->7
+DEBUG: Pacote 39 rota: 4->5
+DEBUG: Pacote 40 rota: 5->6
+DEBUG: Pacote 41 rota: 4->3
+DEBUG: Pacote 42 rota: 7->8->1
+DEBUG: Pacote 43 rota: 2->7
+DEBUG: Pacote 44 rota: 3->4
+DEBUG: Pacote 45 rota: 2->7->8
+DEBUG: Pacote 46 rota: 3->1->5
+DEBUG: Pacote 47 rota: 8->1->5
+DEBUG: Pacote 48 rota: 8->1->5
+DEBUG: Pacote 49 rota: 8->1->3
+DEBUG: Pacote 50 rota: 5->1->2
+DEBUG: Pacote 51 rota: 6->7->8->1->5
+DEBUG: Pacote 52 rota: 4->5->1
+DEBUG: Pacote 53 rota: 6->2
+DEBUG: Pacote 54 rota: 1->4
+DEBUG: Pacote 55 rota: 6->2
+DEBUG: Pacote 56 rota: 1->4
+DEBUG: Pacote 57 rota: 6->7
+DEBUG: Pacote 58 rota: 4->2
+DEBUG: Pacote 59 rota: 2->3
+DEBUG: Pacote 60 rota: 5->1->2
+DEBUG: Pacote 61 rota: 1->7->8
+DEBUG: Pacote 62 rota: 6->7->8->1->5
+DEBUG: Pacote 63 rota: 2->3
+DEBUG: Pacote 64 rota: 4->3
+DEBUG: Pacote 65 rota: 5->7->8
+DEBUG: Pacote 66 rota: 2->7
+DEBUG: Pacote 67 rota: 5->1->3
+DEBUG: Pacote 68 rota: 7->2
+DEBUG: Pacote 69 rota: 7->2->3
+DEBUG: Pacote 70 rota: 5->1->4
+DEBUG: Pacote 71 rota: 4->3
+DEBUG: Pacote 72 rota: 8->1->2
+DEBUG: Pacote 73 rota: 6->7
+DEBUG: Pacote 74 rota: 3->1
+DEBUG: Pacote 75 rota: 4->5->6
+DEBUG: Pacote 76 rota: 8->1->6
+DEBUG: Pacote 77 rota: 7->8->1->6
+DEBUG: Pacote 78 rota: 3->4
+DEBUG: Pacote 79 rota: 8->1->6
+DEBUG: Pacote 80 rota: 6->7->8->1
+DEBUG: Pacote 81 rota: 1->4
+DEBUG: Pacote 82 rota: 1->6
+DEBUG: Pacote 83 rota: 2->4
+DEBUG: Pacote 84 rota: 6->7->8->1
+DEBUG: Pacote 85 rota: 4->5->7
+DEBUG: Pacote 86 rota: 3->1
+DEBUG: Pacote 87 rota: 4->5->1
+DEBUG: Pacote 88 rota: 8->1->5
+DEBUG: Pacote 89 rota: 3->1->5
+DEBUG: Pacote 90 rota: 7->8->1->6
+DEBUG: Pacote 91 rota: 6->7
+DEBUG: Pacote 92 rota: 5->7->8
+DEBUG: Pacote 93 rota: 6->2
+DEBUG: Pacote 94 rota: 1->4
+DEBUG: Pacote 95 rota: 5->1->2
+DEBUG: Pacote 96 rota: 7->8
+DEBUG: Pacote 97 rota: 6->7->8
+DEBUG: Pacote 98 rota: 1->4
+DEBUG: Pacote 99 rota: 3->1
+DEBUG: Pacote 100 rota: 4->2
+DEBUG: Pacote 101 rota: 4->3
+DEBUG: Pacote 102 rota: 4->5->6
+DEBUG: Pacote 103 rota: 6->4
+DEBUG: Pacote 104 rota: 5->1->3
+DEBUG: Pacote 105 rota: 4->5
+DEBUG: Pacote 106 rota: 1->6
+DEBUG: Pacote 107 rota: 4->5
+DEBUG: Pacote 108 rota: 7->8->1->5
+DEBUG: Pacote 109 rota: 8->1->7
+DEBUG: Pacote 110 rota: 2->4
+DEBUG: Pacote 111 rota: 3->1->7
+DEBUG: Pacote 112 rota: 3->1
+DEBUG: Pacote 113 rota: 2->7->8
+DEBUG: Pacote 114 rota: 3->1
+DEBUG: Pacote 115 rota: 8->1->4
+DEBUG: Pacote 116 rota: 5->7->8
+DEBUG: Pacote 117 rota: 1->3
+DEBUG: Pacote 118 rota: 7->8->1->5
+DEBUG: Pacote 119 rota: 5->7
+DEBUG: Pacote 120 rota: 3->1->5
+DEBUG: Pacote 121 rota: 4->5->1
+DEBUG: Pacote 122 rota: 7->8->1->6
+DEBUG: Pacote 123 rota: 5->1->3
+DEBUG: Pacote 124 rota: 7->4
+DEBUG: Pacote 125 rota: 2->7
+DEBUG: Pacote 126 rota: 3->8
+DEBUG: Pacote 127 rota: 6->4
+DEBUG: Pacote 128 rota: 4->2
+DEBUG: Pacote 129 rota: 1->4
+DEBUG: Pacote 130 rota: 3->4
+DEBUG: Pacote 131 rota: 1->5
+DEBUG: Pacote 132 rota: 6->4
+DEBUG: Pacote 133 rota: 6->4
+DEBUG: Pacote 134 rota: 6->4
+DEBUG: Pacote 135 rota: 7->8->1->6
+DEBUG: Pacote 136 rota: 1->4
+DEBUG: Pacote 137 rota: 6->7
+DEBUG: Pacote 138 rota: 8->1->2
+DEBUG: Pacote 139 rota: 2->5
+DEBUG: Pacote 140 rota: 6->7->8->1
+DEBUG: Pacote 141 rota: 8->1->2
+DEBUG: Pacote 142 rota: 6->2->3
+DEBUG: Pacote 143 rota: 5->1->3
+DEBUG: Pacote 144 rota: 3->1
+DEBUG: Pacote 145 rota: 1->3
+DEBUG: Pacote 146 rota: 5->1->2
+DEBUG: Pacote 147 rota: 2->1->6
+DEBUG: Pacote 148 rota: 5->1->4
+DEBUG: Pacote 149 rota: 3->1->7
+DEBUG: Pacote 150 rota: 2->1->6
+DEBUG: Pacote 151 rota: 3->1
+DEBUG: Pacote 152 rota: 2->3
+DEBUG: Pacote 153 rota: 6->7
+DEBUG: Pacote 154 rota: 1->7
+DEBUG: Pacote 155 rota: 4->5->1
+DEBUG: Pacote 156 rota: 2->1
+DEBUG: Pacote 157 rota: 1->7
+DEBUG: Pacote 158 rota: 2->1->6
+DEBUG: Pacote 159 rota: 6->7->8->1->5
+DEBUG: Pacote 160 rota: 2->7->8
+DEBUG: Pacote 161 rota: 7->2
+DEBUG: Pacote 162 rota: 2->4
+DEBUG: Pacote 163 rota: 5->7
+DEBUG: Pacote 164 rota: 6->4
+DEBUG: Pacote 165 rota: 4->5->1
+DEBUG: Pacote 166 rota: 7->8->1->6
+DEBUG: Pacote 167 rota: 6->7->8->1->5
+DEBUG: Pacote 168 rota: 3->1
+DEBUG: Pacote 169 rota: 7->8->1
+DEBUG: Pacote 170 rota: 5->1
+DEBUG: Pacote 171 rota: 6->7->8->1
+DEBUG: Pacote 172 rota: 7->4
+DEBUG: Pacote 173 rota: 1->7->8
+DEBUG: Pacote 174 rota: 7->8->1->6
+DEBUG: Pacote 175 rota: 8->1->4
+DEBUG: Pacote 176 rota: 5->6
+DEBUG: Pacote 177 rota: 3->1
+DEBUG: Pacote 178 rota: 8->1->4
+DEBUG: Pacote 179 rota: 1->4
+DEBUG: Pacote 180 rota: 4->3
+DEBUG: Pacote 181 rota: 4->5
+DEBUG: Pacote 182 rota: 8->1->5
+DEBUG: Pacote 183 rota: 6->4
+DEBUG: Pacote 184 rota: 3->4
+DEBUG: Pacote 185 rota: 2->4
+DEBUG: Pacote 186 rota: 5->7->8
+DEBUG: Pacote 187 rota: 4->5
+DEBUG: Pacote 188 rota: 6->7
+DEBUG: Pacote 189 rota: 5->1->2
+DEBUG: Pacote 190 rota: 3->1
+DEBUG: Pacote 191 rota: 1->3
+DEBUG: Pacote 192 rota: 4->2
+DEBUG: Pacote 193 rota: 1->4
+DEBUG: Pacote 194 rota: 6->7
+DEBUG: Pacote 195 rota: 6->7
+DEBUG: Pacote 196 rota: 6->4
+DEBUG: Pacote 197 rota: 3->4->2
+DEBUG: Pacote 198 rota: 4->5->1
+DEBUG: Pacote 199 rota: 5->1
+DEBUG: Pacote 200 rota: 7->8->1
+DEBUG: Pacote 201 rota: 4->2
+DEBUG: Pacote 202 rota: 1->3
+DEBUG: Pacote 203 rota: 5->7
+DEBUG: Pacote 204 rota: 7->8
+DEBUG: Pacote 205 rota: 6->2
+DEBUG: Pacote 206 rota: 2->7->8
+DEBUG: Pacote 207 rota: 2->7
+DEBUG: Pacote 208 rota: 5->7
+DEBUG: Pacote 209 rota: 8->1->5
+DEBUG: Pacote 210 rota: 4->3
+DEBUG: Pacote 211 rota: 4->5->7->8
+DEBUG: Pacote 212 rota: 2->3
+DEBUG: Pacote 213 rota: 4->5->7
+DEBUG: Pacote 214 rota: 7->8
+DEBUG: Pacote 215 rota: 6->7
+DEBUG: Pacote 216 rota: 7->8->1->5
+DEBUG: Pacote 217 rota: 6->7
+DEBUG: Pacote 218 rota: 1->4
+DEBUG: Pacote 219 rota: 6->2->3
+DEBUG: Pacote 220 rota: 8->1->5
+DEBUG: Pacote 221 rota: 6->7->8->1->5
+DEBUG: Pacote 222 rota: 7->4
+DEBUG: Pacote 223 rota: 8->1->5
+DEBUG: Pacote 224 rota: 6->4
+DEBUG: Pacote 225 rota: 3->4
+DEBUG: Pacote 226 rota: 7->4
+DEBUG: Pacote 227 rota: 4->5->7->8
+DEBUG: Pacote 228 rota: 2->7
+DEBUG: Pacote 229 rota: 8->1->5
+DEBUG: Pacote 230 rota: 1->6
+DEBUG: Pacote 231 rota: 6->7
+DEBUG: Pacote 232 rota: 2->5
+DEBUG: Pacote 233 rota: 1->7
+DEBUG: Pacote 234 rota: 6->7->8->1->5
+DEBUG: Pacote 235 rota: 3->1
+DEBUG: Pacote 236 rota: 5->1
+DEBUG: Pacote 237 rota: 4->5->1
+DEBUG: Pacote 238 rota: 5->6
+DEBUG: Pacote 239 rota: 4->5
+DEBUG: Pacote 240 rota: 7->8
+DEBUG: Pacote 241 rota: 5->1
+DEBUG: Pacote 242 rota: 8->1->3
+DEBUG: Pacote 243 rota: 7->8
+DEBUG: Pacote 244 rota: 7->8->1
+DEBUG: Pacote 245 rota: 5->1
+DEBUG: Pacote 246 rota: 7->4
+DEBUG: Pacote 247 rota: 2->1->6
+DEBUG: Pacote 248 rota: 2->1
+DEBUG: Pacote 249 rota: 4->5
+DEBUG: Pacote 250 rota: 2->3
+DEBUG: Pacote 251 rota: 4->5->1
+DEBUG: Pacote 252 rota: 6->7->8
+DEBUG: Pacote 253 rota: 2->1->6
+DEBUG: Pacote 254 rota: 6->2
+DEBUG: Pacote 255 rota: 6->7->8->1
+DEBUG: Pacote 256 rota: 6->2->3
+DEBUG: Pacote 257 rota: 7->4
+DEBUG: Pacote 258 rota: 3->1->5
+DEBUG: Pacote 259 rota: 8->1->5
+DEBUG: Pacote 260 rota: 7->8->1
+DEBUG: Pacote 261 rota: 8->1
+DEBUG: Pacote 262 rota: 1->6
+DEBUG: Pacote 263 rota: 1->7->8
+DEBUG: Pacote 264 rota: 7->8->1->6
+DEBUG: Pacote 265 rota: 4->5->7
+DEBUG: Pacote 266 rota: 8->1->7
+DEBUG: Pacote 267 rota: 8->1->5
+DEBUG: Pacote 268 rota: 8->1->5
+DEBUG: Pacote 269 rota: 4->5
+DEBUG: Pacote 270 rota: 3->1->5
+DEBUG: Pacote 271 rota: 8->1->7
+DEBUG: Pacote 272 rota: 2->7->8
+DEBUG: Pacote 273 rota: 5->6
+DEBUG: Pacote 274 rota: 1->2
+DEBUG: Pacote 275 rota: 8->1->2
+DEBUG: Pacote 276 rota: 2->7
+DEBUG: Pacote 277 rota: 6->7
+DEBUG: Pacote 278 rota: 6->7->8->1
+DEBUG: Pacote 279 rota: 5->7->8
+DEBUG: Pacote 280 rota: 6->2
+DEBUG: Pacote 281 rota: 5->7->8
+DEBUG: Pacote 282 rota: 2->7
+DEBUG: Pacote 283 rota: 8->1->3
+DEBUG: Pacote 284 rota: 2->1
+DEBUG: Pacote 285 rota: 2->7->8
+DEBUG: Pacote 286 rota: 6->7
+DEBUG: Pacote 287 rota: 1->5
+DEBUG: Pacote 288 rota: 4->5->7->8
+DEBUG: Pacote 289 rota: 4->5
+DEBUG: Pacote 290 rota: 5->1->3
+DEBUG: Pacote 291 rota: 2->7->8
+DEBUG: Pacote 292 rota: 6->4
+DEBUG: Pacote 293 rota: 1->3
+DEBUG: Pacote 294 rota: 8->1->4
+DEBUG: Pacote 295 rota: 3->1->5
+DEBUG: Pacote 296 rota: 4->5->7->8
+DEBUG: Pacote 297 rota: 6->7->8->1
+DEBUG: Pacote 298 rota: 2->7->8
+DEBUG: Pacote 299 rota: 2->7->8
+DEBUG: Pacote 300 rota: 7->8->1->5
+DEBUG: Pacote 301 rota: 3->1->6
+DEBUG: Pacote 302 rota: 6->4
+DEBUG: Pacote 303 rota: 1->4
+DEBUG: Pacote 304 rota: 1->6
+DEBUG: Pacote 305 rota: 6->4
+DEBUG: Pacote 306 rota: 3->4->2
+DEBUG: Pacote 307 rota: 7->4
+DEBUG: Pacote 308 rota: 4->5->6
+DEBUG: Pacote 309 rota: 3->1->6
+DEBUG: Pacote 310 rota: 8->1->2
+DEBUG: Pacote 311 rota: 8->1->7
+DEBUG: Pacote 312 rota: 1->5
+DEBUG: Pacote 313 rota: 4->2
+DEBUG: Pacote 314 rota: 8->1->7
+DEBUG: Pacote 315 rota: 4->5->1
+DEBUG: Pacote 316 rota: 3->4->2
+DEBUG: Pacote 317 rota: 8->1
+DEBUG: Pacote 318 rota: 1->7->8
+DEBUG: Pacote 319 rota: 6->7
+DEBUG: Pacote 320 rota: 3->1->5
+DEBUG: Pacote 321 rota: 1->6
+DEBUG: Pacote 322 rota: 7->8->1->6
+DEBUG: Pacote 323 rota: 1->3
+DEBUG: Pacote 324 rota: 3->1
+DEBUG: Pacote 325 rota: 4->5
+DEBUG: Pacote 326 rota: 5->1->4
+DEBUG: Pacote 327 rota: 4->5->1
+DEBUG: Pacote 328 rota: 3->4
+DEBUG: Pacote 329 rota: 1->4
+DEBUG: Pacote 330 rota: 2->1
+DEBUG: Pacote 331 rota: 3->1->7
+DEBUG: Pacote 332 rota: 3->1->6
+DEBUG: Pacote 333 rota: 5->1->4
+DEBUG: Pacote 334 rota: 4->5->1
+DEBUG: Pacote 335 rota: 3->1
+DEBUG: Pacote 336 rota: 5->7
+DEBUG: Pacote 337 rota: 7->2->3
+DEBUG: Pacote 338 rota: 5->1->3
+DEBUG: Pacote 339 rota: 4->5
+DEBUG: Pacote 340 rota: 2->3
+DEBUG: Pacote 341 rota: 6->7->8
+DEBUG: Pacote 342 rota: 6->2->3
+DEBUG: Pacote 343 rota: 4->5
+DEBUG: Pacote 344 rota: 7->8->1->5
+DEBUG: Pacote 345 rota: 4->3
+DEBUG: Pacote 346 rota: 3->8
+DEBUG: Pacote 347 rota: 6->2->3
+DEBUG: Pacote 348 rota: 6->7->8->1->5
+DEBUG: Pacote 349 rota: 3->4
+DEBUG: Pacote 350 rota: 5->1->2
+DEBUG: Pacote 351 rota: 5->1->4
+DEBUG: Pacote 352 rota: 3->8
+DEBUG: Pacote 353 rota: 1->3
+DEBUG: Pacote 354 rota: 8->1->4
+DEBUG: Pacote 355 rota: 2->7->8
+DEBUG: Pacote 356 rota: 4->5
+DEBUG: Pacote 357 rota: 2->5
+DEBUG: Pacote 358 rota: 3->8
+DEBUG: Pacote 359 rota: 6->2->3
+DEBUG: Pacote 360 rota: 7->8->1->6
+DEBUG: Pacote 361 rota: 4->3
+DEBUG: Pacote 362 rota: 1->5
+DEBUG: Pacote 363 rota: 2->5
+DEBUG: Pacote 364 rota: 7->8->1->6
+DEBUG: Pacote 365 rota: 7->8
+DEBUG: Pacote 366 rota: 4->3
+DEBUG: Pacote 367 rota: 8->1->2
+DEBUG: Pacote 368 rota: 3->1->7
+DEBUG: Pacote 369 rota: 5->7
+DEBUG: Pacote 370 rota: 7->8->1->6
+DEBUG: Pacote 371 rota: 2->1
+DEBUG: Pacote 372 rota: 7->2
+DEBUG: Pacote 373 rota: 6->2
+DEBUG: Pacote 374 rota: 8->1->6
+DEBUG: Pacote 375 rota: 6->7->8->1->5
+DEBUG: Pacote 376 rota: 6->7->8
+DEBUG: Pacote 377 rota: 8->1->7
+DEBUG: Pacote 378 rota: 2->3
+DEBUG: Pacote 379 rota: 5->1->3
+DEBUG: Pacote 380 rota: 4->2
+DEBUG: Pacote 381 rota: 7->8->1
+DEBUG: Pacote 382 rota: 3->1->6
+DEBUG: Pacote 383 rota: 1->3
+DEBUG: Pacote 384 rota: 2->1->6
+DEBUG: Pacote 385 rota: 6->7->8->1
+DEBUG: Pacote 386 rota: 7->2
+DEBUG: Pacote 387 rota: 8->1->5
+DEBUG: Pacote 388 rota: 2->3
+DEBUG: Pacote 389 rota: 5->6
+DEBUG: Pacote 390 rota: 3->4
+DEBUG: Pacote 391 rota: 5->1
+DEBUG: Pacote 392 rota: 1->2
+DEBUG: Pacote 393 rota: 8->1->2
+DEBUG: Pacote 394 rota: 2->5
+DEBUG: Pacote 395 rota: 2->3
+DEBUG: Pacote 396 rota: 4->5->7
+DEBUG: Pacote 397 rota: 5->1->4
+DEBUG: Pacote 398 rota: 7->2->3
+DEBUG: Pacote 399 rota: 4->5
+Memória depois de ler arquivo: 3460 KB (+1984 KB)
+0000001 DEBUG: Próximo destino 8 NORMAL
+0000001 pacote 000 manteve rota (destino não congestionado)
+0000001 pacote 000 armazenado em 006 na secao 007
+0000008 DEBUG: Próximo destino 2 NORMAL
+0000008 pacote 001 manteve rota (destino não congestionado)
+0000008 pacote 001 armazenado em 006 na secao 001
+0000009 DEBUG: Próximo destino 8 NORMAL
+0000009 pacote 002 manteve rota (destino não congestionado)
+0000009 pacote 002 armazenado em 002 na secao 007
+0000016 DEBUG: Próximo destino 8 NORMAL
+0000016 pacote 003 manteve rota (destino não congestionado)
+0000016 pacote 003 armazenado em 002 na secao 007
+0000018 DEBUG: Próximo destino 1 NORMAL
+0000018 pacote 004 manteve rota (destino não congestionado)
+0000018 pacote 004 armazenado em 007 na secao 000
+0000023 DEBUG: Próximo destino 5 NORMAL
+0000023 pacote 005 manteve rota (destino não congestionado)
+0000023 pacote 005 armazenado em 003 na secao 004
+0000030 DEBUG: Próximo destino 1 NORMAL
+0000030 pacote 006 manteve rota (destino não congestionado)
+0000030 pacote 006 armazenado em 007 na secao 000
+0000034 DEBUG: Próximo destino 2 NORMAL
+0000034 pacote 007 manteve rota (destino não congestionado)
+0000034 pacote 007 armazenado em 000 na secao 001
+0000039 DEBUG: Próximo destino 5 NORMAL
+0000039 pacote 008 manteve rota (destino não congestionado)
+0000039 pacote 008 armazenado em 003 na secao 004
+0000045 DEBUG: Próximo destino 4 NORMAL
+0000045 pacote 009 manteve rota (destino não congestionado)
+0000045 pacote 009 armazenado em 006 na secao 003
+0000049 DEBUG: Próximo destino 4 NORMAL
+0000049 pacote 010 manteve rota (destino não congestionado)
+0000049 pacote 010 armazenado em 001 na secao 003
+0000051 DEBUG: Próximo destino 1 NORMAL
+0000051 pacote 011 manteve rota (destino não congestionado)
+0000051 pacote 011 armazenado em 002 na secao 000
+0000054 DEBUG: Próximo destino 7 NORMAL
+0000054 pacote 012 manteve rota (destino não congestionado)
+0000054 pacote 012 armazenado em 005 na secao 006
+0000057 DEBUG: Próximo destino 2 NORMAL
+0000057 pacote 013 manteve rota (destino não congestionado)
+0000057 pacote 013 armazenado em 000 na secao 001
+0000059 DEBUG: Próximo destino 1 NORMAL
+0000059 pacote 014 manteve rota (destino não congestionado)
+0000059 pacote 014 armazenado em 007 na secao 000
+0000060 pacote 008 removido de 003 na secao 004
+0000061 pacote 005 removido de 003 na secao 004
+0000061 pacote 005 em transito de 003 para 004
+0000061 pacote 008 em transito de 003 para 004
+0000060 DEBUG: Próximo destino 7 NORMAL
+0000060 pacote 015 manteve rota (destino não congestionado)
+0000060 pacote 015 armazenado em 005 na secao 006
+0000063 DEBUG: Próximo destino 1 NORMAL
+0000063 pacote 016 manteve rota (destino não congestionado)
+0000063 pacote 016 armazenado em 004 na secao 000
+0000071 DEBUG: Próximo destino 2 NORMAL
+0000071 pacote 017 manteve rota (destino não congestionado)
+0000071 pacote 017 armazenado em 006 na secao 001
+0000073 DEBUG: Próximo destino 5 NORMAL
+0000073 pacote 018 manteve rota (destino não congestionado)
+0000073 pacote 018 armazenado em 003 na secao 004
+0000080 pacote 016 removido de 004 na secao 000
+0000080 pacote 016 em transito de 004 para 000
+0000080 DEBUG: Próximo destino 2 NORMAL
+0000080 pacote 019 manteve rota (destino não congestionado)
+0000080 pacote 019 armazenado em 006 na secao 001
+0000081 pacote 005 entregue em 004
+0000081 DEBUG: Próximo destino 1 NORMAL
+0000081 pacote 008 manteve rota (destino não congestionado)
+0000081 pacote 008 armazenado em 004 na secao 000
+0000083 pacote 009 removido de 006 na secao 003
+0000083 pacote 009 em transito de 006 para 003
+0000085 DEBUG: Próximo destino 1 NORMAL
+0000085 pacote 020 manteve rota (destino não congestionado)
+0000085 pacote 020 armazenado em 002 na secao 000
+0000087 DEBUG: Próximo destino 1 NORMAL
+0000087 pacote 021 manteve rota (destino não congestionado)
+0000087 pacote 021 armazenado em 007 na secao 000
+0000091 DEBUG: Próximo destino 1 NORMAL
+0000091 pacote 022 manteve rota (destino não congestionado)
+0000091 pacote 022 armazenado em 007 na secao 000
+0000095 pacote 020 removido de 002 na secao 000
+0000096 pacote 011 removido de 002 na secao 000
+0000096 pacote 011 em transito de 002 para 000
+0000096 pacote 020 em transito de 002 para 000
+0000096 DEBUG: Próximo destino 2 NORMAL
+0000096 pacote 023 manteve rota (destino não congestionado)
+0000096 pacote 023 armazenado em 006 na secao 001
+0000100 DEBUG: Próximo destino 3 NORMAL
+0000100 pacote 016 manteve rota (destino não congestionado)
+0000100 pacote 016 armazenado em 000 na secao 002
+0000101 pacote 023 removido de 006 na secao 001
+0000102 pacote 019 removido de 006 na secao 001
+0000103 pacote 017 removido de 006 na secao 001
+0000104 pacote 001 removido de 006 na secao 001
+0000104 pacote 001 em transito de 006 para 001
+0000104 pacote 017 em transito de 006 para 001
+0000104 pacote 019 em transito de 006 para 001
+0000104 pacote 023 em transito de 006 para 001
+0000101 DEBUG: Próximo destino 1 NORMAL
+0000101 pacote 024 manteve rota (destino não congestionado)
+0000101 pacote 024 armazenado em 004 na secao 000
+0000103 pacote 009 entregue em 003
+0000103 DEBUG: Próximo destino 5 NORMAL
+0000103 pacote 025 manteve rota (destino não congestionado)
+0000103 pacote 025 armazenado em 003 na secao 004
+0000105 DEBUG: Próximo destino 2 NORMAL
+0000105 pacote 026 manteve rota (destino não congestionado)
+0000105 pacote 026 armazenado em 006 na secao 001
+0000106 pacote 022 removido de 007 na secao 000
+0000107 pacote 021 removido de 007 na secao 000
+0000108 pacote 014 removido de 007 na secao 000
+0000109 pacote 006 removido de 007 na secao 000
+0000110 pacote 004 removido de 007 na secao 000
+0000110 pacote 004 em transito de 007 para 000
+0000110 pacote 006 em transito de 007 para 000
+0000110 pacote 014 em transito de 007 para 000
+0000110 pacote 021 em transito de 007 para 000
+0000110 pacote 022 em transito de 007 para 000
+0000111 pacote 010 removido de 001 na secao 003
+0000111 pacote 010 em transito de 001 para 003
+0000111 DEBUG: Próximo destino 1 NORMAL
+0000111 pacote 027 manteve rota (destino não congestionado)
+0000111 pacote 027 armazenado em 002 na secao 000
+0000112 DEBUG: Próximo destino 6 NORMAL
+0000112 pacote 028 manteve rota (destino não congestionado)
+0000112 pacote 028 armazenado em 004 na secao 005
+0000115 DEBUG: Próximo destino 5 NORMAL
+0000115 pacote 029 manteve rota (destino não congestionado)
+0000115 pacote 029 armazenado em 003 na secao 004
+0000116 DEBUG: Próximo destino 6 NORMAL
+0000116 pacote 011 manteve rota (destino não congestionado)
+0000116 pacote 011 armazenado em 000 na secao 005
+0000116 pacote 020 entregue em 000
+0000120 pacote 003 removido de 002 na secao 007
+0000121 pacote 002 removido de 002 na secao 007
+0000121 pacote 002 em transito de 002 para 007
+0000121 pacote 003 em transito de 002 para 007
+0000124 DEBUG: Próximo destino 3 NORMAL
+0000124 pacote 001 manteve rota (destino não congestionado)
+0000124 pacote 001 armazenado em 001 na secao 002
+0000124 DEBUG: Próximo destino 3 NORMAL
+0000124 pacote 017 manteve rota (destino não congestionado)
+0000124 pacote 017 armazenado em 001 na secao 002
+0000124 DEBUG: Próximo destino 3 NORMAL
+0000124 pacote 019 manteve rota (destino não congestionado)
+0000124 pacote 019 armazenado em 001 na secao 002
+0000124 DEBUG: Próximo destino 3 NORMAL
+0000124 pacote 023 manteve rota (destino não congestionado)
+0000124 pacote 023 armazenado em 001 na secao 002
+0000124 DEBUG: Próximo destino 1 NORMAL
+0000124 pacote 030 manteve rota (destino não congestionado)
+0000124 pacote 030 armazenado em 001 na secao 000
+0000128 DEBUG: Próximo destino 7 NORMAL
+0000128 pacote 031 manteve rota (destino não congestionado)
+0000128 pacote 031 armazenado em 004 na secao 006
+0000130 DEBUG: Próximo destino 4 NORMAL
+0000130 pacote 004 manteve rota (destino não congestionado)
+0000130 pacote 004 armazenado em 000 na secao 003
+0000130 DEBUG: Próximo destino 6 NORMAL
+0000130 pacote 006 manteve rota (destino não congestionado)
+0000130 pacote 006 armazenado em 000 na secao 005
+0000130 DEBUG: Próximo destino 5 NORMAL
+0000130 pacote 014 manteve rota (destino não congestionado)
+0000130 pacote 014 armazenado em 000 na secao 004
+0000130 pacote 021 entregue em 000
+0000130 DEBUG: Próximo destino 7 NORMAL
+0000130 pacote 022 manteve rota (destino não congestionado)
+0000130 pacote 022 armazenado em 000 na secao 006
+0000131 pacote 010 entregue em 003
+0000133 DEBUG: Próximo destino 8 NORMAL
+0000133 pacote 032 manteve rota (destino não congestionado)
+0000133 pacote 032 armazenado em 006 na secao 007
+0000136 pacote 013 removido de 000 na secao 001
+0000137 pacote 007 removido de 000 na secao 001
+0000137 pacote 007 em transito de 000 para 001
+0000137 pacote 013 em transito de 000 para 001
+0000140 DEBUG: Próximo destino 1 NORMAL
+0000140 pacote 033 manteve rota (destino não congestionado)
+0000140 pacote 033 armazenado em 007 na secao 000
+0000141 pacote 002 entregue em 007
+0000141 pacote 003 entregue em 007
+0000146 pacote 023 removido de 001 na secao 002
+0000147 pacote 019 removido de 001 na secao 002
+0000148 pacote 017 removido de 001 na secao 002
+0000149 pacote 001 removido de 001 na secao 002
+0000149 pacote 001 em transito de 001 para 002
+0000149 pacote 017 em transito de 001 para 002
+0000149 pacote 019 em transito de 001 para 002
+0000149 pacote 023 em transito de 001 para 002
+0000147 pacote 015 removido de 005 na secao 006
+0000148 pacote 012 removido de 005 na secao 006
+0000148 pacote 012 em transito de 005 para 006
+0000148 pacote 015 em transito de 005 para 006
+0000148 pacote 006 removido de 000 na secao 005
+0000149 pacote 011 removido de 000 na secao 005
+0000149 pacote 011 em transito de 000 para 005
+0000149 pacote 006 em transito de 000 para 005
+0000149 DEBUG: Próximo destino 2 NORMAL
+0000149 pacote 034 manteve rota (destino não congestionado)
+0000149 pacote 034 armazenado em 005 na secao 001
+0000152 pacote 016 removido de 000 na secao 002
+0000152 pacote 016 em transito de 000 para 002
+0000152 pacote 032 removido de 006 na secao 007
+0000153 pacote 000 removido de 006 na secao 007
+0000153 pacote 000 em transito de 006 para 007
+0000153 pacote 032 em transito de 006 para 007
+0000155 DEBUG: Próximo destino 1 NORMAL
+0000155 pacote 035 manteve rota (destino não congestionado)
+0000155 pacote 035 armazenado em 007 na secao 000
+0000155 DEBUG: Próximo destino 5 NORMAL
+0000155 pacote 036 manteve rota (destino não congestionado)
+0000155 pacote 036 armazenado em 000 na secao 004
+0000157 pacote 007 entregue em 001
+0000157 pacote 013 entregue em 001
+0000160 pacote 029 removido de 003 na secao 004
+0000161 pacote 025 removido de 003 na secao 004
+0000162 pacote 018 removido de 003 na secao 004
+0000162 pacote 018 em transito de 003 para 004
+0000162 pacote 025 em transito de 003 para 004
+0000162 pacote 029 em transito de 003 para 004
+0000160 pacote 034 removido de 005 na secao 001
+0000160 pacote 034 em transito de 005 para 001
+0000163 DEBUG: Próximo destino 1 NORMAL
+0000163 pacote 037 manteve rota (destino não congestionado)
+0000163 pacote 037 armazenado em 004 na secao 000
+0000167 DEBUG: Próximo destino 7 NORMAL
+0000167 pacote 038 manteve rota (destino não congestionado)
+0000167 pacote 038 armazenado em 000 na secao 006
+0000167 DEBUG: Próximo destino 5 NORMAL
+0000167 pacote 039 manteve rota (destino não congestionado)
+0000167 pacote 039 armazenado em 003 na secao 004
+0000168 DEBUG: Próximo destino 8 NORMAL
+0000168 pacote 012 manteve rota (destino não congestionado)
+0000168 pacote 012 armazenado em 006 na secao 007
+0000168 DEBUG: Próximo destino 8 NORMAL
+0000168 pacote 015 manteve rota (destino não congestionado)
+0000168 pacote 015 armazenado em 006 na secao 007
+0000169 pacote 001 entregue em 002
+0000169 pacote 006 entregue em 005
+0000169 pacote 011 entregue em 005
+0000169 pacote 017 entregue em 002
+0000169 pacote 019 entregue em 002
+0000169 pacote 023 entregue em 002
+0000170 DEBUG: Próximo destino 6 NORMAL
+0000170 pacote 040 manteve rota (destino não congestionado)
+0000170 pacote 040 armazenado em 004 na secao 005
+0000170 DEBUG: Próximo destino 3 NORMAL
+0000170 pacote 041 manteve rota (destino não congestionado)
+0000170 pacote 041 armazenado em 003 na secao 002
+0000173 pacote 038 removido de 000 na secao 006
+0000174 pacote 022 removido de 000 na secao 006
+0000174 pacote 022 em transito de 000 para 006
+0000174 pacote 038 em transito de 000 para 006
+0000172 pacote 016 entregue em 002
+0000173 pacote 030 removido de 001 na secao 000
+0000173 pacote 030 em transito de 001 para 000
+0000173 pacote 040 removido de 004 na secao 005
+0000174 pacote 028 removido de 004 na secao 005
+0000174 pacote 028 em transito de 004 para 005
+0000174 pacote 040 em transito de 004 para 005
+0000173 DEBUG: Próximo destino 1 NORMAL
+0000173 pacote 000 manteve rota (destino não congestionado)
+0000173 pacote 000 armazenado em 007 na secao 000
+0000173 DEBUG: Próximo destino 1 NORMAL
+0000173 pacote 032 manteve rota (destino não congestionado)
+0000173 pacote 032 armazenado em 007 na secao 000
+0000178 pacote 041 removido de 003 na secao 002
+0000178 pacote 041 em transito de 003 para 002
+0000179 DEBUG: Próximo destino 8 NORMAL
+0000179 pacote 042 manteve rota (destino não congestionado)
+0000179 pacote 042 armazenado em 006 na secao 007
+0000180 pacote 037 removido de 004 na secao 000
+0000181 pacote 024 removido de 004 na secao 000
+0000182 pacote 008 removido de 004 na secao 000
+0000182 pacote 008 em transito de 004 para 000
+0000182 pacote 024 em transito de 004 para 000
+0000182 pacote 037 em transito de 004 para 000
+0000180 DEBUG: Próximo destino 3 NORMAL
+0000180 pacote 034 manteve rota (destino não congestionado)
+0000180 pacote 034 armazenado em 001 na secao 002
+0000181 DEBUG: Próximo destino 7 NORMAL
+0000181 pacote 043 manteve rota (destino não congestionado)
+0000181 pacote 043 armazenado em 001 na secao 006
+0000182 DEBUG: Próximo destino 6 NORMAL
+0000182 pacote 018 manteve rota (destino não congestionado)
+0000182 pacote 018 armazenado em 004 na secao 005
+0000182 DEBUG: Próximo destino 7 NORMAL
+0000182 pacote 025 manteve rota (destino não congestionado)
+0000182 pacote 025 armazenado em 004 na secao 006
+0000182 DEBUG: Próximo destino 1 NORMAL
+0000182 pacote 029 manteve rota (destino não congestionado)
+0000182 pacote 029 armazenado em 004 na secao 000
+0000185 DEBUG: Próximo destino 4 NORMAL
+0000185 pacote 044 manteve rota (destino não congestionado)
+0000185 pacote 044 armazenado em 002 na secao 003
+0000193 DEBUG: Próximo destino 6 NORMAL
+0000193 pacote 030 manteve rota (destino não congestionado)
+0000193 pacote 030 armazenado em 000 na secao 005
+0000194 pacote 022 entregue em 006
+0000194 pacote 028 entregue em 005
+0000194 pacote 038 entregue em 006
+0000194 pacote 040 entregue em 005
+0000194 DEBUG: Próximo destino 7 NORMAL
+0000194 pacote 045 manteve rota (destino não congestionado)
+0000194 pacote 045 armazenado em 001 na secao 006
+0000195 pacote 027 removido de 002 na secao 000
+0000195 pacote 027 em transito de 002 para 000
+0000198 pacote 041 entregue em 002
+0000201 pacote 026 removido de 006 na secao 001
+0000201 pacote 026 em transito de 006 para 001
+0000202 pacote 008 entregue em 000
+0000202 DEBUG: Próximo destino 2 NORMAL
+0000202 pacote 024 manteve rota (destino não congestionado)
+0000202 pacote 024 armazenado em 000 na secao 001
+0000202 pacote 037 entregue em 000
+0000202 DEBUG: Próximo destino 1 NORMAL
+0000202 pacote 046 manteve rota (destino não congestionado)
+0000202 pacote 046 armazenado em 002 na secao 000
+0000202 DEBUG: Próximo destino 1 NORMAL
+0000202 pacote 047 manteve rota (destino não congestionado)
+0000202 pacote 047 armazenado em 007 na secao 000
+0000206 pacote 047 removido de 007 na secao 000
+0000207 pacote 032 removido de 007 na secao 000
+0000208 pacote 000 removido de 007 na secao 000
+0000209 pacote 035 removido de 007 na secao 000
+0000210 pacote 033 removido de 007 na secao 000
+0000210 pacote 033 em transito de 007 para 000
+0000210 pacote 035 em transito de 007 para 000
+0000210 pacote 000 em transito de 007 para 000
+0000210 pacote 032 em transito de 007 para 000
+0000210 pacote 047 em transito de 007 para 000
+0000207 pacote 025 removido de 004 na secao 006
+0000208 pacote 031 removido de 004 na secao 006
+0000208 pacote 031 em transito de 004 para 006
+0000208 pacote 025 em transito de 004 para 006
+0000209 pacote 036 removido de 000 na secao 004
+0000210 pacote 014 removido de 000 na secao 004
+0000210 pacote 014 em transito de 000 para 004
+0000210 pacote 036 em transito de 000 para 004
+0000209 DEBUG: Próximo destino 1 NORMAL
+0000209 pacote 048 manteve rota (destino não congestionado)
+0000209 pacote 048 armazenado em 007 na secao 000
+0000213 DEBUG: Próximo destino 1 NORMAL
+0000213 pacote 049 manteve rota (destino não congestionado)
+0000213 pacote 049 armazenado em 007 na secao 000
+0000215 DEBUG: Próximo destino 7 NORMAL
+0000215 pacote 027 manteve rota (destino não congestionado)
+0000215 pacote 027 armazenado em 000 na secao 006
+0000218 pacote 044 removido de 002 na secao 003
+0000218 pacote 044 em transito de 002 para 003
+0000221 DEBUG: Próximo destino 3 NORMAL
+0000221 pacote 026 manteve rota (destino não congestionado)
+0000221 pacote 026 armazenado em 001 na secao 002
+0000221 DEBUG: Próximo destino 1 NORMAL
+0000221 pacote 050 manteve rota (destino não congestionado)
+0000221 pacote 050 armazenado em 004 na secao 000
+0000224 DEBUG: Próximo destino 7 NORMAL
+0000224 pacote 051 manteve rota (destino não congestionado)
+0000224 pacote 051 armazenado em 005 na secao 006
+0000227 pacote 004 removido de 000 na secao 003
+0000227 pacote 004 em transito de 000 para 003
+0000228 DEBUG: Próximo destino 8 NORMAL
+0000228 pacote 025 manteve rota (destino não congestionado)
+0000228 pacote 025 armazenado em 006 na secao 007
+0000228 DEBUG: Próximo destino 8 NORMAL
+0000228 pacote 031 manteve rota (destino não congestionado)
+0000228 pacote 031 armazenado em 006 na secao 007
+0000228 DEBUG: Próximo destino 5 NORMAL
+0000228 pacote 052 manteve rota (destino não congestionado)
+0000228 pacote 052 armazenado em 003 na secao 004
+0000230 DEBUG: Próximo destino 6 NORMAL
+0000230 pacote 000 manteve rota (destino não congestionado)
+0000230 pacote 000 armazenado em 000 na secao 005
+0000230 pacote 014 entregue em 004
+0000230 DEBUG: Próximo destino 5 NORMAL
+0000230 pacote 032 manteve rota (destino não congestionado)
+0000230 pacote 032 armazenado em 000 na secao 004
+0000230 DEBUG: Próximo destino 4 NORMAL
+0000230 pacote 033 manteve rota (destino não congestionado)
+0000230 pacote 033 armazenado em 000 na secao 003
+0000230 DEBUG: Próximo destino 3 NORMAL
+0000230 pacote 035 manteve rota (destino não congestionado)
+0000230 pacote 035 armazenado em 000 na secao 002
+0000230 pacote 036 entregue em 004
+0000230 DEBUG: Próximo destino 5 NORMAL
+0000230 pacote 047 manteve rota (destino não congestionado)
+0000230 pacote 047 armazenado em 000 na secao 004
+0000230 DEBUG: Próximo destino 2 NORMAL
+0000230 pacote 053 manteve rota (destino não congestionado)
+0000230 pacote 053 armazenado em 005 na secao 001
+0000230 DEBUG: Próximo destino 4 NORMAL
+0000230 pacote 054 manteve rota (destino não congestionado)
+0000230 pacote 054 armazenado em 000 na secao 003
+0000236 pacote 024 removido de 000 na secao 001
+0000236 pacote 024 em transito de 000 para 001
+0000238 pacote 044 entregue em 003
+0000239 DEBUG: Próximo destino 2 NORMAL
+0000239 pacote 055 manteve rota (destino não congestionado)
+0000239 pacote 055 armazenado em 005 na secao 001
+0000243 DEBUG: Próximo destino 4 NORMAL
+0000243 pacote 056 manteve rota (destino não congestionado)
+0000243 pacote 056 armazenado em 000 na secao 003
+0000245 DEBUG: Próximo destino 7 NORMAL
+0000245 pacote 057 manteve rota (destino não congestionado)
+0000245 pacote 057 armazenado em 005 na secao 006
+0000246 pacote 026 removido de 001 na secao 002
+0000247 pacote 034 removido de 001 na secao 002
+0000247 pacote 034 em transito de 001 para 002
+0000247 pacote 026 em transito de 001 para 002
+0000247 pacote 057 removido de 005 na secao 006
+0000248 pacote 051 removido de 005 na secao 006
+0000248 pacote 051 em transito de 005 para 006
+0000248 pacote 057 em transito de 005 para 006
+0000247 pacote 004 entregue em 003
+0000248 pacote 000 removido de 000 na secao 005
+0000249 pacote 030 removido de 000 na secao 005
+0000249 pacote 030 em transito de 000 para 005
+0000249 pacote 000 em transito de 000 para 005
+0000249 DEBUG: Próximo destino 2 NORMAL
+0000249 pacote 058 manteve rota (destino não congestionado)
+0000249 pacote 058 armazenado em 003 na secao 001
+0000252 pacote 035 removido de 000 na secao 002
+0000252 pacote 035 em transito de 000 para 002
+0000251 DEBUG: Próximo destino 3 NORMAL
+0000251 pacote 059 manteve rota (destino não congestionado)
+0000251 pacote 059 armazenado em 001 na secao 002
+0000252 pacote 031 removido de 006 na secao 007
+0000253 pacote 025 removido de 006 na secao 007
+0000254 pacote 042 removido de 006 na secao 007
+0000255 pacote 015 removido de 006 na secao 007
+0000256 pacote 012 removido de 006 na secao 007
+0000256 pacote 012 em transito de 006 para 007
+0000256 pacote 015 em transito de 006 para 007
+0000256 pacote 042 em transito de 006 para 007
+0000256 pacote 025 em transito de 006 para 007
+0000256 pacote 031 em transito de 006 para 007
+0000256 pacote 024 entregue em 001
+0000256 DEBUG: Próximo destino 1 NORMAL
+0000256 pacote 060 manteve rota (destino não congestionado)
+0000256 pacote 060 armazenado em 004 na secao 000
+0000260 pacote 052 removido de 003 na secao 004
+0000261 pacote 039 removido de 003 na secao 004
+0000261 pacote 039 em transito de 003 para 004
+0000261 pacote 052 em transito de 003 para 004
+0000260 pacote 055 removido de 005 na secao 001
+0000261 pacote 053 removido de 005 na secao 001
+0000261 pacote 053 em transito de 005 para 001
+0000261 pacote 055 em transito de 005 para 001
+0000261 DEBUG: Próximo destino 7 NORMAL
+0000261 pacote 061 manteve rota (destino não congestionado)
+0000261 pacote 061 armazenado em 000 na secao 006
+0000263 pacote 045 removido de 001 na secao 006
+0000264 pacote 043 removido de 001 na secao 006
+0000264 pacote 043 em transito de 001 para 006
+0000264 pacote 045 em transito de 001 para 006
+0000263 DEBUG: Próximo destino 7 NORMAL
+0000263 pacote 062 manteve rota (destino não congestionado)
+0000263 pacote 062 armazenado em 005 na secao 006
+0000267 pacote 026 entregue em 002
+0000267 pacote 034 entregue em 002
+0000268 DEBUG: Próximo destino 8 NORMAL
+0000268 pacote 051 manteve rota (destino não congestionado)
+0000268 pacote 051 armazenado em 006 na secao 007
+0000268 pacote 057 entregue em 006
+0000269 pacote 000 entregue em 005
+0000269 pacote 030 entregue em 005
+0000269 DEBUG: Próximo destino 3 NORMAL
+0000269 pacote 063 manteve rota (destino não congestionado)
+0000269 pacote 063 armazenado em 001 na secao 002
+0000271 DEBUG: Próximo destino 3 NORMAL
+0000271 pacote 064 manteve rota (destino não congestionado)
+0000271 pacote 064 armazenado em 003 na secao 002
+0000271 DEBUG: Próximo destino 7 NORMAL
+0000271 pacote 065 manteve rota (destino não congestionado)
+0000271 pacote 065 armazenado em 004 na secao 006
+0000273 pacote 061 removido de 000 na secao 006
+0000274 pacote 027 removido de 000 na secao 006
+0000274 pacote 027 em transito de 000 para 006
+0000274 pacote 061 em transito de 000 para 006
+0000272 pacote 035 entregue em 002
+0000273 pacote 018 removido de 004 na secao 005
+0000273 pacote 018 em transito de 004 para 005
+0000276 DEBUG: Próximo destino 1 NORMAL
+0000276 pacote 012 manteve rota (destino não congestionado)
+0000276 pacote 012 armazenado em 007 na secao 000
+0000276 DEBUG: Próximo destino 1 NORMAL
+0000276 pacote 015 manteve rota (destino não congestionado)
+0000276 pacote 015 armazenado em 007 na secao 000
+0000276 pacote 025 entregue em 007
+0000276 pacote 031 entregue em 007
+0000276 DEBUG: Próximo destino 1 NORMAL
+0000276 pacote 042 manteve rota (destino não congestionado)
+0000276 pacote 042 armazenado em 007 na secao 000
+0000278 pacote 064 removido de 003 na secao 002
+0000278 pacote 064 em transito de 003 para 002
+0000278 DEBUG: Próximo destino 7 NORMAL
+0000278 pacote 066 manteve rota (destino não congestionado)
+0000278 pacote 066 armazenado em 001 na secao 006
+0000279 DEBUG: Próximo destino 1 NORMAL
+0000279 pacote 067 manteve rota (destino não congestionado)
+0000279 pacote 067 armazenado em 004 na secao 000
+0000280 pacote 067 removido de 004 na secao 000
+0000281 pacote 060 removido de 004 na secao 000
+0000282 pacote 050 removido de 004 na secao 000
+0000283 pacote 029 removido de 004 na secao 000
+0000283 pacote 029 em transito de 004 para 000
+0000283 pacote 050 em transito de 004 para 000
+0000283 pacote 060 em transito de 004 para 000
+0000283 pacote 067 em transito de 004 para 000
+0000281 pacote 039 entregue em 004
+0000281 DEBUG: Próximo destino 1 NORMAL
+0000281 pacote 052 manteve rota (destino não congestionado)
+0000281 pacote 052 armazenado em 004 na secao 000
+0000281 pacote 053 entregue em 001
+0000281 pacote 055 entregue em 001
+0000284 pacote 043 entregue em 006
+0000284 DEBUG: Próximo destino 8 NORMAL
+0000284 pacote 045 manteve rota (destino não congestionado)
+0000284 pacote 045 armazenado em 006 na secao 007
+0000284 DEBUG: Próximo destino 2 NORMAL
+0000284 pacote 068 manteve rota (destino não congestionado)
+0000284 pacote 068 armazenado em 006 na secao 001
+0000290 DEBUG: Próximo destino 2 NORMAL
+0000290 pacote 069 manteve rota (destino não congestionado)
+0000290 pacote 069 armazenado em 006 na secao 001
+0000293 pacote 018 entregue em 005
+0000294 pacote 027 entregue em 006
+0000294 DEBUG: Próximo destino 8 NORMAL
+0000294 pacote 061 manteve rota (destino não congestionado)
+0000294 pacote 061 armazenado em 006 na secao 007
+0000295 pacote 046 removido de 002 na secao 000
+0000295 pacote 046 em transito de 002 para 000
+0000295 DEBUG: Próximo destino 1 NORMAL
+0000295 pacote 070 manteve rota (destino não congestionado)
+0000295 pacote 070 armazenado em 004 na secao 000
+0000298 pacote 064 entregue em 002
+0000299 pacote 058 removido de 003 na secao 001
+0000299 pacote 058 em transito de 003 para 001
+0000301 pacote 069 removido de 006 na secao 001
+0000302 pacote 068 removido de 006 na secao 001
+0000302 pacote 068 em transito de 006 para 001
+0000302 pacote 069 em transito de 006 para 001
+0000302 DEBUG: Próximo destino 3 NORMAL
+0000302 pacote 071 manteve rota (destino não congestionado)
+0000302 pacote 071 armazenado em 003 na secao 002
+0000303 pacote 029 entregue em 000
+0000303 DEBUG: Próximo destino 2 NORMAL
+0000303 pacote 050 manteve rota (destino não congestionado)
+0000303 pacote 050 armazenado em 000 na secao 001
+0000303 DEBUG: Próximo destino 2 NORMAL
+0000303 pacote 060 manteve rota (destino não congestionado)
+0000303 pacote 060 armazenado em 000 na secao 001
+0000303 DEBUG: Próximo destino 3 NORMAL
+0000303 pacote 067 manteve rota (destino não congestionado)
+0000303 pacote 067 armazenado em 000 na secao 002
+0000304 DEBUG: Próximo destino 1 CONGESTIONADO
+0000304 DEBUG: Pacote 72 rota original: 1->2 (tam: 2)
+0000304 DEBUG: Pacote 72 nova rota: 8->1->2 (tam: 3)
+0000304 DEBUG: Removido origem 8 da nova rota
+0000304 pacote 072 manteve rota original (IGUAL)
+0000304 pacote 072 armazenado em 007 na secao 000
+0000304 DEBUG: Próximo destino 7 NORMAL
+0000304 pacote 073 manteve rota (destino não congestionado)
+0000304 pacote 073 armazenado em 005 na secao 006
+0000306 pacote 072 removido de 007 na secao 000
+0000307 pacote 042 removido de 007 na secao 000
+0000308 pacote 015 removido de 007 na secao 000
+0000309 pacote 012 removido de 007 na secao 000
+0000310 pacote 049 removido de 007 na secao 000
+0000311 pacote 048 removido de 007 na secao 000
+0000311 pacote 048 em transito de 007 para 000
+0000311 pacote 049 em transito de 007 para 000
+0000311 pacote 012 em transito de 007 para 000
+0000311 pacote 015 em transito de 007 para 000
+0000311 pacote 042 em transito de 007 para 000
+0000311 pacote 072 rearmazenado em 007 na secao 000
+0000307 pacote 065 removido de 004 na secao 006
+0000307 pacote 065 em transito de 004 para 006
+0000309 pacote 047 removido de 000 na secao 004
+0000310 pacote 032 removido de 000 na secao 004
+0000310 pacote 032 em transito de 000 para 004
+0000310 pacote 047 em transito de 000 para 004
+0000311 DEBUG: Próximo destino 1 NORMAL
+0000311 pacote 074 manteve rota (destino não congestionado)
+0000311 pacote 074 armazenado em 002 na secao 000
+0000312 DEBUG: Próximo destino 5 NORMAL
+0000312 pacote 075 manteve rota (destino não congestionado)
+0000312 pacote 075 armazenado em 003 na secao 004
+0000315 DEBUG: Próximo destino 5 NORMAL
+0000315 pacote 046 manteve rota (destino não congestionado)
+0000315 pacote 046 armazenado em 000 na secao 004
+0000315 DEBUG: Próximo destino 1 NORMAL
+0000315 pacote 076 manteve rota (destino não congestionado)
+0000315 pacote 076 armazenado em 007 na secao 000
+0000319 pacote 058 entregue em 001
+0000322 pacote 068 entregue em 001
+0000322 DEBUG: Próximo destino 3 NORMAL
+0000322 pacote 069 manteve rota (destino não congestionado)
+0000322 pacote 069 armazenado em 001 na secao 002
+0000324 DEBUG: Próximo destino 8 NORMAL
+0000324 pacote 077 manteve rota (destino não congestionado)
+0000324 pacote 077 armazenado em 006 na secao 007
+0000327 pacote 056 removido de 000 na secao 003
+0000328 pacote 054 removido de 000 na secao 003
+0000329 pacote 033 removido de 000 na secao 003
+0000329 pacote 033 em transito de 000 para 003
+0000329 pacote 054 em transito de 000 para 003
+0000329 pacote 056 em transito de 000 para 003
+0000327 DEBUG: Próximo destino 8 NORMAL
+0000327 pacote 065 manteve rota (destino não congestionado)
+0000327 pacote 065 armazenado em 006 na secao 007
+0000330 pacote 032 entregue em 004
+0000330 pacote 047 entregue em 004
+0000331 DEBUG: Próximo destino 5 NORMAL
+0000331 pacote 012 manteve rota (destino não congestionado)
+0000331 pacote 012 armazenado em 000 na secao 004
+0000331 pacote 015 entregue em 000
+0000331 pacote 042 entregue em 000
+0000331 DEBUG: Próximo destino 5 NORMAL
+0000331 pacote 048 manteve rota (destino não congestionado)
+0000331 pacote 048 armazenado em 000 na secao 004
+0000331 DEBUG: Próximo destino 3 NORMAL
+0000331 pacote 049 manteve rota (destino não congestionado)
+0000331 pacote 049 armazenado em 000 na secao 002
+0000333 DEBUG: Próximo destino 4 NORMAL
+0000333 pacote 078 manteve rota (destino não congestionado)
+0000333 pacote 078 armazenado em 002 na secao 003
+0000336 pacote 060 removido de 000 na secao 001
+0000337 pacote 050 removido de 000 na secao 001
+0000337 pacote 050 em transito de 000 para 001
+0000337 pacote 060 em transito de 000 para 001
+0000341 DEBUG: Próximo destino 1 NORMAL
+0000341 pacote 079 manteve rota (destino não congestionado)
+0000341 pacote 079 armazenado em 007 na secao 000
+0000341 DEBUG: Próximo destino 7 NORMAL
+0000341 pacote 080 manteve rota (destino não congestionado)
+0000341 pacote 080 armazenado em 005 na secao 006
+0000346 pacote 069 removido de 001 na secao 002
+0000347 pacote 063 removido de 001 na secao 002
+0000348 pacote 059 removido de 001 na secao 002
+0000348 pacote 059 em transito de 001 para 002
+0000348 pacote 063 em transito de 001 para 002
+0000348 pacote 069 em transito de 001 para 002
+0000347 pacote 080 removido de 005 na secao 006
+0000348 pacote 073 removido de 005 na secao 006
+0000349 pacote 062 removido de 005 na secao 006
+0000349 pacote 062 em transito de 005 para 006
+0000349 pacote 073 em transito de 005 para 006
+0000349 pacote 080 em transito de 005 para 006
+0000347 DEBUG: Próximo destino 4 NORMAL
+0000347 pacote 081 manteve rota (destino não congestionado)
+0000347 pacote 081 armazenado em 000 na secao 003
+0000348 DEBUG: Próximo destino 6 NORMAL
+0000348 pacote 082 manteve rota (destino não congestionado)
+0000348 pacote 082 armazenado em 000 na secao 005
+0000349 pacote 033 entregue em 003
+0000349 pacote 054 entregue em 003
+0000349 pacote 056 entregue em 003
+0000349 DEBUG: Próximo destino 4 NORMAL
+0000349 pacote 083 manteve rota (destino não congestionado)
+0000349 pacote 083 armazenado em 001 na secao 003
+0000352 pacote 049 removido de 000 na secao 002
+0000353 pacote 067 removido de 000 na secao 002
+0000353 pacote 067 em transito de 000 para 002
+0000353 pacote 049 em transito de 000 para 002
+0000352 pacote 065 removido de 006 na secao 007
+0000353 pacote 077 removido de 006 na secao 007
+0000354 pacote 061 removido de 006 na secao 007
+0000355 pacote 045 removido de 006 na secao 007
+0000356 pacote 051 removido de 006 na secao 007
+0000356 pacote 051 em transito de 006 para 007
+0000356 pacote 045 em transito de 006 para 007
+0000356 pacote 061 em transito de 006 para 007
+0000356 pacote 077 em transito de 006 para 007
+0000356 pacote 065 em transito de 006 para 007
+0000357 pacote 050 entregue em 001
+0000357 pacote 060 entregue em 001
+0000357 DEBUG: Próximo destino 7 NORMAL
+0000357 pacote 084 manteve rota (destino não congestionado)
+0000357 pacote 084 armazenado em 005 na secao 006
+0000359 DEBUG: Próximo destino 5 NORMAL
+0000359 pacote 085 manteve rota (destino não congestionado)
+0000359 pacote 085 armazenado em 003 na secao 004
+0000360 pacote 085 removido de 003 na secao 004
+0000361 pacote 075 removido de 003 na secao 004
+0000361 pacote 075 em transito de 003 para 004
+0000361 pacote 085 em transito de 003 para 004
+0000360 DEBUG: Próximo destino 1 NORMAL
+0000360 pacote 086 manteve rota (destino não congestionado)
+0000360 pacote 086 armazenado em 002 na secao 000
+0000363 pacote 066 removido de 001 na secao 006
+0000363 pacote 066 em transito de 001 para 006
+0000368 pacote 059 entregue em 002
+0000368 pacote 063 entregue em 002
+0000368 pacote 069 entregue em 002
+0000369 DEBUG: Próximo destino 8 NORMAL
+0000369 pacote 062 manteve rota (destino não congestionado)
+0000369 pacote 062 armazenado em 006 na secao 007
+0000369 pacote 073 entregue em 006
+0000369 DEBUG: Próximo destino 8 NORMAL
+0000369 pacote 080 manteve rota (destino não congestionado)
+0000369 pacote 080 armazenado em 006 na secao 007
+0000369 DEBUG: Próximo destino 5 NORMAL
+0000369 pacote 087 manteve rota (destino não congestionado)
+0000369 pacote 087 armazenado em 003 na secao 004
+0000372 DEBUG: Próximo destino 1 NORMAL
+0000372 pacote 088 manteve rota (destino não congestionado)
+0000372 pacote 088 armazenado em 007 na secao 000
+0000373 pacote 049 entregue em 002
+0000373 pacote 067 entregue em 002
+0000376 pacote 045 entregue em 007
+0000376 DEBUG: Próximo destino 1 NORMAL
+0000376 pacote 051 manteve rota (destino não congestionado)
+0000376 pacote 051 armazenado em 007 na secao 000
+0000376 pacote 061 entregue em 007
+0000376 pacote 065 entregue em 007
+0000376 DEBUG: Próximo destino 1 CONGESTIONADO
+0000376 DEBUG: Pacote 77 rota original: 1->6 (tam: 2)
+0000376 DEBUG: Pacote 77 nova rota: 8->1->6 (tam: 3)
+0000376 DEBUG: Removido origem 8 da nova rota
+0000376 pacote 077 manteve rota original (IGUAL)
+0000376 pacote 077 armazenado em 007 na secao 000
+0000378 pacote 071 removido de 003 na secao 002
+0000378 pacote 071 em transito de 003 para 002
+0000380 pacote 070 removido de 004 na secao 000
+0000381 pacote 052 removido de 004 na secao 000
+0000381 pacote 052 em transito de 004 para 000
+0000381 pacote 070 em transito de 004 para 000
+0000381 DEBUG: Próximo destino 6 NORMAL
+0000381 pacote 075 manteve rota (destino não congestionado)
+0000381 pacote 075 armazenado em 004 na secao 005
+0000381 DEBUG: Próximo destino 7 NORMAL
+0000381 pacote 085 manteve rota (destino não congestionado)
+0000381 pacote 085 armazenado em 004 na secao 006
+0000381 DEBUG: Próximo destino 1 NORMAL
+0000381 pacote 089 manteve rota (destino não congestionado)
+0000381 pacote 089 armazenado em 002 na secao 000
+0000383 pacote 066 entregue em 006
+0000386 DEBUG: Próximo destino 8 NORMAL
+0000386 pacote 090 manteve rota (destino não congestionado)
+0000386 pacote 090 armazenado em 006 na secao 007
+0000389 DEBUG: Próximo destino 7 NORMAL
+0000389 pacote 091 manteve rota (destino não congestionado)
+0000389 pacote 091 armazenado em 005 na secao 006
+0000389 DEBUG: Próximo destino 7 NORMAL
+0000389 pacote 092 manteve rota (destino não congestionado)
+0000389 pacote 092 armazenado em 004 na secao 006
+0000389 DEBUG: Próximo destino 2 NORMAL
+0000389 pacote 093 manteve rota (destino não congestionado)
+0000389 pacote 093 armazenado em 005 na secao 001
+0000390 DEBUG: Próximo destino 4 NORMAL
+0000390 pacote 094 manteve rota (destino não congestionado)
+0000390 pacote 094 armazenado em 000 na secao 003
+0000395 pacote 089 removido de 002 na secao 000
+0000396 pacote 086 removido de 002 na secao 000
+0000397 pacote 074 removido de 002 na secao 000
+0000397 pacote 074 em transito de 002 para 000
+0000397 pacote 086 em transito de 002 para 000
+0000397 pacote 089 em transito de 002 para 000
+0000395 DEBUG: Próximo destino 1 NORMAL
+0000395 pacote 095 manteve rota (destino não congestionado)
+0000395 pacote 095 armazenado em 004 na secao 000
+0000398 pacote 071 entregue em 002
+0000398 DEBUG: Próximo destino 8 NORMAL
+0000398 pacote 096 manteve rota (destino não congestionado)
+0000398 pacote 096 armazenado em 006 na secao 007
+0000401 pacote 052 entregue em 000
+0000401 DEBUG: Próximo destino 4 NORMAL
+0000401 pacote 070 manteve rota (destino não congestionado)
+0000401 pacote 070 armazenado em 000 na secao 003
+0000402 DEBUG: Próximo destino 7 NORMAL
+0000402 pacote 097 manteve rota (destino não congestionado)
+0000402 pacote 097 armazenado em 005 na secao 006
+0000403 DEBUG: Próximo destino 4 NORMAL
+0000403 pacote 098 manteve rota (destino não congestionado)
+0000403 pacote 098 armazenado em 000 na secao 003
+0000406 pacote 077 removido de 007 na secao 000
+0000407 pacote 051 removido de 007 na secao 000
+0000408 pacote 088 removido de 007 na secao 000
+0000409 pacote 079 removido de 007 na secao 000
+0000410 pacote 076 removido de 007 na secao 000
+0000411 pacote 072 removido de 007 na secao 000
+0000411 pacote 072 em transito de 007 para 000
+0000411 pacote 076 em transito de 007 para 000
+0000411 pacote 079 em transito de 007 para 000
+0000411 pacote 088 em transito de 007 para 000
+0000411 pacote 051 em transito de 007 para 000
+0000411 pacote 077 rearmazenado em 007 na secao 000
+0000407 pacote 092 removido de 004 na secao 006
+0000408 pacote 085 removido de 004 na secao 006
+0000408 pacote 085 em transito de 004 para 006
+0000408 pacote 092 em transito de 004 para 006
+0000407 DEBUG: Próximo destino 1 NORMAL
+0000407 pacote 099 manteve rota (destino não congestionado)
+0000407 pacote 099 armazenado em 002 na secao 000
+0000409 pacote 048 removido de 000 na secao 004
+0000410 pacote 012 removido de 000 na secao 004
+0000411 pacote 046 removido de 000 na secao 004
+0000411 pacote 046 em transito de 000 para 004
+0000411 pacote 012 em transito de 000 para 004
+0000411 pacote 048 em transito de 000 para 004
+0000409 DEBUG: Próximo destino 2 NORMAL
+0000409 pacote 100 manteve rota (destino não congestionado)
+0000409 pacote 100 armazenado em 003 na secao 001
+0000411 pacote 083 removido de 001 na secao 003
+0000411 pacote 083 em transito de 001 para 003
+0000417 pacote 074 entregue em 000
+0000417 pacote 086 entregue em 000
+0000417 DEBUG: Próximo destino 5 NORMAL
+0000417 pacote 089 manteve rota (destino não congestionado)
+0000417 pacote 089 armazenado em 000 na secao 004
+0000418 pacote 078 removido de 002 na secao 003
+0000418 pacote 078 em transito de 002 para 003
+0000418 DEBUG: Próximo destino 3 NORMAL
+0000418 pacote 101 manteve rota (destino não congestionado)
+0000418 pacote 101 armazenado em 003 na secao 002
+0000424 DEBUG: Próximo destino 5 NORMAL
+0000424 pacote 102 manteve rota (destino não congestionado)
+0000424 pacote 102 armazenado em 003 na secao 004
+0000427 pacote 098 removido de 000 na secao 003
+0000428 pacote 070 removido de 000 na secao 003
+0000429 pacote 094 removido de 000 na secao 003
+0000430 pacote 081 removido de 000 na secao 003
+0000430 pacote 081 em transito de 000 para 003
+0000430 pacote 094 em transito de 000 para 003
+0000430 pacote 070 em transito de 000 para 003
+0000430 pacote 098 em transito de 000 para 003
+0000428 pacote 085 entregue em 006
+0000428 DEBUG: Próximo destino 8 NORMAL
+0000428 pacote 092 manteve rota (destino não congestionado)
+0000428 pacote 092 armazenado em 006 na secao 007
+0000431 pacote 012 entregue em 004
+0000431 pacote 046 entregue em 004
+0000431 pacote 048 entregue em 004
+0000431 DEBUG: Próximo destino 5 NORMAL
+0000431 pacote 051 manteve rota (destino não congestionado)
+0000431 pacote 051 armazenado em 000 na secao 004
+0000431 DEBUG: Próximo destino 2 NORMAL
+0000431 pacote 072 manteve rota (destino não congestionado)
+0000431 pacote 072 armazenado em 000 na secao 001
+0000431 DEBUG: Próximo destino 6 NORMAL
+0000431 pacote 076 manteve rota (destino não congestionado)
+0000431 pacote 076 armazenado em 000 na secao 005
+0000431 DEBUG: Próximo destino 6 NORMAL
+0000431 pacote 079 manteve rota (destino não congestionado)
+0000431 pacote 079 armazenado em 000 na secao 005
+0000431 pacote 083 entregue em 003
+0000431 DEBUG: Próximo destino 5 NORMAL
+0000431 pacote 088 manteve rota (destino não congestionado)
+0000431 pacote 088 armazenado em 000 na secao 004
+0000433 DEBUG: Próximo destino 4 NORMAL
+0000433 pacote 103 manteve rota (destino não congestionado)
+0000433 pacote 103 armazenado em 005 na secao 003
+0000436 pacote 072 removido de 000 na secao 001
+0000436 pacote 072 em transito de 000 para 001
+0000438 pacote 078 entregue em 003
+0000440 DEBUG: Próximo destino 1 NORMAL
+0000440 pacote 104 manteve rota (destino não congestionado)
+0000440 pacote 104 armazenado em 004 na secao 000
+0000446 DEBUG: Próximo destino 5 NORMAL
+0000446 pacote 105 manteve rota (destino não congestionado)
+0000446 pacote 105 armazenado em 003 na secao 004
+0000447 pacote 097 removido de 005 na secao 006
+0000448 pacote 091 removido de 005 na secao 006
+0000449 pacote 084 removido de 005 na secao 006
+0000449 pacote 084 em transito de 005 para 006
+0000449 pacote 091 em transito de 005 para 006
+0000449 pacote 097 em transito de 005 para 006
+0000448 pacote 079 removido de 000 na secao 005
+0000449 pacote 076 removido de 000 na secao 005
+0000450 pacote 082 removido de 000 na secao 005
+0000450 pacote 082 em transito de 000 para 005
+0000450 pacote 076 em transito de 000 para 005
+0000450 pacote 079 em transito de 000 para 005
+0000450 pacote 070 entregue em 003
+0000450 pacote 081 entregue em 003
+0000450 pacote 094 entregue em 003
+0000450 pacote 098 entregue em 003
+0000452 pacote 092 removido de 006 na secao 007
+0000453 pacote 096 removido de 006 na secao 007
+0000454 pacote 090 removido de 006 na secao 007
+0000455 pacote 080 removido de 006 na secao 007
+0000456 pacote 062 removido de 006 na secao 007
+0000456 pacote 062 em transito de 006 para 007
+0000456 pacote 080 em transito de 006 para 007
+0000456 pacote 090 em transito de 006 para 007
+0000456 pacote 096 em transito de 006 para 007
+0000456 pacote 092 em transito de 006 para 007
+0000453 DEBUG: Próximo destino 6 NORMAL
+0000453 pacote 106 manteve rota (destino não congestionado)
+0000453 pacote 106 armazenado em 000 na secao 005
+0000456 pacote 072 entregue em 001
+0000457 DEBUG: Próximo destino 5 NORMAL
+0000457 pacote 107 manteve rota (destino não congestionado)
+0000457 pacote 107 armazenado em 003 na secao 004
+0000457 DEBUG: Próximo destino 8 NORMAL
+0000457 pacote 108 manteve rota (destino não congestionado)
+0000457 pacote 108 armazenado em 006 na secao 007
+0000460 pacote 107 removido de 003 na secao 004
+0000461 pacote 105 removido de 003 na secao 004
+0000462 pacote 102 removido de 003 na secao 004
+0000463 pacote 087 removido de 003 na secao 004
+0000463 pacote 087 em transito de 003 para 004
+0000463 pacote 102 em transito de 003 para 004
+0000463 pacote 105 em transito de 003 para 004
+0000463 pacote 107 em transito de 003 para 004
+0000460 pacote 093 removido de 005 na secao 001
+0000460 pacote 093 em transito de 005 para 001
+0000461 DEBUG: Próximo destino 1 NORMAL
+0000461 pacote 109 manteve rota (destino não congestionado)
+0000461 pacote 109 armazenado em 007 na secao 000
+0000469 DEBUG: Próximo destino 8 NORMAL
+0000469 pacote 084 manteve rota (destino não congestionado)
+0000469 pacote 084 armazenado em 006 na secao 007
+0000469 pacote 091 entregue em 006
+0000469 DEBUG: Próximo destino 8 NORMAL
+0000469 pacote 097 manteve rota (destino não congestionado)
+0000469 pacote 097 armazenado em 006 na secao 007
+0000469 DEBUG: Próximo destino 4 NORMAL
+0000469 pacote 110 manteve rota (destino não congestionado)
+0000469 pacote 110 armazenado em 001 na secao 003
+0000470 pacote 076 entregue em 005
+0000470 pacote 079 entregue em 005
+0000470 pacote 082 entregue em 005
+0000472 DEBUG: Próximo destino 1 NORMAL
+0000472 pacote 111 manteve rota (destino não congestionado)
+0000472 pacote 111 armazenado em 002 na secao 000
+0000473 pacote 075 removido de 004 na secao 005
+0000473 pacote 075 em transito de 004 para 005
+0000475 pacote 103 removido de 005 na secao 003
+0000475 pacote 103 em transito de 005 para 003
+0000476 DEBUG: Próximo destino 1 NORMAL
+0000476 pacote 062 manteve rota (destino não congestionado)
+0000476 pacote 062 armazenado em 007 na secao 000
+0000476 DEBUG: Próximo destino 1 NORMAL
+0000476 pacote 080 manteve rota (destino não congestionado)
+0000476 pacote 080 armazenado em 007 na secao 000
+0000476 DEBUG: Próximo destino 1 NORMAL
+0000476 pacote 090 manteve rota (destino não congestionado)
+0000476 pacote 090 armazenado em 007 na secao 000
+0000476 pacote 092 entregue em 007
+0000476 pacote 096 entregue em 007
+0000478 pacote 101 removido de 003 na secao 002
+0000478 pacote 101 em transito de 003 para 002
+0000480 pacote 104 removido de 004 na secao 000
+0000481 pacote 095 removido de 004 na secao 000
+0000481 pacote 095 em transito de 004 para 000
+0000481 pacote 104 em transito de 004 para 000
+0000480 pacote 093 entregue em 001
+0000481 DEBUG: Próximo destino 1 NORMAL
+0000481 pacote 112 manteve rota (destino não congestionado)
+0000481 pacote 112 armazenado em 002 na secao 000
+0000483 DEBUG: Próximo destino 1 NORMAL
+0000483 pacote 087 manteve rota (destino não congestionado)
+0000483 pacote 087 armazenado em 004 na secao 000
+0000483 DEBUG: Próximo destino 6 NORMAL
+0000483 pacote 102 manteve rota (destino não congestionado)
+0000483 pacote 102 armazenado em 004 na secao 005
+0000483 pacote 105 entregue em 004
+0000483 pacote 107 entregue em 004
+0000487 DEBUG: Próximo destino 7 NORMAL
+0000487 pacote 113 manteve rota (destino não congestionado)
+0000487 pacote 113 armazenado em 001 na secao 006
+0000491 DEBUG: Próximo destino 1 NORMAL
+0000491 pacote 114 manteve rota (destino não congestionado)
+0000491 pacote 114 armazenado em 002 na secao 000
+0000492 DEBUG: Próximo destino 1 CONGESTIONADO
+0000492 DEBUG: Pacote 115 rota original: 1->4 (tam: 2)
+0000492 DEBUG: Pacote 115 nova rota: 8->1->4 (tam: 3)
+0000492 DEBUG: Removido origem 8 da nova rota
+0000492 pacote 115 manteve rota original (IGUAL)
+0000492 pacote 115 armazenado em 007 na secao 000
+0000493 pacote 075 entregue em 005
+0000495 pacote 114 removido de 002 na secao 000
+0000496 pacote 112 removido de 002 na secao 000
+0000497 pacote 111 removido de 002 na secao 000
+0000498 pacote 099 removido de 002 na secao 000
+0000498 pacote 099 em transito de 002 para 000
+0000498 pacote 111 em transito de 002 para 000
+0000498 pacote 112 em transito de 002 para 000
+0000498 pacote 114 em transito de 002 para 000
+0000495 pacote 103 entregue em 003
+0000498 pacote 101 entregue em 002
+0000498 DEBUG: Próximo destino 7 NORMAL
+0000498 pacote 116 manteve rota (destino não congestionado)
+0000498 pacote 116 armazenado em 004 na secao 006
+0000499 pacote 100 removido de 003 na secao 001
+0000499 pacote 100 em transito de 003 para 001
+0000501 DEBUG: Próximo destino 2 NORMAL
+0000501 pacote 095 manteve rota (destino não congestionado)
+0000501 pacote 095 armazenado em 000 na secao 001
+0000501 DEBUG: Próximo destino 3 NORMAL
+0000501 pacote 104 manteve rota (destino não congestionado)
+0000501 pacote 104 armazenado em 000 na secao 002
+0000506 pacote 115 removido de 007 na secao 000
+0000507 pacote 090 removido de 007 na secao 000
+0000508 pacote 080 removido de 007 na secao 000
+0000509 pacote 062 removido de 007 na secao 000
+0000510 pacote 109 removido de 007 na secao 000
+0000511 pacote 077 removido de 007 na secao 000
+0000511 pacote 077 em transito de 007 para 000
+0000511 pacote 109 em transito de 007 para 000
+0000511 pacote 062 em transito de 007 para 000
+0000511 pacote 080 em transito de 007 para 000
+0000511 pacote 090 em transito de 007 para 000
+0000511 pacote 115 rearmazenado em 007 na secao 000
+0000506 DEBUG: Próximo destino 3 NORMAL
+0000506 pacote 117 manteve rota (destino não congestionado)
+0000506 pacote 117 armazenado em 000 na secao 002
+0000507 pacote 116 removido de 004 na secao 006
+0000507 pacote 116 em transito de 004 para 006
+0000507 DEBUG: Próximo destino 8 NORMAL
+0000507 pacote 118 manteve rota (destino não congestionado)
+0000507 pacote 118 armazenado em 006 na secao 007
+0000509 pacote 088 removido de 000 na secao 004
+0000510 pacote 051 removido de 000 na secao 004
+0000511 pacote 089 removido de 000 na secao 004
+0000511 pacote 089 em transito de 000 para 004
+0000511 pacote 051 em transito de 000 para 004
+0000511 pacote 088 em transito de 000 para 004
+0000511 pacote 110 removido de 001 na secao 003
+0000511 pacote 110 em transito de 001 para 003
+0000515 DEBUG: Próximo destino 7 NORMAL
+0000515 pacote 119 manteve rota (destino não congestionado)
+0000515 pacote 119 armazenado em 004 na secao 006
+0000517 DEBUG: Próximo destino 1 NORMAL
+0000517 pacote 120 manteve rota (destino não congestionado)
+0000517 pacote 120 armazenado em 002 na secao 000
+0000518 pacote 099 entregue em 000
+0000518 DEBUG: Próximo destino 7 NORMAL
+0000518 pacote 111 manteve rota (destino não congestionado)
+0000518 pacote 111 armazenado em 000 na secao 006
+0000518 pacote 112 entregue em 000
+0000518 pacote 114 entregue em 000
+0000519 pacote 100 entregue em 001
+0000519 DEBUG: Próximo destino 5 NORMAL
+0000519 pacote 121 manteve rota (destino não congestionado)
+0000519 pacote 121 armazenado em 003 na secao 004
+0000524 DEBUG: Próximo destino 8 NORMAL
+0000524 pacote 122 manteve rota (destino não congestionado)
+0000524 pacote 122 armazenado em 006 na secao 007
+0000526 DEBUG: Próximo destino 1 NORMAL
+0000526 pacote 123 manteve rota (destino não congestionado)
+0000526 pacote 123 armazenado em 004 na secao 000
+0000527 DEBUG: Próximo destino 8 CONGESTIONADO
+0000527 DEBUG: Pacote 116 rota original: 8 (tam: 1)
+0000527 DEBUG: Pacote 116 nova rota: 7->8 (tam: 2)
+0000527 DEBUG: Removido origem 7 da nova rota
+0000527 pacote 116 manteve rota original (IGUAL)
+0000527 pacote 116 armazenado em 006 na secao 007
+0000531 pacote 051 entregue em 004
+0000531 DEBUG: Próximo destino 5 NORMAL
+0000531 pacote 062 manteve rota (destino não congestionado)
+0000531 pacote 062 armazenado em 000 na secao 004
+0000531 DEBUG: Próximo destino 6 NORMAL
+0000531 pacote 077 manteve rota (destino não congestionado)
+0000531 pacote 077 armazenado em 000 na secao 005
+0000531 pacote 080 entregue em 000
+0000531 pacote 088 entregue em 004
+0000531 pacote 089 entregue em 004
+0000531 DEBUG: Próximo destino 6 NORMAL
+0000531 pacote 090 manteve rota (destino não congestionado)
+0000531 pacote 090 armazenado em 000 na secao 005
+0000531 DEBUG: Próximo destino 7 NORMAL
+0000531 pacote 109 manteve rota (destino não congestionado)
+0000531 pacote 109 armazenado em 000 na secao 006
+0000531 pacote 110 entregue em 003
+0000534 DEBUG: Próximo destino 4 NORMAL
+0000534 pacote 124 manteve rota (destino não congestionado)
+0000534 pacote 124 armazenado em 006 na secao 003
+0000536 pacote 095 removido de 000 na secao 001
+0000536 pacote 095 em transito de 000 para 001
+0000541 DEBUG: Próximo destino 7 NORMAL
+0000541 pacote 125 manteve rota (destino não congestionado)
+0000541 pacote 125 armazenado em 001 na secao 006
+0000541 DEBUG: Próximo destino 8 NORMAL
+0000541 pacote 126 manteve rota (destino não congestionado)
+0000541 pacote 126 armazenado em 002 na secao 007
+0000548 pacote 090 removido de 000 na secao 005
+0000549 pacote 077 removido de 000 na secao 005
+0000550 pacote 106 removido de 000 na secao 005
+0000550 pacote 106 em transito de 000 para 005
+0000550 pacote 077 em transito de 000 para 005
+0000550 pacote 090 em transito de 000 para 005
+0000548 DEBUG: Próximo destino 4 NORMAL
+0000548 pacote 127 manteve rota (destino não congestionado)
+0000548 pacote 127 armazenado em 005 na secao 003
+0000552 pacote 117 removido de 000 na secao 002
+0000553 pacote 104 removido de 000 na secao 002
+0000553 pacote 104 em transito de 000 para 002
+0000553 pacote 117 em transito de 000 para 002
+0000552 pacote 116 removido de 006 na secao 007
+0000553 pacote 122 removido de 006 na secao 007
+0000554 pacote 118 removido de 006 na secao 007
+0000555 pacote 097 removido de 006 na secao 007
+0000556 pacote 084 removido de 006 na secao 007
+0000557 pacote 108 removido de 006 na secao 007
+0000557 pacote 108 em transito de 006 para 007
+0000557 pacote 084 em transito de 006 para 007
+0000557 pacote 097 em transito de 006 para 007
+0000557 pacote 118 em transito de 006 para 007
+0000557 pacote 122 em transito de 006 para 007
+0000557 pacote 116 rearmazenado em 006 na secao 007
+0000555 DEBUG: Próximo destino 2 NORMAL
+0000555 pacote 128 manteve rota (destino não congestionado)
+0000555 pacote 128 armazenado em 003 na secao 001
+0000556 pacote 095 entregue em 001
+0000560 pacote 121 removido de 003 na secao 004
+0000560 pacote 121 em transito de 003 para 004
+0000562 DEBUG: Próximo destino 4 NORMAL
+0000562 pacote 129 manteve rota (destino não congestionado)
+0000562 pacote 129 armazenado em 000 na secao 003
+0000563 pacote 125 removido de 001 na secao 006
+0000564 pacote 113 removido de 001 na secao 006
+0000564 pacote 113 em transito de 001 para 006
+0000564 pacote 125 em transito de 001 para 006
+0000565 DEBUG: Próximo destino 4 NORMAL
+0000565 pacote 130 manteve rota (destino não congestionado)
+0000565 pacote 130 armazenado em 002 na secao 003
+0000566 DEBUG: Próximo destino 5 NORMAL
+0000566 pacote 131 manteve rota (destino não congestionado)
+0000566 pacote 131 armazenado em 000 na secao 004
+0000570 pacote 077 entregue em 005
+0000570 pacote 090 entregue em 005
+0000570 pacote 106 entregue em 005
+0000573 pacote 109 removido de 000 na secao 006
+0000574 pacote 111 removido de 000 na secao 006
+0000574 pacote 111 em transito de 000 para 006
+0000574 pacote 109 em transito de 000 para 006
+0000573 pacote 102 removido de 004 na secao 005
+0000573 pacote 102 em transito de 004 para 005
+0000573 pacote 104 entregue em 002
+0000573 pacote 117 entregue em 002
+0000574 DEBUG: Próximo destino 4 NORMAL
+0000574 pacote 132 manteve rota (destino não congestionado)
+0000574 pacote 132 armazenado em 005 na secao 003
+0000575 pacote 132 removido de 005 na secao 003
+0000576 pacote 127 removido de 005 na secao 003
+0000576 pacote 127 em transito de 005 para 003
+0000576 pacote 132 em transito de 005 para 003
+0000576 DEBUG: Próximo destino 4 NORMAL
+0000576 pacote 133 manteve rota (destino não congestionado)
+0000576 pacote 133 armazenado em 005 na secao 003
+0000577 DEBUG: Próximo destino 1 NORMAL
+0000577 pacote 084 manteve rota (destino não congestionado)
+0000577 pacote 084 armazenado em 007 na secao 000
+0000577 pacote 097 entregue em 007
+0000577 DEBUG: Próximo destino 1 NORMAL
+0000577 pacote 108 manteve rota (destino não congestionado)
+0000577 pacote 108 armazenado em 007 na secao 000
+0000577 DEBUG: Próximo destino 1 NORMAL
+0000577 pacote 118 manteve rota (destino não congestionado)
+0000577 pacote 118 armazenado em 007 na secao 000
+0000577 DEBUG: Próximo destino 1 NORMAL
+0000577 pacote 122 manteve rota (destino não congestionado)
+0000577 pacote 122 armazenado em 007 na secao 000
+0000580 pacote 123 removido de 004 na secao 000
+0000581 pacote 087 removido de 004 na secao 000
+0000581 pacote 087 em transito de 004 para 000
+0000581 pacote 123 em transito de 004 para 000
+0000580 DEBUG: Próximo destino 1 NORMAL
+0000580 pacote 121 manteve rota (destino não congestionado)
+0000580 pacote 121 armazenado em 004 na secao 000
+0000581 DEBUG: Próximo destino 4 NORMAL
+0000581 pacote 134 manteve rota (destino não congestionado)
+0000581 pacote 134 armazenado em 005 na secao 003
+0000582 DEBUG: Próximo destino 8 NORMAL
+0000582 pacote 135 manteve rota (destino não congestionado)
+0000582 pacote 135 armazenado em 006 na secao 007
+0000583 pacote 124 removido de 006 na secao 003
+0000583 pacote 124 em transito de 006 para 003
+0000584 DEBUG: Próximo destino 8 NORMAL
+0000584 pacote 113 manteve rota (destino não congestionado)
+0000584 pacote 113 armazenado em 006 na secao 007
+0000584 pacote 125 entregue em 006
+0000585 DEBUG: Próximo destino 4 NORMAL
+0000585 pacote 136 manteve rota (destino não congestionado)
+0000585 pacote 136 armazenado em 000 na secao 003
+0000592 DEBUG: Próximo destino 7 NORMAL
+0000592 pacote 137 manteve rota (destino não congestionado)
+0000592 pacote 137 armazenado em 005 na secao 006
+0000593 pacote 102 entregue em 005
+0000594 pacote 109 entregue em 006
+0000594 pacote 111 entregue em 006
+0000595 pacote 120 removido de 002 na secao 000
+0000595 pacote 120 em transito de 002 para 000
+0000596 pacote 127 entregue em 003
+0000596 pacote 132 entregue em 003
+0000599 pacote 128 removido de 003 na secao 001
+0000599 pacote 128 em transito de 003 para 001
+0000601 pacote 087 entregue em 000
+0000601 DEBUG: Próximo destino 3 NORMAL
+0000601 pacote 123 manteve rota (destino não congestionado)
+0000601 pacote 123 armazenado em 000 na secao 002
+0000601 DEBUG: Próximo destino 1 CONGESTIONADO
+0000601 DEBUG: Pacote 138 rota original: 1->2 (tam: 2)
+0000601 DEBUG: Pacote 138 nova rota: 8->1->2 (tam: 3)
+0000601 DEBUG: Removido origem 8 da nova rota
+0000601 pacote 138 manteve rota original (IGUAL)
+0000601 pacote 138 armazenado em 007 na secao 000
+0000603 pacote 124 entregue em 003
+0000606 pacote 138 removido de 007 na secao 000
+0000607 pacote 122 removido de 007 na secao 000
+0000608 pacote 118 removido de 007 na secao 000
+0000609 pacote 108 removido de 007 na secao 000
+0000610 pacote 084 removido de 007 na secao 000
+0000611 pacote 115 removido de 007 na secao 000
+0000611 pacote 115 em transito de 007 para 000
+0000611 pacote 084 em transito de 007 para 000
+0000611 pacote 108 em transito de 007 para 000
+0000611 pacote 118 em transito de 007 para 000
+0000611 pacote 122 em transito de 007 para 000
+0000611 pacote 138 rearmazenado em 007 na secao 000
+0000607 pacote 119 removido de 004 na secao 006
+0000607 pacote 119 em transito de 004 para 006
+0000609 pacote 131 removido de 000 na secao 004
+0000610 pacote 062 removido de 000 na secao 004
+0000610 pacote 062 em transito de 000 para 004
+0000610 pacote 131 em transito de 000 para 004
+0000610 DEBUG: Próximo destino 5 NORMAL
+0000610 pacote 139 manteve rota (destino não congestionado)
+0000610 pacote 139 armazenado em 001 na secao 004
+0000614 DEBUG: Próximo destino 7 NORMAL
+0000614 pacote 140 manteve rota (destino não congestionado)
+0000614 pacote 140 armazenado em 005 na secao 006
+0000615 DEBUG: Próximo destino 5 NORMAL
+0000615 pacote 120 manteve rota (destino não congestionado)
+0000615 pacote 120 armazenado em 000 na secao 004
+0000616 DEBUG: Próximo destino 1 NORMAL
+0000616 pacote 141 manteve rota (destino não congestionado)
+0000616 pacote 141 armazenado em 007 na secao 000
+0000616 DEBUG: Próximo destino 2 NORMAL
+0000616 pacote 142 manteve rota (destino não congestionado)
+0000616 pacote 142 armazenado em 005 na secao 001
+0000618 pacote 130 removido de 002 na secao 003
+0000618 pacote 130 em transito de 002 para 003
+0000618 DEBUG: Próximo destino 1 NORMAL
+0000618 pacote 143 manteve rota (destino não congestionado)
+0000618 pacote 143 armazenado em 004 na secao 000
+0000619 pacote 128 entregue em 001
+0000620 pacote 126 removido de 002 na secao 007
+0000620 pacote 126 em transito de 002 para 007
+0000621 DEBUG: Próximo destino 1 NORMAL
+0000621 pacote 144 manteve rota (destino não congestionado)
+0000621 pacote 144 armazenado em 002 na secao 000
+0000622 pacote 139 removido de 001 na secao 004
+0000622 pacote 139 em transito de 001 para 004
+0000627 pacote 136 removido de 000 na secao 003
+0000628 pacote 129 removido de 000 na secao 003
+0000628 pacote 129 em transito de 000 para 003
+0000628 pacote 136 em transito de 000 para 003
+0000627 pacote 119 entregue em 006
+0000628 DEBUG: Próximo destino 3 NORMAL
+0000628 pacote 145 manteve rota (destino não congestionado)
+0000628 pacote 145 armazenado em 000 na secao 002
+0000630 pacote 062 entregue em 004
+0000630 pacote 131 entregue em 004
+0000631 pacote 084 entregue em 000
+0000631 DEBUG: Próximo destino 5 NORMAL
+0000631 pacote 108 manteve rota (destino não congestionado)
+0000631 pacote 108 armazenado em 000 na secao 004
+0000631 DEBUG: Próximo destino 4 NORMAL
+0000631 pacote 115 manteve rota (destino não congestionado)
+0000631 pacote 115 armazenado em 000 na secao 003
+0000631 DEBUG: Próximo destino 5 NORMAL
+0000631 pacote 118 manteve rota (destino não congestionado)
+0000631 pacote 118 armazenado em 000 na secao 004
+0000631 DEBUG: Próximo destino 6 NORMAL
+0000631 pacote 122 manteve rota (destino não congestionado)
+0000631 pacote 122 armazenado em 000 na secao 005
+0000635 DEBUG: Próximo destino 1 NORMAL
+0000635 pacote 146 manteve rota (destino não congestionado)
+0000635 pacote 146 armazenado em 004 na secao 000
+0000638 pacote 130 entregue em 003
+0000640 pacote 126 entregue em 007
+0000642 pacote 139 entregue em 004
+0000642 DEBUG: Próximo destino 1 NORMAL
+0000642 pacote 147 manteve rota (destino não congestionado)
+0000642 pacote 147 armazenado em 001 na secao 000
+0000647 pacote 140 removido de 005 na secao 006
+0000648 pacote 137 removido de 005 na secao 006
+0000648 pacote 137 em transito de 005 para 006
+0000648 pacote 140 em transito de 005 para 006
+0000648 pacote 122 removido de 000 na secao 005
+0000648 pacote 122 em transito de 000 para 005
+0000648 pacote 129 entregue em 003
+0000648 pacote 136 entregue em 003
+0000650 DEBUG: Próximo destino 1 NORMAL
+0000650 pacote 148 manteve rota (destino não congestionado)
+0000650 pacote 148 armazenado em 004 na secao 000
+0000652 pacote 145 removido de 000 na secao 002
+0000653 pacote 123 removido de 000 na secao 002
+0000653 pacote 123 em transito de 000 para 002
+0000653 pacote 145 em transito de 000 para 002
+0000652 pacote 113 removido de 006 na secao 007
+0000653 pacote 135 removido de 006 na secao 007
+0000654 pacote 116 removido de 006 na secao 007
+0000654 pacote 116 em transito de 006 para 007
+0000654 pacote 135 em transito de 006 para 007
+0000654 pacote 113 em transito de 006 para 007
+0000654 DEBUG: Próximo destino 1 NORMAL
+0000654 pacote 149 manteve rota (destino não congestionado)
+0000654 pacote 149 armazenado em 002 na secao 000
+0000660 pacote 142 removido de 005 na secao 001
+0000660 pacote 142 em transito de 005 para 001
+0000660 DEBUG: Próximo destino 1 NORMAL
+0000660 pacote 150 manteve rota (destino não congestionado)
+0000660 pacote 150 armazenado em 001 na secao 000
+0000667 DEBUG: Próximo destino 1 NORMAL
+0000667 pacote 151 manteve rota (destino não congestionado)
+0000667 pacote 151 armazenado em 002 na secao 000
+0000668 pacote 122 entregue em 005
+0000668 pacote 137 entregue em 006
+0000668 DEBUG: Próximo destino 8 NORMAL
+0000668 pacote 140 manteve rota (destino não congestionado)
+0000668 pacote 140 armazenado em 006 na secao 007
+0000668 DEBUG: Próximo destino 3 NORMAL
+0000668 pacote 152 manteve rota (destino não congestionado)
+0000668 pacote 152 armazenado em 001 na secao 002
+0000669 DEBUG: Próximo destino 7 NORMAL
+0000669 pacote 153 manteve rota (destino não congestionado)
+0000669 pacote 153 armazenado em 005 na secao 006
+0000672 DEBUG: Próximo destino 7 NORMAL
+0000672 pacote 154 manteve rota (destino não congestionado)
+0000672 pacote 154 armazenado em 000 na secao 006
+0000673 pacote 150 removido de 001 na secao 000
+0000674 pacote 147 removido de 001 na secao 000
+0000674 pacote 147 em transito de 001 para 000
+0000674 pacote 150 em transito de 001 para 000
+0000673 pacote 123 entregue em 002
+0000673 pacote 145 entregue em 002
+0000674 pacote 113 entregue em 007
+0000674 pacote 116 entregue em 007
+0000674 DEBUG: Próximo destino 1 NORMAL
+0000674 pacote 135 manteve rota (destino não congestionado)
+0000674 pacote 135 armazenado em 007 na secao 000
+0000675 pacote 134 removido de 005 na secao 003
+0000676 pacote 133 removido de 005 na secao 003
+0000676 pacote 133 em transito de 005 para 003
+0000676 pacote 134 em transito de 005 para 003
+0000680 pacote 148 removido de 004 na secao 000
+0000681 pacote 146 removido de 004 na secao 000
+0000682 pacote 143 removido de 004 na secao 000
+0000683 pacote 121 removido de 004 na secao 000
+0000683 pacote 121 em transito de 004 para 000
+0000683 pacote 143 em transito de 004 para 000
+0000683 pacote 146 em transito de 004 para 000
+0000683 pacote 148 em transito de 004 para 000
+0000680 DEBUG: Próximo destino 3 NORMAL
+0000680 pacote 142 manteve rota (destino não congestionado)
+0000680 pacote 142 armazenado em 001 na secao 002
+0000681 DEBUG: Próximo destino 5 NORMAL
+0000681 pacote 155 manteve rota (destino não congestionado)
+0000681 pacote 155 armazenado em 003 na secao 004
+0000681 DEBUG: Próximo destino 1 NORMAL
+0000681 pacote 156 manteve rota (destino não congestionado)
+0000681 pacote 156 armazenado em 001 na secao 000
+0000687 DEBUG: Próximo destino 7 NORMAL
+0000687 pacote 157 manteve rota (destino não congestionado)
+0000687 pacote 157 armazenado em 000 na secao 006
+0000688 DEBUG: Próximo destino 1 NORMAL
+0000688 pacote 158 manteve rota (destino não congestionado)
+0000688 pacote 158 armazenado em 001 na secao 000
+0000693 DEBUG: Próximo destino 7 NORMAL
+0000693 pacote 159 manteve rota (destino não congestionado)
+0000693 pacote 159 armazenado em 005 na secao 006
+0000694 DEBUG: Próximo destino 6 NORMAL
+0000694 pacote 147 manteve rota (destino não congestionado)
+0000694 pacote 147 armazenado em 000 na secao 005
+0000694 DEBUG: Próximo destino 6 NORMAL
+0000694 pacote 150 manteve rota (destino não congestionado)
+0000694 pacote 150 armazenado em 000 na secao 005
+0000695 pacote 151 removido de 002 na secao 000
+0000696 pacote 149 removido de 002 na secao 000
+0000697 pacote 144 removido de 002 na secao 000
+0000697 pacote 144 em transito de 002 para 000
+0000697 pacote 149 em transito de 002 para 000
+0000697 pacote 151 em transito de 002 para 000
+0000696 pacote 133 entregue em 003
+0000696 pacote 134 entregue em 003
+0000698 DEBUG: Próximo destino 7 NORMAL
+0000698 pacote 160 manteve rota (destino não congestionado)
+0000698 pacote 160 armazenado em 001 na secao 006
+0000703 pacote 121 entregue em 000
+0000703 DEBUG: Próximo destino 3 NORMAL
+0000703 pacote 143 manteve rota (destino não congestionado)
+0000703 pacote 143 armazenado em 000 na secao 002
+0000703 DEBUG: Próximo destino 2 NORMAL
+0000703 pacote 146 manteve rota (destino não congestionado)
+0000703 pacote 146 armazenado em 000 na secao 001
+0000703 DEBUG: Próximo destino 4 NORMAL
+0000703 pacote 148 manteve rota (destino não congestionado)
+0000703 pacote 148 armazenado em 000 na secao 003
+0000705 DEBUG: Próximo destino 2 NORMAL
+0000705 pacote 161 manteve rota (destino não congestionado)
+0000705 pacote 161 armazenado em 006 na secao 001
+0000706 pacote 135 removido de 007 na secao 000
+0000707 pacote 141 removido de 007 na secao 000
+0000708 pacote 138 removido de 007 na secao 000
+0000708 pacote 138 em transito de 007 para 000
+0000708 pacote 141 em transito de 007 para 000
+0000708 pacote 135 em transito de 007 para 000
+0000709 pacote 118 removido de 000 na secao 004
+0000710 pacote 108 removido de 000 na secao 004
+0000711 pacote 120 removido de 000 na secao 004
+0000711 pacote 120 em transito de 000 para 004
+0000711 pacote 108 em transito de 000 para 004
+0000711 pacote 118 em transito de 000 para 004
+0000711 DEBUG: Próximo destino 4 NORMAL
+0000711 pacote 162 manteve rota (destino não congestionado)
+0000711 pacote 162 armazenado em 001 na secao 003
+0000716 DEBUG: Próximo destino 7 NORMAL
+0000716 pacote 163 manteve rota (destino não congestionado)
+0000716 pacote 163 armazenado em 004 na secao 006
+0000716 DEBUG: Próximo destino 4 NORMAL
+0000716 pacote 164 manteve rota (destino não congestionado)
+0000716 pacote 164 armazenado em 005 na secao 003
+0000717 pacote 144 entregue em 000
+0000717 DEBUG: Próximo destino 7 NORMAL
+0000717 pacote 149 manteve rota (destino não congestionado)
+0000717 pacote 149 armazenado em 000 na secao 006
+0000717 pacote 151 entregue em 000
+0000723 DEBUG: Próximo destino 5 NORMAL
+0000723 pacote 165 manteve rota (destino não congestionado)
+0000723 pacote 165 armazenado em 003 na secao 004
+0000727 pacote 148 removido de 000 na secao 003
+0000728 pacote 115 removido de 000 na secao 003
+0000728 pacote 115 em transito de 000 para 003
+0000728 pacote 148 em transito de 000 para 003
+0000728 DEBUG: Próximo destino 6 NORMAL
+0000728 pacote 135 manteve rota (destino não congestionado)
+0000728 pacote 135 armazenado em 000 na secao 005
+0000728 DEBUG: Próximo destino 2 NORMAL
+0000728 pacote 138 manteve rota (destino não congestionado)
+0000728 pacote 138 armazenado em 000 na secao 001
+0000728 DEBUG: Próximo destino 2 NORMAL
+0000728 pacote 141 manteve rota (destino não congestionado)
+0000728 pacote 141 armazenado em 000 na secao 001
+0000731 pacote 108 entregue em 004
+0000731 pacote 118 entregue em 004
+0000731 pacote 120 entregue em 004
+0000731 DEBUG: Próximo destino 8 NORMAL
+0000731 pacote 166 manteve rota (destino não congestionado)
+0000731 pacote 166 armazenado em 006 na secao 007
+0000736 pacote 141 removido de 000 na secao 001
+0000737 pacote 138 removido de 000 na secao 001
+0000738 pacote 146 removido de 000 na secao 001
+0000738 pacote 146 em transito de 000 para 001
+0000738 pacote 138 em transito de 000 para 001
+0000738 pacote 141 em transito de 000 para 001
+0000736 DEBUG: Próximo destino 7 NORMAL
+0000736 pacote 167 manteve rota (destino não congestionado)
+0000736 pacote 167 armazenado em 005 na secao 006
+0000740 DEBUG: Próximo destino 1 NORMAL
+0000740 pacote 168 manteve rota (destino não congestionado)
+0000740 pacote 168 armazenado em 002 na secao 000
+0000742 DEBUG: Próximo destino 8 NORMAL
+0000742 pacote 169 manteve rota (destino não congestionado)
+0000742 pacote 169 armazenado em 006 na secao 007
+0000742 DEBUG: Próximo destino 1 NORMAL
+0000742 pacote 170 manteve rota (destino não congestionado)
+0000742 pacote 170 armazenado em 004 na secao 000
+0000742 DEBUG: Próximo destino 7 NORMAL
+0000742 pacote 171 manteve rota (destino não congestionado)
+0000742 pacote 171 armazenado em 005 na secao 006
+0000746 pacote 142 removido de 001 na secao 002
+0000747 pacote 152 removido de 001 na secao 002
+0000747 pacote 152 em transito de 001 para 002
+0000747 pacote 142 em transito de 001 para 002
+0000747 pacote 171 removido de 005 na secao 006
+0000748 pacote 167 removido de 005 na secao 006
+0000749 pacote 159 removido de 005 na secao 006
+0000750 pacote 153 removido de 005 na secao 006
+0000750 pacote 153 em transito de 005 para 006
+0000750 pacote 159 em transito de 005 para 006
+0000750 pacote 167 em transito de 005 para 006
+0000750 pacote 171 em transito de 005 para 006
+0000748 pacote 135 removido de 000 na secao 005
+0000749 pacote 150 removido de 000 na secao 005
+0000750 pacote 147 removido de 000 na secao 005
+0000750 pacote 147 em transito de 000 para 005
+0000750 pacote 150 em transito de 000 para 005
+0000750 pacote 135 em transito de 000 para 005
+0000748 pacote 115 entregue em 003
+0000748 pacote 148 entregue em 003
+0000752 pacote 143 removido de 000 na secao 002
+0000752 pacote 143 em transito de 000 para 002
+0000751 DEBUG: Próximo destino 4 NORMAL
+0000751 pacote 172 manteve rota (destino não congestionado)
+0000751 pacote 172 armazenado em 006 na secao 003
+0000752 pacote 169 removido de 006 na secao 007
+0000753 pacote 166 removido de 006 na secao 007
+0000754 pacote 140 removido de 006 na secao 007
+0000754 pacote 140 em transito de 006 para 007
+0000754 pacote 166 em transito de 006 para 007
+0000754 pacote 169 em transito de 006 para 007
+0000758 pacote 138 entregue em 001
+0000758 pacote 141 entregue em 001
+0000758 pacote 146 entregue em 001
+0000760 pacote 165 removido de 003 na secao 004
+0000761 pacote 155 removido de 003 na secao 004
+0000761 pacote 155 em transito de 003 para 004
+0000761 pacote 165 em transito de 003 para 004
+0000760 DEBUG: Próximo destino 7 NORMAL
+0000760 pacote 173 manteve rota (destino não congestionado)
+0000760 pacote 173 armazenado em 000 na secao 006
+0000762 DEBUG: Próximo destino 8 NORMAL
+0000762 pacote 174 manteve rota (destino não congestionado)
+0000762 pacote 174 armazenado em 006 na secao 007
+0000763 pacote 160 removido de 001 na secao 006
+0000763 pacote 160 em transito de 001 para 006
+0000767 pacote 142 entregue em 002
+0000767 pacote 152 entregue em 002
+0000767 DEBUG: Próximo destino 1 NORMAL
+0000767 pacote 175 manteve rota (destino não congestionado)
+0000767 pacote 175 armazenado em 007 na secao 000
+0000770 pacote 135 entregue em 005
+0000770 pacote 147 entregue em 005
+0000770 pacote 150 entregue em 005
+0000770 pacote 153 entregue em 006
+0000770 DEBUG: Próximo destino 8 NORMAL
+0000770 pacote 159 manteve rota (destino não congestionado)
+0000770 pacote 159 armazenado em 006 na secao 007
+0000770 DEBUG: Próximo destino 8 NORMAL
+0000770 pacote 167 manteve rota (destino não congestionado)
+0000770 pacote 167 armazenado em 006 na secao 007
+0000770 DEBUG: Próximo destino 8 NORMAL
+0000770 pacote 171 manteve rota (destino não congestionado)
+0000770 pacote 171 armazenado em 006 na secao 007
+0000773 pacote 173 removido de 000 na secao 006
+0000774 pacote 149 removido de 000 na secao 006
+0000775 pacote 157 removido de 000 na secao 006
+0000776 pacote 154 removido de 000 na secao 006
+0000776 pacote 154 em transito de 000 para 006
+0000776 pacote 157 em transito de 000 para 006
+0000776 pacote 149 em transito de 000 para 006
+0000776 pacote 173 em transito de 000 para 006
+0000772 pacote 143 entregue em 002
+0000772 DEBUG: Próximo destino 6 NORMAL
+0000772 pacote 176 manteve rota (destino não congestionado)
+0000772 pacote 176 armazenado em 004 na secao 005
+0000773 pacote 158 removido de 001 na secao 000
+0000774 pacote 156 removido de 001 na secao 000
+0000774 pacote 156 em transito de 001 para 000
+0000774 pacote 158 em transito de 001 para 000
+0000773 pacote 176 removido de 004 na secao 005
+0000773 pacote 176 em transito de 004 para 005
+0000774 DEBUG: Próximo destino 1 NORMAL
+0000774 pacote 140 manteve rota (destino não congestionado)
+0000774 pacote 140 armazenado em 007 na secao 000
+0000774 DEBUG: Próximo destino 1 NORMAL
+0000774 pacote 166 manteve rota (destino não congestionado)
+0000774 pacote 166 armazenado em 007 na secao 000
+0000774 DEBUG: Próximo destino 1 NORMAL
+0000774 pacote 169 manteve rota (destino não congestionado)
+0000774 pacote 169 armazenado em 007 na secao 000
+0000775 pacote 164 removido de 005 na secao 003
+0000775 pacote 164 em transito de 005 para 003
+0000779 DEBUG: Próximo destino 1 NORMAL
+0000779 pacote 177 manteve rota (destino não congestionado)
+0000779 pacote 177 armazenado em 002 na secao 000
+0000780 pacote 170 removido de 004 na secao 000
+0000780 pacote 170 em transito de 004 para 000
+0000781 DEBUG: Próximo destino 1 NORMAL
+0000781 pacote 155 manteve rota (destino não congestionado)
+0000781 pacote 155 armazenado em 004 na secao 000
+0000781 DEBUG: Próximo destino 1 NORMAL
+0000781 pacote 165 manteve rota (destino não congestionado)
+0000781 pacote 165 armazenado em 004 na secao 000
+0000783 pacote 172 removido de 006 na secao 003
+0000783 pacote 172 em transito de 006 para 003
+0000783 DEBUG: Próximo destino 8 NORMAL
+0000783 pacote 160 manteve rota (destino não congestionado)
+0000783 pacote 160 armazenado em 006 na secao 007
+0000788 DEBUG: Próximo destino 1 NORMAL
+0000788 pacote 178 manteve rota (destino não congestionado)
+0000788 pacote 178 armazenado em 007 na secao 000
+0000793 pacote 176 entregue em 005
+0000794 pacote 156 entregue em 000
+0000794 DEBUG: Próximo destino 6 NORMAL
+0000794 pacote 158 manteve rota (destino não congestionado)
+0000794 pacote 158 armazenado em 000 na secao 005
+0000795 pacote 177 removido de 002 na secao 000
+0000796 pacote 168 removido de 002 na secao 000
+0000796 pacote 168 em transito de 002 para 000
+0000796 pacote 177 em transito de 002 para 000
+0000795 pacote 164 entregue em 003
+0000795 DEBUG: Próximo destino 4 NORMAL
+0000795 pacote 179 manteve rota (destino não congestionado)
+0000795 pacote 179 armazenado em 000 na secao 003
+0000796 pacote 149 entregue em 006
+0000796 pacote 154 entregue em 006
+0000796 pacote 157 entregue em 006
+0000796 DEBUG: Próximo destino 8 CONGESTIONADO
+0000796 DEBUG: Pacote 173 rota original: 8 (tam: 1)
+0000796 DEBUG: Pacote 173 nova rota: 7->8 (tam: 2)
+0000796 DEBUG: Removido origem 7 da nova rota
+0000796 pacote 173 manteve rota original (IGUAL)
+0000796 pacote 173 armazenado em 006 na secao 007
+0000796 DEBUG: Próximo destino 3 NORMAL
+0000796 pacote 180 manteve rota (destino não congestionado)
+0000796 pacote 180 armazenado em 003 na secao 002
+0000800 pacote 170 entregue em 000
+0000801 pacote 161 removido de 006 na secao 001
+0000801 pacote 161 em transito de 006 para 001
+0000803 pacote 172 entregue em 003
+0000805 DEBUG: Próximo destino 5 NORMAL
+0000805 pacote 181 manteve rota (destino não congestionado)
+0000805 pacote 181 armazenado em 003 na secao 004
+0000806 pacote 178 removido de 007 na secao 000
+0000807 pacote 169 removido de 007 na secao 000
+0000808 pacote 166 removido de 007 na secao 000
+0000809 pacote 140 removido de 007 na secao 000
+0000810 pacote 175 removido de 007 na secao 000
+0000810 pacote 175 em transito de 007 para 000
+0000810 pacote 140 em transito de 007 para 000
+0000810 pacote 166 em transito de 007 para 000
+0000810 pacote 169 em transito de 007 para 000
+0000810 pacote 178 em transito de 007 para 000
+0000807 pacote 163 removido de 004 na secao 006
+0000807 pacote 163 em transito de 004 para 006
+0000810 DEBUG: Próximo destino 1 NORMAL
+0000810 pacote 182 manteve rota (destino não congestionado)
+0000810 pacote 182 armazenado em 007 na secao 000
+0000811 pacote 162 removido de 001 na secao 003
+0000811 pacote 162 em transito de 001 para 003
+0000816 pacote 168 entregue em 000
+0000816 pacote 177 entregue em 000
+0000817 DEBUG: Próximo destino 4 NORMAL
+0000817 pacote 183 manteve rota (destino não congestionado)
+0000817 pacote 183 armazenado em 005 na secao 003
+0000819 DEBUG: Próximo destino 4 NORMAL
+0000819 pacote 184 manteve rota (destino não congestionado)
+0000819 pacote 184 armazenado em 002 na secao 003
+0000821 pacote 161 entregue em 001
+0000827 pacote 179 removido de 000 na secao 003
+0000827 pacote 179 em transito de 000 para 003
+0000827 pacote 163 entregue em 006
+0000828 DEBUG: Próximo destino 4 NORMAL
+0000828 pacote 185 manteve rota (destino não congestionado)
+0000828 pacote 185 armazenado em 001 na secao 003
+0000830 pacote 140 entregue em 000
+0000830 DEBUG: Próximo destino 6 NORMAL
+0000830 pacote 166 manteve rota (destino não congestionado)
+0000830 pacote 166 armazenado em 000 na secao 005
+0000830 pacote 169 entregue em 000
+0000830 DEBUG: Próximo destino 4 NORMAL
+0000830 pacote 175 manteve rota (destino não congestionado)
+0000830 pacote 175 armazenado em 000 na secao 003
+0000830 DEBUG: Próximo destino 4 NORMAL
+0000830 pacote 178 manteve rota (destino não congestionado)
+0000830 pacote 178 armazenado em 000 na secao 003
+0000831 pacote 162 entregue em 003
+0000831 DEBUG: Próximo destino 7 NORMAL
+0000831 pacote 186 manteve rota (destino não congestionado)
+0000831 pacote 186 armazenado em 004 na secao 006
+0000832 DEBUG: Próximo destino 5 NORMAL
+0000832 pacote 187 manteve rota (destino não congestionado)
+0000832 pacote 187 armazenado em 003 na secao 004
+0000832 DEBUG: Próximo destino 7 NORMAL
+0000832 pacote 188 manteve rota (destino não congestionado)
+0000832 pacote 188 armazenado em 005 na secao 006
+0000838 DEBUG: Próximo destino 1 NORMAL
+0000838 pacote 189 manteve rota (destino não congestionado)
+0000838 pacote 189 armazenado em 004 na secao 000
+0000839 DEBUG: Próximo destino 1 NORMAL
+0000839 pacote 190 manteve rota (destino não congestionado)
+0000839 pacote 190 armazenado em 002 na secao 000
+0000846 DEBUG: Próximo destino 3 NORMAL
+0000846 pacote 191 manteve rota (destino não congestionado)
+0000846 pacote 191 armazenado em 000 na secao 002
+0000847 pacote 188 removido de 005 na secao 006
+0000847 pacote 188 em transito de 005 para 006
+0000848 pacote 166 removido de 000 na secao 005
+0000849 pacote 158 removido de 000 na secao 005
+0000849 pacote 158 em transito de 000 para 005
+0000849 pacote 166 em transito de 000 para 005
+0000847 pacote 179 entregue em 003
+0000848 DEBUG: Próximo destino 2 NORMAL
+0000848 pacote 192 manteve rota (destino não congestionado)
+0000848 pacote 192 armazenado em 003 na secao 001
+0000852 pacote 191 removido de 000 na secao 002
+0000852 pacote 191 em transito de 000 para 002
+0000852 pacote 173 removido de 006 na secao 007
+0000853 pacote 160 removido de 006 na secao 007
+0000854 pacote 171 removido de 006 na secao 007
+0000855 pacote 167 removido de 006 na secao 007
+0000856 pacote 159 removido de 006 na secao 007
+0000857 pacote 174 removido de 006 na secao 007
+0000857 pacote 174 em transito de 006 para 007
+0000857 pacote 159 em transito de 006 para 007
+0000857 pacote 167 em transito de 006 para 007
+0000857 pacote 171 em transito de 006 para 007
+0000857 pacote 160 em transito de 006 para 007
+0000857 pacote 173 rearmazenado em 006 na secao 007
+0000855 DEBUG: Próximo destino 4 NORMAL
+0000855 pacote 193 manteve rota (destino não congestionado)
+0000855 pacote 193 armazenado em 000 na secao 003
+0000860 pacote 187 removido de 003 na secao 004
+0000861 pacote 181 removido de 003 na secao 004
+0000861 pacote 181 em transito de 003 para 004
+0000861 pacote 187 em transito de 003 para 004
+0000864 DEBUG: Próximo destino 7 NORMAL
+0000864 pacote 194 manteve rota (destino não congestionado)
+0000864 pacote 194 armazenado em 005 na secao 006
+0000867 pacote 188 entregue em 006
+0000869 pacote 158 entregue em 005
+0000869 pacote 166 entregue em 005
+0000872 pacote 191 entregue em 002
+0000872 DEBUG: Próximo destino 7 NORMAL
+0000872 pacote 195 manteve rota (destino não congestionado)
+0000872 pacote 195 armazenado em 005 na secao 006
+0000872 DEBUG: Próximo destino 4 NORMAL
+0000872 pacote 196 manteve rota (destino não congestionado)
+0000872 pacote 196 armazenado em 005 na secao 003
+0000872 DEBUG: Próximo destino 4 NORMAL
+0000872 pacote 197 manteve rota (destino não congestionado)
+0000872 pacote 197 armazenado em 002 na secao 003
+0000875 pacote 196 removido de 005 na secao 003
+0000876 pacote 183 removido de 005 na secao 003
+0000876 pacote 183 em transito de 005 para 003
+0000876 pacote 196 em transito de 005 para 003
+0000877 DEBUG: Próximo destino 1 NORMAL
+0000877 pacote 159 manteve rota (destino não congestionado)
+0000877 pacote 159 armazenado em 007 na secao 000
+0000877 pacote 160 entregue em 007
+0000877 DEBUG: Próximo destino 1 NORMAL
+0000877 pacote 167 manteve rota (destino não congestionado)
+0000877 pacote 167 armazenado em 007 na secao 000
+0000877 DEBUG: Próximo destino 1 NORMAL
+0000877 pacote 171 manteve rota (destino não congestionado)
+0000877 pacote 171 armazenado em 007 na secao 000
+0000877 DEBUG: Próximo destino 1 NORMAL
+0000877 pacote 174 manteve rota (destino não congestionado)
+0000877 pacote 174 armazenado em 007 na secao 000
+0000878 pacote 180 removido de 003 na secao 002
+0000878 pacote 180 em transito de 003 para 002
+0000880 pacote 189 removido de 004 na secao 000
+0000881 pacote 165 removido de 004 na secao 000
+0000882 pacote 155 removido de 004 na secao 000
+0000882 pacote 155 em transito de 004 para 000
+0000882 pacote 165 em transito de 004 para 000
+0000882 pacote 189 em transito de 004 para 000
+0000881 pacote 181 entregue em 004
+0000881 pacote 187 entregue em 004
+0000881 DEBUG: Próximo destino 5 NORMAL
+0000881 pacote 198 manteve rota (destino não congestionado)
+0000881 pacote 198 armazenado em 003 na secao 004
+0000890 DEBUG: Próximo destino 1 NORMAL
+0000890 pacote 199 manteve rota (destino não congestionado)
+0000890 pacote 199 armazenado em 004 na secao 000
+0000895 pacote 190 removido de 002 na secao 000
+0000895 pacote 190 em transito de 002 para 000
+0000896 pacote 183 entregue em 003
+0000896 pacote 196 entregue em 003
+0000898 pacote 180 entregue em 002
+0000898 DEBUG: Próximo destino 8 NORMAL
+0000898 pacote 200 manteve rota (destino não congestionado)
+0000898 pacote 200 armazenado em 006 na secao 007
+0000899 pacote 192 removido de 003 na secao 001
+0000899 pacote 192 em transito de 003 para 001
+0000901 DEBUG: Próximo destino 2 NORMAL
+0000901 pacote 201 manteve rota (destino não congestionado)
+0000901 pacote 201 armazenado em 003 na secao 001
+0000902 pacote 155 entregue em 000
+0000902 pacote 165 entregue em 000
+0000902 DEBUG: Próximo destino 2 NORMAL
+0000902 pacote 189 manteve rota (destino não congestionado)
+0000902 pacote 189 armazenado em 000 na secao 001
+0000902 DEBUG: Próximo destino 3 NORMAL
+0000902 pacote 202 manteve rota (destino não congestionado)
+0000902 pacote 202 armazenado em 000 na secao 002
+0000905 DEBUG: Próximo destino 7 NORMAL
+0000905 pacote 203 manteve rota (destino não congestionado)
+0000905 pacote 203 armazenado em 004 na secao 006
+0000906 pacote 174 removido de 007 na secao 000
+0000907 pacote 171 removido de 007 na secao 000
+0000908 pacote 167 removido de 007 na secao 000
+0000909 pacote 159 removido de 007 na secao 000
+0000910 pacote 182 removido de 007 na secao 000
+0000910 pacote 182 em transito de 007 para 000
+0000910 pacote 159 em transito de 007 para 000
+0000910 pacote 167 em transito de 007 para 000
+0000910 pacote 171 em transito de 007 para 000
+0000910 pacote 174 em transito de 007 para 000
+0000907 pacote 203 removido de 004 na secao 006
+0000908 pacote 186 removido de 004 na secao 006
+0000908 pacote 186 em transito de 004 para 006
+0000908 pacote 203 em transito de 004 para 006
+0000909 DEBUG: Próximo destino 8 NORMAL
+0000909 pacote 204 manteve rota (destino não congestionado)
+0000909 pacote 204 armazenado em 006 na secao 007
+0000911 pacote 185 removido de 001 na secao 003
+0000911 pacote 185 em transito de 001 para 003
+0000912 DEBUG: Próximo destino 2 NORMAL
+0000912 pacote 205 manteve rota (destino não congestionado)
+0000912 pacote 205 armazenado em 005 na secao 001
+0000915 pacote 190 entregue em 000
+0000918 pacote 197 removido de 002 na secao 003
+0000919 pacote 184 removido de 002 na secao 003
+0000919 pacote 184 em transito de 002 para 003
+0000919 pacote 197 em transito de 002 para 003
+0000919 pacote 192 entregue em 001
+0000920 DEBUG: Próximo destino 7 NORMAL
+0000920 pacote 206 manteve rota (destino não congestionado)
+0000920 pacote 206 armazenado em 001 na secao 006
+0000923 DEBUG: Próximo destino 7 NORMAL
+0000923 pacote 207 manteve rota (destino não congestionado)
+0000923 pacote 207 armazenado em 001 na secao 006
+0000927 pacote 193 removido de 000 na secao 003
+0000928 pacote 178 removido de 000 na secao 003
+0000929 pacote 175 removido de 000 na secao 003
+0000929 pacote 175 em transito de 000 para 003
+0000929 pacote 178 em transito de 000 para 003
+0000929 pacote 193 em transito de 000 para 003
+0000926 DEBUG: Próximo destino 7 NORMAL
+0000926 pacote 208 manteve rota (destino não congestionado)
+0000926 pacote 208 armazenado em 004 na secao 006
+0000928 DEBUG: Próximo destino 8 NORMAL
+0000928 pacote 186 manteve rota (destino não congestionado)
+0000928 pacote 186 armazenado em 006 na secao 007
+0000928 pacote 203 entregue em 006
+0000929 DEBUG: Próximo destino 1 NORMAL
+0000929 pacote 209 manteve rota (destino não congestionado)
+0000929 pacote 209 armazenado em 007 na secao 000
+0000930 DEBUG: Próximo destino 5 NORMAL
+0000930 pacote 159 manteve rota (destino não congestionado)
+0000930 pacote 159 armazenado em 000 na secao 004
+0000930 DEBUG: Próximo destino 5 NORMAL
+0000930 pacote 167 manteve rota (destino não congestionado)
+0000930 pacote 167 armazenado em 000 na secao 004
+0000930 pacote 171 entregue em 000
+0000930 DEBUG: Próximo destino 6 NORMAL
+0000930 pacote 174 manteve rota (destino não congestionado)
+0000930 pacote 174 armazenado em 000 na secao 005
+0000930 DEBUG: Próximo destino 5 NORMAL
+0000930 pacote 182 manteve rota (destino não congestionado)
+0000930 pacote 182 armazenado em 000 na secao 004
+0000931 pacote 185 entregue em 003
+0000936 pacote 189 removido de 000 na secao 001
+0000936 pacote 189 em transito de 000 para 001
+0000937 DEBUG: Próximo destino 3 NORMAL
+0000937 pacote 210 manteve rota (destino não congestionado)
+0000937 pacote 210 armazenado em 003 na secao 002
+0000939 pacote 184 entregue em 003
+0000939 DEBUG: Próximo destino 2 NORMAL
+0000939 pacote 197 manteve rota (destino não congestionado)
+0000939 pacote 197 armazenado em 003 na secao 001
+0000940 DEBUG: Próximo destino 5 NORMAL
+0000940 pacote 211 manteve rota (destino não congestionado)
+0000940 pacote 211 armazenado em 003 na secao 004
+0000944 DEBUG: Próximo destino 3 NORMAL
+0000944 pacote 212 manteve rota (destino não congestionado)
+0000944 pacote 212 armazenado em 001 na secao 002
+0000946 pacote 212 removido de 001 na secao 002
+0000946 pacote 212 em transito de 001 para 002
+0000946 DEBUG: Próximo destino 5 NORMAL
+0000946 pacote 213 manteve rota (destino não congestionado)
+0000946 pacote 213 armazenado em 003 na secao 004
+0000947 pacote 195 removido de 005 na secao 006
+0000948 pacote 194 removido de 005 na secao 006
+0000948 pacote 194 em transito de 005 para 006
+0000948 pacote 195 em transito de 005 para 006
+0000948 pacote 174 removido de 000 na secao 005
+0000948 pacote 174 em transito de 000 para 005
+0000949 pacote 175 entregue em 003
+0000949 pacote 178 entregue em 003
+0000949 pacote 193 entregue em 003
+0000950 DEBUG: Próximo destino 8 NORMAL
+0000950 pacote 214 manteve rota (destino não congestionado)
+0000950 pacote 214 armazenado em 006 na secao 007
+0000952 pacote 202 removido de 000 na secao 002
+0000952 pacote 202 em transito de 000 para 002
+0000952 pacote 214 removido de 006 na secao 007
+0000953 pacote 186 removido de 006 na secao 007
+0000954 pacote 204 removido de 006 na secao 007
+0000955 pacote 200 removido de 006 na secao 007
+0000956 pacote 173 removido de 006 na secao 007
+0000956 pacote 173 em transito de 006 para 007
+0000956 pacote 200 em transito de 006 para 007
+0000956 pacote 204 em transito de 006 para 007
+0000956 pacote 186 em transito de 006 para 007
+0000956 pacote 214 em transito de 006 para 007
+0000956 pacote 189 entregue em 001
+0000957 DEBUG: Próximo destino 7 NORMAL
+0000957 pacote 215 manteve rota (destino não congestionado)
+0000957 pacote 215 armazenado em 005 na secao 006
+0000960 pacote 213 removido de 003 na secao 004
+0000961 pacote 211 removido de 003 na secao 004
+0000962 pacote 198 removido de 003 na secao 004
+0000962 pacote 198 em transito de 003 para 004
+0000962 pacote 211 em transito de 003 para 004
+0000962 pacote 213 em transito de 003 para 004
+0000960 pacote 205 removido de 005 na secao 001
+0000960 pacote 205 em transito de 005 para 001
+0000963 pacote 207 removido de 001 na secao 006
+0000964 pacote 206 removido de 001 na secao 006
+0000964 pacote 206 em transito de 001 para 006
+0000964 pacote 207 em transito de 001 para 006
+0000964 DEBUG: Próximo destino 8 NORMAL
+0000964 pacote 216 manteve rota (destino não congestionado)
+0000964 pacote 216 armazenado em 006 na secao 007
+0000966 pacote 212 entregue em 002
+0000968 pacote 174 entregue em 005
+0000968 pacote 194 entregue em 006
+0000968 pacote 195 entregue em 006
+0000972 pacote 202 entregue em 002
+0000973 DEBUG: Próximo destino 7 NORMAL
+0000973 pacote 217 manteve rota (destino não congestionado)
+0000973 pacote 217 armazenado em 005 na secao 006
+0000976 pacote 173 entregue em 007
+0000976 pacote 186 entregue em 007
+0000976 DEBUG: Próximo destino 1 NORMAL
+0000976 pacote 200 manteve rota (destino não congestionado)
+0000976 pacote 200 armazenado em 007 na secao 000
+0000976 pacote 204 entregue em 007
+0000976 pacote 214 entregue em 007
+0000977 DEBUG: Próximo destino 4 NORMAL
+0000977 pacote 218 manteve rota (destino não congestionado)
+0000977 pacote 218 armazenado em 000 na secao 003
+0000978 pacote 210 removido de 003 na secao 002
+0000978 pacote 210 em transito de 003 para 002
+0000980 pacote 199 removido de 004 na secao 000
+0000980 pacote 199 em transito de 004 para 000
+0000980 pacote 205 entregue em 001
+0000982 DEBUG: Próximo destino 1 NORMAL
+0000982 pacote 198 manteve rota (destino não congestionado)
+0000982 pacote 198 armazenado em 004 na secao 000
+0000982 DEBUG: Próximo destino 7 NORMAL
+0000982 pacote 211 manteve rota (destino não congestionado)
+0000982 pacote 211 armazenado em 004 na secao 006
+0000982 DEBUG: Próximo destino 7 NORMAL
+0000982 pacote 213 manteve rota (destino não congestionado)
+0000982 pacote 213 armazenado em 004 na secao 006
+0000984 DEBUG: Próximo destino 8 NORMAL
+0000984 pacote 206 manteve rota (destino não congestionado)
+0000984 pacote 206 armazenado em 006 na secao 007
+0000984 pacote 207 entregue em 006
+0000986 DEBUG: Próximo destino 2 NORMAL
+0000986 pacote 219 manteve rota (destino não congestionado)
+0000986 pacote 219 armazenado em 005 na secao 001
+0000987 DEBUG: Próximo destino 1 NORMAL
+0000987 pacote 220 manteve rota (destino não congestionado)
+0000987 pacote 220 armazenado em 007 na secao 000
+0000988 DEBUG: Próximo destino 7 NORMAL
+0000988 pacote 221 manteve rota (destino não congestionado)
+0000988 pacote 221 armazenado em 005 na secao 006
+0000992 DEBUG: Próximo destino 4 NORMAL
+0000992 pacote 222 manteve rota (destino não congestionado)
+0000992 pacote 222 armazenado em 006 na secao 003
+0000993 DEBUG: Próximo destino 1 NORMAL
+0000993 pacote 223 manteve rota (destino não congestionado)
+0000993 pacote 223 armazenado em 007 na secao 000
+0000998 pacote 210 entregue em 002
+0000998 DEBUG: Próximo destino 4 NORMAL
+0000998 pacote 224 manteve rota (destino não congestionado)
+0000998 pacote 224 armazenado em 005 na secao 003
+0000999 pacote 197 removido de 003 na secao 001
+0001000 pacote 201 removido de 003 na secao 001
+0001000 pacote 201 em transito de 003 para 001
+0001000 pacote 197 em transito de 003 para 001
+0000999 DEBUG: Próximo destino 4 NORMAL
+0000999 pacote 225 manteve rota (destino não congestionado)
+0000999 pacote 225 armazenado em 002 na secao 003
+0001000 pacote 199 entregue em 000
+0001006 pacote 223 removido de 007 na secao 000
+0001007 pacote 220 removido de 007 na secao 000
+0001008 pacote 200 removido de 007 na secao 000
+0001009 pacote 209 removido de 007 na secao 000
+0001009 pacote 209 em transito de 007 para 000
+0001009 pacote 200 em transito de 007 para 000
+0001009 pacote 220 em transito de 007 para 000
+0001009 pacote 223 em transito de 007 para 000
+0001007 pacote 213 removido de 004 na secao 006
+0001008 pacote 211 removido de 004 na secao 006
+0001009 pacote 208 removido de 004 na secao 006
+0001009 pacote 208 em transito de 004 para 006
+0001009 pacote 211 em transito de 004 para 006
+0001009 pacote 213 em transito de 004 para 006
+0001009 pacote 182 removido de 000 na secao 004
+0001010 pacote 167 removido de 000 na secao 004
+0001011 pacote 159 removido de 000 na secao 004
+0001011 pacote 159 em transito de 000 para 004
+0001011 pacote 167 em transito de 000 para 004
+0001011 pacote 182 em transito de 000 para 004
+0001008 DEBUG: Próximo destino 4 NORMAL
+0001008 pacote 226 manteve rota (destino não congestionado)
+0001008 pacote 226 armazenado em 006 na secao 003
+0001012 DEBUG: Próximo destino 5 NORMAL
+0001012 pacote 227 manteve rota (destino não congestionado)
+0001012 pacote 227 armazenado em 003 na secao 004
+0001013 DEBUG: Próximo destino 7 NORMAL
+0001013 pacote 228 manteve rota (destino não congestionado)
+0001013 pacote 228 armazenado em 001 na secao 006
+0001015 DEBUG: Próximo destino 1 NORMAL
+0001015 pacote 229 manteve rota (destino não congestionado)
+0001015 pacote 229 armazenado em 007 na secao 000
+0001018 pacote 225 removido de 002 na secao 003
+0001018 pacote 225 em transito de 002 para 003
+0001020 pacote 197 entregue em 001
+0001020 pacote 201 entregue em 001
+0001022 DEBUG: Próximo destino 6 NORMAL
+0001022 pacote 230 manteve rota (destino não congestionado)
+0001022 pacote 230 armazenado em 000 na secao 005
+0001027 pacote 218 removido de 000 na secao 003
+0001027 pacote 218 em transito de 000 para 003
+0001029 pacote 200 entregue em 000
+0001029 pacote 208 entregue em 006
+0001029 DEBUG: Próximo destino 5 NORMAL
+0001029 pacote 209 manteve rota (destino não congestionado)
+0001029 pacote 209 armazenado em 000 na secao 004
+0001029 DEBUG: Próximo destino 8 NORMAL
+0001029 pacote 211 manteve rota (destino não congestionado)
+0001029 pacote 211 armazenado em 006 na secao 007
+0001029 pacote 213 entregue em 006
+0001029 DEBUG: Próximo destino 5 NORMAL
+0001029 pacote 220 manteve rota (destino não congestionado)
+0001029 pacote 220 armazenado em 000 na secao 004
+0001029 DEBUG: Próximo destino 5 NORMAL
+0001029 pacote 223 manteve rota (destino não congestionado)
+0001029 pacote 223 armazenado em 000 na secao 004
+0001030 DEBUG: Próximo destino 7 NORMAL
+0001030 pacote 231 manteve rota (destino não congestionado)
+0001030 pacote 231 armazenado em 005 na secao 006
+0001031 pacote 159 entregue em 004
+0001031 pacote 167 entregue em 004
+0001031 pacote 182 entregue em 004
+0001033 DEBUG: Próximo destino 5 NORMAL
+0001033 pacote 232 manteve rota (destino não congestionado)
+0001033 pacote 232 armazenado em 001 na secao 004
+0001038 pacote 225 entregue em 003
+0001039 DEBUG: Próximo destino 7 NORMAL
+0001039 pacote 233 manteve rota (destino não congestionado)
+0001039 pacote 233 armazenado em 000 na secao 006
+0001044 DEBUG: Próximo destino 7 NORMAL
+0001044 pacote 234 manteve rota (destino não congestionado)
+0001044 pacote 234 armazenado em 005 na secao 006
+0001047 pacote 234 removido de 005 na secao 006
+0001048 pacote 231 removido de 005 na secao 006
+0001049 pacote 221 removido de 005 na secao 006
+0001050 pacote 217 removido de 005 na secao 006
+0001051 pacote 215 removido de 005 na secao 006
+0001051 pacote 215 em transito de 005 para 006
+0001051 pacote 217 em transito de 005 para 006
+0001051 pacote 221 em transito de 005 para 006
+0001051 pacote 231 em transito de 005 para 006
+0001051 pacote 234 em transito de 005 para 006
+0001048 pacote 230 removido de 000 na secao 005
+0001048 pacote 230 em transito de 000 para 005
+0001047 pacote 218 entregue em 003
+0001052 pacote 211 removido de 006 na secao 007
+0001053 pacote 206 removido de 006 na secao 007
+0001054 pacote 216 removido de 006 na secao 007
+0001054 pacote 216 em transito de 006 para 007
+0001054 pacote 206 em transito de 006 para 007
+0001054 pacote 211 em transito de 006 para 007
+0001052 DEBUG: Próximo destino 1 NORMAL
+0001052 pacote 235 manteve rota (destino não congestionado)
+0001052 pacote 235 armazenado em 002 na secao 000
+0001060 pacote 227 removido de 003 na secao 004
+0001060 pacote 227 em transito de 003 para 004
+0001060 pacote 219 removido de 005 na secao 001
+0001060 pacote 219 em transito de 005 para 001
+0001060 DEBUG: Próximo destino 1 NORMAL
+0001060 pacote 236 manteve rota (destino não congestionado)
+0001060 pacote 236 armazenado em 004 na secao 000
+0001063 pacote 228 removido de 001 na secao 006
+0001063 pacote 228 em transito de 001 para 006
+0001067 DEBUG: Próximo destino 5 NORMAL
+0001067 pacote 237 manteve rota (destino não congestionado)
+0001067 pacote 237 armazenado em 003 na secao 004
+0001068 pacote 230 entregue em 005
+0001071 pacote 215 entregue em 006
+0001071 pacote 217 entregue em 006
+0001071 DEBUG: Próximo destino 8 NORMAL
+0001071 pacote 221 manteve rota (destino não congestionado)
+0001071 pacote 221 armazenado em 006 na secao 007
+0001071 pacote 231 entregue em 006
+0001071 DEBUG: Próximo destino 8 NORMAL
+0001071 pacote 234 manteve rota (destino não congestionado)
+0001071 pacote 234 armazenado em 006 na secao 007
+0001073 pacote 233 removido de 000 na secao 006
+0001073 pacote 233 em transito de 000 para 006
+0001074 pacote 206 entregue em 007
+0001074 pacote 211 entregue em 007
+0001074 DEBUG: Próximo destino 1 NORMAL
+0001074 pacote 216 manteve rota (destino não congestionado)
+0001074 pacote 216 armazenado em 007 na secao 000
+0001074 DEBUG: Próximo destino 6 NORMAL
+0001074 pacote 238 manteve rota (destino não congestionado)
+0001074 pacote 238 armazenado em 004 na secao 005
+0001075 pacote 224 removido de 005 na secao 003
+0001075 pacote 224 em transito de 005 para 003
+0001080 pacote 236 removido de 004 na secao 000
+0001081 pacote 198 removido de 004 na secao 000
+0001081 pacote 198 em transito de 004 para 000
+0001081 pacote 236 em transito de 004 para 000
+0001080 DEBUG: Próximo destino 3 NORMAL
+0001080 pacote 219 manteve rota (destino não congestionado)
+0001080 pacote 219 armazenado em 001 na secao 002
+0001080 DEBUG: Próximo destino 7 NORMAL
+0001080 pacote 227 manteve rota (destino não congestionado)
+0001080 pacote 227 armazenado em 004 na secao 006
+0001083 pacote 226 removido de 006 na secao 003
+0001084 pacote 222 removido de 006 na secao 003
+0001084 pacote 222 em transito de 006 para 003
+0001084 pacote 226 em transito de 006 para 003
+0001083 pacote 228 entregue em 006
+0001083 DEBUG: Próximo destino 5 NORMAL
+0001083 pacote 239 manteve rota (destino não congestionado)
+0001083 pacote 239 armazenado em 003 na secao 004
+0001087 DEBUG: Próximo destino 8 NORMAL
+0001087 pacote 240 manteve rota (destino não congestionado)
+0001087 pacote 240 armazenado em 006 na secao 007
+0001087 DEBUG: Próximo destino 1 NORMAL
+0001087 pacote 241 manteve rota (destino não congestionado)
+0001087 pacote 241 armazenado em 004 na secao 000
+0001093 pacote 233 entregue em 006
+0001094 DEBUG: Próximo destino 1 NORMAL
+0001094 pacote 242 manteve rota (destino não congestionado)
+0001094 pacote 242 armazenado em 007 na secao 000
+0001095 pacote 235 removido de 002 na secao 000
+0001095 pacote 235 em transito de 002 para 000
+0001095 pacote 224 entregue em 003
+0001101 pacote 198 entregue em 000
+0001101 pacote 236 entregue em 000
+0001101 DEBUG: Próximo destino 8 NORMAL
+0001101 pacote 243 manteve rota (destino não congestionado)
+0001101 pacote 243 armazenado em 006 na secao 007
+0001104 pacote 222 entregue em 003
+0001104 pacote 226 entregue em 003
+0001104 DEBUG: Próximo destino 8 NORMAL
+0001104 pacote 244 manteve rota (destino não congestionado)
+0001104 pacote 244 armazenado em 006 na secao 007
+0001106 pacote 242 removido de 007 na secao 000
+0001107 pacote 216 removido de 007 na secao 000
+0001108 pacote 229 removido de 007 na secao 000
+0001108 pacote 229 em transito de 007 para 000
+0001108 pacote 216 em transito de 007 para 000
+0001108 pacote 242 em transito de 007 para 000
+0001107 pacote 227 removido de 004 na secao 006
+0001107 pacote 227 em transito de 004 para 006
+0001109 pacote 223 removido de 000 na secao 004
+0001110 pacote 220 removido de 000 na secao 004
+0001111 pacote 209 removido de 000 na secao 004
+0001111 pacote 209 em transito de 000 para 004
+0001111 pacote 220 em transito de 000 para 004
+0001111 pacote 223 em transito de 000 para 004
+0001108 DEBUG: Próximo destino 1 NORMAL
+0001108 pacote 245 manteve rota (destino não congestionado)
+0001108 pacote 245 armazenado em 004 na secao 000
+0001115 pacote 235 entregue em 000
+0001117 DEBUG: Próximo destino 4 NORMAL
+0001117 pacote 246 manteve rota (destino não congestionado)
+0001117 pacote 246 armazenado em 006 na secao 003
+0001122 pacote 232 removido de 001 na secao 004
+0001122 pacote 232 em transito de 001 para 004
+0001126 DEBUG: Próximo destino 1 NORMAL
+0001126 pacote 247 manteve rota (destino não congestionado)
+0001126 pacote 247 armazenado em 001 na secao 000
+0001127 DEBUG: Próximo destino 8 CONGESTIONADO
+0001127 DEBUG: Pacote 227 rota original: 8 (tam: 1)
+0001127 DEBUG: Pacote 227 nova rota: 7->8 (tam: 2)
+0001127 DEBUG: Removido origem 7 da nova rota
+0001127 pacote 227 manteve rota original (IGUAL)
+0001127 pacote 227 armazenado em 006 na secao 007
+0001128 DEBUG: Próximo destino 5 NORMAL
+0001128 pacote 216 manteve rota (destino não congestionado)
+0001128 pacote 216 armazenado em 000 na secao 004
+0001128 DEBUG: Próximo destino 5 NORMAL
+0001128 pacote 229 manteve rota (destino não congestionado)
+0001128 pacote 229 armazenado em 000 na secao 004
+0001128 DEBUG: Próximo destino 3 NORMAL
+0001128 pacote 242 manteve rota (destino não congestionado)
+0001128 pacote 242 armazenado em 000 na secao 002
+0001131 pacote 209 entregue em 004
+0001131 pacote 220 entregue em 004
+0001131 pacote 223 entregue em 004
+0001134 DEBUG: Próximo destino 1 NORMAL
+0001134 pacote 248 manteve rota (destino não congestionado)
+0001134 pacote 248 armazenado em 001 na secao 000
+0001137 DEBUG: Próximo destino 5 NORMAL
+0001137 pacote 249 manteve rota (destino não congestionado)
+0001137 pacote 249 armazenado em 003 na secao 004
+0001142 pacote 232 entregue em 004
+0001145 DEBUG: Próximo destino 3 NORMAL
+0001145 pacote 250 manteve rota (destino não congestionado)
+0001145 pacote 250 armazenado em 001 na secao 002
+0001146 pacote 250 removido de 001 na secao 002
+0001147 pacote 219 removido de 001 na secao 002
+0001147 pacote 219 em transito de 001 para 002
+0001147 pacote 250 em transito de 001 para 002
+0001148 DEBUG: Próximo destino 5 NORMAL
+0001148 pacote 251 manteve rota (destino não congestionado)
+0001148 pacote 251 armazenado em 003 na secao 004
+0001148 DEBUG: Próximo destino 7 NORMAL
+0001148 pacote 252 manteve rota (destino não congestionado)
+0001148 pacote 252 armazenado em 005 na secao 006
+0001152 pacote 242 removido de 000 na secao 002
+0001152 pacote 242 em transito de 000 para 002
+0001152 pacote 227 removido de 006 na secao 007
+0001153 pacote 244 removido de 006 na secao 007
+0001154 pacote 243 removido de 006 na secao 007
+0001155 pacote 240 removido de 006 na secao 007
+0001156 pacote 234 removido de 006 na secao 007
+0001157 pacote 221 removido de 006 na secao 007
+0001157 pacote 221 em transito de 006 para 007
+0001157 pacote 234 em transito de 006 para 007
+0001157 pacote 240 em transito de 006 para 007
+0001157 pacote 243 em transito de 006 para 007
+0001157 pacote 244 em transito de 006 para 007
+0001157 pacote 227 rearmazenado em 006 na secao 007
+0001152 DEBUG: Próximo destino 1 NORMAL
+0001152 pacote 253 manteve rota (destino não congestionado)
+0001152 pacote 253 armazenado em 001 na secao 000
+0001154 DEBUG: Próximo destino 2 NORMAL
+0001154 pacote 254 manteve rota (destino não congestionado)
+0001154 pacote 254 armazenado em 005 na secao 001
+0001160 pacote 251 removido de 003 na secao 004
+0001161 pacote 249 removido de 003 na secao 004
+0001162 pacote 239 removido de 003 na secao 004
+0001163 pacote 237 removido de 003 na secao 004
+0001163 pacote 237 em transito de 003 para 004
+0001163 pacote 239 em transito de 003 para 004
+0001163 pacote 249 em transito de 003 para 004
+0001163 pacote 251 em transito de 003 para 004
+0001160 pacote 254 removido de 005 na secao 001
+0001160 pacote 254 em transito de 005 para 001
+0001163 DEBUG: Próximo destino 7 NORMAL
+0001163 pacote 255 manteve rota (destino não congestionado)
+0001163 pacote 255 armazenado em 005 na secao 006
+0001167 pacote 219 entregue em 002
+0001167 pacote 250 entregue em 002
+0001172 pacote 242 entregue em 002
+0001172 DEBUG: Próximo destino 2 NORMAL
+0001172 pacote 256 manteve rota (destino não congestionado)
+0001172 pacote 256 armazenado em 005 na secao 001
+0001173 pacote 253 removido de 001 na secao 000
+0001174 pacote 248 removido de 001 na secao 000
+0001175 pacote 247 removido de 001 na secao 000
+0001175 pacote 247 em transito de 001 para 000
+0001175 pacote 248 em transito de 001 para 000
+0001175 pacote 253 em transito de 001 para 000
+0001173 pacote 238 removido de 004 na secao 005
+0001173 pacote 238 em transito de 004 para 005
+0001173 DEBUG: Próximo destino 4 NORMAL
+0001173 pacote 257 manteve rota (destino não congestionado)
+0001173 pacote 257 armazenado em 006 na secao 003
+0001176 DEBUG: Próximo destino 1 NORMAL
+0001176 pacote 258 manteve rota (destino não congestionado)
+0001176 pacote 258 armazenado em 002 na secao 000
+0001177 DEBUG: Próximo destino 1 NORMAL
+0001177 pacote 221 manteve rota (destino não congestionado)
+0001177 pacote 221 armazenado em 007 na secao 000
+0001177 DEBUG: Próximo destino 1 NORMAL
+0001177 pacote 234 manteve rota (destino não congestionado)
+0001177 pacote 234 armazenado em 007 na secao 000
+0001177 pacote 240 entregue em 007
+0001177 pacote 243 entregue em 007
+0001177 DEBUG: Próximo destino 1 NORMAL
+0001177 pacote 244 manteve rota (destino não congestionado)
+0001177 pacote 244 armazenado em 007 na secao 000
+0001177 DEBUG: Próximo destino 1 NORMAL
+0001177 pacote 259 manteve rota (destino não congestionado)
+0001177 pacote 259 armazenado em 007 na secao 000
+0001180 pacote 245 removido de 004 na secao 000
+0001181 pacote 241 removido de 004 na secao 000
+0001181 pacote 241 em transito de 004 para 000
+0001181 pacote 245 em transito de 004 para 000
+0001180 pacote 254 entregue em 001
+0001183 pacote 257 removido de 006 na secao 003
+0001184 pacote 246 removido de 006 na secao 003
+0001184 pacote 246 em transito de 006 para 003
+0001184 pacote 257 em transito de 006 para 003
+0001183 DEBUG: Próximo destino 1 NORMAL
+0001183 pacote 237 manteve rota (destino não congestionado)
+0001183 pacote 237 armazenado em 004 na secao 000
+0001183 pacote 239 entregue em 004
+0001183 pacote 249 entregue em 004
+0001183 DEBUG: Próximo destino 1 NORMAL
+0001183 pacote 251 manteve rota (destino não congestionado)
+0001183 pacote 251 armazenado em 004 na secao 000
+0001186 DEBUG: Próximo destino 8 NORMAL
+0001186 pacote 260 manteve rota (destino não congestionado)
+0001186 pacote 260 armazenado em 006 na secao 007
+0001192 DEBUG: Próximo destino 1 NORMAL
+0001192 pacote 261 manteve rota (destino não congestionado)
+0001192 pacote 261 armazenado em 007 na secao 000
+0001193 pacote 238 entregue em 005
+0001195 pacote 258 removido de 002 na secao 000
+0001195 pacote 258 em transito de 002 para 000
+0001195 DEBUG: Próximo destino 6 NORMAL
+0001195 pacote 247 manteve rota (destino não congestionado)
+0001195 pacote 247 armazenado em 000 na secao 005
+0001195 pacote 248 entregue em 000
+0001195 DEBUG: Próximo destino 6 NORMAL
+0001195 pacote 253 manteve rota (destino não congestionado)
+0001195 pacote 253 armazenado em 000 na secao 005
+0001201 pacote 241 entregue em 000
+0001201 pacote 245 entregue em 000
+0001201 DEBUG: Próximo destino 6 NORMAL
+0001201 pacote 262 manteve rota (destino não congestionado)
+0001201 pacote 262 armazenado em 000 na secao 005
+0001201 DEBUG: Próximo destino 7 NORMAL
+0001201 pacote 263 manteve rota (destino não congestionado)
+0001201 pacote 263 armazenado em 000 na secao 006
+0001204 pacote 246 entregue em 003
+0001204 pacote 257 entregue em 003
+0001206 pacote 261 removido de 007 na secao 000
+0001207 pacote 259 removido de 007 na secao 000
+0001208 pacote 244 removido de 007 na secao 000
+0001209 pacote 234 removido de 007 na secao 000
+0001210 pacote 221 removido de 007 na secao 000
+0001210 pacote 221 em transito de 007 para 000
+0001210 pacote 234 em transito de 007 para 000
+0001210 pacote 244 em transito de 007 para 000
+0001210 pacote 259 em transito de 007 para 000
+0001210 pacote 261 em transito de 007 para 000
+0001206 DEBUG: Próximo destino 8 NORMAL
+0001206 pacote 264 manteve rota (destino não congestionado)
+0001206 pacote 264 armazenado em 006 na secao 007
+0001209 pacote 229 removido de 000 na secao 004
+0001210 pacote 216 removido de 000 na secao 004
+0001210 pacote 216 em transito de 000 para 004
+0001210 pacote 229 em transito de 000 para 004
+0001215 DEBUG: Próximo destino 5 NORMAL
+0001215 pacote 258 manteve rota (destino não congestionado)
+0001215 pacote 258 armazenado em 000 na secao 004
+0001215 DEBUG: Próximo destino 5 NORMAL
+0001215 pacote 265 manteve rota (destino não congestionado)
+0001215 pacote 265 armazenado em 003 na secao 004
+0001217 DEBUG: Próximo destino 1 NORMAL
+0001217 pacote 266 manteve rota (destino não congestionado)
+0001217 pacote 266 armazenado em 007 na secao 000
+0001222 DEBUG: Próximo destino 1 NORMAL
+0001222 pacote 267 manteve rota (destino não congestionado)
+0001222 pacote 267 armazenado em 007 na secao 000
+0001226 DEBUG: Próximo destino 1 NORMAL
+0001226 pacote 268 manteve rota (destino não congestionado)
+0001226 pacote 268 armazenado em 007 na secao 000
+0001230 pacote 216 entregue em 004
+0001230 DEBUG: Próximo destino 5 NORMAL
+0001230 pacote 221 manteve rota (destino não congestionado)
+0001230 pacote 221 armazenado em 000 na secao 004
+0001230 pacote 229 entregue em 004
+0001230 DEBUG: Próximo destino 5 NORMAL
+0001230 pacote 234 manteve rota (destino não congestionado)
+0001230 pacote 234 armazenado em 000 na secao 004
+0001230 pacote 244 entregue em 000
+0001230 DEBUG: Próximo destino 5 NORMAL
+0001230 pacote 259 manteve rota (destino não congestionado)
+0001230 pacote 259 armazenado em 000 na secao 004
+0001230 pacote 261 entregue em 000
+0001232 DEBUG: Próximo destino 5 NORMAL
+0001232 pacote 269 manteve rota (destino não congestionado)
+0001232 pacote 269 armazenado em 003 na secao 004
+0001234 DEBUG: Próximo destino 1 NORMAL
+0001234 pacote 270 manteve rota (destino não congestionado)
+0001234 pacote 270 armazenado em 002 na secao 000
+0001235 DEBUG: Próximo destino 1 NORMAL
+0001235 pacote 271 manteve rota (destino não congestionado)
+0001235 pacote 271 armazenado em 007 na secao 000
+0001239 DEBUG: Próximo destino 7 NORMAL
+0001239 pacote 272 manteve rota (destino não congestionado)
+0001239 pacote 272 armazenado em 001 na secao 006
+0001245 DEBUG: Próximo destino 6 NORMAL
+0001245 pacote 273 manteve rota (destino não congestionado)
+0001245 pacote 273 armazenado em 004 na secao 005
+0001247 pacote 255 removido de 005 na secao 006
+0001248 pacote 252 removido de 005 na secao 006
+0001248 pacote 252 em transito de 005 para 006
+0001248 pacote 255 em transito de 005 para 006
+0001248 pacote 262 removido de 000 na secao 005
+0001249 pacote 253 removido de 000 na secao 005
+0001250 pacote 247 removido de 000 na secao 005
+0001250 pacote 247 em transito de 000 para 005
+0001250 pacote 253 em transito de 000 para 005
+0001250 pacote 262 em transito de 000 para 005
+0001251 DEBUG: Próximo destino 2 NORMAL
+0001251 pacote 274 manteve rota (destino não congestionado)
+0001251 pacote 274 armazenado em 000 na secao 001
+0001252 pacote 264 removido de 006 na secao 007
+0001253 pacote 260 removido de 006 na secao 007
+0001254 pacote 227 removido de 006 na secao 007
+0001254 pacote 227 em transito de 006 para 007
+0001254 pacote 260 em transito de 006 para 007
+0001254 pacote 264 em transito de 006 para 007
+0001256 DEBUG: Próximo destino 1 NORMAL
+0001256 pacote 275 manteve rota (destino não congestionado)
+0001256 pacote 275 armazenado em 007 na secao 000
+0001259 DEBUG: Próximo destino 7 NORMAL
+0001259 pacote 276 manteve rota (destino não congestionado)
+0001259 pacote 276 armazenado em 001 na secao 006
+0001260 pacote 269 removido de 003 na secao 004
+0001261 pacote 265 removido de 003 na secao 004
+0001261 pacote 265 em transito de 003 para 004
+0001261 pacote 269 em transito de 003 para 004
+0001260 pacote 256 removido de 005 na secao 001
+0001260 pacote 256 em transito de 005 para 001
+0001261 DEBUG: Próximo destino 7 NORMAL
+0001261 pacote 277 manteve rota (destino não congestionado)
+0001261 pacote 277 armazenado em 005 na secao 006
+0001261 DEBUG: Próximo destino 7 NORMAL
+0001261 pacote 278 manteve rota (destino não congestionado)
+0001261 pacote 278 armazenado em 005 na secao 006
+0001263 pacote 276 removido de 001 na secao 006
+0001264 pacote 272 removido de 001 na secao 006
+0001264 pacote 272 em transito de 001 para 006
+0001264 pacote 276 em transito de 001 para 006
+0001263 DEBUG: Próximo destino 7 NORMAL
+0001263 pacote 279 manteve rota (destino não congestionado)
+0001263 pacote 279 armazenado em 004 na secao 006
+0001268 DEBUG: Próximo destino 8 NORMAL
+0001268 pacote 252 manteve rota (destino não congestionado)
+0001268 pacote 252 armazenado em 006 na secao 007
+0001268 DEBUG: Próximo destino 8 NORMAL
+0001268 pacote 255 manteve rota (destino não congestionado)
+0001268 pacote 255 armazenado em 006 na secao 007
+0001270 pacote 247 entregue em 005
+0001270 pacote 253 entregue em 005
+0001270 pacote 262 entregue em 005
+0001270 DEBUG: Próximo destino 2 NORMAL
+0001270 pacote 280 manteve rota (destino não congestionado)
+0001270 pacote 280 armazenado em 005 na secao 001
+0001271 DEBUG: Próximo destino 7 NORMAL
+0001271 pacote 281 manteve rota (destino não congestionado)
+0001271 pacote 281 armazenado em 004 na secao 006
+0001273 pacote 263 removido de 000 na secao 006
+0001273 pacote 263 em transito de 000 para 006
+0001272 DEBUG: Próximo destino 7 NORMAL
+0001272 pacote 282 manteve rota (destino não congestionado)
+0001272 pacote 282 armazenado em 001 na secao 006
+0001273 pacote 273 removido de 004 na secao 005
+0001273 pacote 273 em transito de 004 para 005
+0001274 pacote 227 entregue em 007
+0001274 DEBUG: Próximo destino 1 CONGESTIONADO
+0001274 DEBUG: Pacote 260 rota original: 1 (tam: 1)
+0001274 DEBUG: Pacote 260 nova rota: 8->1 (tam: 2)
+0001274 DEBUG: Removido origem 8 da nova rota
+0001274 pacote 260 manteve rota original (IGUAL)
+0001274 pacote 260 armazenado em 007 na secao 000
+0001274 DEBUG: Próximo destino 1 CONGESTIONADO
+0001274 DEBUG: Pacote 264 rota original: 1->6 (tam: 2)
+0001274 DEBUG: Pacote 264 nova rota: 8->1->6 (tam: 3)
+0001274 DEBUG: Removido origem 8 da nova rota
+0001274 pacote 264 manteve rota original (IGUAL)
+0001274 pacote 264 armazenado em 007 na secao 000
+0001277 DEBUG: Próximo destino 1 CONGESTIONADO
+0001277 DEBUG: Pacote 283 rota original: 1->3 (tam: 2)
+0001277 DEBUG: Pacote 283 nova rota: 8->1->3 (tam: 3)
+0001277 DEBUG: Removido origem 8 da nova rota
+0001277 pacote 283 manteve rota original (IGUAL)
+0001277 pacote 283 armazenado em 007 na secao 000
+0001280 pacote 251 removido de 004 na secao 000
+0001281 pacote 237 removido de 004 na secao 000
+0001281 pacote 237 em transito de 004 para 000
+0001281 pacote 251 em transito de 004 para 000
+0001280 DEBUG: Próximo destino 3 NORMAL
+0001280 pacote 256 manteve rota (destino não congestionado)
+0001280 pacote 256 armazenado em 001 na secao 002
+0001281 DEBUG: Próximo destino 7 NORMAL
+0001281 pacote 265 manteve rota (destino não congestionado)
+0001281 pacote 265 armazenado em 004 na secao 006
+0001281 pacote 269 entregue em 004
+0001284 DEBUG: Próximo destino 8 NORMAL
+0001284 pacote 272 manteve rota (destino não congestionado)
+0001284 pacote 272 armazenado em 006 na secao 007
+0001284 pacote 276 entregue em 006
+0001284 DEBUG: Próximo destino 1 NORMAL
+0001284 pacote 284 manteve rota (destino não congestionado)
+0001284 pacote 284 armazenado em 001 na secao 000
+0001291 DEBUG: Próximo destino 7 NORMAL
+0001291 pacote 285 manteve rota (destino não congestionado)
+0001291 pacote 285 armazenado em 001 na secao 006
+0001293 DEBUG: Próximo destino 8 NORMAL
+0001293 pacote 263 manteve rota (destino não congestionado)
+0001293 pacote 263 armazenado em 006 na secao 007
+0001293 pacote 273 entregue em 005
+0001295 pacote 270 removido de 002 na secao 000
+0001295 pacote 270 em transito de 002 para 000
+0001296 DEBUG: Próximo destino 7 NORMAL
+0001296 pacote 286 manteve rota (destino não congestionado)
+0001296 pacote 286 armazenado em 005 na secao 006
+0001301 pacote 237 entregue em 000
+0001301 pacote 251 entregue em 000
+0001303 DEBUG: Próximo destino 5 NORMAL
+0001303 pacote 287 manteve rota (destino não congestionado)
+0001303 pacote 287 armazenado em 000 na secao 004
+0001305 DEBUG: Próximo destino 5 NORMAL
+0001305 pacote 288 manteve rota (destino não congestionado)
+0001305 pacote 288 armazenado em 003 na secao 004
+0001305 DEBUG: Próximo destino 5 NORMAL
+0001305 pacote 289 manteve rota (destino não congestionado)
+0001305 pacote 289 armazenado em 003 na secao 004
+0001306 pacote 283 removido de 007 na secao 000
+0001307 pacote 264 removido de 007 na secao 000
+0001308 pacote 260 removido de 007 na secao 000
+0001309 pacote 275 removido de 007 na secao 000
+0001310 pacote 271 removido de 007 na secao 000
+0001311 pacote 268 removido de 007 na secao 000
+0001312 pacote 267 removido de 007 na secao 000
+0001313 pacote 266 removido de 007 na secao 000
+0001313 pacote 266 em transito de 007 para 000
+0001313 pacote 267 em transito de 007 para 000
+0001313 pacote 268 em transito de 007 para 000
+0001313 pacote 271 em transito de 007 para 000
+0001313 pacote 275 em transito de 007 para 000
+0001313 pacote 260 rearmazenado em 007 na secao 000
+0001313 pacote 264 rearmazenado em 007 na secao 000
+0001313 pacote 283 rearmazenado em 007 na secao 000
+0001307 pacote 265 removido de 004 na secao 006
+0001308 pacote 281 removido de 004 na secao 006
+0001309 pacote 279 removido de 004 na secao 006
+0001309 pacote 279 em transito de 004 para 006
+0001309 pacote 281 em transito de 004 para 006
+0001309 pacote 265 em transito de 004 para 006
+0001309 pacote 287 removido de 000 na secao 004
+0001310 pacote 259 removido de 000 na secao 004
+0001311 pacote 234 removido de 000 na secao 004
+0001312 pacote 221 removido de 000 na secao 004
+0001313 pacote 258 removido de 000 na secao 004
+0001313 pacote 258 em transito de 000 para 004
+0001313 pacote 221 em transito de 000 para 004
+0001313 pacote 234 em transito de 000 para 004
+0001313 pacote 259 em transito de 000 para 004
+0001313 pacote 287 em transito de 000 para 004
+0001309 DEBUG: Próximo destino 1 NORMAL
+0001309 pacote 290 manteve rota (destino não congestionado)
+0001309 pacote 290 armazenado em 004 na secao 000
+0001314 DEBUG: Próximo destino 7 NORMAL
+0001314 pacote 291 manteve rota (destino não congestionado)
+0001314 pacote 291 armazenado em 001 na secao 006
+0001315 DEBUG: Próximo destino 5 NORMAL
+0001315 pacote 270 manteve rota (destino não congestionado)
+0001315 pacote 270 armazenado em 000 na secao 004
+0001316 DEBUG: Próximo destino 4 NORMAL
+0001316 pacote 292 manteve rota (destino não congestionado)
+0001316 pacote 292 armazenado em 005 na secao 003
+0001322 DEBUG: Próximo destino 3 NORMAL
+0001322 pacote 293 manteve rota (destino não congestionado)
+0001322 pacote 293 armazenado em 000 na secao 002
+0001328 DEBUG: Próximo destino 1 NORMAL
+0001328 pacote 294 manteve rota (destino não congestionado)
+0001328 pacote 294 armazenado em 007 na secao 000
+0001328 DEBUG: Próximo destino 1 NORMAL
+0001328 pacote 295 manteve rota (destino não congestionado)
+0001328 pacote 295 armazenado em 002 na secao 000
+0001329 pacote 265 entregue em 006
+0001329 DEBUG: Próximo destino 8 NORMAL
+0001329 pacote 279 manteve rota (destino não congestionado)
+0001329 pacote 279 armazenado em 006 na secao 007
+0001329 DEBUG: Próximo destino 8 CONGESTIONADO
+0001329 DEBUG: Pacote 281 rota original: 8 (tam: 1)
+0001329 DEBUG: Pacote 281 nova rota: 7->8 (tam: 2)
+0001329 DEBUG: Removido origem 7 da nova rota
+0001329 pacote 281 manteve rota original (IGUAL)
+0001329 pacote 281 armazenado em 006 na secao 007
+0001333 pacote 221 entregue em 004
+0001333 pacote 234 entregue em 004
+0001333 pacote 258 entregue em 004
+0001333 pacote 259 entregue em 004
+0001333 DEBUG: Próximo destino 7 NORMAL
+0001333 pacote 266 manteve rota (destino não congestionado)
+0001333 pacote 266 armazenado em 000 na secao 006
+0001333 DEBUG: Próximo destino 5 NORMAL
+0001333 pacote 267 manteve rota (destino não congestionado)
+0001333 pacote 267 armazenado em 000 na secao 004
+0001333 DEBUG: Próximo destino 5 NORMAL
+0001333 pacote 268 manteve rota (destino não congestionado)
+0001333 pacote 268 armazenado em 000 na secao 004
+0001333 DEBUG: Próximo destino 7 NORMAL
+0001333 pacote 271 manteve rota (destino não congestionado)
+0001333 pacote 271 armazenado em 000 na secao 006
+0001333 DEBUG: Próximo destino 2 NORMAL
+0001333 pacote 275 manteve rota (destino não congestionado)
+0001333 pacote 275 armazenado em 000 na secao 001
+0001333 pacote 287 entregue em 004
+0001336 pacote 275 removido de 000 na secao 001
+0001337 pacote 274 removido de 000 na secao 001
+0001337 pacote 274 em transito de 000 para 001
+0001337 pacote 275 em transito de 000 para 001
+0001337 DEBUG: Próximo destino 5 NORMAL
+0001337 pacote 296 manteve rota (destino não congestionado)
+0001337 pacote 296 armazenado em 003 na secao 004
+0001344 DEBUG: Próximo destino 7 NORMAL
+0001344 pacote 297 manteve rota (destino não congestionado)
+0001344 pacote 297 armazenado em 005 na secao 006
+0001346 pacote 256 removido de 001 na secao 002
+0001346 pacote 256 em transito de 001 para 002
+0001347 pacote 297 removido de 005 na secao 006
+0001348 pacote 286 removido de 005 na secao 006
+0001349 pacote 278 removido de 005 na secao 006
+0001350 pacote 277 removido de 005 na secao 006
+0001350 pacote 277 em transito de 005 para 006
+0001350 pacote 278 em transito de 005 para 006
+0001350 pacote 286 em transito de 005 para 006
+0001350 pacote 297 em transito de 005 para 006
+0001347 DEBUG: Próximo destino 7 NORMAL
+0001347 pacote 298 manteve rota (destino não congestionado)
+0001347 pacote 298 armazenado em 001 na secao 006
+0001347 DEBUG: Próximo destino 7 NORMAL
+0001347 pacote 299 manteve rota (destino não congestionado)
+0001347 pacote 299 armazenado em 001 na secao 006
+0001352 pacote 293 removido de 000 na secao 002
+0001352 pacote 293 em transito de 000 para 002
+0001352 pacote 281 removido de 006 na secao 007
+0001353 pacote 279 removido de 006 na secao 007
+0001354 pacote 263 removido de 006 na secao 007
+0001355 pacote 272 removido de 006 na secao 007
+0001356 pacote 255 removido de 006 na secao 007
+0001357 pacote 252 removido de 006 na secao 007
+0001357 pacote 252 em transito de 006 para 007
+0001357 pacote 255 em transito de 006 para 007
+0001357 pacote 272 em transito de 006 para 007
+0001357 pacote 263 em transito de 006 para 007
+0001357 pacote 279 em transito de 006 para 007
+0001357 pacote 281 rearmazenado em 006 na secao 007
+0001353 DEBUG: Próximo destino 8 NORMAL
+0001353 pacote 300 manteve rota (destino não congestionado)
+0001353 pacote 300 armazenado em 006 na secao 007
+0001354 DEBUG: Próximo destino 1 NORMAL
+0001354 pacote 301 manteve rota (destino não congestionado)
+0001354 pacote 301 armazenado em 002 na secao 000
+0001357 pacote 274 entregue em 001
+0001357 pacote 275 entregue em 001
+0001360 pacote 296 removido de 003 na secao 004
+0001361 pacote 289 removido de 003 na secao 004
+0001362 pacote 288 removido de 003 na secao 004
+0001362 pacote 288 em transito de 003 para 004
+0001362 pacote 289 em transito de 003 para 004
+0001362 pacote 296 em transito de 003 para 004
+0001360 pacote 280 removido de 005 na secao 001
+0001360 pacote 280 em transito de 005 para 001
+0001363 pacote 299 removido de 001 na secao 006
+0001364 pacote 298 removido de 001 na secao 006
+0001365 pacote 291 removido de 001 na secao 006
+0001366 pacote 285 removido de 001 na secao 006
+0001367 pacote 282 removido de 001 na secao 006
+0001367 pacote 282 em transito de 001 para 006
+0001367 pacote 285 em transito de 001 para 006
+0001367 pacote 291 em transito de 001 para 006
+0001367 pacote 298 em transito de 001 para 006
+0001367 pacote 299 em transito de 001 para 006
+0001363 DEBUG: Próximo destino 4 NORMAL
+0001363 pacote 302 manteve rota (destino não congestionado)
+0001363 pacote 302 armazenado em 005 na secao 003
+0001364 DEBUG: Próximo destino 4 NORMAL
+0001364 pacote 303 manteve rota (destino não congestionado)
+0001364 pacote 303 armazenado em 000 na secao 003
+0001366 pacote 256 entregue em 002
+0001368 DEBUG: Próximo destino 6 NORMAL
+0001368 pacote 304 manteve rota (destino não congestionado)
+0001368 pacote 304 armazenado em 000 na secao 005
+0001370 pacote 277 entregue em 006
+0001370 DEBUG: Próximo destino 8 NORMAL
+0001370 pacote 278 manteve rota (destino não congestionado)
+0001370 pacote 278 armazenado em 006 na secao 007
+0001370 pacote 286 entregue em 006
+0001370 DEBUG: Próximo destino 8 NORMAL
+0001370 pacote 297 manteve rota (destino não congestionado)
+0001370 pacote 297 armazenado em 006 na secao 007
+0001373 pacote 271 removido de 000 na secao 006
+0001374 pacote 266 removido de 000 na secao 006
+0001374 pacote 266 em transito de 000 para 006
+0001374 pacote 271 em transito de 000 para 006
+0001372 pacote 293 entregue em 002
+0001373 pacote 284 removido de 001 na secao 000
+0001373 pacote 284 em transito de 001 para 000
+0001375 pacote 302 removido de 005 na secao 003
+0001376 pacote 292 removido de 005 na secao 003
+0001376 pacote 292 em transito de 005 para 003
+0001376 pacote 302 em transito de 005 para 003
+0001377 pacote 252 entregue em 007
+0001377 DEBUG: Próximo destino 1 NORMAL
+0001377 pacote 255 manteve rota (destino não congestionado)
+0001377 pacote 255 armazenado em 007 na secao 000
+0001377 pacote 263 entregue em 007
+0001377 pacote 272 entregue em 007
+0001377 pacote 279 entregue em 007
+0001377 DEBUG: Próximo destino 4 NORMAL
+0001377 pacote 305 manteve rota (destino não congestionado)
+0001377 pacote 305 armazenado em 005 na secao 003
+0001380 pacote 290 removido de 004 na secao 000
+0001380 pacote 290 em transito de 004 para 000
+0001380 pacote 280 entregue em 001
+0001382 DEBUG: Próximo destino 7 NORMAL
+0001382 pacote 288 manteve rota (destino não congestionado)
+0001382 pacote 288 armazenado em 004 na secao 006
+0001382 pacote 289 entregue em 004
+0001382 DEBUG: Próximo destino 7 NORMAL
+0001382 pacote 296 manteve rota (destino não congestionado)
+0001382 pacote 296 armazenado em 004 na secao 006
+0001386 DEBUG: Próximo destino 4 NORMAL
+0001386 pacote 306 manteve rota (destino não congestionado)
+0001386 pacote 306 armazenado em 002 na secao 003
+0001387 pacote 282 entregue em 006
+0001387 DEBUG: Próximo destino 8 NORMAL
+0001387 pacote 285 manteve rota (destino não congestionado)
+0001387 pacote 285 armazenado em 006 na secao 007
+0001387 DEBUG: Próximo destino 8 CONGESTIONADO
+0001387 DEBUG: Pacote 291 rota original: 8 (tam: 1)
+0001387 DEBUG: Pacote 291 nova rota: 7->8 (tam: 2)
+0001387 DEBUG: Removido origem 7 da nova rota
+0001387 pacote 291 manteve rota original (IGUAL)
+0001387 pacote 291 armazenado em 006 na secao 007
+0001387 DEBUG: Próximo destino 8 CONGESTIONADO
+0001387 DEBUG: Pacote 298 rota original: 8 (tam: 1)
+0001387 DEBUG: Pacote 298 nova rota: 7->8 (tam: 2)
+0001387 DEBUG: Removido origem 7 da nova rota
+0001387 pacote 298 manteve rota original (IGUAL)
+0001387 pacote 298 armazenado em 006 na secao 007
+0001387 DEBUG: Próximo destino 8 CONGESTIONADO
+0001387 DEBUG: Pacote 299 rota original: 8 (tam: 1)
+0001387 DEBUG: Pacote 299 nova rota: 7->8 (tam: 2)
+0001387 DEBUG: Removido origem 7 da nova rota
+0001387 pacote 299 manteve rota original (IGUAL)
+0001387 pacote 299 armazenado em 006 na secao 007
+0001393 pacote 284 entregue em 000
+0001393 DEBUG: Próximo destino 4 NORMAL
+0001393 pacote 307 manteve rota (destino não congestionado)
+0001393 pacote 307 armazenado em 006 na secao 003
+0001394 pacote 266 entregue em 006
+0001394 pacote 271 entregue em 006
+0001395 pacote 301 removido de 002 na secao 000
+0001396 pacote 295 removido de 002 na secao 000
+0001396 pacote 295 em transito de 002 para 000
+0001396 pacote 301 em transito de 002 para 000
+0001396 pacote 292 entregue em 003
+0001396 pacote 302 entregue em 003
+0001400 DEBUG: Próximo destino 3 NORMAL
+0001400 pacote 290 manteve rota (destino não congestionado)
+0001400 pacote 290 armazenado em 000 na secao 002
+0001400 DEBUG: Próximo destino 5 NORMAL
+0001400 pacote 308 manteve rota (destino não congestionado)
+0001400 pacote 308 armazenado em 003 na secao 004
+0001402 DEBUG: Próximo destino 1 NORMAL
+0001402 pacote 309 manteve rota (destino não congestionado)
+0001402 pacote 309 armazenado em 002 na secao 000
+0001406 pacote 255 removido de 007 na secao 000
+0001407 pacote 294 removido de 007 na secao 000
+0001408 pacote 283 removido de 007 na secao 000
+0001409 pacote 264 removido de 007 na secao 000
+0001410 pacote 260 removido de 007 na secao 000
+0001410 pacote 260 em transito de 007 para 000
+0001410 pacote 264 em transito de 007 para 000
+0001410 pacote 283 em transito de 007 para 000
+0001410 pacote 294 em transito de 007 para 000
+0001410 pacote 255 em transito de 007 para 000
+0001407 pacote 296 removido de 004 na secao 006
+0001408 pacote 288 removido de 004 na secao 006
+0001408 pacote 288 em transito de 004 para 006
+0001408 pacote 296 em transito de 004 para 006
+0001407 DEBUG: Próximo destino 1 NORMAL
+0001407 pacote 310 manteve rota (destino não congestionado)
+0001407 pacote 310 armazenado em 007 na secao 000
+0001409 pacote 268 removido de 000 na secao 004
+0001410 pacote 267 removido de 000 na secao 004
+0001411 pacote 270 removido de 000 na secao 004
+0001411 pacote 270 em transito de 000 para 004
+0001411 pacote 267 em transito de 000 para 004
+0001411 pacote 268 em transito de 000 para 004
+0001410 DEBUG: Próximo destino 1 NORMAL
+0001410 pacote 311 manteve rota (destino não congestionado)
+0001410 pacote 311 armazenado em 007 na secao 000
+0001415 DEBUG: Próximo destino 5 NORMAL
+0001415 pacote 312 manteve rota (destino não congestionado)
+0001415 pacote 312 armazenado em 000 na secao 004
+0001416 DEBUG: Próximo destino 5 NORMAL
+0001416 pacote 295 manteve rota (destino não congestionado)
+0001416 pacote 295 armazenado em 000 na secao 004
+0001416 DEBUG: Próximo destino 6 NORMAL
+0001416 pacote 301 manteve rota (destino não congestionado)
+0001416 pacote 301 armazenado em 000 na secao 005
+0001417 DEBUG: Próximo destino 2 NORMAL
+0001417 pacote 313 manteve rota (destino não congestionado)
+0001417 pacote 313 armazenado em 003 na secao 001
+0001418 pacote 306 removido de 002 na secao 003
+0001418 pacote 306 em transito de 002 para 003
+0001419 DEBUG: Próximo destino 1 NORMAL
+0001419 pacote 314 manteve rota (destino não congestionado)
+0001419 pacote 314 armazenado em 007 na secao 000
+0001423 DEBUG: Próximo destino 5 NORMAL
+0001423 pacote 315 manteve rota (destino não congestionado)
+0001423 pacote 315 armazenado em 003 na secao 004
+0001423 DEBUG: Próximo destino 4 NORMAL
+0001423 pacote 316 manteve rota (destino não congestionado)
+0001423 pacote 316 armazenado em 002 na secao 003
+0001427 pacote 303 removido de 000 na secao 003
+0001427 pacote 303 em transito de 000 para 003
+0001428 DEBUG: Próximo destino 8 CONGESTIONADO
+0001428 DEBUG: Pacote 288 rota original: 8 (tam: 1)
+0001428 DEBUG: Pacote 288 nova rota: 7->8 (tam: 2)
+0001428 DEBUG: Removido origem 7 da nova rota
+0001428 pacote 288 manteve rota original (IGUAL)
+0001428 pacote 288 armazenado em 006 na secao 007
+0001428 DEBUG: Próximo destino 8 CONGESTIONADO
+0001428 DEBUG: Pacote 296 rota original: 8 (tam: 1)
+0001428 DEBUG: Pacote 296 nova rota: 7->8 (tam: 2)
+0001428 DEBUG: Removido origem 7 da nova rota
+0001428 pacote 296 manteve rota original (IGUAL)
+0001428 pacote 296 armazenado em 006 na secao 007
+0001430 pacote 255 entregue em 000
+0001430 pacote 260 entregue em 000
+0001430 DEBUG: Próximo destino 6 NORMAL
+0001430 pacote 264 manteve rota (destino não congestionado)
+0001430 pacote 264 armazenado em 000 na secao 005
+0001430 DEBUG: Próximo destino 3 NORMAL
+0001430 pacote 283 manteve rota (destino não congestionado)
+0001430 pacote 283 armazenado em 000 na secao 002
+0001430 DEBUG: Próximo destino 4 NORMAL
+0001430 pacote 294 manteve rota (destino não congestionado)
+0001430 pacote 294 armazenado em 000 na secao 003
+0001431 pacote 267 entregue em 004
+0001431 pacote 268 entregue em 004
+0001431 pacote 270 entregue em 004
+0001432 DEBUG: Próximo destino 1 NORMAL
+0001432 pacote 317 manteve rota (destino não congestionado)
+0001432 pacote 317 armazenado em 007 na secao 000
+0001436 DEBUG: Próximo destino 7 NORMAL
+0001436 pacote 318 manteve rota (destino não congestionado)
+0001436 pacote 318 armazenado em 000 na secao 006
+0001438 DEBUG: Próximo destino 2 NORMAL
+0001438 pacote 306 manteve rota (destino não congestionado)
+0001438 pacote 306 armazenado em 003 na secao 001
+0001441 DEBUG: Próximo destino 7 NORMAL
+0001441 pacote 319 manteve rota (destino não congestionado)
+0001441 pacote 319 armazenado em 005 na secao 006
+0001444 DEBUG: Próximo destino 1 NORMAL
+0001444 pacote 320 manteve rota (destino não congestionado)
+0001444 pacote 320 armazenado em 002 na secao 000
+0001447 pacote 319 removido de 005 na secao 006
+0001447 pacote 319 em transito de 005 para 006
+0001448 pacote 264 removido de 000 na secao 005
+0001449 pacote 301 removido de 000 na secao 005
+0001450 pacote 304 removido de 000 na secao 005
+0001450 pacote 304 em transito de 000 para 005
+0001450 pacote 301 em transito de 000 para 005
+0001450 pacote 264 em transito de 000 para 005
+0001447 pacote 303 entregue em 003
+0001448 DEBUG: Próximo destino 6 NORMAL
+0001448 pacote 321 manteve rota (destino não congestionado)
+0001448 pacote 321 armazenado em 000 na secao 005
+0001452 pacote 283 removido de 000 na secao 002
+0001453 pacote 290 removido de 000 na secao 002
+0001453 pacote 290 em transito de 000 para 002
+0001453 pacote 283 em transito de 000 para 002
+0001452 pacote 296 removido de 006 na secao 007
+0001453 pacote 288 removido de 006 na secao 007
+0001454 pacote 299 removido de 006 na secao 007
+0001455 pacote 298 removido de 006 na secao 007
+0001456 pacote 291 removido de 006 na secao 007
+0001457 pacote 285 removido de 006 na secao 007
+0001458 pacote 297 removido de 006 na secao 007
+0001459 pacote 278 removido de 006 na secao 007
+0001460 pacote 300 removido de 006 na secao 007
+0001461 pacote 281 removido de 006 na secao 007
+0001461 pacote 281 em transito de 006 para 007
+0001461 pacote 300 em transito de 006 para 007
+0001461 pacote 278 em transito de 006 para 007
+0001461 pacote 297 em transito de 006 para 007
+0001461 pacote 285 em transito de 006 para 007
+0001461 pacote 291 rearmazenado em 006 na secao 007
+0001461 pacote 298 rearmazenado em 006 na secao 007
+0001461 pacote 299 rearmazenado em 006 na secao 007
+0001461 pacote 288 rearmazenado em 006 na secao 007
+0001461 pacote 296 rearmazenado em 006 na secao 007
+0001455 DEBUG: Próximo destino 8 CONGESTIONADO
+0001455 DEBUG: Pacote 322 rota original: 8->1->6 (tam: 3)
+0001455 DEBUG: Pacote 322 nova rota: 7->8->1->6 (tam: 4)
+0001455 DEBUG: Removido origem 7 da nova rota
+0001455 pacote 322 manteve rota original (IGUAL)
+0001455 pacote 322 armazenado em 006 na secao 007
+0001460 pacote 315 removido de 003 na secao 004
+0001461 pacote 308 removido de 003 na secao 004
+0001461 pacote 308 em transito de 003 para 004
+0001461 pacote 315 em transito de 003 para 004
+0001462 DEBUG: Próximo destino 3 NORMAL
+0001462 pacote 323 manteve rota (destino não congestionado)
+0001462 pacote 323 armazenado em 000 na secao 002
+0001467 pacote 319 entregue em 006
+0001467 DEBUG: Próximo destino 1 NORMAL
+0001467 pacote 324 manteve rota (destino não congestionado)
+0001467 pacote 324 armazenado em 002 na secao 000
+0001467 DEBUG: Próximo destino 5 NORMAL
+0001467 pacote 325 manteve rota (destino não congestionado)
+0001467 pacote 325 armazenado em 003 na secao 004
+0001470 pacote 264 entregue em 005
+0001470 pacote 301 entregue em 005
+0001470 pacote 304 entregue em 005
+0001473 pacote 318 removido de 000 na secao 006
+0001473 pacote 318 em transito de 000 para 006
+0001473 pacote 283 entregue em 002
+0001473 pacote 290 entregue em 002
+0001475 pacote 305 removido de 005 na secao 003
+0001475 pacote 305 em transito de 005 para 003
+0001475 DEBUG: Próximo destino 1 NORMAL
+0001475 pacote 326 manteve rota (destino não congestionado)
+0001475 pacote 326 armazenado em 004 na secao 000
+0001475 DEBUG: Próximo destino 5 NORMAL
+0001475 pacote 327 manteve rota (destino não congestionado)
+0001475 pacote 327 armazenado em 003 na secao 004
+0001479 DEBUG: Próximo destino 4 NORMAL
+0001479 pacote 328 manteve rota (destino não congestionado)
+0001479 pacote 328 armazenado em 002 na secao 003
+0001480 pacote 326 removido de 004 na secao 000
+0001480 pacote 326 em transito de 004 para 000
+0001481 DEBUG: Próximo destino 1 NORMAL
+0001481 pacote 278 manteve rota (destino não congestionado)
+0001481 pacote 278 armazenado em 007 na secao 000
+0001481 pacote 281 entregue em 007
+0001481 pacote 285 entregue em 007
+0001481 DEBUG: Próximo destino 1 CONGESTIONADO
+0001481 DEBUG: Pacote 297 rota original: 1 (tam: 1)
+0001481 DEBUG: Pacote 297 nova rota: 8->1 (tam: 2)
+0001481 DEBUG: Removido origem 8 da nova rota
+0001481 pacote 297 manteve rota original (IGUAL)
+0001481 pacote 297 armazenado em 007 na secao 000
+0001481 DEBUG: Próximo destino 1 CONGESTIONADO
+0001481 DEBUG: Pacote 300 rota original: 1->5 (tam: 2)
+0001481 DEBUG: Pacote 300 nova rota: 8->1->5 (tam: 3)
+0001481 DEBUG: Removido origem 8 da nova rota
+0001481 pacote 300 manteve rota original (IGUAL)
+0001481 pacote 300 armazenado em 007 na secao 000
+0001481 DEBUG: Próximo destino 6 NORMAL
+0001481 pacote 308 manteve rota (destino não congestionado)
+0001481 pacote 308 armazenado em 004 na secao 005
+0001481 DEBUG: Próximo destino 1 NORMAL
+0001481 pacote 315 manteve rota (destino não congestionado)
+0001481 pacote 315 armazenado em 004 na secao 000
+0001483 pacote 307 removido de 006 na secao 003
+0001483 pacote 307 em transito de 006 para 003
+0001488 DEBUG: Próximo destino 4 NORMAL
+0001488 pacote 329 manteve rota (destino não congestionado)
+0001488 pacote 329 armazenado em 000 na secao 003
+0001493 DEBUG: Próximo destino 8 CONGESTIONADO
+0001493 DEBUG: Pacote 318 rota original: 8 (tam: 1)
+0001493 DEBUG: Pacote 318 nova rota: 7->8 (tam: 2)
+0001493 DEBUG: Removido origem 7 da nova rota
+0001493 pacote 318 manteve rota original (IGUAL)
+0001493 pacote 318 armazenado em 006 na secao 007
+0001494 DEBUG: Próximo destino 1 NORMAL
+0001494 pacote 330 manteve rota (destino não congestionado)
+0001494 pacote 330 armazenado em 001 na secao 000
+0001495 pacote 324 removido de 002 na secao 000
+0001496 pacote 320 removido de 002 na secao 000
+0001497 pacote 309 removido de 002 na secao 000
+0001497 pacote 309 em transito de 002 para 000
+0001497 pacote 320 em transito de 002 para 000
+0001497 pacote 324 em transito de 002 para 000
+0001495 pacote 305 entregue em 003
+0001499 pacote 306 removido de 003 na secao 001
+0001500 pacote 313 removido de 003 na secao 001
+0001500 pacote 313 em transito de 003 para 001
+0001500 pacote 306 em transito de 003 para 001
+0001500 DEBUG: Próximo destino 4 NORMAL
+0001500 pacote 326 manteve rota (destino não congestionado)
+0001500 pacote 326 armazenado em 000 na secao 003
+0001501 DEBUG: Próximo destino 1 NORMAL
+0001501 pacote 331 manteve rota (destino não congestionado)
+0001501 pacote 331 armazenado em 002 na secao 000
+0001503 pacote 307 entregue em 003
+0001506 pacote 300 removido de 007 na secao 000
+0001507 pacote 297 removido de 007 na secao 000
+0001508 pacote 278 removido de 007 na secao 000
+0001509 pacote 317 removido de 007 na secao 000
+0001510 pacote 314 removido de 007 na secao 000
+0001511 pacote 311 removido de 007 na secao 000
+0001512 pacote 310 removido de 007 na secao 000
+0001512 pacote 310 em transito de 007 para 000
+0001512 pacote 311 em transito de 007 para 000
+0001512 pacote 314 em transito de 007 para 000
+0001512 pacote 317 em transito de 007 para 000
+0001512 pacote 278 em transito de 007 para 000
+0001512 pacote 297 rearmazenado em 007 na secao 000
+0001512 pacote 300 rearmazenado em 007 na secao 000
+0001509 pacote 295 removido de 000 na secao 004
+0001510 pacote 312 removido de 000 na secao 004
+0001510 pacote 312 em transito de 000 para 004
+0001510 pacote 295 em transito de 000 para 004
+0001508 DEBUG: Próximo destino 1 NORMAL
+0001508 pacote 332 manteve rota (destino não congestionado)
+0001508 pacote 332 armazenado em 002 na secao 000
+0001510 DEBUG: Próximo destino 1 NORMAL
+0001510 pacote 333 manteve rota (destino não congestionado)
+0001510 pacote 333 armazenado em 004 na secao 000
+0001517 DEBUG: Próximo destino 6 NORMAL
+0001517 pacote 309 manteve rota (destino não congestionado)
+0001517 pacote 309 armazenado em 000 na secao 005
+0001517 DEBUG: Próximo destino 5 NORMAL
+0001517 pacote 320 manteve rota (destino não congestionado)
+0001517 pacote 320 armazenado em 000 na secao 004
+0001517 pacote 324 entregue em 000
+0001518 pacote 328 removido de 002 na secao 003
+0001519 pacote 316 removido de 002 na secao 003
+0001519 pacote 316 em transito de 002 para 003
+0001519 pacote 328 em transito de 002 para 003
+0001519 DEBUG: Próximo destino 5 NORMAL
+0001519 pacote 334 manteve rota (destino não congestionado)
+0001519 pacote 334 armazenado em 003 na secao 004
+0001519 DEBUG: Próximo destino 1 NORMAL
+0001519 pacote 335 manteve rota (destino não congestionado)
+0001519 pacote 335 armazenado em 002 na secao 000
+0001520 pacote 306 entregue em 001
+0001520 pacote 313 entregue em 001
+0001527 pacote 326 removido de 000 na secao 003
+0001528 pacote 329 removido de 000 na secao 003
+0001529 pacote 294 removido de 000 na secao 003
+0001529 pacote 294 em transito de 000 para 003
+0001529 pacote 329 em transito de 000 para 003
+0001529 pacote 326 em transito de 000 para 003
+0001527 DEBUG: Próximo destino 7 NORMAL
+0001527 pacote 336 manteve rota (destino não congestionado)
+0001527 pacote 336 armazenado em 004 na secao 006
+0001530 pacote 295 entregue em 004
+0001530 pacote 312 entregue em 004
+0001532 pacote 278 entregue em 000
+0001532 DEBUG: Próximo destino 2 NORMAL
+0001532 pacote 310 manteve rota (destino não congestionado)
+0001532 pacote 310 armazenado em 000 na secao 001
+0001532 DEBUG: Próximo destino 7 NORMAL
+0001532 pacote 311 manteve rota (destino não congestionado)
+0001532 pacote 311 armazenado em 000 na secao 006
+0001532 DEBUG: Próximo destino 7 NORMAL
+0001532 pacote 314 manteve rota (destino não congestionado)
+0001532 pacote 314 armazenado em 000 na secao 006
+0001532 pacote 317 entregue em 000
+0001534 DEBUG: Próximo destino 2 NORMAL
+0001534 pacote 337 manteve rota (destino não congestionado)
+0001534 pacote 337 armazenado em 006 na secao 001
+0001536 pacote 310 removido de 000 na secao 001
+0001536 pacote 310 em transito de 000 para 001
+0001539 DEBUG: Próximo destino 2 NORMAL
+0001539 pacote 316 manteve rota (destino não congestionado)
+0001539 pacote 316 armazenado em 003 na secao 001
+0001539 pacote 328 entregue em 003
+0001543 DEBUG: Próximo destino 1 NORMAL
+0001543 pacote 338 manteve rota (destino não congestionado)
+0001543 pacote 338 armazenado em 004 na secao 000
+0001545 DEBUG: Próximo destino 5 NORMAL
+0001545 pacote 339 manteve rota (destino não congestionado)
+0001545 pacote 339 armazenado em 003 na secao 004
+0001548 pacote 309 removido de 000 na secao 005
+0001549 pacote 321 removido de 000 na secao 005
+0001549 pacote 321 em transito de 000 para 005
+0001549 pacote 309 em transito de 000 para 005
+0001547 DEBUG: Próximo destino 3 NORMAL
+0001547 pacote 340 manteve rota (destino não congestionado)
+0001547 pacote 340 armazenado em 001 na secao 002
+0001549 pacote 294 entregue em 003
+0001549 pacote 326 entregue em 003
+0001549 pacote 329 entregue em 003
+0001550 DEBUG: Próximo destino 7 NORMAL
+0001550 pacote 341 manteve rota (destino não congestionado)
+0001550 pacote 341 armazenado em 005 na secao 006
+0001552 pacote 323 removido de 000 na secao 002
+0001552 pacote 323 em transito de 000 para 002
+0001552 pacote 318 removido de 006 na secao 007
+0001553 pacote 322 removido de 006 na secao 007
+0001554 pacote 296 removido de 006 na secao 007
+0001555 pacote 288 removido de 006 na secao 007
+0001556 pacote 299 removido de 006 na secao 007
+0001557 pacote 298 removido de 006 na secao 007
+0001558 pacote 291 removido de 006 na secao 007
+0001558 pacote 291 em transito de 006 para 007
+0001558 pacote 298 em transito de 006 para 007
+0001558 pacote 299 em transito de 006 para 007
+0001558 pacote 288 em transito de 006 para 007
+0001558 pacote 296 em transito de 006 para 007
+0001558 pacote 322 rearmazenado em 006 na secao 007
+0001558 pacote 318 rearmazenado em 006 na secao 007
+0001553 DEBUG: Próximo destino 2 NORMAL
+0001553 pacote 342 manteve rota (destino não congestionado)
+0001553 pacote 342 armazenado em 005 na secao 001
+0001553 DEBUG: Próximo destino 5 NORMAL
+0001553 pacote 343 manteve rota (destino não congestionado)
+0001553 pacote 343 armazenado em 003 na secao 004
+0001554 DEBUG: Próximo destino 8 NORMAL
+0001554 pacote 344 manteve rota (destino não congestionado)
+0001554 pacote 344 armazenado em 006 na secao 007
+0001556 pacote 310 entregue em 001
+0001558 DEBUG: Próximo destino 3 NORMAL
+0001558 pacote 345 manteve rota (destino não congestionado)
+0001558 pacote 345 armazenado em 003 na secao 002
+0001560 pacote 343 removido de 003 na secao 004
+0001561 pacote 339 removido de 003 na secao 004
+0001562 pacote 334 removido de 003 na secao 004
+0001563 pacote 327 removido de 003 na secao 004
+0001564 pacote 325 removido de 003 na secao 004
+0001564 pacote 325 em transito de 003 para 004
+0001564 pacote 327 em transito de 003 para 004
+0001564 pacote 334 em transito de 003 para 004
+0001564 pacote 339 em transito de 003 para 004
+0001564 pacote 343 em transito de 003 para 004
+0001560 pacote 342 removido de 005 na secao 001
+0001560 pacote 342 em transito de 005 para 001
+0001561 DEBUG: Próximo destino 8 NORMAL
+0001561 pacote 346 manteve rota (destino não congestionado)
+0001561 pacote 346 armazenado em 002 na secao 007
+0001563 DEBUG: Próximo destino 2 NORMAL
+0001563 pacote 347 manteve rota (destino não congestionado)
+0001563 pacote 347 armazenado em 005 na secao 001
+0001563 DEBUG: Próximo destino 7 NORMAL
+0001563 pacote 348 manteve rota (destino não congestionado)
+0001563 pacote 348 armazenado em 005 na secao 006
+0001565 DEBUG: Próximo destino 4 NORMAL
+0001565 pacote 349 manteve rota (destino não congestionado)
+0001565 pacote 349 armazenado em 002 na secao 003
+0001566 DEBUG: Próximo destino 1 NORMAL
+0001566 pacote 350 manteve rota (destino não congestionado)
+0001566 pacote 350 armazenado em 004 na secao 000
+0001569 pacote 309 entregue em 005
+0001569 pacote 321 entregue em 005
+0001573 pacote 314 removido de 000 na secao 006
+0001574 pacote 311 removido de 000 na secao 006
+0001574 pacote 311 em transito de 000 para 006
+0001574 pacote 314 em transito de 000 para 006
+0001572 pacote 323 entregue em 002
+0001573 pacote 330 removido de 001 na secao 000
+0001573 pacote 330 em transito de 001 para 000
+0001573 pacote 308 removido de 004 na secao 005
+0001573 pacote 308 em transito de 004 para 005
+0001573 DEBUG: Próximo destino 1 NORMAL
+0001573 pacote 351 manteve rota (destino não congestionado)
+0001573 pacote 351 armazenado em 004 na secao 000
+0001573 DEBUG: Próximo destino 8 NORMAL
+0001573 pacote 352 manteve rota (destino não congestionado)
+0001573 pacote 352 armazenado em 002 na secao 007
+0001578 pacote 345 removido de 003 na secao 002
+0001578 pacote 345 em transito de 003 para 002
+0001578 pacote 288 entregue em 007
+0001578 pacote 291 entregue em 007
+0001578 pacote 296 entregue em 007
+0001578 pacote 298 entregue em 007
+0001578 pacote 299 entregue em 007
+0001579 DEBUG: Próximo destino 3 NORMAL
+0001579 pacote 353 manteve rota (destino não congestionado)
+0001579 pacote 353 armazenado em 000 na secao 002
+0001580 pacote 351 removido de 004 na secao 000
+0001581 pacote 350 removido de 004 na secao 000
+0001582 pacote 338 removido de 004 na secao 000
+0001583 pacote 333 removido de 004 na secao 000
+0001584 pacote 315 removido de 004 na secao 000
+0001584 pacote 315 em transito de 004 para 000
+0001584 pacote 333 em transito de 004 para 000
+0001584 pacote 338 em transito de 004 para 000
+0001584 pacote 350 em transito de 004 para 000
+0001584 pacote 351 em transito de 004 para 000
+0001580 DEBUG: Próximo destino 3 NORMAL
+0001580 pacote 342 manteve rota (destino não congestionado)
+0001580 pacote 342 armazenado em 001 na secao 002
+0001584 pacote 325 entregue em 004
+0001584 DEBUG: Próximo destino 1 NORMAL
+0001584 pacote 327 manteve rota (destino não congestionado)
+0001584 pacote 327 armazenado em 004 na secao 000
+0001584 DEBUG: Próximo destino 1 NORMAL
+0001584 pacote 334 manteve rota (destino não congestionado)
+0001584 pacote 334 armazenado em 004 na secao 000
+0001584 pacote 339 entregue em 004
+0001584 pacote 343 entregue em 004
+0001585 DEBUG: Próximo destino 1 NORMAL
+0001585 pacote 354 manteve rota (destino não congestionado)
+0001585 pacote 354 armazenado em 007 na secao 000
+0001589 DEBUG: Próximo destino 7 NORMAL
+0001589 pacote 355 manteve rota (destino não congestionado)
+0001589 pacote 355 armazenado em 001 na secao 006
+0001589 DEBUG: Próximo destino 5 NORMAL
+0001589 pacote 356 manteve rota (destino não congestionado)
+0001589 pacote 356 armazenado em 003 na secao 004
+0001592 DEBUG: Próximo destino 5 NORMAL
+0001592 pacote 357 manteve rota (destino não congestionado)
+0001592 pacote 357 armazenado em 001 na secao 004
+0001593 pacote 308 entregue em 005
+0001593 pacote 330 entregue em 000
+0001594 pacote 311 entregue em 006
+0001594 pacote 314 entregue em 006
+0001595 pacote 335 removido de 002 na secao 000
+0001596 pacote 332 removido de 002 na secao 000
+0001597 pacote 331 removido de 002 na secao 000
+0001597 pacote 331 em transito de 002 para 000
+0001597 pacote 332 em transito de 002 para 000
+0001597 pacote 335 em transito de 002 para 000
+0001598 pacote 345 entregue em 002
+0001598 DEBUG: Próximo destino 8 NORMAL
+0001598 pacote 358 manteve rota (destino não congestionado)
+0001598 pacote 358 armazenado em 002 na secao 007
+0001599 pacote 316 removido de 003 na secao 001
+0001599 pacote 316 em transito de 003 para 001
+0001601 pacote 337 removido de 006 na secao 001
+0001601 pacote 337 em transito de 006 para 001
+0001604 pacote 315 entregue em 000
+0001604 DEBUG: Próximo destino 4 NORMAL
+0001604 pacote 333 manteve rota (destino não congestionado)
+0001604 pacote 333 armazenado em 000 na secao 003
+0001604 DEBUG: Próximo destino 3 NORMAL
+0001604 pacote 338 manteve rota (destino não congestionado)
+0001604 pacote 338 armazenado em 000 na secao 002
+0001604 DEBUG: Próximo destino 2 NORMAL
+0001604 pacote 350 manteve rota (destino não congestionado)
+0001604 pacote 350 armazenado em 000 na secao 001
+0001604 DEBUG: Próximo destino 4 NORMAL
+0001604 pacote 351 manteve rota (destino não congestionado)
+0001604 pacote 351 armazenado em 000 na secao 003
+0001606 pacote 354 removido de 007 na secao 000
+0001607 pacote 300 removido de 007 na secao 000
+0001608 pacote 297 removido de 007 na secao 000
+0001608 pacote 297 em transito de 007 para 000
+0001608 pacote 300 em transito de 007 para 000
+0001608 pacote 354 em transito de 007 para 000
+0001607 pacote 336 removido de 004 na secao 006
+0001607 pacote 336 em transito de 004 para 006
+0001607 DEBUG: Próximo destino 2 NORMAL
+0001607 pacote 359 manteve rota (destino não congestionado)
+0001607 pacote 359 armazenado em 005 na secao 001
+0001609 pacote 320 removido de 000 na secao 004
+0001609 pacote 320 em transito de 000 para 004
+0001615 DEBUG: Próximo destino 8 NORMAL
+0001615 pacote 360 manteve rota (destino não congestionado)
+0001615 pacote 360 armazenado em 006 na secao 007
+0001615 DEBUG: Próximo destino 3 NORMAL
+0001615 pacote 361 manteve rota (destino não congestionado)
+0001615 pacote 361 armazenado em 003 na secao 002
+0001617 DEBUG: Próximo destino 7 NORMAL
+0001617 pacote 331 manteve rota (destino não congestionado)
+0001617 pacote 331 armazenado em 000 na secao 006
+0001617 DEBUG: Próximo destino 6 NORMAL
+0001617 pacote 332 manteve rota (destino não congestionado)
+0001617 pacote 332 armazenado em 000 na secao 005
+0001617 pacote 335 entregue em 000
+0001618 pacote 349 removido de 002 na secao 003
+0001618 pacote 349 em transito de 002 para 003
+0001619 pacote 316 entregue em 001
+0001620 pacote 358 removido de 002 na secao 007
+0001621 pacote 352 removido de 002 na secao 007
+0001622 pacote 346 removido de 002 na secao 007
+0001622 pacote 346 em transito de 002 para 007
+0001622 pacote 352 em transito de 002 para 007
+0001622 pacote 358 em transito de 002 para 007
+0001620 DEBUG: Próximo destino 5 NORMAL
+0001620 pacote 362 manteve rota (destino não congestionado)
+0001620 pacote 362 armazenado em 000 na secao 004
+0001621 DEBUG: Próximo destino 3 NORMAL
+0001621 pacote 337 manteve rota (destino não congestionado)
+0001621 pacote 337 armazenado em 001 na secao 002
+0001622 pacote 357 removido de 001 na secao 004
+0001622 pacote 357 em transito de 001 para 004
+0001627 pacote 351 removido de 000 na secao 003
+0001628 pacote 333 removido de 000 na secao 003
+0001628 pacote 333 em transito de 000 para 003
+0001628 pacote 351 em transito de 000 para 003
+0001627 pacote 336 entregue em 006
+0001627 DEBUG: Próximo destino 5 NORMAL
+0001627 pacote 363 manteve rota (destino não congestionado)
+0001627 pacote 363 armazenado em 001 na secao 004
+0001628 pacote 297 entregue em 000
+0001628 DEBUG: Próximo destino 5 NORMAL
+0001628 pacote 300 manteve rota (destino não congestionado)
+0001628 pacote 300 armazenado em 000 na secao 004
+0001628 DEBUG: Próximo destino 4 NORMAL
+0001628 pacote 354 manteve rota (destino não congestionado)
+0001628 pacote 354 armazenado em 000 na secao 003
+0001629 pacote 320 entregue em 004
+0001630 DEBUG: Próximo destino 8 NORMAL
+0001630 pacote 364 manteve rota (destino não congestionado)
+0001630 pacote 364 armazenado em 006 na secao 007
+0001634 DEBUG: Próximo destino 8 CONGESTIONADO
+0001634 DEBUG: Pacote 365 rota original: 8 (tam: 1)
+0001634 DEBUG: Pacote 365 nova rota: 7->8 (tam: 2)
+0001634 DEBUG: Removido origem 7 da nova rota
+0001634 pacote 365 manteve rota original (IGUAL)
+0001634 pacote 365 armazenado em 006 na secao 007
+0001636 pacote 350 removido de 000 na secao 001
+0001636 pacote 350 em transito de 000 para 001
+0001638 pacote 349 entregue em 003
+0001642 pacote 346 entregue em 007
+0001642 pacote 352 entregue em 007
+0001642 pacote 357 entregue em 004
+0001642 pacote 358 entregue em 007
+0001643 DEBUG: Próximo destino 3 NORMAL
+0001643 pacote 366 manteve rota (destino não congestionado)
+0001643 pacote 366 armazenado em 003 na secao 002
+0001646 pacote 337 removido de 001 na secao 002
+0001647 pacote 342 removido de 001 na secao 002
+0001648 pacote 340 removido de 001 na secao 002
+0001648 pacote 340 em transito de 001 para 002
+0001648 pacote 342 em transito de 001 para 002
+0001648 pacote 337 em transito de 001 para 002
+0001647 pacote 348 removido de 005 na secao 006
+0001648 pacote 341 removido de 005 na secao 006
+0001648 pacote 341 em transito de 005 para 006
+0001648 pacote 348 em transito de 005 para 006
+0001648 pacote 332 removido de 000 na secao 005
+0001648 pacote 332 em transito de 000 para 005
+0001648 pacote 333 entregue em 003
+0001648 pacote 351 entregue em 003
+0001650 DEBUG: Próximo destino 1 NORMAL
+0001650 pacote 367 manteve rota (destino não congestionado)
+0001650 pacote 367 armazenado em 007 na secao 000
+0001652 pacote 338 removido de 000 na secao 002
+0001653 pacote 353 removido de 000 na secao 002
+0001653 pacote 353 em transito de 000 para 002
+0001653 pacote 338 em transito de 000 para 002
+0001651 DEBUG: Próximo destino 1 NORMAL
+0001651 pacote 368 manteve rota (destino não congestionado)
+0001651 pacote 368 armazenado em 002 na secao 000
+0001652 pacote 365 removido de 006 na secao 007
+0001653 pacote 364 removido de 006 na secao 007
+0001654 pacote 360 removido de 006 na secao 007
+0001655 pacote 344 removido de 006 na secao 007
+0001656 pacote 318 removido de 006 na secao 007
+0001657 pacote 322 removido de 006 na secao 007
+0001657 pacote 322 em transito de 006 para 007
+0001657 pacote 318 em transito de 006 para 007
+0001657 pacote 344 em transito de 006 para 007
+0001657 pacote 360 em transito de 006 para 007
+0001657 pacote 364 em transito de 006 para 007
+0001657 pacote 365 rearmazenado em 006 na secao 007
+0001656 pacote 350 entregue em 001
+0001657 DEBUG: Próximo destino 7 NORMAL
+0001657 pacote 369 manteve rota (destino não congestionado)
+0001657 pacote 369 armazenado em 004 na secao 006
+0001660 pacote 356 removido de 003 na secao 004
+0001660 pacote 356 em transito de 003 para 004
+0001660 pacote 359 removido de 005 na secao 001
+0001661 pacote 347 removido de 005 na secao 001
+0001661 pacote 347 em transito de 005 para 001
+0001661 pacote 359 em transito de 005 para 001
+0001663 pacote 355 removido de 001 na secao 006
+0001663 pacote 355 em transito de 001 para 006
+0001663 DEBUG: Próximo destino 8 NORMAL
+0001663 pacote 370 manteve rota (destino não congestionado)
+0001663 pacote 370 armazenado em 006 na secao 007
+0001664 DEBUG: Próximo destino 1 NORMAL
+0001664 pacote 371 manteve rota (destino não congestionado)
+0001664 pacote 371 armazenado em 001 na secao 000
+0001668 pacote 332 entregue em 005
+0001668 pacote 337 entregue em 002
+0001668 pacote 340 entregue em 002
+0001668 DEBUG: Próximo destino 8 NORMAL
+0001668 pacote 341 manteve rota (destino não congestionado)
+0001668 pacote 341 armazenado em 006 na secao 007
+0001668 pacote 342 entregue em 002
+0001668 DEBUG: Próximo destino 8 NORMAL
+0001668 pacote 348 manteve rota (destino não congestionado)
+0001668 pacote 348 armazenado em 006 na secao 007
+0001673 pacote 331 removido de 000 na secao 006
+0001673 pacote 331 em transito de 000 para 006
+0001673 pacote 371 removido de 001 na secao 000
+0001673 pacote 371 em transito de 001 para 000
+0001673 pacote 338 entregue em 002
+0001673 pacote 353 entregue em 002
+0001673 DEBUG: Próximo destino 2 NORMAL
+0001673 pacote 372 manteve rota (destino não congestionado)
+0001673 pacote 372 armazenado em 006 na secao 001
+0001674 DEBUG: Próximo destino 2 NORMAL
+0001674 pacote 373 manteve rota (destino não congestionado)
+0001674 pacote 373 armazenado em 005 na secao 001
+0001677 pacote 318 entregue em 007
+0001677 DEBUG: Próximo destino 1 NORMAL
+0001677 pacote 322 manteve rota (destino não congestionado)
+0001677 pacote 322 armazenado em 007 na secao 000
+0001677 DEBUG: Próximo destino 1 NORMAL
+0001677 pacote 344 manteve rota (destino não congestionado)
+0001677 pacote 344 armazenado em 007 na secao 000
+0001677 DEBUG: Próximo destino 1 NORMAL
+0001677 pacote 360 manteve rota (destino não congestionado)
+0001677 pacote 360 armazenado em 007 na secao 000
+0001677 DEBUG: Próximo destino 1 NORMAL
+0001677 pacote 364 manteve rota (destino não congestionado)
+0001677 pacote 364 armazenado em 007 na secao 000
+0001678 pacote 366 removido de 003 na secao 002
+0001679 pacote 361 removido de 003 na secao 002
+0001679 pacote 361 em transito de 003 para 002
+0001679 pacote 366 em transito de 003 para 002
+0001680 pacote 334 removido de 004 na secao 000
+0001681 pacote 327 removido de 004 na secao 000
+0001681 pacote 327 em transito de 004 para 000
+0001681 pacote 334 em transito de 004 para 000
+0001680 pacote 356 entregue em 004
+0001681 DEBUG: Próximo destino 3 NORMAL
+0001681 pacote 347 manteve rota (destino não congestionado)
+0001681 pacote 347 armazenado em 001 na secao 002
+0001681 DEBUG: Próximo destino 3 NORMAL
+0001681 pacote 359 manteve rota (destino não congestionado)
+0001681 pacote 359 armazenado em 001 na secao 002
+0001681 DEBUG: Próximo destino 1 CONGESTIONADO
+0001681 DEBUG: Pacote 374 rota original: 1->6 (tam: 2)
+0001681 DEBUG: Pacote 374 nova rota: 8->1->6 (tam: 3)
+0001681 DEBUG: Removido origem 8 da nova rota
+0001681 pacote 374 manteve rota original (IGUAL)
+0001681 pacote 374 armazenado em 007 na secao 000
+0001683 DEBUG: Próximo destino 8 NORMAL
+0001683 pacote 355 manteve rota (destino não congestionado)
+0001683 pacote 355 armazenado em 006 na secao 007
+0001688 DEBUG: Próximo destino 7 NORMAL
+0001688 pacote 375 manteve rota (destino não congestionado)
+0001688 pacote 375 armazenado em 005 na secao 006
+0001690 DEBUG: Próximo destino 7 NORMAL
+0001690 pacote 376 manteve rota (destino não congestionado)
+0001690 pacote 376 armazenado em 005 na secao 006
+0001693 pacote 331 entregue em 006
+0001693 pacote 371 entregue em 000
+0001695 pacote 368 removido de 002 na secao 000
+0001695 pacote 368 em transito de 002 para 000
+0001696 DEBUG: Próximo destino 1 CONGESTIONADO
+0001696 DEBUG: Pacote 377 rota original: 1->7 (tam: 2)
+0001696 DEBUG: Pacote 377 nova rota: 8->1->7 (tam: 3)
+0001696 DEBUG: Removido origem 8 da nova rota
+0001696 pacote 377 manteve rota original (IGUAL)
+0001696 pacote 377 armazenado em 007 na secao 000
+0001697 DEBUG: Próximo destino 3 NORMAL
+0001697 pacote 378 manteve rota (destino não congestionado)
+0001697 pacote 378 armazenado em 001 na secao 002
+0001698 DEBUG: Próximo destino 1 NORMAL
+0001698 pacote 379 manteve rota (destino não congestionado)
+0001698 pacote 379 armazenado em 004 na secao 000
+0001699 pacote 361 entregue em 002
+0001699 pacote 366 entregue em 002
+0001701 pacote 372 removido de 006 na secao 001
+0001701 pacote 372 em transito de 006 para 001
+0001701 pacote 327 entregue em 000
+0001701 pacote 334 entregue em 000
+0001706 pacote 377 removido de 007 na secao 000
+0001707 pacote 374 removido de 007 na secao 000
+0001708 pacote 364 removido de 007 na secao 000
+0001709 pacote 360 removido de 007 na secao 000
+0001710 pacote 344 removido de 007 na secao 000
+0001711 pacote 322 removido de 007 na secao 000
+0001712 pacote 367 removido de 007 na secao 000
+0001712 pacote 367 em transito de 007 para 000
+0001712 pacote 322 em transito de 007 para 000
+0001712 pacote 344 em transito de 007 para 000
+0001712 pacote 360 em transito de 007 para 000
+0001712 pacote 364 em transito de 007 para 000
+0001712 pacote 374 rearmazenado em 007 na secao 000
+0001712 pacote 377 rearmazenado em 007 na secao 000
+0001707 pacote 369 removido de 004 na secao 006
+0001707 pacote 369 em transito de 004 para 006
+0001707 DEBUG: Próximo destino 2 NORMAL
+0001707 pacote 380 manteve rota (destino não congestionado)
+0001707 pacote 380 armazenado em 003 na secao 001
+0001707 DEBUG: Próximo destino 8 CONGESTIONADO
+0001707 DEBUG: Pacote 381 rota original: 8->1 (tam: 2)
+0001707 DEBUG: Pacote 381 nova rota: 7->8->1 (tam: 3)
+0001707 DEBUG: Removido origem 7 da nova rota
+0001707 pacote 381 manteve rota original (IGUAL)
+0001707 pacote 381 armazenado em 006 na secao 007
+0001709 pacote 300 removido de 000 na secao 004
+0001710 pacote 362 removido de 000 na secao 004
+0001710 pacote 362 em transito de 000 para 004
+0001710 pacote 300 em transito de 000 para 004
+0001713 DEBUG: Próximo destino 1 NORMAL
+0001713 pacote 382 manteve rota (destino não congestionado)
+0001713 pacote 382 armazenado em 002 na secao 000
+0001715 DEBUG: Próximo destino 7 NORMAL
+0001715 pacote 368 manteve rota (destino não congestionado)
+0001715 pacote 368 armazenado em 000 na secao 006
+0001720 DEBUG: Próximo destino 3 NORMAL
+0001720 pacote 383 manteve rota (destino não congestionado)
+0001720 pacote 383 armazenado em 000 na secao 002
+0001721 pacote 372 entregue em 001
+0001721 DEBUG: Próximo destino 1 NORMAL
+0001721 pacote 384 manteve rota (destino não congestionado)
+0001721 pacote 384 armazenado em 001 na secao 000
+0001722 pacote 363 removido de 001 na secao 004
+0001722 pacote 363 em transito de 001 para 004
+0001727 pacote 354 removido de 000 na secao 003
+0001727 pacote 354 em transito de 000 para 003
+0001727 pacote 369 entregue em 006
+0001730 pacote 300 entregue em 004
+0001730 pacote 362 entregue em 004
+0001730 DEBUG: Próximo destino 7 NORMAL
+0001730 pacote 385 manteve rota (destino não congestionado)
+0001730 pacote 385 armazenado em 005 na secao 006
+0001732 DEBUG: Próximo destino 6 NORMAL
+0001732 pacote 322 manteve rota (destino não congestionado)
+0001732 pacote 322 armazenado em 000 na secao 005
+0001732 DEBUG: Próximo destino 5 NORMAL
+0001732 pacote 344 manteve rota (destino não congestionado)
+0001732 pacote 344 armazenado em 000 na secao 004
+0001732 DEBUG: Próximo destino 6 NORMAL
+0001732 pacote 360 manteve rota (destino não congestionado)
+0001732 pacote 360 armazenado em 000 na secao 005
+0001732 DEBUG: Próximo destino 6 NORMAL
+0001732 pacote 364 manteve rota (destino não congestionado)
+0001732 pacote 364 armazenado em 000 na secao 005
+0001732 DEBUG: Próximo destino 2 NORMAL
+0001732 pacote 367 manteve rota (destino não congestionado)
+0001732 pacote 367 armazenado em 000 na secao 001
+0001736 pacote 367 removido de 000 na secao 001
+0001736 pacote 367 em transito de 000 para 001
+0001737 DEBUG: Próximo destino 2 NORMAL
+0001737 pacote 386 manteve rota (destino não congestionado)
+0001737 pacote 386 armazenado em 006 na secao 001
+0001742 pacote 363 entregue em 004
+0001743 DEBUG: Próximo destino 1 NORMAL
+0001743 pacote 387 manteve rota (destino não congestionado)
+0001743 pacote 387 armazenado em 007 na secao 000
+0001743 DEBUG: Próximo destino 3 NORMAL
+0001743 pacote 388 manteve rota (destino não congestionado)
+0001743 pacote 388 armazenado em 001 na secao 002
+0001746 pacote 388 removido de 001 na secao 002
+0001747 pacote 378 removido de 001 na secao 002
+0001748 pacote 359 removido de 001 na secao 002
+0001749 pacote 347 removido de 001 na secao 002
+0001749 pacote 347 em transito de 001 para 002
+0001749 pacote 359 em transito de 001 para 002
+0001749 pacote 378 em transito de 001 para 002
+0001749 pacote 388 em transito de 001 para 002
+0001747 pacote 385 removido de 005 na secao 006
+0001748 pacote 376 removido de 005 na secao 006
+0001749 pacote 375 removido de 005 na secao 006
+0001749 pacote 375 em transito de 005 para 006
+0001749 pacote 376 em transito de 005 para 006
+0001749 pacote 385 em transito de 005 para 006
+0001748 pacote 364 removido de 000 na secao 005
+0001749 pacote 360 removido de 000 na secao 005
+0001750 pacote 322 removido de 000 na secao 005
+0001750 pacote 322 em transito de 000 para 005
+0001750 pacote 360 em transito de 000 para 005
+0001750 pacote 364 em transito de 000 para 005
+0001747 pacote 354 entregue em 003
+0001750 DEBUG: Próximo destino 6 NORMAL
+0001750 pacote 389 manteve rota (destino não congestionado)
+0001750 pacote 389 armazenado em 004 na secao 005
+0001752 pacote 383 removido de 000 na secao 002
+0001752 pacote 383 em transito de 000 para 002
+0001752 pacote 381 removido de 006 na secao 007
+0001753 pacote 355 removido de 006 na secao 007
+0001754 pacote 348 removido de 006 na secao 007
+0001755 pacote 341 removido de 006 na secao 007
+0001756 pacote 370 removido de 006 na secao 007
+0001757 pacote 365 removido de 006 na secao 007
+0001757 pacote 365 em transito de 006 para 007
+0001757 pacote 370 em transito de 006 para 007
+0001757 pacote 341 em transito de 006 para 007
+0001757 pacote 348 em transito de 006 para 007
+0001757 pacote 355 em transito de 006 para 007
+0001757 pacote 381 rearmazenado em 006 na secao 007
+0001756 pacote 367 entregue em 001
+0001759 DEBUG: Próximo destino 4 NORMAL
+0001759 pacote 390 manteve rota (destino não congestionado)
+0001759 pacote 390 armazenado em 002 na secao 003
+0001759 DEBUG: Próximo destino 1 NORMAL
+0001759 pacote 391 manteve rota (destino não congestionado)
+0001759 pacote 391 armazenado em 004 na secao 000
+0001760 pacote 373 removido de 005 na secao 001
+0001760 pacote 373 em transito de 005 para 001
+0001768 DEBUG: Próximo destino 2 NORMAL
+0001768 pacote 392 manteve rota (destino não congestionado)
+0001768 pacote 392 armazenado em 000 na secao 001
+0001769 pacote 347 entregue em 002
+0001769 pacote 359 entregue em 002
+0001769 DEBUG: Próximo destino 8 NORMAL
+0001769 pacote 375 manteve rota (destino não congestionado)
+0001769 pacote 375 armazenado em 006 na secao 007
+0001769 DEBUG: Próximo destino 8 NORMAL
+0001769 pacote 376 manteve rota (destino não congestionado)
+0001769 pacote 376 armazenado em 006 na secao 007
+0001769 pacote 378 entregue em 002
+0001769 DEBUG: Próximo destino 8 NORMAL
+0001769 pacote 385 manteve rota (destino não congestionado)
+0001769 pacote 385 armazenado em 006 na secao 007
+0001769 pacote 388 entregue em 002
+0001770 pacote 322 entregue em 005
+0001770 pacote 360 entregue em 005
+0001770 pacote 364 entregue em 005
+0001771 DEBUG: Próximo destino 1 NORMAL
+0001771 pacote 393 manteve rota (destino não congestionado)
+0001771 pacote 393 armazenado em 007 na secao 000
+0001773 pacote 368 removido de 000 na secao 006
+0001773 pacote 368 em transito de 000 para 006
+0001772 pacote 383 entregue em 002
+0001773 pacote 384 removido de 001 na secao 000
+0001773 pacote 384 em transito de 001 para 000
+0001773 pacote 389 removido de 004 na secao 005
+0001773 pacote 389 em transito de 004 para 005
+0001776 DEBUG: Próximo destino 5 NORMAL
+0001776 pacote 394 manteve rota (destino não congestionado)
+0001776 pacote 394 armazenado em 001 na secao 004
+0001777 pacote 341 entregue em 007
+0001777 DEBUG: Próximo destino 1 NORMAL
+0001777 pacote 348 manteve rota (destino não congestionado)
+0001777 pacote 348 armazenado em 007 na secao 000
+0001777 pacote 355 entregue em 007
+0001777 pacote 365 entregue em 007
+0001777 DEBUG: Próximo destino 1 CONGESTIONADO
+0001777 DEBUG: Pacote 370 rota original: 1->6 (tam: 2)
+0001777 DEBUG: Pacote 370 nova rota: 8->1->6 (tam: 3)
+0001777 DEBUG: Removido origem 8 da nova rota
+0001777 pacote 370 manteve rota original (IGUAL)
+0001777 pacote 370 armazenado em 007 na secao 000
+0001780 pacote 391 removido de 004 na secao 000
+0001781 pacote 379 removido de 004 na secao 000
+0001781 pacote 379 em transito de 004 para 000
+0001781 pacote 391 em transito de 004 para 000
+0001780 pacote 373 entregue em 001
+0001781 DEBUG: Próximo destino 3 NORMAL
+0001781 pacote 395 manteve rota (destino não congestionado)
+0001781 pacote 395 armazenado em 001 na secao 002
+0001786 DEBUG: Próximo destino 5 NORMAL
+0001786 pacote 396 manteve rota (destino não congestionado)
+0001786 pacote 396 armazenado em 003 na secao 004
+0001789 DEBUG: Próximo destino 1 NORMAL
+0001789 pacote 397 manteve rota (destino não congestionado)
+0001789 pacote 397 armazenado em 004 na secao 000
+0001793 pacote 368 entregue em 006
+0001793 DEBUG: Próximo destino 6 NORMAL
+0001793 pacote 384 manteve rota (destino não congestionado)
+0001793 pacote 384 armazenado em 000 na secao 005
+0001793 pacote 389 entregue em 005
+0001794 DEBUG: Próximo destino 2 NORMAL
+0001794 pacote 398 manteve rota (destino não congestionado)
+0001794 pacote 398 armazenado em 006 na secao 001
+0001795 pacote 382 removido de 002 na secao 000
+0001795 pacote 382 em transito de 002 para 000
+0001799 pacote 380 removido de 003 na secao 001
+0001799 pacote 380 em transito de 003 para 001
+0001801 pacote 398 removido de 006 na secao 001
+0001802 pacote 386 removido de 006 na secao 001
+0001802 pacote 386 em transito de 006 para 001
+0001802 pacote 398 em transito de 006 para 001
+0001801 DEBUG: Próximo destino 3 NORMAL
+0001801 pacote 379 manteve rota (destino não congestionado)
+0001801 pacote 379 armazenado em 000 na secao 002
+0001801 pacote 391 entregue em 000
+0001802 DEBUG: Próximo destino 5 NORMAL
+0001802 pacote 399 manteve rota (destino não congestionado)
+0001802 pacote 399 armazenado em 003 na secao 004
+0001806 pacote 370 removido de 007 na secao 000
+0001807 pacote 348 removido de 007 na secao 000
+0001808 pacote 393 removido de 007 na secao 000
+0001809 pacote 387 removido de 007 na secao 000
+0001810 pacote 377 removido de 007 na secao 000
+0001811 pacote 374 removido de 007 na secao 000
+0001811 pacote 374 em transito de 007 para 000
+0001811 pacote 377 em transito de 007 para 000
+0001811 pacote 387 em transito de 007 para 000
+0001811 pacote 393 em transito de 007 para 000
+0001811 pacote 348 em transito de 007 para 000
+0001811 pacote 370 rearmazenado em 007 na secao 000
+0001809 pacote 344 removido de 000 na secao 004
+0001809 pacote 344 em transito de 000 para 004
+0001815 DEBUG: Próximo destino 6 NORMAL
+0001815 pacote 382 manteve rota (destino não congestionado)
+0001815 pacote 382 armazenado em 000 na secao 005
+0001818 pacote 390 removido de 002 na secao 003
+0001818 pacote 390 em transito de 002 para 003
+0001819 pacote 380 entregue em 001
+0001822 pacote 394 removido de 001 na secao 004
+0001822 pacote 394 em transito de 001 para 004
+0001822 pacote 386 entregue em 001
+0001822 DEBUG: Próximo destino 3 NORMAL
+0001822 pacote 398 manteve rota (destino não congestionado)
+0001822 pacote 398 armazenado em 001 na secao 002
+0001829 pacote 344 entregue em 004
+0001831 DEBUG: Próximo destino 5 NORMAL
+0001831 pacote 348 manteve rota (destino não congestionado)
+0001831 pacote 348 armazenado em 000 na secao 004
+0001831 DEBUG: Próximo destino 6 NORMAL
+0001831 pacote 374 manteve rota (destino não congestionado)
+0001831 pacote 374 armazenado em 000 na secao 005
+0001831 DEBUG: Próximo destino 7 NORMAL
+0001831 pacote 377 manteve rota (destino não congestionado)
+0001831 pacote 377 armazenado em 000 na secao 006
+0001831 DEBUG: Próximo destino 5 NORMAL
+0001831 pacote 387 manteve rota (destino não congestionado)
+0001831 pacote 387 armazenado em 000 na secao 004
+0001831 DEBUG: Próximo destino 2 NORMAL
+0001831 pacote 393 manteve rota (destino não congestionado)
+0001831 pacote 393 armazenado em 000 na secao 001
+0001836 pacote 393 removido de 000 na secao 001
+0001837 pacote 392 removido de 000 na secao 001
+0001837 pacote 392 em transito de 000 para 001
+0001837 pacote 393 em transito de 000 para 001
+0001838 pacote 390 entregue em 003
+0001842 pacote 394 entregue em 004
+0001846 pacote 398 removido de 001 na secao 002
+0001847 pacote 395 removido de 001 na secao 002
+0001847 pacote 395 em transito de 001 para 002
+0001847 pacote 398 em transito de 001 para 002
+0001848 pacote 374 removido de 000 na secao 005
+0001849 pacote 382 removido de 000 na secao 005
+0001850 pacote 384 removido de 000 na secao 005
+0001850 pacote 384 em transito de 000 para 005
+0001850 pacote 382 em transito de 000 para 005
+0001850 pacote 374 em transito de 000 para 005
+0001852 pacote 379 removido de 000 na secao 002
+0001852 pacote 379 em transito de 000 para 002
+0001852 pacote 385 removido de 006 na secao 007
+0001853 pacote 376 removido de 006 na secao 007
+0001854 pacote 375 removido de 006 na secao 007
+0001855 pacote 381 removido de 006 na secao 007
+0001855 pacote 381 em transito de 006 para 007
+0001855 pacote 375 em transito de 006 para 007
+0001855 pacote 376 em transito de 006 para 007
+0001855 pacote 385 em transito de 006 para 007
+0001857 pacote 392 entregue em 001
+0001857 pacote 393 entregue em 001
+0001860 pacote 399 removido de 003 na secao 004
+0001861 pacote 396 removido de 003 na secao 004
+0001861 pacote 396 em transito de 003 para 004
+0001861 pacote 399 em transito de 003 para 004
+0001867 pacote 395 entregue em 002
+0001867 pacote 398 entregue em 002
+0001870 pacote 374 entregue em 005
+0001870 pacote 382 entregue em 005
+0001870 pacote 384 entregue em 005
+0001873 pacote 377 removido de 000 na secao 006
+0001873 pacote 377 em transito de 000 para 006
+0001872 pacote 379 entregue em 002
+0001875 DEBUG: Próximo destino 1 NORMAL
+0001875 pacote 375 manteve rota (destino não congestionado)
+0001875 pacote 375 armazenado em 007 na secao 000
+0001875 pacote 376 entregue em 007
+0001875 DEBUG: Próximo destino 1 NORMAL
+0001875 pacote 381 manteve rota (destino não congestionado)
+0001875 pacote 381 armazenado em 007 na secao 000
+0001875 DEBUG: Próximo destino 1 NORMAL
+0001875 pacote 385 manteve rota (destino não congestionado)
+0001875 pacote 385 armazenado em 007 na secao 000
+0001880 pacote 397 removido de 004 na secao 000
+0001880 pacote 397 em transito de 004 para 000
+0001881 DEBUG: Próximo destino 7 NORMAL
+0001881 pacote 396 manteve rota (destino não congestionado)
+0001881 pacote 396 armazenado em 004 na secao 006
+0001881 pacote 399 entregue em 004
+0001893 pacote 377 entregue em 006
+0001900 DEBUG: Próximo destino 4 NORMAL
+0001900 pacote 397 manteve rota (destino não congestionado)
+0001900 pacote 397 armazenado em 000 na secao 003
+0001906 pacote 385 removido de 007 na secao 000
+0001907 pacote 381 removido de 007 na secao 000
+0001908 pacote 375 removido de 007 na secao 000
+0001909 pacote 370 removido de 007 na secao 000
+0001909 pacote 370 em transito de 007 para 000
+0001909 pacote 375 em transito de 007 para 000
+0001909 pacote 381 em transito de 007 para 000
+0001909 pacote 385 em transito de 007 para 000
+0001907 pacote 396 removido de 004 na secao 006
+0001907 pacote 396 em transito de 004 para 006
+0001909 pacote 387 removido de 000 na secao 004
+0001910 pacote 348 removido de 000 na secao 004
+0001910 pacote 348 em transito de 000 para 004
+0001910 pacote 387 em transito de 000 para 004
+0001927 pacote 397 removido de 000 na secao 003
+0001927 pacote 397 em transito de 000 para 003
+0001927 pacote 396 entregue em 006
+0001929 DEBUG: Próximo destino 6 NORMAL
+0001929 pacote 370 manteve rota (destino não congestionado)
+0001929 pacote 370 armazenado em 000 na secao 005
+0001929 DEBUG: Próximo destino 5 NORMAL
+0001929 pacote 375 manteve rota (destino não congestionado)
+0001929 pacote 375 armazenado em 000 na secao 004
+0001929 pacote 381 entregue em 000
+0001929 pacote 385 entregue em 000
+0001930 pacote 348 entregue em 004
+0001930 pacote 387 entregue em 004
+0001948 pacote 370 removido de 000 na secao 005
+0001948 pacote 370 em transito de 000 para 005
+0001947 pacote 397 entregue em 003
+0001968 pacote 370 entregue em 005
+0002009 pacote 375 removido de 000 na secao 004
+0002009 pacote 375 em transito de 000 para 004
+0002029 pacote 375 entregue em 004
+Memória final: 3460 KB, Pico: 3460 KB
+Metrics saved to metrics.json

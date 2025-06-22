@@ -9,7 +9,7 @@ import glob
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BIN = os.path.join(ROOT, "bin")
-GENWKL = os.path.join(BIN, "genwkl")
+GENWKL = os.path.join(BIN, "genwkl.out")
 TP2 = os.path.join(BIN, "tp2.out")
 INPUT_DIR = os.path.join(ROOT, "inputs")
 RESULTS_DIR = os.path.join(ROOT, "results")
@@ -19,8 +19,8 @@ os.makedirs(RESULTS_DIR, exist_ok=True)
 import os
 
 def call_genwkl_and_save(params, filename):
-    # Parameters for genwkl: transportcapacity, transportcost, transportinterval, retrievecost, nodes, numpackets, rtime, maxweight, edgeprobability
-    args = ["./genwkl",
+    # Parameters for genwkl: transportcapacity, transportcost, transportinterval, retrievecost, nodes, numpackets, rtime, maxweight, edgeprobability, mincooldown, maxcooldown
+    args = ["./genwkl.out",
         str(params['capacidadetransporte']),      # transportcapacity
         str(params['latenciatransporte']),        # transportcost  
         str(params['intervalotransportes']),      # transportinterval
@@ -29,7 +29,9 @@ def call_genwkl_and_save(params, filename):
         str(params['numeropacotes']),             # numpackets
         str(params.get('arrival_window', 10)),    # rtime (arrival window)
         str(params.get('maxweight', 10)),         # maxweight
-        str(params.get('edgeprobability', 0.3))   # edgeprobability
+        str(params.get('edgeprobability', 0.5)),  # edgeprobability
+        str(params.get('mincooldown', 50)),       # mincooldown
+        str(params.get('maxcooldown', 150))       # maxcooldown
     ]
 
     print('Python CWD:', os.getcwd())
@@ -74,7 +76,9 @@ def generate_baseline(seed=42):
         numeropacotes=500,
         arrival_window=10,
         maxweight=10,
-        edgeprobability=0.3,
+        edgeprobability=0.5,
+        mincooldown=50,
+        maxcooldown=150,
         seed=seed
     )
     fname = os.path.join(INPUT_DIR, 'baseline.in.txt')
@@ -83,7 +87,7 @@ def generate_baseline(seed=42):
 
 def generate_experiment_A(seed=42):
     sizes = [5, 8, 10, 12, 15, 18, 20, 24, 28, 32, 36, 40]
-    for n in sizes:
+    for n in sizes:        
         params = dict(
             capacidadetransporte=5,
             latenciatransporte=20,
@@ -93,7 +97,9 @@ def generate_experiment_A(seed=42):
             numeropacotes=n*50,
             arrival_window=10,
             maxweight=10,
-            edgeprobability=0.3,
+            edgeprobability=0.5,
+            mincooldown=50,
+            maxcooldown=150,
             seed=seed+n
         )
         fname = os.path.join(INPUT_DIR, f'expA_{n}armazens.in.txt')
@@ -104,7 +110,7 @@ def generate_experiment_B(seed=42):
     windows = [2, 4, 6, 8, 10, 12, 15, 18, 20, 24, 28, 32, 36, 40]
     n_armazens = 10
     n_pacotes = 1000
-    for w in windows:
+    for w in windows:        
         params = dict(
             capacidadetransporte=5,
             latenciatransporte=20,
@@ -114,7 +120,9 @@ def generate_experiment_B(seed=42):
             numeropacotes=n_pacotes,
             arrival_window=w,
             maxweight=10,
-            edgeprobability=0.3,
+            edgeprobability=0.5,
+            mincooldown=50,
+            maxcooldown=150,
             seed=seed+w
         )
         fname = os.path.join(INPUT_DIR, f'expB_{w}window.in.txt')
@@ -127,7 +135,7 @@ def generate_experiment_C(seed=42):
     capacidades = [2, 3, 4, 5, 6, 8, 10, 12, 15, 18, 20]
     intervalos = [120, 100, 90, 80, 70, 60, 50, 40, 30, 25, 20, 15, 10, 5]
     # Vary capacity
-    for cap in capacidades:
+    for cap in capacidades:        
         params = dict(
             capacidadetransporte=cap,
             latenciatransporte=20,
@@ -137,14 +145,16 @@ def generate_experiment_C(seed=42):
             numeropacotes=n_pacotes,
             arrival_window=10,
             maxweight=10,
-            edgeprobability=0.3,
+            edgeprobability=0.5,
+            mincooldown=50,
+            maxcooldown=150,
             seed=seed+cap
         )
         fname = os.path.join(INPUT_DIR, f'expC_cap{cap}.in.txt')
         generate_input_file(params, fname)
         print(f"Experiment C input for capacity {cap} written to {fname}")
     # Vary interval
-    for interval in intervalos:
+    for interval in intervalos:        
         params = dict(
             capacidadetransporte=5,
             latenciatransporte=20,
@@ -154,7 +164,9 @@ def generate_experiment_C(seed=42):
             numeropacotes=n_pacotes,
             arrival_window=10,
             maxweight=10,
-            edgeprobability=0.3,
+            edgeprobability=0.5,
+            mincooldown=50,
+            maxcooldown=150,
             seed=seed+interval
         )
         fname = os.path.join(INPUT_DIR, f'expC_interval{interval}.in.txt')

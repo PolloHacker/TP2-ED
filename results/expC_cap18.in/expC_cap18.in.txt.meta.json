@@ -1,0 +1,16 @@
+{
+  "params": {
+    "capacidadetransporte": 18,
+    "latenciatransporte": 20,
+    "intervalotransportes": 100,
+    "custoremocao": 1,
+    "numeroarmazens": 10,
+    "numeropacotes": 1000,
+    "arrival_window": 10,
+    "maxweight": 10,
+    "edgeprobability": 0.5,
+    "mincooldown": 50,
+    "maxcooldown": 150,
+    "seed": 60
+  }
+}
