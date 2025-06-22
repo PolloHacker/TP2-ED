@@ -196,14 +196,13 @@ Lista<int> Transporte::calculaRotaDinamica(int origem, int destino, const Vetor<
                             int pacotes_na_secao = dados_vizinho->pacotes.GetTam();
                             int rearmazenamentos = dados_vizinho->rearmazenamentos_recentes;
                             
-                            // SEPARAÇÃO DE CONCEITOS: 
-                            // - Peso dinâmico considera apenas congestão (para encontrar melhor caminho)
-                            // - Cooldown é aplicado separadamente no tempo de transporte
                             custo_congestion = pacotes_na_secao + (rearmazenamentos * 3);
                             
-                            // Opcional: Se quiser incluir cooldown, use fator reduzido
-                            // int cooldown_normalizado = dados_vizinho->cooldown / 20; // Reduz impacto
-                            // custo_congestion += cooldown_normalizado;
+                            // Inclui cooldown normalizado no cálculo de custo
+                            int cooldown_atual = dados_vizinho->cooldown;
+                            int cooldown_normalizado = cooldown_atual / 20;
+                            custo_congestion += cooldown_normalizado;
+                            
                         }
                     } catch (const std::exception&) {
                         custo_congestion = 0; // Em caso de erro, usa congestão zero

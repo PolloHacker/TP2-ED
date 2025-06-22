@@ -42,7 +42,7 @@ Pilha<T>::Pilha() : _topo(nullptr), _tam(0) {}
  * @param other Referência constante para a pilha a ser copiada.
  */
 template <typename T>
-Pilha<T>::Pilha(const Pilha<T>& other) : _topo(nullptr) {
+Pilha<T>::Pilha(const Pilha<T>& other) : _topo(nullptr), _tam(0) {
     if (other._topo == nullptr) {
         return; // Pilha vazia
     }

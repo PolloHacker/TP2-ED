@@ -101,6 +101,11 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
     // Formato novo: tem exatamente numeroArmazens * 2 números (cada posição tem conexao + cooldown)
     // Formato antigo: tem exatamente numeroArmazens números
     bool formato_novo = (contador_numeros == numeroArmazens * 2);
+
+    std::cout << "DEBUG: Formato do arquivo: " 
+              << (formato_novo ? "NOVO (conexao cooldown)" : "ANTIGO (só conexao)") 
+              << " - Números na primeira linha: " << contador_numeros << std::endl;
+    std::cout << "Primeira linha: " << primeira_linha << std::endl;
     
     // Volta para o início da matriz
     arquivo.seekg(pos_before_matrix);
@@ -124,6 +129,7 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
                 
                 std::cout << "DEBUG: Armazém " << i << "->" << j 
                           << " peso=" << conexao << " cooldown=" << cooldown << std::endl;
+                std::cout << "DEBUG: Vizinho " << j << " adicionado ao armazém " << i << std::endl;
             }
         }
 
@@ -149,6 +155,12 @@ void leArquivo(std::string nomeArquivo, Transporte& rotas,
         p.setTempoPostagem(tempoPostagem); // FIX: Define o tempo de postagem
         Lista<int> rota = rotas.calculaRotaComPeso(origem, destino);
         p.setRota(rota);
+        std::cout << "DEBUG: Pacote " << id << " rota: ";
+        for (int r = 1; r <= rota.GetTam(); ++r) {
+            std::cout << rota.GetElemPos(r)->GetData();
+            if (r < rota.GetTam()) std::cout << "->";
+        }
+        std::cout << std::endl;
 
         p.setIdArmazemAtual(origem);
         p.setIdSecaoAtual(rota.GetElemPos(2)->GetData());
@@ -297,15 +309,25 @@ void handleChegadaPacote(
                         }
                         
                         if (rotaMudou) {
-                            pacotes[idPacote].setRota(novaRota);
-                            metricas.incReroutingCount(); // Conta o reroteamento
+                            // Só aceita nova rota se for mais eficiente ou igual em tamanho
+                            bool rotaMaisEficiente = (novaRota.GetTam() <= rotaOriginal.GetTam());
                             
-                            // Log da recalculação de rota
-                            std::cout << std::setfill('0') 
-                                      << std::setw(7) << tempoAtual << " pacote "
-                                      << std::setw(3) << idPacote << " rota recalculada de "
-                                      << std::setw(3) << armazemAtual << " para "
-                                      << std::setw(3) << destinoFinal << " (MUDOU)" << std::endl;
+                            if (rotaMaisEficiente) {
+                                pacotes[idPacote].setRota(novaRota);
+                                metricas.incReroutingCount();
+                                
+                                std::cout << std::setfill('0') 
+                                          << std::setw(7) << tempoAtual << " pacote "
+                                          << std::setw(3) << idPacote << " rota recalculada de "
+                                          << std::setw(3) << armazemAtual << " para "
+                                          << std::setw(3) << destinoFinal << " (MELHOR: " 
+                                          << rotaOriginal.GetTam() << "->" << novaRota.GetTam() << ")" << std::endl;
+                            } else {
+                                std::cout << std::setfill('0') 
+                                          << std::setw(7) << tempoAtual << " pacote "
+                                          << std::setw(3) << idPacote << " manteve rota original (NOVA PIOR: " 
+                                          << rotaOriginal.GetTam() << "->" << novaRota.GetTam() << ")" << std::endl;
+                            }
                         } else {
                             std::cout << std::setfill('0') 
                                       << std::setw(7) << tempoAtual << " pacote "
@@ -322,35 +344,49 @@ void handleChegadaPacote(
         
         int secaoAtual = pacotes[idPacote].getProximoArmazemRota();
         
-        // Verificação de segurança: garante que a seção existe
+        // Garante que a seção existe
         if (secaoAtual != -1) {
-            try {
-                pacotes[idPacote].setIdArmazemAtual(armazemAtual);
-                pacotes[idPacote].setIdSecaoAtual(secaoAtual);
-                pacotes[idPacote].setEstado(EstadoPacote::POSTADO);
-                pacotes[idPacote].setUltimoTempoArmazenamento(tempoAtual);
-
-                armazens[armazemAtual].armazenaPacote(secaoAtual, idPacote, metricas);
-
-                metricas.addStorageTime(tempoAtual - pacotes[idPacote].getTempoPostagem());
-
-                std::cout << std::setfill('0') 
-                        << std::setw(7) << tempoAtual << " pacote "
-                        << std::setw(3) << idPacote << " armazenado em "
-                        << std::setw(3) << armazemAtual - 1 << " na secao "
-                        << std::setw(3) << secaoAtual - 1
-                        << std::endl;
-            } catch (const std::runtime_error& e) {
-                std::cerr << "Erro ao armazenar pacote " << idPacote 
-                          << " no armazém " << armazemAtual 
-                          << " seção " << secaoAtual << ": " << e.what() << std::endl;
-                // Fallback: usa rota estática
+            // Verifica se o vizinho/seção existe antes de armazenar
+            Vizinho* vizinhoData = armazens[armazemAtual].getDadosVizinho(secaoAtual);
+            if (vizinhoData == nullptr) {
+                std::cerr << "ERRO: Seção " << secaoAtual << " não existe no armazém " << armazemAtual << std::endl;
+                std::cerr << "Recalculando rota..." << std::endl;
+                // Recalcula rota usando rota estática
                 pacotes[idPacote].setRota(rotas.calculaRotaComPeso(armazemAtual, destinoFinal));
                 secaoAtual = pacotes[idPacote].getProximoArmazemRota();
-                if (secaoAtual != -1) {
+            }
+            
+            if (secaoAtual != -1 && armazens[armazemAtual].getDadosVizinho(secaoAtual) != nullptr) {
+                try {
+                    pacotes[idPacote].setIdArmazemAtual(armazemAtual);
                     pacotes[idPacote].setIdSecaoAtual(secaoAtual);
+                    pacotes[idPacote].setEstado(EstadoPacote::POSTADO);
+                    pacotes[idPacote].setUltimoTempoArmazenamento(tempoAtual);
+                    
                     armazens[armazemAtual].armazenaPacote(secaoAtual, idPacote, metricas);
+
+                    metricas.addStorageTime(tempoAtual - pacotes[idPacote].getTempoPostagem());
+
+                    std::cout << std::setfill('0') 
+                            << std::setw(7) << tempoAtual << " pacote "
+                            << std::setw(3) << idPacote << " armazenado em "
+                            << std::setw(3) << armazemAtual - 1 << " na secao "
+                            << std::setw(3) << secaoAtual - 1
+                            << std::endl;
+                } catch (const std::runtime_error& e) {
+                    std::cerr << "Erro ao armazenar pacote " << idPacote 
+                              << " no armazém " << armazemAtual 
+                              << " seção " << secaoAtual << ": " << e.what() << std::endl;
+                    // Fallback: usa rota estática
+                    pacotes[idPacote].setRota(rotas.calculaRotaComPeso(armazemAtual, destinoFinal));
+                    secaoAtual = pacotes[idPacote].getProximoArmazemRota();
+                    if (secaoAtual != -1) {
+                        pacotes[idPacote].setIdSecaoAtual(secaoAtual);
+                        armazens[armazemAtual].armazenaPacote(secaoAtual, idPacote, metricas);
+                    }
                 }
+            } else {
+                std::cerr << "Erro: Seção inválida após recálculo para pacote " << idPacote << std::endl;
             }
         } else {
             std::cerr << "Erro: Não foi possível determinar próximo armazém para pacote " << idPacote << std::endl;

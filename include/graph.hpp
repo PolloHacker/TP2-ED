@@ -97,11 +97,6 @@ void Grafo::InsereAresta(int from, int to, int peso) {
     }
     Edge edge(to, peso);
     this->_lista[from - 1].InsereFim(edge);
-    
-    // For undirected graphs, add the reverse edge as well
-    // Comment out the next two lines if you want a directed graph
-    Edge edgeReverse(from, peso);
-    this->_lista[to - 1].InsereFim(edgeReverse);
 }
 
 /**
