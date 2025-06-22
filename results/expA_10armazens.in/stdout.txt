@@ -600,7 +600,7 @@ DEBUG: Pacote 496 rota: 2->3
 DEBUG: Pacote 497 rota: 7->4->5->9->1
 DEBUG: Pacote 498 rota: 10->6->5
 DEBUG: Pacote 499 rota: 1->7->4
-Memória depois de ler arquivo: 3376 KB (+1876 KB)
+Memória depois de ler arquivo: 3368 KB (+1868 KB)
 0000006 DEBUG: Próximo destino 5 NORMAL
 0000006 pacote 000 manteve rota (destino não congestionado)
 0000006 pacote 000 armazenado em 003 na secao 004
@@ -7218,5 +7218,5 @@ Memória depois de ler arquivo: 3376 KB (+1876 KB)
 0002785 pacote 452 removido de 003 na secao 001
 0002785 pacote 452 em transito de 003 para 001
 0002805 pacote 452 entregue em 001
-Memória final: 3376 KB, Pico: 3376 KB
-Metrics saved to metrics.json
+Memória final: 3368 KB, Pico: 3368 KB
+Metrics saved to /home/isaacreyes/Documents/ed/TP2-ED/metrics.json

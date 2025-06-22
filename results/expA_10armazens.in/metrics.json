@@ -1,0 +1,41 @@
+{
+  "avg_section_depth": 2.470149253731343,
+  "delivery_time_stats": {
+    "count": 500,
+    "max": 738,
+    "mean": 198.294,
+    "median": 166.0,
+    "min": 23,
+    "p95": 462
+  },
+  "execution_time": 0.364359447,
+  "heap_extracts": 2895,
+  "heap_inserts": 2943,
+  "max_section_depth": 16,
+  "packages_moved": 2460,
+  "peak_memory_kb": 3368,
+  "re_storage_events": 182,
+  "rerouting_count": 26,
+  "stack_pops": 1230,
+  "stack_pops_rearmazenado": 0,
+  "stack_pushes": 1230,
+  "storage_time_stats": {
+    "count": 1048,
+    "max": 634,
+    "mean": 78.38454198473282,
+    "median": 36.0,
+    "min": 0,
+    "p95": 283
+  },
+  "transit_time_stats": {
+    "count": 1048,
+    "max": 309,
+    "mean": 74.60591603053435,
+    "median": 72.0,
+    "min": 1,
+    "p95": 181
+  },
+  "transport_capacity": 5,
+  "transport_events": 1298,
+  "transport_utilization": 37.90446841294299
+}

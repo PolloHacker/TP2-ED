@@ -12976,4 +12976,4 @@ Memória depois de ler arquivo: 3780 KB (+2256 KB)
 0005899 pacote 997 entregue em 003
 0005906 pacote 991 entregue em 001
 Memória final: 3780 KB, Pico: 3780 KB
-Metrics saved to metrics.json
+Metrics saved to /home/isaacreyes/Documents/ed/TP2-ED/metrics.json

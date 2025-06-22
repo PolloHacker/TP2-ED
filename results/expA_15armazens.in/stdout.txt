@@ -1,4 +1,4 @@
-Memória inicial: 1568 KB
+Memória inicial: 1476 KB
 DEBUG: Formato do arquivo: NOVO (conexao cooldown) - Números na primeira linha: 30
 Primeira linha: 0 0 5 134 6 50 10 125 4 107 1 146 6 71 0 0 7 71 6 144 9 109 9 120 10 51 9 61 0 0
 DEBUG: Formato detectado: NOVO (conexao cooldown)
@@ -976,7 +976,7 @@ DEBUG: Pacote 746 rota: 6->13
 DEBUG: Pacote 747 rota: 9->6
 DEBUG: Pacote 748 rota: 1->7
 DEBUG: Pacote 749 rota: 5->11
-Memória depois de ler arquivo: 3768 KB (+2200 KB)
+Memória depois de ler arquivo: 3756 KB (+2280 KB)
 0000003 DEBUG: Próximo destino 5 NORMAL
 0000003 pacote 000 manteve rota (destino não congestionado)
 0000003 pacote 000 armazenado em 006 na secao 004
@@ -9729,5 +9729,5 @@ Memória depois de ler arquivo: 3768 KB (+2200 KB)
 0003639 pacote 731 removido de 011 na secao 007
 0003639 pacote 731 em transito de 011 para 007
 0003659 pacote 731 entregue em 007
-Memória final: 3768 KB, Pico: 3768 KB
-Metrics saved to metrics.json
+Memória final: 3756 KB, Pico: 3756 KB
+Metrics saved to /home/isaacreyes/Documents/ed/TP2-ED/metrics.json
