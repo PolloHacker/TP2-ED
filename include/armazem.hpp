@@ -66,15 +66,15 @@ class Armazem {
         int getId() const;
         int getCooldown(int idVizinho);
         Lista<int> getVizinhos() const;
-        Vizinho* getDadosVizinho(int idVizinho);  // New method for accessing neighbor data
+        Vizinho* getDadosVizinho(int idVizinho);
 
         void setId(int id);
         void setCooldown(int idVizinho, int cooldown);        
         void setCapacidade(int idVizinho, int capacidade);
         
-        void decayCongestion(int idVizinho);  // Original method (backward compatibility)
-        void decayCongestion(int idVizinho, int tempo_atual);  // New temporal decay method
-        bool isVizinhoCongestionado(int idVizinho, int threshold = 2);  // Check if a neighbor is congested
+        void decayCongestion(int idVizinho); // Abaixa o nível de congestionamento de um vizinho
+        void decayCongestion(int idVizinho, int tempo_atual); // Abaixa o nível de congestionamento de um vizinho com base no tempo atual
+        bool isVizinhoCongestionado(int idVizinho, int threshold); // Verifica se um vizinho está congestionado com base em um threshold
 };
 
 /**

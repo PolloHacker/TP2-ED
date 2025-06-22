@@ -18,10 +18,8 @@ class Transporte {
 
         Lista<int> calculaRota(int origem, int destino);
         Lista<int> calculaRotaComPeso(int origem, int destino);
-        Lista<int> calculaRotaDinamica(int origem, int destino, const Vetor<Armazem>& armazens);  // New dynamic routing
-        Lista<int> calculaRotaComCongestion(int origem, int destino, const Vetor<Vetor<int>>& congestion_matrix);  // Alternative: matrix-based routing
-        Vetor<Vetor<int>> construirMatrizCongestion(const Vetor<Armazem>& armazens);  // Alternative: build congestion matrix (less efficient)
-        void decairCongestionTodosArmazens(Vetor<Armazem>& armazens);  // Decay congestion for all warehouses
+        Lista<int> calculaRotaDinamica(int origem, int destino, const Vetor<Armazem>& armazens);
+        void decairCongestionTodosArmazens(Vetor<Armazem>& armazens);
         Grafo getRede() const;
 };
 
@@ -237,79 +235,6 @@ Lista<int> Transporte::calculaRotaDinamica(int origem, int destino, const Vetor<
     }
     
     return caminho;
-}
-
-/**
- * @brief Calcula a rota considerando uma matriz de congestão pré-calculada.
- *
- * Este método utiliza o algoritmo de Dijkstra com matriz de congestão
- * para encontrar o caminho de menor custo considerando congestionamentos.
- *
- * @param origem Identificador do armazém de origem.
- * @param destino Identificador do armazém de destino.
- * @param congestion_matrix Matriz com custos de congestão entre armazéns.
- * @return Lista<int> Lista de IDs dos armazéns no caminho encontrado, ou vazia se não houver caminho.
- */
-Lista<int> Transporte::calculaRotaComCongestion(int origem, int destino, const Vetor<Vetor<int>>& congestion_matrix) {
-    return this->_rede.DijkstraComCongestion(origem, destino, congestion_matrix);
-}
-
-/**
- * @brief Constrói uma matriz de congestão baseada no estado atual dos armazéns.
- *
- * Este método analisa o estado atual dos armazéns (pacotes armazenados e rearmazenamentos)
- * para construir uma matriz de custos de congestão que pode ser usada no roteamento dinâmico.
- *
- * @param armazens Vetor com os dados atuais dos armazéns.
- * @return Vetor<Vetor<int>> Matriz de custos de congestão entre armazéns.
- */
-Vetor<Vetor<int>> Transporte::construirMatrizCongestion(const Vetor<Armazem>& armazens) {
-    int numArmazens = armazens.getSize();
-    Vetor<Vetor<int>> matriz(numArmazens);
-    
-    // Inicializa a matriz com zeros
-    for (int i = 0; i < numArmazens; i++) {
-        Vetor<int> linha(numArmazens);
-        for (int j = 0; j < numArmazens; j++) {
-            linha[j] = 0;
-        }
-        matriz[i] = linha;
-    }
-    
-    // Calcula custos de congestão baseados nos dados dos armazéns
-    for (int i = 1; i <= numArmazens; i++) {
-        const Armazem& armazem = armazens[i - 1];
-        Lista<int> vizinhos = armazem.getVizinhos();
-        
-        // Percorre todos os vizinhos do armazém atual
-        auto aux = vizinhos._head ? vizinhos._head->GetNext() : nullptr;
-        while (aux != nullptr) {
-            int idVizinho = aux->GetData();
-            
-            try {
-                // Tenta obter os dados do vizinho (precisa de cast não-const)
-                Armazem& armazem_mut = const_cast<Armazem&>(armazem);
-                Vizinho* dados_vizinho = armazem_mut.getDadosVizinho(idVizinho);
-                
-                if (dados_vizinho != nullptr && idVizinho <= numArmazens) {
-                    // Calcula custo de congestão: pacotes + (rearmazenamentos * multiplicador)
-                    int pacotes_na_secao = dados_vizinho->pacotes.GetTam();
-                    int rearmazenamentos = dados_vizinho->rearmazenamentos_recentes;
-                    int custo_congestion = pacotes_na_secao + (rearmazenamentos * 3);
-                    
-                    // Armazena na matriz (ajusta índices para 0-based)
-                    matriz[i - 1][idVizinho - 1] = custo_congestion;
-                }
-            } catch (const std::exception&) {
-                // Em caso de erro, mantém custo zero
-                matriz[i - 1][idVizinho - 1] = 0;
-            }
-            
-            aux = aux->GetNext();
-        }
-    }
-    
-    return matriz;
 }
 
 /**

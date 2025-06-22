@@ -7,11 +7,9 @@
 #include "fila.hpp"
 #include "heap.hpp"
 
-// Forward declarations
 class Armazem;
 struct Vizinho;
 
-// Simple structure to represent a weighted edge
 struct Edge {
     int destino;
     int peso;
@@ -22,15 +20,15 @@ struct Edge {
 
 class Grafo {
 private:
-    Vetor<Lista<Edge>> _lista;  // Unified weighted adjacency list
+    Vetor<Lista<Edge>> _lista; // Lista de adjacências unificada
     int _vertices;
 
 public:
     Grafo();
 
     void InsereVertice();
-    void InsereAresta(int v, int w);                    // Now adds edges with weight 1
-    void InsereAresta(int v, int w, int peso);          // Overloaded for weighted edges
+    void InsereAresta(int v, int w);  // Adiciona arestas com peso 1
+    void InsereAresta(int v, int w, int peso); // Overload para adicionar arestas com peso
 
     int QuantidadeVertices();
     int QuantidadeArestas();
@@ -39,12 +37,11 @@ public:
     int GrauMaximo();
 
     void ImprimeVizinhos(int v);
-    Lista<int> GetVizinhos(int v);                      // Returns just the vertices
-    Lista<Edge> GetVizinhosWeighted(int v);             // Returns vertices with weights
+    Lista<int> GetVizinhos(int v); // Retorna o id dos vizinhos
+    Lista<Edge> GetVizinhosWeighted(int v); // Retorna as arestas do vértice v
     Lista<int> BFS(int v, int w);
     Lista<int> Dykstra(int v, int w);
-    Lista<int> DijkstraDinamico(int origem, int destino, const Vetor<Armazem>& armazens);  // Dynamic pathfinding
-    Lista<int> DijkstraComCongestion(int origem, int destino, const Vetor<Vetor<int>>& congestion_matrix);  // Alternative approach
+    Lista<int> DijkstraDinamico(int origem, int destino, const Vetor<Armazem>& armazens);
 };
 
 /**
@@ -419,115 +416,6 @@ Lista<int> Grafo::DijkstraDinamico(int origem, int destino, const Vetor<Armazem>
     // Aqui retornamos o Dijkstra estático para evitar dependências circulares
     (void)armazens; // Suprime warning de parâmetro não usado
     return this->Dykstra(origem, destino);
-}
-
-/**
- * @brief Algoritmo de Dijkstra com matriz de congestão.
- *
- * Este método implementa Dijkstra considerando custos de congestão através de uma matriz
- * onde congestion_matrix[i][j] representa o custo adicional de ir do vértice i para j.
- *
- * @param origem Índice do vértice de origem (1 a n).
- * @param destino Índice do vértice de destino (1 a n).
- * @param congestion_matrix Matriz de custos de congestão adicionais.
- * @return Lista<int> Lista de vértices no caminho de menor custo, ou vazia se não houver caminho.
- */
-Lista<int> Grafo::DijkstraComCongestion(int origem, int destino, const Vetor<Vetor<int>>& congestion_matrix) {
-    int n = this->_vertices;
-    const int INF = 2147483647; // Valor máximo para representar infinito
-    
-    // Validação de entrada
-    if (n == 0 || origem < 1 || origem > n || destino < 1 || destino > n) {
-        std::cerr << "Índices de vértice inválidos em DijkstraComCongestion: origem=" << origem << ", destino=" << destino << std::endl;
-        return Lista<int>();
-    }
-    
-    // Arrays para distâncias e antecessores (índices de 1 a n)
-    Vetor<int> distancia(n + 1);
-    Vetor<int> antecessor(n + 1);
-    Vetor<bool> visitado(n + 1);
-    
-    // Inicialização
-    for (int i = 1; i <= n; i++) {
-        distancia[i] = INF;
-        antecessor[i] = -1;
-        visitado[i] = false;
-    }
-    
-    distancia[origem] = 0;
-    
-    // Algoritmo de Dijkstra com custos de congestão
-    for (int count = 0; count < n; count++) {
-        // Encontra o vértice não visitado com menor distância
-        int u = -1;
-        int minDist = INF;
-        
-        for (int i = 1; i <= n; i++) {
-            if (!visitado[i] && distancia[i] < minDist) {
-                minDist = distancia[i];
-                u = i;
-            }
-        }
-        
-        // Se não encontrou vértice válido, todos os restantes são inacessíveis
-        if (u == -1) break;
-        
-        visitado[u] = true;
-        
-        // Se chegou ao destino, pode parar
-        if (u == destino) break;
-        
-        // Atualiza as distâncias dos vizinhos com custos dinâmicos
-        Lista<Edge> vizinhos = this->_lista[u - 1];
-        auto aux = vizinhos._head ? vizinhos._head->GetNext() : nullptr;
-        
-        while (aux != nullptr) {
-            Edge edge = aux->GetData();
-            int vizinho = edge.destino;
-            int peso_estatico = edge.peso;
-            
-            // Verifica se o vizinho está dentro dos limites
-            if (vizinho >= 1 && vizinho <= n && !visitado[vizinho]) {
-                // Calcula o custo dinâmico baseado na matriz de congestão
-                int custo_congestion = 0;
-                
-                // Acessa a matriz de congestão se disponível
-                if (u <= congestion_matrix.getSize() && vizinho <= congestion_matrix[u - 1].getSize()) {
-                    try {
-                        custo_congestion = congestion_matrix[u - 1][vizinho - 1];
-                    } catch (const std::exception&) {
-                        custo_congestion = 0;
-                    }
-                }
-                
-                int peso_dinamico = peso_estatico + custo_congestion;
-                int novaDist = distancia[u] + peso_dinamico;
-                
-                // Relaxamento da aresta com peso dinâmico
-                if (novaDist < distancia[vizinho]) {
-                    distancia[vizinho] = novaDist;
-                    antecessor[vizinho] = u;
-                }
-            }
-            aux = aux->GetNext();
-        }
-    }
-    
-    // Se não há caminho para o destino
-    if (distancia[destino] == INF) {
-        return Lista<int>();
-    }
-    
-    // Reconstrói o caminho a partir dos antecessores
-    Lista<int> caminho;
-    int curr = destino;
-    
-    while (curr != -1) {
-        caminho.InsereInicio(curr);
-        curr = antecessor[curr];
-    }
-    
-    return caminho;
 }
 
 #endif

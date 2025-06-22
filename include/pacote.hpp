@@ -33,7 +33,7 @@ class Pacote {
 
         int removeArmazemAtualDaRota();
         int getProximoArmazemRota();
-        int getDestinoFinal();  // New method to get final destination (removed const)
+        int getDestinoFinal();
         
         int getId() const;
         std::string getNomeRemetente() const;

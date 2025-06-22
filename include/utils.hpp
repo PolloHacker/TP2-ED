@@ -60,70 +60,71 @@ class Metricas {
         Lista<int> _distancias;
         int _tempo_total;
         int _distancia_total;
-        // Timing
+        // Métricas de relógio
         std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
         std::chrono::time_point<std::chrono::high_resolution_clock> end_time;
-        // Memory
+        // Memória
         size_t peak_memory;
-        // Heap operations
+        // Operações de heap
         size_t heap_inserts;
         size_t heap_extracts;
-        // Stack operations
+        // Operações de pilha
         size_t stack_pushes;
         size_t stack_pops;
         size_t stack_pops_rearmazenado;
-        // Re-storage events
+        // Operações de re-armazenamento
         size_t re_storage_events;
-        // Warehouse section depth
+        // Profundidade das seções do armazém
         size_t max_section_depth;
         size_t total_section_depth;
         size_t section_depth_samples;
-        // Transport utilization
+        // Utilização do transporte
         size_t packages_moved;
         size_t transport_capacity;
         size_t transport_events;
-        // Package delivery times
+        // Tempo de entrega, trânsito e armazenamento dos pacotes
         Vetor<int> delivery_times;
         Vetor<int> transit_times;
         Vetor<int> storage_times;
-        // Dynamic routing metrics
+        // Número de re-roteamentos dinâmicos
         size_t rerouting_count;
     public:
         Metricas();
-        // Timing
+        // Métricas de relógio
         void startTimer();
         void stopTimer();
-        double getTotalExecutionTime() const;        // Memory
+        double getTotalExecutionTime() const;        
+        // Memória
         void updatePeakMemory();
         size_t getPeakMemory() const;
         size_t getCurrentMemory() const;
-        // Heap operations
+        // Operações de heap
         void incHeapInsert();
         void incHeapExtract();
         void decHeapExtract();
-        // Stack operations
+        // Operações de pilha
         void incStackPush();
         void incStackPop(bool re_storage = false);
-        // Re-storage events
+        // Operações de re-armazenamento
         void incReStorage();
-        // Warehouse section depth
+        // Profundidade das seções do armazém
         void sampleSectionDepth(size_t depth);
         double getAvgSectionDepth() const;
         size_t getMaxSectionDepth() const;
-        // Transport utilization
+        // Utilização do transporte
         void incPackagesMoved();
         void setTransportCapacity(size_t cap);
         void incTransportEvents();
         void decTransportEvents();
         double getTransportUtilization() const;
-        // Package times
+        // Tempo de entrega, trânsito e armazenamento dos pacotes
         void addDeliveryTime(int t);
         void addTransitTime(int t);
         void addStorageTime(int t);
-        // Dynamic routing metrics
+        // Rer-roteamento dinâmico
         void incReroutingCount();
         size_t getReroutingCount() const;
-        // Output all metrics
+        // Calcula e imprime as métricas em formato JSON
         void printMetrics(const std::string& filename = "metrics.json") const;
 
         void adicionaTempo(int tempo);
@@ -140,7 +141,7 @@ class Metricas {
 
 };
 
-// Helper functions for statistics
+// Funções auxiliares para estatísticas e ordenação
 void quickSort(Vetor<int>& arr, int low, int high);
 int partition(Vetor<int>& arr, int low, int high);
 double accumulate(const Vetor<int>& v);
